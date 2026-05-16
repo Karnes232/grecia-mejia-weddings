@@ -1,3 +1,3 @@
 export default function JournalCategoryPage() {
-  return <h1>Journal Category</h1>
+  return <h1>Journal Category</h1>;
 }

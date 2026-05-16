@@ -12,14 +12,14 @@
  * an editor uploads them once through Studio after the schema lands.
  */
 
-import { createClient } from '@sanity/client'
+import { createClient } from "@sanity/client";
 
-import { apiVersion, dataset, projectId } from '../env'
+import { apiVersion, dataset, projectId } from "../env";
 
-const token = process.env.SANITY_API_WRITE_TOKEN
+const token = process.env.SANITY_API_WRITE_TOKEN;
 if (!token) {
-  console.error('Missing SANITY_API_WRITE_TOKEN env var.')
-  process.exit(1)
+  console.error("Missing SANITY_API_WRITE_TOKEN env var.");
+  process.exit(1);
 }
 
 const client = createClient({
@@ -28,44 +28,44 @@ const client = createClient({
   apiVersion,
   token,
   useCdn: false,
-})
+});
 
-const SINGLETON_ID = 'homePageMedia'
+const SINGLETON_ID = "homePageMedia";
 
 const DEFAULT_MARQUEE = [
-  'Punta Cana',
-  'Amalfi',
-  'Provence',
-  'Santorini',
-  'Mallorca',
+  "Punta Cana",
+  "Amalfi",
+  "Provence",
+  "Santorini",
+  "Mallorca",
   "Cap d'Antibes",
-  'Mustique',
-  'Lake Como',
-  'Tuscany',
-  'Mykonos',
-  'St. Barths',
-  'Tulum',
-  'Marrakech',
-  'Hamptons',
-  'Aspen',
-]
+  "Mustique",
+  "Lake Como",
+  "Tuscany",
+  "Mykonos",
+  "St. Barths",
+  "Tulum",
+  "Marrakech",
+  "Hamptons",
+  "Aspen",
+];
 
 const doc = {
   _id: SINGLETON_ID,
-  _type: 'homePageMedia',
+  _type: "homePageMedia",
   hero: {},
   marqueeDestinations: DEFAULT_MARQUEE,
   featuredWedding: {},
   recentWeddings: { images: [] },
-}
+};
 
 async function run() {
-  console.log(`Seeding homePageMedia singleton in ${dataset}/${projectId}…`)
-  await client.createOrReplace(doc)
-  console.log('✓ Seeded homePageMedia singleton.')
+  console.log(`Seeding homePageMedia singleton in ${dataset}/${projectId}…`);
+  await client.createOrReplace(doc);
+  console.log("✓ Seeded homePageMedia singleton.");
 }
 
 run().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+  console.error(err);
+  process.exit(1);
+});

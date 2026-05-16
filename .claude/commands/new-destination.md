@@ -26,7 +26,7 @@ Generate:
 1. **Sanity document scaffold** for `destination` type with all required fields per `sanity-schema-guide.md`
 
 2. **Section structure** matching `IndividualDestination.png`:
-   - Hero — *"A wedding in [Destination]"*
+   - Hero — _"A wedding in [Destination]"_
    - Quick facts bar (season / climate / flight time / language / currency)
    - Long-form intro (3-4 paragraphs covering weather, geography, why this place)
    - Pull quote
@@ -51,7 +51,7 @@ Generate:
    - List the existing pages this destination should link to
    - Flag any references that don't yet exist as content gaps
 
-5. **Translation plan** — list of fields that need translation for all 6 locales (everything except proper nouns like the destination name itself, which generally stays constant). Mention slug translation per locale if any locale uses a different word for the place (e.g., Italian *Isole Vergini* for *Virgin Islands*).
+5. **Translation plan** — list of fields that need translation for all 6 locales (everything except proper nouns like the destination name itself, which generally stays constant). Mention slug translation per locale if any locale uses a different word for the place (e.g., Italian _Isole Vergini_ for _Virgin Islands_).
 
 6. **Content gap analysis** — based on the editorial reference articles in `website-structure.md`, suggest 5-8 article titles that should be written to populate this destination's "From the journal" block.
 

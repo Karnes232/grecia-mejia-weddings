@@ -1,25 +1,25 @@
-import clsx from 'clsx'
+import clsx from "clsx";
 
-import { Link } from '@/i18n/navigation'
-import type { Locale } from '@/i18n/routing'
-import type { NavigationData, SiteSettings } from '@/sanity/queries/layout'
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import type { NavigationData, SiteSettings } from "@/sanity/queries/layout";
 
-import { DEFAULT_NAV, DEFAULT_SETTINGS } from './defaults'
-import { LanguageSwitcher } from './LanguageSwitcher'
-import { Logo } from './Logo'
-import { NavbarShell } from './NavbarShell'
+import { DEFAULT_NAV, DEFAULT_SETTINGS } from "../_shared/defaults";
+import { LanguageSwitcher } from "../_shared/LanguageSwitcher";
+import { Logo } from "./Logo";
+import { NavbarShell } from "./NavbarShell";
 
 type NavbarProps = {
-  navigation: NavigationData | null
-  settings: SiteSettings | null
-  locale: Locale
-  activeKey?: string
+  navigation: NavigationData | null;
+  settings: SiteSettings | null;
+  locale: Locale;
+  activeKey?: string;
   labels: {
-    cta: string
-    openMenu: string
-    closeMenu: string
-  }
-}
+    cta: string;
+    openMenu: string;
+    closeMenu: string;
+  };
+};
 
 export function Navbar({
   navigation,
@@ -30,11 +30,11 @@ export function Navbar({
 }: NavbarProps) {
   const links = navigation?.mainLinks?.length
     ? navigation.mainLinks
-    : DEFAULT_NAV.mainLinks
+    : DEFAULT_NAV.mainLinks;
   const cta = navigation?.cta?.label
     ? navigation.cta
-    : { ...DEFAULT_NAV.cta, label: labels.cta }
-  const brandName = settings?.brandName ?? DEFAULT_SETTINGS.brandName
+    : { ...DEFAULT_NAV.cta, label: labels.cta };
+  const brandName = settings?.brandName ?? DEFAULT_SETTINGS.brandName;
 
   const brand = (
     <Link
@@ -44,7 +44,7 @@ export function Navbar({
     >
       <Logo brandName={brandName} logo={settings?.logo} />
     </Link>
-  )
+  );
 
   const desktopCenter = (
     <>
@@ -53,17 +53,17 @@ export function Navbar({
           key={l.key}
           href={l.href as never}
           className={clsx(
-            'text-[11px] uppercase tracking-eyebrow text-ink no-underline',
-            'border-b border-transparent transition-colors duration-200',
-            'hover:text-olive hover:border-gold',
-            activeKey === l.key && 'text-olive border-gold',
+            "text-[11px] uppercase tracking-eyebrow text-ink no-underline",
+            "border-b border-transparent transition-colors duration-200",
+            "hover:text-olive hover:border-gold",
+            activeKey === l.key && "text-olive border-gold",
           )}
         >
           {l.label}
         </Link>
       ))}
     </>
-  )
+  );
 
   const desktopRight = (
     <>
@@ -72,15 +72,15 @@ export function Navbar({
         <Link
           href={cta.href as never}
           className={clsx(
-            'inline-block border border-olive px-[18px] py-[10px] text-[10px] uppercase tracking-wide-eyebrow text-olive no-underline transition-colors duration-300',
-            'hover:bg-olive hover:text-ivory ',
+            "inline-block border border-olive px-[18px] py-[10px] text-[10px] uppercase tracking-wide-eyebrow text-olive no-underline transition-colors duration-300",
+            "hover:bg-olive hover:text-ivory ",
           )}
         >
           {cta.label}
         </Link>
       ) : null}
     </>
-  )
+  );
 
   const mobileMenu = (
     <>
@@ -90,9 +90,9 @@ export function Navbar({
             key={l.key}
             href={l.href as never}
             className={clsx(
-              'font-serif italic text-[32px] leading-none text-ink no-underline',
-              'border-b border-transparent w-fit pb-1 transition-colors',
-              activeKey === l.key && 'text-olive border-gold',
+              "font-serif italic text-[32px] leading-none text-ink no-underline",
+              "border-b border-transparent w-fit pb-1 transition-colors",
+              activeKey === l.key && "text-olive border-gold",
             )}
           >
             {l.label}
@@ -111,7 +111,7 @@ export function Navbar({
         ) : null}
       </div>
     </>
-  )
+  );
 
   return (
     <NavbarShell
@@ -122,5 +122,5 @@ export function Navbar({
       openLabel={labels.openMenu}
       closeLabel={labels.closeMenu}
     />
-  )
+  );
 }

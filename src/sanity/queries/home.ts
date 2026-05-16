@@ -1,7 +1,8 @@
-import { groq } from 'next-sanity'
+import type { PortableTextBlock } from "@portabletext/types";
+import { groq } from "next-sanity";
 
-import { client } from '../lib/client'
-import { fetchWithFallback } from './layout'
+import { client } from "../lib/client";
+import { fetchWithFallback } from "./layout";
 
 export const homePageQuery = groq`
   *[_type == "homePage" && language == $locale][0]{
@@ -12,7 +13,12 @@ export const homePageQuery = groq`
       primaryCta,
       secondaryCta
     },
-    atelier,
+    atelier{
+      eyebrow,
+      headline,
+      body,
+      signature
+    },
     whereWeWork,
     featuredWedding,
     traditions,
@@ -21,7 +27,7 @@ export const homePageQuery = groq`
     testimonials,
     journeyCta
   }
-`
+`;
 
 export const homePageMediaQuery = groq`
   *[_id == "homePageMedia"][0]{
@@ -36,48 +42,53 @@ export const homePageMediaQuery = groq`
       images[]{ ..., alt, caption }
     }
   }
-`
+`;
 
 type SanityImage = {
-  asset?: { _ref: string; _type: 'reference' }
-  alt?: string
-  hotspot?: { x: number; y: number; height: number; width: number }
-  crop?: { top: number; bottom: number; left: number; right: number }
-}
+  asset?: { _ref: string; _type: "reference" };
+  alt?: string;
+  hotspot?: { x: number; y: number; height: number; width: number };
+  crop?: { top: number; bottom: number; left: number; right: number };
+};
 
-type Link = { label?: string; href?: string }
+type Link = { label?: string; href?: string };
 
 export type HomePage = {
   hero?: {
-    overline?: string
-    headline?: string
-    subheadline?: string
-    primaryCta?: Link
-    secondaryCta?: Link
-  }
-  atelier?: unknown
-  whereWeWork?: unknown
-  featuredWedding?: unknown
-  traditions?: unknown
-  venuesConsidered?: unknown
-  recentWeddings?: { eyebrow?: string; headline?: string }
-  testimonials?: unknown
-  journeyCta?: unknown
-}
+    overline?: string;
+    headline?: string;
+    subheadline?: string;
+    primaryCta?: Link;
+    secondaryCta?: Link;
+  };
+  atelier?: {
+    eyebrow?: string;
+    headline?: string;
+    body?: PortableTextBlock[];
+    signature?: string;
+  };
+  whereWeWork?: unknown;
+  featuredWedding?: unknown;
+  traditions?: unknown;
+  venuesConsidered?: unknown;
+  recentWeddings?: { eyebrow?: string; headline?: string };
+  testimonials?: unknown;
+  journeyCta?: unknown;
+};
 
 export type HomePageMedia = {
-  hero?: { image?: SanityImage }
-  marqueeDestinations?: string[]
-  featuredWedding?: { image?: SanityImage }
+  hero?: { image?: SanityImage };
+  marqueeDestinations?: string[];
+  featuredWedding?: { image?: SanityImage };
   recentWeddings?: {
-    images?: Array<SanityImage & { caption?: string }>
-  }
-}
+    images?: Array<SanityImage & { caption?: string }>;
+  };
+};
 
 export function getHomePage(locale: string) {
-  return fetchWithFallback<HomePage>(homePageQuery, locale)
+  return fetchWithFallback<HomePage>(homePageQuery, locale);
 }
 
 export function getHomePageMedia() {
-  return client.fetch<HomePageMedia | null>(homePageMediaQuery)
+  return client.fetch<HomePageMedia | null>(homePageMediaQuery);
 }

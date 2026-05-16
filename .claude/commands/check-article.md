@@ -84,19 +84,24 @@ Run all checks below, then output a markdown report with a clear pass/fail per i
 **Status:** [READY TO PUBLISH | NEEDS WORK | CRITICAL ISSUES]
 
 ## ✅ Passing checks (X)
+
 - ...
 
 ## ⚠️ Warnings (X)
+
 - ...
 
 ## ❌ Blocking issues (X)
+
 - ...
 
 ## Recommended actions
+
 1. ...
 2. ...
 
 ## Other locales
+
 - 🇪🇸 ES: [READY | NEEDS WORK | NOT TRANSLATED]
 - 🇫🇷 FR: [...]
 - 🇵🇹 PT: [...]

@@ -33,6 +33,7 @@ Generate a complete article scaffold:
 ## Reference docs
 
 Before generating, consult:
+
 - `.claude/seo-strategy.md` — for the internal linking matrix
 - `.claude/sanity-schema-guide.md` — for the article schema fields
 - `.claude/content-model.md` — for relationship rules

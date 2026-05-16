@@ -5,7 +5,7 @@ description: Use when writing or reviewing ANY copy for the website — hero hea
 
 # Editorial Voice
 
-This skill enforces the editorial tone established by the visual references in `.claude/screenshots/`. Every word on the website should sound like it could appear in *Vogue Weddings*, an Aman Resorts press release, or an *Architectural Digest* feature.
+This skill enforces the editorial tone established by the visual references in `.claude/screenshots/`. Every word on the website should sound like it could appear in _Vogue Weddings_, an Aman Resorts press release, or an _Architectural Digest_ feature.
 
 ## When to use this skill
 
@@ -36,9 +36,9 @@ The luxury reader respects expertise expressed through specificity. Generic copy
 
 Headlines almost always use the structure: **[normal] [italic key word] [normal]**.
 
-✅ "The art *of the destination* wedding."
-✅ "A wedding *in Indian* tradition."
-✅ "Houses we *have worked*, more than once."
+✅ "The art _of the destination_ wedding."
+✅ "A wedding _in Indian_ tradition."
+✅ "Houses we _have worked_, more than once."
 
 The italic word is the emotional pivot — the verb of the headline. Pick it carefully.
 
@@ -60,6 +60,7 @@ Forbidden in any context: "amazing," "stunning," "perfect," "unforgettable," "ma
 The luxury is in the restraint. If a piece of copy could appear on a travel agency homepage, rewrite it.
 
 Replacements:
+
 - "Stunning venue" → "A pavilion in the palms" / "A villa above the cove" / "A garden between two olive trees"
 - "Unforgettable" → say what specifically will be remembered
 - "Magical" → describe the actual mechanic ("the moment the lanterns lifted")
@@ -69,6 +70,7 @@ Replacements:
 ### 5. Cultural fluency is the brand promise
 
 When describing any cultural tradition:
+
 - Use the **authentic name** (mandap, ketubah, jirga, mayyim chayim — not "wedding canopy" etc.)
 - Never reduce a tradition to its visual elements
 - Never use "exotic," "ethnic," "colorful" to describe cultural practices
@@ -79,22 +81,22 @@ When describing any cultural tradition:
 
 ## Length conventions
 
-| Format | Target |
-|---|---|
-| Hero headline | 4-9 words (often italic structure) |
-| Section eyebrow | 3-6 words, uppercase, tracked |
-| Section heading (H2) | 4-10 words |
-| Intro paragraph | 60-120 words |
-| Body paragraph | 50-100 words |
-| Pull quote | 12-25 words |
-| Card titles | 2-5 words |
-| Card body | 20-40 words |
-| Button label | 2-5 words (uppercase or sentence-case) |
-| Form field label | 1-3 words |
-| Form helper text | 5-12 words |
-| FAQ question | 8-15 words |
-| FAQ answer | 40-120 words |
-| Meta description | 140-160 chars |
+| Format               | Target                                 |
+| -------------------- | -------------------------------------- |
+| Hero headline        | 4-9 words (often italic structure)     |
+| Section eyebrow      | 3-6 words, uppercase, tracked          |
+| Section heading (H2) | 4-10 words                             |
+| Intro paragraph      | 60-120 words                           |
+| Body paragraph       | 50-100 words                           |
+| Pull quote           | 12-25 words                            |
+| Card titles          | 2-5 words                              |
+| Card body            | 20-40 words                            |
+| Button label         | 2-5 words (uppercase or sentence-case) |
+| Form field label     | 1-3 words                              |
+| Form helper text     | 5-12 words                             |
+| FAQ question         | 8-15 words                             |
+| FAQ answer           | 40-120 words                           |
+| Meta description     | 140-160 chars                          |
 
 ## Naming conventions for sections
 
@@ -111,6 +113,7 @@ Section headers (the H2s on every page) should feel editorial, not navigational.
 - "Begin your wedding journey"
 
 Generic patterns to avoid:
+
 - ❌ "Our Services"
 - ❌ "Featured Venues"
 - ❌ "About Us"
@@ -121,17 +124,17 @@ Generic patterns to avoid:
 
 The brief identified these CTA variants. Use them; do not invent new ones lightly.
 
-- *Request a Private Consultation*
-- *Begin Your Wedding Journey*
-- *Curate My Wedding Experience*
-- *Plan Your Destination Wedding*
-- *Speak With Grecia Mejia*
+- _Request a Private Consultation_
+- _Begin Your Wedding Journey_
+- _Curate My Wedding Experience_
+- _Plan Your Destination Wedding_
+- _Speak With Grecia Mejia_
 
 Pick based on context — the home page uses one, the contact form trigger uses another. Never use "Get Started," "Learn More," "Sign Up," "Book Now," or "Contact Us."
 
 ## Eyebrow labels (uppercase tracked text)
 
-These small uppercase labels appear throughout the design. They are *categorical*, not promotional:
+These small uppercase labels appear throughout the design. They are _categorical_, not promotional:
 
 ✅ "Plate 03"
 ✅ "An atelier"

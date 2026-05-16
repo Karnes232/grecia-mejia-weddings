@@ -1,3 +1,3 @@
 export default function JournalArticlePage() {
-  return <h1>Journal Article</h1>
+  return <h1>Journal Article</h1>;
 }

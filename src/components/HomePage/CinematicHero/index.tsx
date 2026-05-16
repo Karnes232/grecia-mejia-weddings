@@ -1,17 +1,17 @@
-import type { HomePage, HomePageMedia } from '@/sanity/queries/home'
+import type { HomePage, HomePageMedia } from "@/sanity/queries/home";
 
-import { HeroBackground } from './HeroBackground'
-import { HeroContent } from './HeroContent'
-import { HeroCorners } from './HeroCorners'
-import { HeroMarquee } from './HeroMarquee'
-import { HeroScrollCue } from './HeroScrollCue'
-import { HeroVignette } from './HeroVignette'
+import { HeroBackground } from "./HeroBackground";
+import { HeroContent } from "./HeroContent";
+import { HeroCorners } from "./HeroCorners";
+import { HeroMarquee } from "./HeroMarquee";
+import { HeroScrollCue } from "./HeroScrollCue";
+import { HeroVignette } from "./HeroVignette";
 
 type CinematicHeroProps = {
-  hero: NonNullable<HomePage['hero']>
-  image: NonNullable<HomePageMedia['hero']>['image']
-  marqueeDestinations: NonNullable<HomePageMedia['marqueeDestinations']>
-}
+  hero: NonNullable<HomePage["hero"]>;
+  image: NonNullable<HomePageMedia["hero"]>["image"];
+  marqueeDestinations: NonNullable<HomePageMedia["marqueeDestinations"]>;
+};
 
 export function CinematicHero({
   hero,
@@ -30,5 +30,5 @@ export function CinematicHero({
         <HeroScrollCue />
       </div>
     </section>
-  )
+  );
 }

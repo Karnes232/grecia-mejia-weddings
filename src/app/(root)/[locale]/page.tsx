@@ -1,23 +1,23 @@
-import { setRequestLocale } from 'next-intl/server'
+import { setRequestLocale } from "next-intl/server";
 
-import { CinematicHero } from '@/components/HomePage'
-import { getHomePage, getHomePageMedia } from '@/sanity/queries/home'
+import { AtelierIntro, CinematicHero } from "@/components/HomePage";
+import { getHomePage, getHomePageMedia } from "@/sanity/queries/home";
 
 type HomePageProps = {
-  params: Promise<{ locale: string }>
-}
+  params: Promise<{ locale: string }>;
+};
 
 export default async function HomePage({ params }: HomePageProps) {
-  const { locale } = await params
-  setRequestLocale(locale)
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   const [home, media] = await Promise.all([
     getHomePage(locale),
     getHomePageMedia(),
-  ])
+  ]);
 
-  const hero = home?.hero
-  const heroImage = media?.hero?.image
+  const hero = home?.hero;
+  const heroImage = media?.hero?.image;
 
   return (
     <>
@@ -33,11 +33,15 @@ export default async function HomePage({ params }: HomePageProps) {
             Hero pending content · {locale}
           </p>
           <h1 className="mt-4 font-serif text-[88px] leading-[0.95] tracking-[-0.012em] text-ink">
-            Add a hero in <span className="italic text-olive">Sanity Studio</span>.
+            Add a hero in{" "}
+            <span className="italic text-olive">Sanity Studio</span>.
           </h1>
         </div>
       )}
-      {/* TODO: subsequent sections (Atelier intro, Atlas, Featured, Cultures, Venues, Portfolio, Press, Testimonials, CTA). */}
+
+      {home?.atelier?.headline ? <AtelierIntro atelier={home.atelier} /> : null}
+
+      {/* TODO: subsequent sections (Atlas, Featured, Cultures, Venues, Portfolio, Press, Testimonials, CTA). */}
     </>
-  )
+  );
 }

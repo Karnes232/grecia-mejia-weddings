@@ -27,7 +27,7 @@ Generate:
 1. **Sanity document scaffold** for `culture` type per `sanity-schema-guide.md`
 
 2. **Section structure** matching `indivdual-Multicultural-Weddings.png`:
-   - Hero — *"A wedding in [Culture] tradition"*
+   - Hero — _"A wedding in [Culture] tradition"_
    - Quick facts (days / typical guest count / months / regions / scale)
    - Long-form intro (the editorial voice — e.g., "Five days, two hundred guests, one prayer")
    - "The [N]-part arc" — ceremony stages grid (one card per stage)
@@ -45,7 +45,7 @@ Generate:
    - Meta title formula: `[Culture] Wedding Planning | Multicultural Wedding Specialist | Grecia Mejia` (≤60 chars)
    - Meta description: 140-160 chars highlighting cultural expertise + destinations + Grecia
    - OG image: 1200×630 — preferably an authentic editorial wedding image
-   - H1: italic Cormorant *"A wedding in [Culture] tradition"*
+   - H1: italic Cormorant _"A wedding in [Culture] tradition"_
 
 4. **Internal linking plan**:
    - This culture MUST link to at least 2 destinations (compatibleDestinations)

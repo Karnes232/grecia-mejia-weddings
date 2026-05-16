@@ -19,23 +19,23 @@ This skill enforces the internal linking matrix defined in `.claude/seo-strategy
 
 ### Every article MUST link to:
 
-| Reference | Sanity field | Required | Notes |
-|---|---|---|---|
-| 1 destination | `relatedDestination` | ✅ Required | Schema validates |
-| 1 culture | `relatedCulture` | Conditional | Required if culturally specific |
-| 1 venue | `relatedVenue` | Conditional | Required if venue-specific |
-| 1 service | `relatedService` | ✅ Required | Schema validates |
-| 3-5 related articles | `relatedArticles[]` | ✅ Required | Min 3, max 5 |
-| ≥3 inline body links | Portable Text `internalLink` annotations | ✅ Required (manual count) | To non-article pages |
+| Reference            | Sanity field                             | Required                   | Notes                           |
+| -------------------- | ---------------------------------------- | -------------------------- | ------------------------------- |
+| 1 destination        | `relatedDestination`                     | ✅ Required                | Schema validates                |
+| 1 culture            | `relatedCulture`                         | Conditional                | Required if culturally specific |
+| 1 venue              | `relatedVenue`                           | Conditional                | Required if venue-specific      |
+| 1 service            | `relatedService`                         | ✅ Required                | Schema validates                |
+| 3-5 related articles | `relatedArticles[]`                      | ✅ Required                | Min 3, max 5                    |
+| ≥3 inline body links | Portable Text `internalLink` annotations | ✅ Required (manual count) | To non-article pages            |
 
 ### Every pillar/sub-pillar page MUST receive:
 
-| Page type | Inbound articles surfaced | Method |
-|---|---|---|
-| Destination page | 4-6 | Reverse-reference GROQ |
-| Culture page | 4-6 | Reverse-reference GROQ |
-| Venue page | 3-4 | Reverse-reference GROQ |
-| Service page | 4-6 | Reverse-reference GROQ |
+| Page type        | Inbound articles surfaced | Method                 |
+| ---------------- | ------------------------- | ---------------------- |
+| Destination page | 4-6                       | Reverse-reference GROQ |
+| Culture page     | 4-6                       | Reverse-reference GROQ |
+| Venue page       | 3-4                       | Reverse-reference GROQ |
+| Service page     | 4-6                       | Reverse-reference GROQ |
 
 ## Validation procedure
 
@@ -44,6 +44,7 @@ When invoked, the skill performs these steps:
 ### Step 1 — Identify the document under review
 
 Get the document `_type` and `_id` (or slug). Document types this skill validates:
+
 - `article` (most rigorous validation)
 - `destination`
 - `culture`
@@ -67,7 +68,7 @@ For an `article` document, check:
 For a `destination`, `culture`, `venue`, or `service` document, run a reverse-reference query and report inbound link count:
 
 ```groq
-*[_type == "article" 
+*[_type == "article"
   && references($docId)
   && language == $locale
 ] | order(publishedAt desc)
@@ -91,44 +92,55 @@ Use this format:
 **Locale:** en
 
 ### Required references
+
 ✅ Destination → "Punta Cana" (en, published)
 ✅ Service → "Destination Wedding Planning" (en, published)
 ⚠️ Culture → NOT SET (article mentions "Indian" — should this be set?)
 ✅ Related articles → 4 articles (all valid, all en)
 
 ### Inline body links
+
 ✅ Found 5 internal links in body
-   - "Punta Cana destination guide" → /destinations/punta-cana
-   - "Indian wedding services" → /multicultural-weddings/indian-weddings
-   - "Eden Roc Cap Cana" → /venues/punta-cana/eden-roc-cap-cana
-   - "destination wedding planning" → /services/destination-wedding-planning
-   - "see Sara & Vikram's wedding" → /portfolio/luxury-indian-wedding-punta-cana
+
+- "Punta Cana destination guide" → /destinations/punta-cana
+- "Indian wedding services" → /multicultural-weddings/indian-weddings
+- "Eden Roc Cap Cana" → /venues/punta-cana/eden-roc-cap-cana
+- "destination wedding planning" → /services/destination-wedding-planning
+- "see Sara & Vikram's wedding" → /portfolio/luxury-indian-wedding-punta-cana
 
 ### Anchor text diversity
+
 ✅ All anchor texts unique
 
 ### Cross-language check
+
 ✅ All references in same language (en)
 
 ### Status: READY (with 1 warning)
+
 - Consider adding relatedCulture if this article is about Indian weddings specifically
 ```
 
 ## Common issues and resolutions
 
 ### Issue: "Article has only 2 related articles"
+
 **Resolution:** Identify thematically adjacent articles (same destination, same culture, or same category) and surface 2-3 candidates for the editor to choose from. Never invent article slugs that don't exist.
 
 ### Issue: "relatedDestination points to a draft"
+
 **Resolution:** The article cannot publish until its referenced destination is published. Either publish the destination first or change the reference.
 
 ### Issue: "Article references a different language destination"
+
 **Resolution:** Use the destination's translation in the article's language. Query: `*[_type == "destination" && language == $articleLang && _id in *[_type == "translation.metadata" && $brokenDestId in translations[].value._ref][0].translations[].value._ref][0]`
 
 ### Issue: "Pillar page has only 1 inbound article"
+
 **Resolution:** Surface this as a content gap. Recommend 3-5 article titles that would naturally link to this pillar.
 
 ### Issue: "Body has only 1 internal link"
+
 **Resolution:** Identify mentions of relevant entities in the body text that could be linked. Suggest specific phrases and targets to the editor.
 
 ## Working with the editor

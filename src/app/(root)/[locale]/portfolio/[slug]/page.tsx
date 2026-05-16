@@ -1,3 +1,3 @@
 export default function PortfolioDetailPage() {
-  return <h1>Portfolio Entry</h1>
+  return <h1>Portfolio Entry</h1>;
 }

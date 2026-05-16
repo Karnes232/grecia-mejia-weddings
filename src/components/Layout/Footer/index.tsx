@@ -1,53 +1,56 @@
-import Image from 'next/image'
+import Image from "next/image";
 
-import { Link } from '@/i18n/navigation'
-import type { Locale } from '@/i18n/routing'
-import { urlFor } from '@/sanity/lib/image'
-import type { FooterData, SiteSettings } from '@/sanity/queries/layout'
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import { urlFor } from "@/sanity/lib/image";
+import type { FooterData, SiteSettings } from "@/sanity/queries/layout";
 
-import { DEFAULT_FOOTER, DEFAULT_SETTINGS } from './defaults'
-import { LanguageSwitcher } from './LanguageSwitcher'
+import { DEFAULT_FOOTER, DEFAULT_SETTINGS } from "../_shared/defaults";
+import { LanguageSwitcher } from "../_shared/LanguageSwitcher";
 
 type FooterProps = {
-  footer: FooterData | null
-  settings: SiteSettings | null
-  locale: Locale
-}
+  footer: FooterData | null;
+  settings: SiteSettings | null;
+  locale: Locale;
+};
 
 function isExternal(href: string) {
-  return /^(https?:|mailto:|tel:|#)/.test(href)
+  return /^(https?:|mailto:|tel:|#)/.test(href);
 }
 
 function resolveHref(
   href: string | undefined,
   label: string | undefined,
-  contact: SiteSettings['contact'],
+  contact: SiteSettings["contact"],
 ): string {
-  if (href && href !== '#') return href
-  const key = label?.toLowerCase().trim()
-  if (!key || !contact) return href ?? '#'
-  if (key === 'whatsapp' && contact.whatsappUrl) return contact.whatsappUrl
-  if (key === 'instagram' && contact.instagramUrl) return contact.instagramUrl
-  if (key === 'email' && contact.email) return `mailto:${contact.email}`
-  if (key === 'phone' && contact.phone) return `tel:${contact.phone.replace(/\s+/g, '')}`
-  return href ?? '#'
+  if (href && href !== "#") return href;
+  const key = label?.toLowerCase().trim();
+  if (!key || !contact) return href ?? "#";
+  if (key === "whatsapp" && contact.whatsappUrl) return contact.whatsappUrl;
+  if (key === "instagram" && contact.instagramUrl) return contact.instagramUrl;
+  if (key === "email" && contact.email) return `mailto:${contact.email}`;
+  if (key === "phone" && contact.phone)
+    return `tel:${contact.phone.replace(/\s+/g, "")}`;
+  return href ?? "#";
 }
 
 export function Footer({ footer, settings, locale }: FooterProps) {
-  const columns = footer?.columns?.length ? footer.columns : DEFAULT_FOOTER.columns
-  const brandName = settings?.brandName ?? DEFAULT_SETTINGS.brandName!
-  const footerLogo = settings?.footerLogo
+  const columns = footer?.columns?.length
+    ? footer.columns
+    : DEFAULT_FOOTER.columns;
+  const brandName = settings?.brandName ?? DEFAULT_SETTINGS.brandName!;
+  const footerLogo = settings?.footerLogo;
   const footerLogoUrl = footerLogo?.asset
-    ? urlFor(footerLogo).width(560).fit('max').auto('format').url()
-    : null
+    ? urlFor(footerLogo).width(560).fit("max").auto("format").url()
+    : null;
   const signature =
-    settings?.signatureParagraph ?? DEFAULT_SETTINGS.signatureParagraph
+    settings?.signatureParagraph ?? DEFAULT_SETTINGS.signatureParagraph;
   const copyrightTemplate =
-    settings?.copyrightLine ?? DEFAULT_SETTINGS.copyrightLine!
+    settings?.copyrightLine ?? DEFAULT_SETTINGS.copyrightLine!;
   const copyright = copyrightTemplate.replace(
-    '{year}',
+    "{year}",
     String(new Date().getFullYear()),
-  )
+  );
 
   return (
     <footer className="bg-ink text-footer-text px-6 pt-20 pb-8 md:px-14">
@@ -73,7 +76,7 @@ export function Footer({ footer, settings, locale }: FooterProps) {
           ) : null}
         </div>
         {columns.map((col, i) => (
-          <div key={`${col.heading ?? 'col'}-${i}`}>
+          <div key={`${col.heading ?? "col"}-${i}`}>
             {col.heading ? (
               <h4 className="mb-5 text-[10px] font-medium uppercase tracking-wide-eyebrow text-footer-heading">
                 {col.heading}
@@ -81,10 +84,14 @@ export function Footer({ footer, settings, locale }: FooterProps) {
             ) : null}
             <ul className="grid gap-[10px]">
               {col.links?.map((link, j) => {
-                if (!link.label) return null
-                const href = resolveHref(link.href, link.label, settings?.contact)
+                if (!link.label) return null;
+                const href = resolveHref(
+                  link.href,
+                  link.label,
+                  settings?.contact,
+                );
                 const cls =
-                  'font-serif italic text-[15px] text-footer-text no-underline hover:text-ivory transition-colors'
+                  "font-serif italic text-[15px] text-footer-text no-underline hover:text-ivory transition-colors";
                 return (
                   <li key={`${link.label}-${j}`}>
                     {isExternal(href) ? (
@@ -97,7 +104,7 @@ export function Footer({ footer, settings, locale }: FooterProps) {
                       </Link>
                     )}
                   </li>
-                )
+                );
               })}
             </ul>
           </div>
@@ -108,5 +115,5 @@ export function Footer({ footer, settings, locale }: FooterProps) {
         <LanguageSwitcher currentLocale={locale} variant="footer" />
       </div>
     </footer>
-  )
+  );
 }

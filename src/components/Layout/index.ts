@@ -1,5 +1,3 @@
-export { Navbar } from './Navbar'
-export { Footer } from './Footer'
-export { Logo } from './Logo'
-export { LenisProvider } from './LenisProvider'
-export { LanguageSwitcher } from './LanguageSwitcher'
+export { Navbar } from "./Navbar";
+export { Footer } from "./Footer";
+export { LenisProvider } from "./LenisProvider";

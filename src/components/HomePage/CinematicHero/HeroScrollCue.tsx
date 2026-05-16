@@ -11,5 +11,5 @@ export function HeroScrollCue() {
         />
       </span>
     </div>
-  )
+  );
 }

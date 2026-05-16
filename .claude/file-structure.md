@@ -63,6 +63,7 @@ messages/
 ```
 
 **Guidelines:**
+
 - Dot-notation namespaces grouped by page: `home.hero.title`, `contact.form.email`
 - Shared keys live under `common.*` (e.g., `common.cta.consultation`)
 - Never put long-form editorial copy here — that's a Sanity concern
@@ -162,6 +163,7 @@ src/app/
 ```
 
 **Notes:**
+
 - Root `layout.tsx` is intentionally minimal; locale-aware shell wraps everything in `(root)/[locale]/`.
 - The blog route is `/journal` (matches the editorial tone of the visual reference) — but the Sanity schema and component folder are still called `Blog*` for consistency with conventional naming.
 - Each sitemap file is a separate route segment so we can scale past 50k URLs cleanly.
@@ -367,6 +369,7 @@ src/components/
 ```
 
 **Key Rules:**
+
 - ❌ Don't organize by type (`buttons/`, `cards/`)
 - ✅ Do organize by PAGE (`HomePage/`, `JournalDetailPage/`)
 - ✅ Exception: `Layout/`, `BlockContent/`, `ui/`, `Providers/` for truly shared pieces
@@ -506,6 +509,7 @@ src/sanity/
 ```
 
 **Key Principles:**
+
 - **Documents vs objects vs singletons** are separated at the folder level
 - **Localization is document-level** — `@sanity/document-internationalization` creates separate documents per locale, linked by translation references
 - **Queries mirror schema folders** for discoverability
@@ -595,21 +599,21 @@ import { Link } from "@/i18n/navigation";
 
 ## Quick Reference: Where Does This File Go?
 
-| File | Goes In |
-|---|---|
-| Page-specific component | `src/components/[PageName]/` |
-| Cross-page UI primitive | `src/components/ui/` |
-| Navbar/Footer/shell | `src/components/Layout/` |
-| Sanity document schema | `src/sanity/schemaTypes/documents/[Name]/` |
-| Sanity reusable object | `src/sanity/schemaTypes/objects/` |
-| Sanity singleton | `src/sanity/schemaTypes/singletons/` |
-| GROQ query function | `src/sanity/queries/[Domain]/` |
-| Reusable GROQ fragment | `src/sanity/queries/fragments/` |
-| JSON-LD schema helper | `src/lib/schema/` |
-| SEO metadata helper | `src/lib/seo/` |
-| UI translation string | `messages/[locale].json` |
-| Page route | `src/app/(root)/[locale]/[path]/page.tsx` |
-| Sitemap segment | `src/app/sitemap/[section]/sitemap.ts` |
+| File                    | Goes In                                    |
+| ----------------------- | ------------------------------------------ |
+| Page-specific component | `src/components/[PageName]/`               |
+| Cross-page UI primitive | `src/components/ui/`                       |
+| Navbar/Footer/shell     | `src/components/Layout/`                   |
+| Sanity document schema  | `src/sanity/schemaTypes/documents/[Name]/` |
+| Sanity reusable object  | `src/sanity/schemaTypes/objects/`          |
+| Sanity singleton        | `src/sanity/schemaTypes/singletons/`       |
+| GROQ query function     | `src/sanity/queries/[Domain]/`             |
+| Reusable GROQ fragment  | `src/sanity/queries/fragments/`            |
+| JSON-LD schema helper   | `src/lib/schema/`                          |
+| SEO metadata helper     | `src/lib/seo/`                             |
+| UI translation string   | `messages/[locale].json`                   |
+| Page route              | `src/app/(root)/[locale]/[path]/page.tsx`  |
+| Sitemap segment         | `src/app/sitemap/[section]/sitemap.ts`     |
 
 ---
 

@@ -12,15 +12,15 @@
  * @sanity/document-internationalization's `translation.metadata` doc.
  */
 
-import { createClient } from '@sanity/client'
+import { createClient } from "@sanity/client";
 
-import { apiVersion, dataset, projectId } from '../env'
-import { locales, type Locale } from '../../i18n/routing'
+import { apiVersion, dataset, projectId } from "../env";
+import { locales, type Locale } from "../../i18n/routing";
 
-const token = process.env.SANITY_API_WRITE_TOKEN
+const token = process.env.SANITY_API_WRITE_TOKEN;
 if (!token) {
-  console.error('Missing SANITY_API_WRITE_TOKEN env var.')
-  process.exit(1)
+  console.error("Missing SANITY_API_WRITE_TOKEN env var.");
+  process.exit(1);
 }
 
 const client = createClient({
@@ -29,100 +29,100 @@ const client = createClient({
   apiVersion,
   token,
   useCdn: false,
-})
+});
 
-type NavLink = { _key: string; key: string; label: string; href: string }
-type NavCta = { label: string; href: string }
+type NavLink = { _key: string; key: string; label: string; href: string };
+type NavCta = { label: string; href: string };
 type NavDoc = {
-  mainLinks: NavLink[]
-  cta: NavCta
-}
+  mainLinks: NavLink[];
+  cta: NavCta;
+};
 
 const NAV_KEYS = [
-  'house',
-  'destinations',
-  'multicultural',
-  'venues',
-  'portfolio',
-  'journal',
-  'contact',
-] as const
+  "house",
+  "destinations",
+  "multicultural",
+  "venues",
+  "portfolio",
+  "journal",
+  "contact",
+] as const;
 
 const HREFS: Record<(typeof NAV_KEYS)[number], string> = {
-  house: '/about',
-  destinations: '/destinations',
-  multicultural: '/multicultural',
-  venues: '/venues',
-  portfolio: '/portfolio',
-  journal: '/journal',
-  contact: '/contact',
-}
+  house: "/about",
+  destinations: "/destinations",
+  multicultural: "/multicultural",
+  venues: "/venues",
+  portfolio: "/portfolio",
+  journal: "/journal",
+  contact: "/contact",
+};
 
 const LABELS: Record<Locale, Record<(typeof NAV_KEYS)[number], string>> = {
   en: {
-    house: 'The House',
-    destinations: 'Destinations',
-    multicultural: 'Multicultural',
-    venues: 'Venues',
-    portfolio: 'Portfolio',
-    journal: 'Journal',
-    contact: 'Contact',
+    house: "The House",
+    destinations: "Destinations",
+    multicultural: "Multicultural",
+    venues: "Venues",
+    portfolio: "Portfolio",
+    journal: "Journal",
+    contact: "Contact",
   },
   es: {
-    house: 'La Casa',
-    destinations: 'Destinos',
-    multicultural: 'Multicultural',
-    venues: 'Locaciones',
-    portfolio: 'Portafolio',
-    journal: 'Diario',
-    contact: 'Contacto',
+    house: "La Casa",
+    destinations: "Destinos",
+    multicultural: "Multicultural",
+    venues: "Locaciones",
+    portfolio: "Portafolio",
+    journal: "Diario",
+    contact: "Contacto",
   },
   fr: {
-    house: 'La Maison',
-    destinations: 'Destinations',
-    multicultural: 'Multiculturel',
-    venues: 'Lieux',
-    portfolio: 'Portfolio',
-    journal: 'Journal',
-    contact: 'Contact',
+    house: "La Maison",
+    destinations: "Destinations",
+    multicultural: "Multiculturel",
+    venues: "Lieux",
+    portfolio: "Portfolio",
+    journal: "Journal",
+    contact: "Contact",
   },
   pt: {
-    house: 'A Casa',
-    destinations: 'Destinos',
-    multicultural: 'Multicultural',
-    venues: 'Locais',
-    portfolio: 'Portfólio',
-    journal: 'Diário',
-    contact: 'Contato',
+    house: "A Casa",
+    destinations: "Destinos",
+    multicultural: "Multicultural",
+    venues: "Locais",
+    portfolio: "Portfólio",
+    journal: "Diário",
+    contact: "Contato",
   },
   de: {
-    house: 'Das Haus',
-    destinations: 'Reiseziele',
-    multicultural: 'Multikulturell',
-    venues: 'Orte',
-    portfolio: 'Portfolio',
-    journal: 'Journal',
-    contact: 'Kontakt',
+    house: "Das Haus",
+    destinations: "Reiseziele",
+    multicultural: "Multikulturell",
+    venues: "Orte",
+    portfolio: "Portfolio",
+    journal: "Journal",
+    contact: "Kontakt",
   },
   it: {
-    house: 'La Casa',
-    destinations: 'Destinazioni',
-    multicultural: 'Multiculturale',
-    venues: 'Sedi',
-    portfolio: 'Portfolio',
-    journal: 'Giornale',
-    contact: 'Contatto',
+    house: "La Casa",
+    destinations: "Destinazioni",
+    multicultural: "Multiculturale",
+    venues: "Sedi",
+    portfolio: "Portfolio",
+    journal: "Giornale",
+    contact: "Contatto",
   },
-}
+};
 
 const CTA: Record<Locale, NavCta> = {
-  en: { label: 'Private Consultation', href: '/contact' },
-  es: { label: 'Consulta Privada', href: '/contact' },
-  fr: { label: 'Consultation Privée', href: '/contact' },
-  pt: { label: 'Consulta Privada', href: '/contact' },
-  de: { label: 'Privates Gespräch', href: '/contact' },
-  it: { label: 'Consulenza Privata', href: '/contact' },
-}
+  en: { label: "Private Consultation", href: "/contact" },
+  es: { label: "Consulta Privada", href: "/contact" },
+  fr: { label: "Consultation Privée", href: "/contact" },
+  pt: { label: "Consulta Privada", href: "/contact" },
+  de: { label: "Privates Gespräch", href: "/contact" },
+  it: { label: "Consulenza Privata", href: "/contact" },
+};
 
 function buildDoc(locale: Locale): NavDoc {
   return {
@@ -133,44 +133,46 @@ function buildDoc(locale: Locale): NavDoc {
       href: HREFS[key],
     })),
     cta: CTA[locale],
-  }
+  };
 }
 
-const docId = (locale: Locale) => `navigation-${locale}`
+const docId = (locale: Locale) => `navigation-${locale}`;
 
 async function run() {
-  console.log(`Seeding navigation in ${dataset}/${projectId}…`)
+  console.log(`Seeding navigation in ${dataset}/${projectId}…`);
 
-  const tx = client.transaction()
+  const tx = client.transaction();
 
   for (const locale of locales) {
-    const doc = buildDoc(locale)
+    const doc = buildDoc(locale);
     tx.createOrReplace({
       _id: docId(locale),
-      _type: 'navigation',
+      _type: "navigation",
       language: locale,
       ...doc,
-    })
+    });
   }
 
   // Translation metadata — links the six docs together so Studio's
   // language switcher tab sees them as variants of one another.
   tx.createOrReplace({
-    _id: 'navigation-metadata',
-    _type: 'translation.metadata',
-    schemaTypes: ['navigation'],
+    _id: "navigation-metadata",
+    _type: "translation.metadata",
+    schemaTypes: ["navigation"],
     translations: locales.map((locale) => ({
       _key: locale,
       language: locale,
-      value: { _type: 'reference', _ref: docId(locale), _weak: true },
+      value: { _type: "reference", _ref: docId(locale), _weak: true },
     })),
-  })
+  });
 
-  await tx.commit()
-  console.log(`✓ Seeded ${locales.length} navigation docs + translation metadata.`)
+  await tx.commit();
+  console.log(
+    `✓ Seeded ${locales.length} navigation docs + translation metadata.`,
+  );
 }
 
 run().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+  console.error(err);
+  process.exit(1);
+});

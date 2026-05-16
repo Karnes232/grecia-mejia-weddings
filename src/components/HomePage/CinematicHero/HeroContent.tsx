@@ -1,10 +1,10 @@
-import type { HomePage } from '@/sanity/queries/home'
+import type { HomePage } from "@/sanity/queries/home";
 
-import { renderHeadline } from './renderHeadline'
+import { renderHeadline } from "../_shared/renderHeadline";
 
 type HeroContentProps = {
-  hero: NonNullable<HomePage['hero']>
-}
+  hero: NonNullable<HomePage["hero"]>;
+};
 
 export function HeroContent({ hero }: HeroContentProps) {
   return (
@@ -30,7 +30,7 @@ export function HeroContent({ hero }: HeroContentProps) {
           data-cine-anim
           className="m-0 font-serif font-light text-ivory text-[clamp(56px,12vw,148px)] leading-[0.94] tracking-[-0.018em] [animation:headline-rise_1.6s_cubic-bezier(0.18,0.7,0.2,1)_0.2s_both]"
         >
-          {renderHeadline(hero.headline ?? '')}
+          {renderHeadline(hero.headline ?? "")}
         </h1>
 
         {hero.subheadline ? (
@@ -49,7 +49,7 @@ export function HeroContent({ hero }: HeroContentProps) {
           >
             {hero.primaryCta?.label ? (
               <a
-                href={hero.primaryCta.href ?? '#'}
+                href={hero.primaryCta.href ?? "#"}
                 className="inline-block border border-[var(--color-cine-gold)] bg-transparent px-[34px] py-[18px] text-[10px] uppercase tracking-wide-eyebrow text-ivory no-underline transition-colors duration-300 hover:bg-[var(--color-cine-gold)] hover:text-olive-dk"
               >
                 {hero.primaryCta.label}
@@ -57,7 +57,7 @@ export function HeroContent({ hero }: HeroContentProps) {
             ) : null}
             {hero.secondaryCta?.label ? (
               <a
-                href={hero.secondaryCta.href ?? '#'}
+                href={hero.secondaryCta.href ?? "#"}
                 className="inline-block border border-[rgba(212,186,140,0.4)] bg-transparent px-[34px] py-[18px] text-[10px] uppercase tracking-wide-eyebrow text-[var(--color-cine-ivory)] no-underline transition-colors duration-300 hover:bg-[rgba(212,186,140,0.18)] hover:text-ivory"
               >
                 {hero.secondaryCta.label}
@@ -67,5 +67,5 @@ export function HeroContent({ hero }: HeroContentProps) {
         )}
       </div>
     </div>
-  )
+  );
 }

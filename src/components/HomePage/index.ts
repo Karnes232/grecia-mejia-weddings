@@ -1,1 +1,2 @@
-export { CinematicHero } from './CinematicHero'
+export { CinematicHero } from "./CinematicHero";
+export { AtelierIntro } from "./AtelierIntro";

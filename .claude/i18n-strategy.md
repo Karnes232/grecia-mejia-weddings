@@ -8,14 +8,14 @@ How localization works across this project: routing, Sanity content, UI strings,
 
 Six locales, English-first:
 
-| Code | Language | Status |
-|---|---|---|
-| `en` | English | **Default & source of truth** |
-| `es` | Spanish | Full |
-| `fr` | French | Full |
-| `pt` | Portuguese | Full |
-| `de` | German | Full |
-| `it` | Italian | Full |
+| Code | Language   | Status                        |
+| ---- | ---------- | ----------------------------- |
+| `en` | English    | **Default & source of truth** |
+| `es` | Spanish    | Full                          |
+| `fr` | French     | Full                          |
+| `pt` | Portuguese | Full                          |
+| `de` | German     | Full                          |
+| `it` | Italian    | Full                          |
 
 English is the primary authority language. All translations derive from English. When a translation is missing for a locale, the system falls back to English (with hreflang signaling).
 
@@ -35,6 +35,7 @@ https://greciamejiaweddings.com/it/chi-siamo        → Italian
 ```
 
 **Why:**
+
 - Cleaner English URLs (the primary market)
 - Localized URLs for SEO in non-English markets
 - Locale signal in URL prevents geo-mismatch via Accept-Language alone
@@ -43,165 +44,163 @@ https://greciamejiaweddings.com/it/chi-siamo        → Italian
 
 ```ts
 // src/i18n/routing.ts
-import { defineRouting } from 'next-intl/routing'
+import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-  locales: ['en', 'es', 'fr', 'pt', 'de', 'it'],
-  defaultLocale: 'en',
-  localePrefix: 'as-needed',
+  locales: ["en", "es", "fr", "pt", "de", "it"],
+  defaultLocale: "en",
+  localePrefix: "as-needed",
   pathnames: {
-    '/': '/',
-    '/about': {
-      en: '/about',
-      es: '/sobre',
-      fr: '/a-propos',
-      pt: '/sobre',
-      de: '/ueber-uns',
-      it: '/chi-siamo',
+    "/": "/",
+    "/about": {
+      en: "/about",
+      es: "/sobre",
+      fr: "/a-propos",
+      pt: "/sobre",
+      de: "/ueber-uns",
+      it: "/chi-siamo",
     },
-    '/destinations': {
-      en: '/destinations',
-      es: '/destinos',
-      fr: '/destinations',
-      pt: '/destinos',
-      de: '/destinationen',
-      it: '/destinazioni',
+    "/destinations": {
+      en: "/destinations",
+      es: "/destinos",
+      fr: "/destinations",
+      pt: "/destinos",
+      de: "/destinationen",
+      it: "/destinazioni",
     },
-    '/destinations/[destination]': {
-      en: '/destinations/[destination]',
-      es: '/destinos/[destination]',
-      fr: '/destinations/[destination]',
-      pt: '/destinos/[destination]',
-      de: '/destinationen/[destination]',
-      it: '/destinazioni/[destination]',
+    "/destinations/[destination]": {
+      en: "/destinations/[destination]",
+      es: "/destinos/[destination]",
+      fr: "/destinations/[destination]",
+      pt: "/destinos/[destination]",
+      de: "/destinationen/[destination]",
+      it: "/destinazioni/[destination]",
     },
-    '/multicultural-weddings': {
-      en: '/multicultural-weddings',
-      es: '/bodas-multiculturales',
-      fr: '/mariages-multiculturels',
-      pt: '/casamentos-multiculturais',
-      de: '/multikulturelle-hochzeiten',
-      it: '/matrimoni-multiculturali',
+    "/multicultural-weddings": {
+      en: "/multicultural-weddings",
+      es: "/bodas-multiculturales",
+      fr: "/mariages-multiculturels",
+      pt: "/casamentos-multiculturais",
+      de: "/multikulturelle-hochzeiten",
+      it: "/matrimoni-multiculturali",
     },
-    '/multicultural-weddings/[culture]': {
-      en: '/multicultural-weddings/[culture]',
-      es: '/bodas-multiculturales/[culture]',
-      fr: '/mariages-multiculturels/[culture]',
-      pt: '/casamentos-multiculturais/[culture]',
-      de: '/multikulturelle-hochzeiten/[culture]',
-      it: '/matrimoni-multiculturali/[culture]',
+    "/multicultural-weddings/[culture]": {
+      en: "/multicultural-weddings/[culture]",
+      es: "/bodas-multiculturales/[culture]",
+      fr: "/mariages-multiculturels/[culture]",
+      pt: "/casamentos-multiculturais/[culture]",
+      de: "/multikulturelle-hochzeiten/[culture]",
+      it: "/matrimoni-multiculturali/[culture]",
     },
-    '/venues': {
-      en: '/venues',
-      es: '/locaciones',
-      fr: '/lieux',
-      pt: '/locais',
-      de: '/hochzeitsorte',
-      it: '/location',
+    "/venues": {
+      en: "/venues",
+      es: "/locaciones",
+      fr: "/lieux",
+      pt: "/locais",
+      de: "/hochzeitsorte",
+      it: "/location",
     },
-    '/venues/[region]': {
-      en: '/venues/[region]',
-      es: '/locaciones/[region]',
-      fr: '/lieux/[region]',
-      pt: '/locais/[region]',
-      de: '/hochzeitsorte/[region]',
-      it: '/location/[region]',
+    "/venues/[region]": {
+      en: "/venues/[region]",
+      es: "/locaciones/[region]",
+      fr: "/lieux/[region]",
+      pt: "/locais/[region]",
+      de: "/hochzeitsorte/[region]",
+      it: "/location/[region]",
     },
-    '/venues/[region]/[venue]': {
-      en: '/venues/[region]/[venue]',
-      es: '/locaciones/[region]/[venue]',
-      fr: '/lieux/[region]/[venue]',
-      pt: '/locais/[region]/[venue]',
-      de: '/hochzeitsorte/[region]/[venue]',
-      it: '/location/[region]/[venue]',
+    "/venues/[region]/[venue]": {
+      en: "/venues/[region]/[venue]",
+      es: "/locaciones/[region]/[venue]",
+      fr: "/lieux/[region]/[venue]",
+      pt: "/locais/[region]/[venue]",
+      de: "/hochzeitsorte/[region]/[venue]",
+      it: "/location/[region]/[venue]",
     },
-    '/services': {
-      en: '/services',
-      es: '/servicios',
-      fr: '/services',
-      pt: '/servicos',
-      de: '/leistungen',
-      it: '/servizi',
+    "/services": {
+      en: "/services",
+      es: "/servicios",
+      fr: "/services",
+      pt: "/servicos",
+      de: "/leistungen",
+      it: "/servizi",
     },
-    '/services/[service]': {
-      en: '/services/[service]',
-      es: '/servicios/[service]',
-      fr: '/services/[service]',
-      pt: '/servicos/[service]',
-      de: '/leistungen/[service]',
-      it: '/servizi/[service]',
+    "/services/[service]": {
+      en: "/services/[service]",
+      es: "/servicios/[service]",
+      fr: "/services/[service]",
+      pt: "/servicos/[service]",
+      de: "/leistungen/[service]",
+      it: "/servizi/[service]",
     },
-    '/portfolio': '/portfolio',  // Same in all locales
-    '/portfolio/[slug]': '/portfolio/[slug]',
-    '/journal': {
-      en: '/journal',
-      es: '/diario',
-      fr: '/journal',
-      pt: '/diario',
-      de: '/journal',
-      it: '/diario',
+    "/portfolio": "/portfolio", // Same in all locales
+    "/portfolio/[slug]": "/portfolio/[slug]",
+    "/journal": {
+      en: "/journal",
+      es: "/diario",
+      fr: "/journal",
+      pt: "/diario",
+      de: "/journal",
+      it: "/diario",
     },
-    '/journal/[slug]': {
-      en: '/journal/[slug]',
-      es: '/diario/[slug]',
-      fr: '/journal/[slug]',
-      pt: '/diario/[slug]',
-      de: '/journal/[slug]',
-      it: '/diario/[slug]',
+    "/journal/[slug]": {
+      en: "/journal/[slug]",
+      es: "/diario/[slug]",
+      fr: "/journal/[slug]",
+      pt: "/diario/[slug]",
+      de: "/journal/[slug]",
+      it: "/diario/[slug]",
     },
-    '/journal/category/[category]': {
-      en: '/journal/category/[category]',
-      es: '/diario/categoria/[category]',
-      fr: '/journal/categorie/[category]',
-      pt: '/diario/categoria/[category]',
-      de: '/journal/kategorie/[category]',
-      it: '/diario/categoria/[category]',
+    "/journal/category/[category]": {
+      en: "/journal/category/[category]",
+      es: "/diario/categoria/[category]",
+      fr: "/journal/categorie/[category]",
+      pt: "/diario/categoria/[category]",
+      de: "/journal/kategorie/[category]",
+      it: "/diario/categoria/[category]",
     },
-    '/press': '/press',
-    '/contact': {
-      en: '/contact',
-      es: '/contacto',
-      fr: '/contact',
-      pt: '/contato',
-      de: '/kontakt',
-      it: '/contatti',
+    "/press": "/press",
+    "/contact": {
+      en: "/contact",
+      es: "/contacto",
+      fr: "/contact",
+      pt: "/contato",
+      de: "/kontakt",
+      it: "/contatti",
     },
-    '/privacy': {
-      en: '/privacy',
-      es: '/privacidad',
-      fr: '/confidentialite',
-      pt: '/privacidade',
-      de: '/datenschutz',
-      it: '/privacy',
+    "/privacy": {
+      en: "/privacy",
+      es: "/privacidad",
+      fr: "/confidentialite",
+      pt: "/privacidade",
+      de: "/datenschutz",
+      it: "/privacy",
     },
-    '/terms': {
-      en: '/terms',
-      es: '/terminos',
-      fr: '/conditions',
-      pt: '/termos',
-      de: '/agb',
-      it: '/termini',
+    "/terms": {
+      en: "/terms",
+      es: "/terminos",
+      fr: "/conditions",
+      pt: "/termos",
+      de: "/agb",
+      it: "/termini",
     },
   },
-})
+});
 
-export type Locale = (typeof routing.locales)[number]
+export type Locale = (typeof routing.locales)[number];
 ```
 
 ### Middleware
 
 ```ts
 // src/middleware.ts
-import createMiddleware from 'next-intl/middleware'
-import { routing } from './i18n/routing'
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 
-export default createMiddleware(routing)
+export default createMiddleware(routing);
 
 export const config = {
-  matcher: [
-    '/((?!api|_next|_vercel|admin|studio|.*\\..*).*)',
-  ],
-}
+  matcher: ["/((?!api|_next|_vercel|admin|studio|.*\\..*).*)"],
+};
 ```
 
 The `admin|studio` exclusion is for Sanity Studio mounted at `/studio`.
@@ -212,19 +211,19 @@ Always use locale-aware navigation. Never raw `<a>` or `next/link` directly.
 
 ```ts
 // src/i18n/navigation.ts
-import { createNavigation } from 'next-intl/navigation'
-import { routing } from './routing'
+import { createNavigation } from "next-intl/navigation";
+import { routing } from "./routing";
 
 export const { Link, redirect, usePathname, useRouter, getPathname } =
-  createNavigation(routing)
+  createNavigation(routing);
 ```
 
 Then in components:
 
 ```tsx
-import { Link } from '@/i18n/navigation'
+import { Link } from "@/i18n/navigation";
 
-<Link href="/destinations/punta-cana">View Punta Cana</Link>
+<Link href="/destinations/punta-cana">View Punta Cana</Link>;
 // → /destinations/punta-cana in EN
 // → /es/destinos/punta-cana in ES
 // → /it/destinazioni/punta-cana in IT
@@ -288,6 +287,7 @@ Static interface text: button labels, form fields, navigation, error messages, m
 ```
 
 **Rules:**
+
 - Dot-namespace by domain: `common.*`, `home.*`, `contact.*`, etc.
 - Use ICU MessageFormat for plurals: `"{count, plural, one {# wedding} other {# weddings}}"`
 - Never put long editorial copy here — that's Sanity
@@ -301,11 +301,13 @@ All editorial copy: hero text, articles, destination guides, venue descriptions,
 **Strategy:** `@sanity/document-internationalization`
 
 Each document exists as **separate documents per locale**, linked by translation reference. This means:
+
 - An English article is one document
 - Its Spanish translation is a different document
 - They share a `translationId` linking them
 
 **Why document-level over field-level:**
+
 - Scales to 10,000+ articles without bloated documents
 - Each translation can be drafted, reviewed, and published independently
 - Better UX in Sanity Studio (editors don't scroll through 6 versions of every field)
@@ -316,50 +318,51 @@ Each document exists as **separate documents per locale**, linked by translation
 
 ```ts
 // sanity.config.ts (extract)
-import { documentInternationalization } from '@sanity/document-internationalization'
+import { documentInternationalization } from "@sanity/document-internationalization";
 
 export default defineConfig({
   // ...
   plugins: [
     documentInternationalization({
       supportedLanguages: [
-        { id: 'en', title: 'English' },
-        { id: 'es', title: 'Español' },
-        { id: 'fr', title: 'Français' },
-        { id: 'pt', title: 'Português' },
-        { id: 'de', title: 'Deutsch' },
-        { id: 'it', title: 'Italiano' },
+        { id: "en", title: "English" },
+        { id: "es", title: "Español" },
+        { id: "fr", title: "Français" },
+        { id: "pt", title: "Português" },
+        { id: "de", title: "Deutsch" },
+        { id: "it", title: "Italiano" },
       ],
       schemaTypes: [
-        'destination',
-        'culture',
-        'venue',
-        'venueRegion',
-        'service',
-        'wedding',
-        'article',
-        'articleCategory',
-        'homePage',
-        'aboutPage',
-        'destinationsIndex',
-        'multiculturalIndex',
-        'venuesIndex',
-        'servicesIndex',
-        'portfolioIndex',
-        'journalIndex',
-        'press',
-        'contactPage',
-        'legalDocument',
+        "destination",
+        "culture",
+        "venue",
+        "venueRegion",
+        "service",
+        "wedding",
+        "article",
+        "articleCategory",
+        "homePage",
+        "aboutPage",
+        "destinationsIndex",
+        "multiculturalIndex",
+        "venuesIndex",
+        "servicesIndex",
+        "portfolioIndex",
+        "journalIndex",
+        "press",
+        "contactPage",
+        "legalDocument",
       ],
-      languageField: 'language',
+      languageField: "language",
     }),
   ],
-})
+});
 ```
 
 ### Document fields added by the plugin
 
 Every localized document automatically gets:
+
 - `language` — locale code (`en`, `es`, etc.)
 - `_translations` — array of references to sibling translations
 
@@ -369,8 +372,8 @@ Fetch by locale via the language field:
 
 ```ts
 // src/sanity/queries/Destinations/getDestination.ts
-import { client } from '@/sanity/lib/client'
-import type { Locale } from '@/i18n/routing'
+import { client } from "@/sanity/lib/client";
+import type { Locale } from "@/i18n/routing";
 
 export async function getDestination(slug: string, locale: Locale) {
   return client.fetch(
@@ -381,8 +384,8 @@ export async function getDestination(slug: string, locale: Locale) {
         "slug": slug.current
       }
     }`,
-    { slug, locale }
-  )
+    { slug, locale },
+  );
 }
 ```
 
@@ -395,6 +398,7 @@ The nested `translations` query fetches sibling-language versions — needed for
 Slugs are part of each translated document. The English version of "Punta Cana" might be `/destinations/punta-cana`; the Italian version might be `/destinazioni/punta-cana` (same slug, different path prefix).
 
 **Rules:**
+
 - Place slugs (Punta Cana, Mallorca, Provence) generally stay the same across locales — they're proper nouns
 - Concept slugs (indian-weddings, destination-wedding-planning) **must be translated**:
   - EN: `/multicultural-weddings/indian-weddings`
@@ -408,31 +412,31 @@ Slugs are part of each translated document. The English version of "Punta Cana" 
 
 ```ts
 // src/sanity/schemaTypes/objects/localizedSlug.ts
-import { defineType } from 'sanity'
+import { defineType } from "sanity";
 
 export const localizedSlug = defineType({
-  name: 'slug',
-  type: 'slug',
+  name: "slug",
+  type: "slug",
   options: {
-    source: 'title',
+    source: "title",
     maxLength: 96,
     // Slug should never collide across documents of same type + same language
     isUnique: (value, context) => {
-      const { document, getClient } = context
-      const client = getClient({ apiVersion: '2024-01-01' })
+      const { document, getClient } = context;
+      const client = getClient({ apiVersion: "2024-01-01" });
       return client.fetch(
         `count(*[_type == $type && slug.current == $slug && language == $language && _id != $id]) == 0`,
         {
           type: document?._type,
           slug: value,
           language: document?.language,
-          id: document?._id?.replace(/^drafts\./, ''),
-        }
-      )
+          id: document?._id?.replace(/^drafts\./, ""),
+        },
+      );
     },
   },
   validation: (Rule) => Rule.required(),
-})
+});
 ```
 
 ---
@@ -443,29 +447,29 @@ Hreflang tags are non-negotiable for international SEO.
 
 ```ts
 // src/lib/seo/hreflang.ts
-import { routing } from '@/i18n/routing'
-import { getPathname } from '@/i18n/navigation'
+import { routing } from "@/i18n/routing";
+import { getPathname } from "@/i18n/navigation";
 
 export function buildHreflang(
   pathname: string,
-  translatedSlugs?: Record<string, string>  // For dynamic routes
+  translatedSlugs?: Record<string, string>, // For dynamic routes
 ) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL!
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL!;
 
-  const alternates: Record<string, string> = {}
+  const alternates: Record<string, string> = {};
 
   for (const locale of routing.locales) {
     const path = translatedSlugs?.[locale]
       ? buildLocalizedPath(pathname, locale, translatedSlugs[locale])
-      : getPathname({ href: pathname, locale })
+      : getPathname({ href: pathname, locale });
 
-    alternates[locale] = `${baseUrl}${path}`
+    alternates[locale] = `${baseUrl}${path}`;
   }
 
   // x-default points to English
-  alternates['x-default'] = alternates.en
+  alternates["x-default"] = alternates.en;
 
-  return alternates
+  return alternates;
 }
 ```
 
@@ -473,30 +477,46 @@ Used in `generateMetadata`:
 
 ```tsx
 export async function generateMetadata({ params }) {
-  const { locale, destination: slug } = await params
-  const data = await getDestination(slug, locale)
+  const { locale, destination: slug } = await params;
+  const data = await getDestination(slug, locale);
 
   return {
     title: data.seo.title,
     description: data.seo.description,
     alternates: {
       canonical: `/destinations/${slug}`,
-      languages: buildHreflang('/destinations/[destination]',
-        Object.fromEntries(
-          data.translations.map(t => [t.language, t.slug])
-        )
+      languages: buildHreflang(
+        "/destinations/[destination]",
+        Object.fromEntries(data.translations.map((t) => [t.language, t.slug])),
       ),
     },
-  }
+  };
 }
 ```
 
 This emits:
+
 ```html
-<link rel="alternate" hreflang="en" href="https://greciamejiaweddings.com/destinations/punta-cana" />
-<link rel="alternate" hreflang="es" href="https://greciamejiaweddings.com/es/destinos/punta-cana" />
-<link rel="alternate" hreflang="it" href="https://greciamejiaweddings.com/it/destinazioni/punta-cana" />
-<link rel="alternate" hreflang="x-default" href="https://greciamejiaweddings.com/destinations/punta-cana" />
+<link
+  rel="alternate"
+  hreflang="en"
+  href="https://greciamejiaweddings.com/destinations/punta-cana"
+/>
+<link
+  rel="alternate"
+  hreflang="es"
+  href="https://greciamejiaweddings.com/es/destinos/punta-cana"
+/>
+<link
+  rel="alternate"
+  hreflang="it"
+  href="https://greciamejiaweddings.com/it/destinazioni/punta-cana"
+/>
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href="https://greciamejiaweddings.com/destinations/punta-cana"
+/>
 ```
 
 ---
@@ -516,12 +536,12 @@ When a translation is missing:
 ```ts
 // Example: only generate paths for documents that exist in that locale
 export async function generateStaticParams({ params }) {
-  const { locale } = await params
+  const { locale } = await params;
   const slugs = await client.fetch(
     `*[_type == "destination" && language == $locale].slug.current`,
-    { locale }
-  )
-  return slugs.map(slug => ({ destination: slug }))
+    { locale },
+  );
+  return slugs.map((slug) => ({ destination: slug }));
 }
 ```
 
@@ -533,34 +553,36 @@ The switcher in the header must know the current page's translations.
 
 ```tsx
 // src/components/Layout/LanguageSwitcher.tsx
-'use client'
+"use client";
 
-import { useRouter, usePathname } from '@/i18n/navigation'
-import { routing } from '@/i18n/routing'
+import { useRouter, usePathname } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 
 export function LanguageSwitcher({
-  translations,  // Passed from the page's data
+  translations, // Passed from the page's data
 }: {
-  translations?: Record<string, string>  // locale → slug
+  translations?: Record<string, string>; // locale → slug
 }) {
-  const router = useRouter()
-  const pathname = usePathname()
+  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <ul>
-      {routing.locales.map(locale => (
+      {routing.locales.map((locale) => (
         <li key={locale}>
-          <button onClick={() => {
-            // For dynamic routes, swap slug; for static, use next-intl's auto-translation
-            const targetSlug = translations?.[locale]
-            router.push(pathname, { locale })
-          }}>
+          <button
+            onClick={() => {
+              // For dynamic routes, swap slug; for static, use next-intl's auto-translation
+              const targetSlug = translations?.[locale];
+              router.push(pathname, { locale });
+            }}
+          >
             {locale.toUpperCase()}
           </button>
         </li>
       ))}
     </ul>
-  )
+  );
 }
 ```
 

@@ -17,14 +17,14 @@ This skill enforces the i18n strategy defined in `.claude/i18n-strategy.md`. It 
 
 ## Locale set (project-wide)
 
-| Code | Language | Status |
-|---|---|---|
-| `en` | English | **Default & source of truth** |
-| `es` | Spanish | Full |
-| `fr` | French | Full |
-| `pt` | Portuguese | Full |
-| `de` | German | Full |
-| `it` | Italian | Full |
+| Code | Language   | Status                        |
+| ---- | ---------- | ----------------------------- |
+| `en` | English    | **Default & source of truth** |
+| `es` | Spanish    | Full                          |
+| `fr` | French     | Full                          |
+| `pt` | Portuguese | Full                          |
+| `de` | German     | Full                          |
+| `it` | Italian    | Full                          |
 
 English is canonical. All other locales translate FROM English.
 
@@ -33,11 +33,13 @@ English is canonical. All other locales translate FROM English.
 This project has two distinct content layers, each handled differently:
 
 ### Layer 1 — UI strings (`messages/{locale}.json`)
+
 - Static button labels, form fields, nav items, error messages
 - Edited by developers, committed to git
 - Translation key parity must be maintained across all 6 locales
 
 ### Layer 2 — Editorial content (Sanity)
+
 - Document-level localization via `@sanity/document-internationalization`
 - Each translation is a SEPARATE document with its own `_id`, linked via `translationId`
 - Edited by content team in Studio
@@ -57,26 +59,26 @@ When the skill is invoked, identify which layer is relevant and follow the appro
 
 For each translated document, verify:
 
-| Field | Translate? | Notes |
-|---|---|---|
-| `title` | ✅ Yes | The H1 |
-| `slug` | ✅ Often | See slug rules below |
-| `excerpt` | ✅ Yes | |
-| `intro` / `body` | ✅ Yes | Full Portable Text translation |
-| `seo.title` | ✅ Yes | Localized, not copied |
-| `seo.description` | ✅ Yes | Localized, not copied |
-| `seo.ogImage` | Maybe | Often reusable; sometimes localized for cultural relevance |
-| `heroImage` | Usually no | Image is universal; only `alt` text needs translation |
-| `heroImage.alt` | ✅ Yes | Alt text must be in document's locale |
-| `faqs` | ✅ Yes | Each Q&A pair translated |
-| `relatedDestination` (reference) | ✅ Swap | Point to the SAME-LANGUAGE version of the destination |
-| `relatedCulture` (reference) | ✅ Swap | Point to same-language version |
-| `relatedVenue` (reference) | ✅ Swap | Point to same-language version |
-| `relatedService` (reference) | ✅ Swap | Point to same-language version |
-| `relatedArticles[]` | ✅ Swap | Point to same-language versions |
-| `category` (reference) | ✅ Swap | Same-language category |
-| `publishedAt` | Reuse | The original publish date applies |
-| `author` | Reuse or swap | Grecia Mejia is the same person regardless of locale |
+| Field                            | Translate?    | Notes                                                      |
+| -------------------------------- | ------------- | ---------------------------------------------------------- |
+| `title`                          | ✅ Yes        | The H1                                                     |
+| `slug`                           | ✅ Often      | See slug rules below                                       |
+| `excerpt`                        | ✅ Yes        |                                                            |
+| `intro` / `body`                 | ✅ Yes        | Full Portable Text translation                             |
+| `seo.title`                      | ✅ Yes        | Localized, not copied                                      |
+| `seo.description`                | ✅ Yes        | Localized, not copied                                      |
+| `seo.ogImage`                    | Maybe         | Often reusable; sometimes localized for cultural relevance |
+| `heroImage`                      | Usually no    | Image is universal; only `alt` text needs translation      |
+| `heroImage.alt`                  | ✅ Yes        | Alt text must be in document's locale                      |
+| `faqs`                           | ✅ Yes        | Each Q&A pair translated                                   |
+| `relatedDestination` (reference) | ✅ Swap       | Point to the SAME-LANGUAGE version of the destination      |
+| `relatedCulture` (reference)     | ✅ Swap       | Point to same-language version                             |
+| `relatedVenue` (reference)       | ✅ Swap       | Point to same-language version                             |
+| `relatedService` (reference)     | ✅ Swap       | Point to same-language version                             |
+| `relatedArticles[]`              | ✅ Swap       | Point to same-language versions                            |
+| `category` (reference)           | ✅ Swap       | Same-language category                                     |
+| `publishedAt`                    | Reuse         | The original publish date applies                          |
+| `author`                         | Reuse or swap | Grecia Mejia is the same person regardless of locale       |
 
 **Critical rule:** Every `reference` field must point to a document in the SAME language. Cross-language references are a critical bug — they confuse hreflang, language switching, and the user experience.
 
@@ -86,21 +88,21 @@ Slug translation is one of the highest-stakes decisions per piece of content.
 
 ### When to translate slugs
 
-| Slug type | Translate? | Examples |
-|---|---|---|
-| Place names (proper nouns) | Usually keep | `punta-cana` stays `punta-cana` in most locales (Italian/Spanish may have variations) |
-| Concept slugs (cultures, services) | ✅ Translate | `indian-weddings` → `bodas-indias` → `matrimoni-indiani` |
-| Article slugs | ✅ Translate | Always — slug should match the localized headline |
-| Path segment (in `routing.ts` `pathnames`) | ✅ Translate | `/destinations` → `/destinos` → `/destinazioni` |
+| Slug type                                  | Translate?   | Examples                                                                              |
+| ------------------------------------------ | ------------ | ------------------------------------------------------------------------------------- |
+| Place names (proper nouns)                 | Usually keep | `punta-cana` stays `punta-cana` in most locales (Italian/Spanish may have variations) |
+| Concept slugs (cultures, services)         | ✅ Translate | `indian-weddings` → `bodas-indias` → `matrimoni-indiani`                              |
+| Article slugs                              | ✅ Translate | Always — slug should match the localized headline                                     |
+| Path segment (in `routing.ts` `pathnames`) | ✅ Translate | `/destinations` → `/destinos` → `/destinazioni`                                       |
 
 ### Slug translation examples
 
-| EN | ES | FR | PT | DE | IT |
-|---|---|---|---|---|---|
-| `indian-weddings` | `bodas-indias` | `mariages-indiens` | `casamentos-indianos` | `indische-hochzeiten` | `matrimoni-indiani` |
-| `jewish-weddings` | `bodas-judias` | `mariages-juifs` | `casamentos-judaicos` | `juedische-hochzeiten` | `matrimoni-ebraici` |
-| `destination-wedding-planning` | `planificacion-bodas-destino` | `organisation-mariage-destination` | `planejamento-casamento-destino` | `destination-hochzeitsplanung` | `pianificazione-matrimonio-destinazione` |
-| `best-indian-wedding-venues-punta-cana` | `mejores-locaciones-bodas-indias-punta-cana` | `meilleurs-lieux-mariage-indien-punta-cana` | etc. | etc. | etc. |
+| EN                                      | ES                                           | FR                                          | PT                               | DE                             | IT                                       |
+| --------------------------------------- | -------------------------------------------- | ------------------------------------------- | -------------------------------- | ------------------------------ | ---------------------------------------- |
+| `indian-weddings`                       | `bodas-indias`                               | `mariages-indiens`                          | `casamentos-indianos`            | `indische-hochzeiten`          | `matrimoni-indiani`                      |
+| `jewish-weddings`                       | `bodas-judias`                               | `mariages-juifs`                            | `casamentos-judaicos`            | `juedische-hochzeiten`         | `matrimoni-ebraici`                      |
+| `destination-wedding-planning`          | `planificacion-bodas-destino`                | `organisation-mariage-destination`          | `planejamento-casamento-destino` | `destination-hochzeitsplanung` | `pianificazione-matrimonio-destinazione` |
+| `best-indian-wedding-venues-punta-cana` | `mejores-locaciones-bodas-indias-punta-cana` | `meilleurs-lieux-mariage-indien-punta-cana` | etc.                             | etc.                           | etc.                                     |
 
 ### Slug rules
 
@@ -139,13 +141,29 @@ For every public URL, hreflang tags must be emitted listing all locale alternati
 For an article at `/journal/best-indian-wedding-venues-punta-cana`:
 
 ```html
-<link rel="alternate" hreflang="en" href="https://greciamejiaweddings.com/journal/best-indian-wedding-venues-punta-cana" />
-<link rel="alternate" hreflang="es" href="https://greciamejiaweddings.com/es/diario/mejores-locaciones-bodas-indias-punta-cana" />
-<link rel="alternate" hreflang="fr" href="https://greciamejiaweddings.com/fr/journal/meilleurs-lieux-mariage-indien-punta-cana" />
+<link
+  rel="alternate"
+  hreflang="en"
+  href="https://greciamejiaweddings.com/journal/best-indian-wedding-venues-punta-cana"
+/>
+<link
+  rel="alternate"
+  hreflang="es"
+  href="https://greciamejiaweddings.com/es/diario/mejores-locaciones-bodas-indias-punta-cana"
+/>
+<link
+  rel="alternate"
+  hreflang="fr"
+  href="https://greciamejiaweddings.com/fr/journal/meilleurs-lieux-mariage-indien-punta-cana"
+/>
 <link rel="alternate" hreflang="pt" href="..." />
 <link rel="alternate" hreflang="de" href="..." />
 <link rel="alternate" hreflang="it" href="..." />
-<link rel="alternate" hreflang="x-default" href="https://greciamejiaweddings.com/journal/best-indian-wedding-venues-punta-cana" />
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href="https://greciamejiaweddings.com/journal/best-indian-wedding-venues-punta-cana"
+/>
 ```
 
 `x-default` always points to the English version.
@@ -169,18 +187,21 @@ For a dynamic page like `/destinations/punta-cana`:
 
 ```tsx
 // page.tsx
-const data = await getDestination(slug, locale)
+const data = await getDestination(slug, locale);
 return (
-  <DestinationDetailPage 
+  <DestinationDetailPage
     data={data}
-    translations={Object.fromEntries(data.translations.map(t => [t.language, t.slug]))}
+    translations={Object.fromEntries(
+      data.translations.map((t) => [t.language, t.slug]),
+    )}
   />
-)
+);
 ```
 
 The switcher then knows: "for IT, the slug is `punta-cana`; for ES, the slug is `punta-cana`."
 
 If a translation doesn't exist for a locale, the switcher should either:
+
 - Disable that locale option, OR
 - Link to the parent index page in that locale (`/it/destinazioni`)
 

@@ -34,15 +34,15 @@ Design language reference: Vogue Weddings × Aman Resorts × Architectural Diges
 
 Every doc in `.claude/` is authoritative for its domain. When in doubt, read the relevant file before answering or coding.
 
-| Doc | When to read |
-|---|---|
-| `file-structure.md` | Before creating any file — confirms where it goes |
-| `website-structure.md` | Before building routes, navigation, or sitemaps |
-| `design-vision.md` | Before any UI/styling work, color/typography/motion decisions |
-| `i18n-strategy.md` | Before any translation, locale routing, or hreflang work |
-| `seo-strategy.md` | Before writing blog content, internal linking, or schema markup |
-| `sanity-schema-guide.md` | Before creating/modifying any Sanity schema |
-| `content-model.md` | Before establishing relationships between content types |
+| Doc                      | When to read                                                    |
+| ------------------------ | --------------------------------------------------------------- |
+| `file-structure.md`      | Before creating any file — confirms where it goes               |
+| `website-structure.md`   | Before building routes, navigation, or sitemaps                 |
+| `design-vision.md`       | Before any UI/styling work, color/typography/motion decisions   |
+| `i18n-strategy.md`       | Before any translation, locale routing, or hreflang work        |
+| `seo-strategy.md`        | Before writing blog content, internal linking, or schema markup |
+| `sanity-schema-guide.md` | Before creating/modifying any Sanity schema                     |
+| `content-model.md`       | Before establishing relationships between content types         |
 
 Specialized skills live in `.claude/skills/` and slash commands in `.claude/commands/`.
 
@@ -51,7 +51,9 @@ Specialized skills live in `.claude/skills/` and slash commands in `.claude/comm
 ## Working principles
 
 ### 1. Server Components first
+
 Default every component to a Server Component. Only add `'use client'` when the component needs:
+
 - React state or effects
 - Browser-only APIs (window, localStorage — but see Tailwind 4 note below)
 - Event handlers (onClick, onChange — though `<form action={serverAction}>` doesn't require client)
@@ -60,34 +62,41 @@ Default every component to a Server Component. Only add `'use client'` when the 
 When a page needs partial interactivity, isolate the client component as a leaf — keep its parent server-side.
 
 ### 2. Async params and searchParams
+
 In Next.js 16, route params and searchParams are **Promises**. Always:
+
 ```tsx
 export default async function Page({
   params,
   searchParams,
 }: {
-  params: Promise<{ locale: string; slug: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const { locale, slug } = await params
-  const search = await searchParams
+  const { locale, slug } = await params;
+  const search = await searchParams;
   // ...
 }
 ```
 
 ### 3. Page-scoped components
+
 Components are organized **by page/domain**, not by type. See `file-structure.md` for the canonical pattern. Do not create `components/buttons/`, `components/cards/`, etc. — use `components/ui/` only for truly cross-page primitives.
 
 ### 4. Sanity is the source of truth for content
+
 Hardcoded copy in components is a bug. Editorial copy → Sanity. UI strings (button labels, form errors, nav items) → `messages/{locale}.json`. The rule: if a content editor would ever want to change it, it goes in Sanity.
 
 ### 5. Internal linking is a first-class concern
+
 Every blog article, venue page, destination page, and culture page must link to related content per the rules in `seo-strategy.md`. This is enforced by the `/check-internal-links` command and the `internal-linking` skill.
 
 ### 6. Multilingual from day one
+
 Never write a route without `[locale]`. Never write a schema without considering its localization strategy. Never write a `<Link>` without using the locale-aware navigation helpers. See `i18n-strategy.md`.
 
 ### 7. Performance is part of the design
+
 Core Web Vitals are non-negotiable. The cinematic feel must not cost LCP. Defer animation libraries, lazy-load below-the-fold imagery, prefer CSS over JS for transitions where possible, and never block the main thread with scroll handlers (Lenis handles this).
 
 ---

@@ -7,14 +7,14 @@
  * Run with:  npx tsx --env-file=.env.local src/sanity/migrations/cleanupSiteSettings.ts
  */
 
-import { createClient } from '@sanity/client'
+import { createClient } from "@sanity/client";
 
-import { apiVersion, dataset, projectId } from '../env'
+import { apiVersion, dataset, projectId } from "../env";
 
-const token = process.env.SANITY_API_WRITE_TOKEN
+const token = process.env.SANITY_API_WRITE_TOKEN;
 if (!token) {
-  console.error('Missing SANITY_API_WRITE_TOKEN env var.')
-  process.exit(1)
+  console.error("Missing SANITY_API_WRITE_TOKEN env var.");
+  process.exit(1);
 }
 
 const client = createClient({
@@ -23,38 +23,38 @@ const client = createClient({
   apiVersion,
   token,
   useCdn: false,
-})
+});
 
-const NEW_SINGLETON_ID = 'siteSettings'
+const NEW_SINGLETON_ID = "siteSettings";
 
 async function run() {
-  console.log(`Cleaning legacy siteSettings docs in ${dataset}/${projectId}…`)
+  console.log(`Cleaning legacy siteSettings docs in ${dataset}/${projectId}…`);
 
   // Find all siteSettings docs except the new singleton (covers drafts too).
   const stale: { _id: string }[] = await client.fetch(
     `*[_type == "siteSettings" && _id != $keep && !(_id in path("drafts." + $keep))]{ _id }`,
     { keep: NEW_SINGLETON_ID },
-  )
+  );
 
   // Find translation.metadata that references siteSettings.
   const meta: { _id: string }[] = await client.fetch(
     `*[_type == "translation.metadata" && "siteSettings" in schemaTypes]{ _id }`,
-  )
+  );
 
-  const ids = [...stale, ...meta].map((d) => d._id)
+  const ids = [...stale, ...meta].map((d) => d._id);
   if (ids.length === 0) {
-    console.log('Nothing to delete.')
-    return
+    console.log("Nothing to delete.");
+    return;
   }
 
-  console.log('Deleting:', ids)
-  const tx = client.transaction()
-  for (const id of ids) tx.delete(id)
-  await tx.commit()
-  console.log(`✓ Deleted ${ids.length} document(s).`)
+  console.log("Deleting:", ids);
+  const tx = client.transaction();
+  for (const id of ids) tx.delete(id);
+  await tx.commit();
+  console.log(`✓ Deleted ${ids.length} document(s).`);
 }
 
 run().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+  console.error(err);
+  process.exit(1);
+});

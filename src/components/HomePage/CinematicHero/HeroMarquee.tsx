@@ -1,18 +1,18 @@
 type HeroMarqueeProps = {
-  destinations: string[]
-}
+  destinations: string[];
+};
 
 export function HeroMarquee({ destinations }: HeroMarqueeProps) {
-  const doubled = [...destinations, ...destinations]
+  const doubled = [...destinations, ...destinations];
 
   return (
     <div
       className="relative hidden md:block h-[42px] overflow-hidden border-t border-b border-[rgba(212,186,140,0.18)] bg-[rgba(13,15,10,0.5)] backdrop-blur-[6px]"
       style={{
         maskImage:
-          'linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)',
+          "linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)",
         WebkitMaskImage:
-          'linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)',
+          "linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)",
       }}
     >
       <div
@@ -32,5 +32,5 @@ export function HeroMarquee({ destinations }: HeroMarqueeProps) {
         ))}
       </div>
     </div>
-  )
+  );
 }

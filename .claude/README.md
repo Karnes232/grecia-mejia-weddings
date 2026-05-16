@@ -65,31 +65,31 @@ When opening this repo in Cursor for the first time:
 
 ## Documentation map
 
-| Working on... | Read this |
-|---|---|
-| Where a file should go | `file-structure.md` |
-| Adding a route or page section | `website-structure.md` |
-| Any UI/styling decision | `design-vision.md` |
-| Translation, locale routing, hreflang | `i18n-strategy.md` |
-| Blog content, schema markup, link strategy | `seo-strategy.md` |
-| Sanity schemas | `sanity-schema-guide.md` |
-| Reference fields between content types | `content-model.md` |
-| Writing or reviewing copy | `skills/editorial-voice.md` |
-| Reviewing an article for SEO | `skills/internal-linking-checker.md` |
-| Translation workflows | `skills/translation-coordinator.md` |
+| Working on...                              | Read this                            |
+| ------------------------------------------ | ------------------------------------ |
+| Where a file should go                     | `file-structure.md`                  |
+| Adding a route or page section             | `website-structure.md`               |
+| Any UI/styling decision                    | `design-vision.md`                   |
+| Translation, locale routing, hreflang      | `i18n-strategy.md`                   |
+| Blog content, schema markup, link strategy | `seo-strategy.md`                    |
+| Sanity schemas                             | `sanity-schema-guide.md`             |
+| Reference fields between content types     | `content-model.md`                   |
+| Writing or reviewing copy                  | `skills/editorial-voice.md`          |
+| Reviewing an article for SEO               | `skills/internal-linking-checker.md` |
+| Translation workflows                      | `skills/translation-coordinator.md`  |
 
 ---
 
 ## Slash commands available
 
-| Command | Purpose |
-|---|---|
-| `/new-article` | Scaffold a new journal article with SEO matrix satisfied |
-| `/new-destination` | Scaffold a new destination page (sub-pillar) |
-| `/new-culture` | Scaffold a new multicultural culture page |
-| `/new-venue` | Scaffold a new venue page |
-| `/check-article` | Pre-publish checklist for an article |
-| `/check-internal-links` | Audit internal link health across the content graph |
+| Command                 | Purpose                                                  |
+| ----------------------- | -------------------------------------------------------- |
+| `/new-article`          | Scaffold a new journal article with SEO matrix satisfied |
+| `/new-destination`      | Scaffold a new destination page (sub-pillar)             |
+| `/new-culture`          | Scaffold a new multicultural culture page                |
+| `/new-venue`            | Scaffold a new venue page                                |
+| `/check-article`        | Pre-publish checklist for an article                     |
+| `/check-internal-links` | Audit internal link health across the content graph      |
 
 ---
 
@@ -114,6 +114,7 @@ In Cursor, open the repo and confirm `.claude/CLAUDE.md` is loaded into context.
 ### 3. Verify the tech stack assumptions
 
 The docs assume:
+
 - Next.js 16 (App Router, Turbopack)
 - React 19 (Server Components default)
 - Tailwind CSS 4 (CSS-first, NO `tailwind.config.ts`)
@@ -133,6 +134,7 @@ If any of these change, update `CLAUDE.md` and `settings.json` first.
 These docs are **living documentation**. They should change as the project evolves.
 
 **Update triggers:**
+
 - New page type added → update `website-structure.md` and `file-structure.md`
 - New content type added → update `sanity-schema-guide.md` and `content-model.md`
 - Design tokens shift → update `design-vision.md`
@@ -141,6 +143,7 @@ These docs are **living documentation**. They should change as the project evolv
 - Tech stack changes → update `CLAUDE.md` and `settings.json`
 
 **Update process:**
+
 1. Edit the relevant `.md` file
 2. Cross-check if other docs reference the changed information
 3. Commit the docs changes with the implementation that motivated them

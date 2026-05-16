@@ -129,6 +129,7 @@ Generate a markdown report:
 # Internal Link Audit — [DATE]
 
 ## Summary
+
 - Total articles: N
 - Total destinations: N
 - Total cultures: N
@@ -137,18 +138,23 @@ Generate a markdown report:
 - Issues found: N (Critical: X, High: Y, Medium: Z, Low: W)
 
 ## 🔴 Critical issues
+
 [List with article/document IDs, titles, and remediation]
 
 ## 🟠 High-priority issues
+
 [...]
 
 ## 🟡 Medium-priority issues
+
 [...]
 
 ## 🟢 Informational
+
 [...]
 
 ## Recommended actions
+
 1. [...]
 2. [...]
 ```

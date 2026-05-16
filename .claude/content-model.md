@@ -53,12 +53,14 @@ Each arrow represents a **Sanity reference**. Bidirectional flows are computed v
 The "where" of every wedding. Connects to everything else.
 
 **Outbound references:**
+
 - `relatedCultures[]` → Culture (which cultures work here)
 - `relatedVenues[]` → Venue (signature venues at this destination)
 - `relatedServices[]` → Service (services emphasized for this destination)
 - `featuredWedding` → Wedding (showcase)
 
 **Inbound references (queried in reverse):**
+
 - Articles referencing this destination
 - Cultures referencing this destination as compatible
 - Venues with this destination as their region
@@ -72,6 +74,7 @@ The "where" of every wedding. Connects to everything else.
 The "how" of multicultural weddings. Holds tradition expertise.
 
 **Outbound references:**
+
 - `compatibleDestinations[]` → Destination
 - `compatibleVenues[]` → Venue (venues that suit this culture well)
 - `commonInterfaithPairings[]` → Culture (e.g., Indian-Christian)
@@ -79,6 +82,7 @@ The "how" of multicultural weddings. Holds tradition expertise.
 - `featuredWedding` → Wedding
 
 **Inbound references:**
+
 - Articles referencing this culture
 - Destinations marking this culture as compatible
 - Venues marking this culture as workable
@@ -91,6 +95,7 @@ The "how" of multicultural weddings. Holds tradition expertise.
 A specific physical location where weddings happen.
 
 **Outbound references:**
+
 - `region` → VenueRegion (Punta Cana, Mallorca, etc.)
 - `compatibleCultures[]` → Culture (with optional ratings)
 - `nearbyVenues[]` → Venue (for alternative recommendations)
@@ -98,6 +103,7 @@ A specific physical location where weddings happen.
 - `weddings[]` → Wedding (computed: weddings held here)
 
 **Inbound references:**
+
 - Destinations featuring this venue
 - Cultures listing this venue as compatible
 - Articles referencing this venue
@@ -111,11 +117,13 @@ A specific physical location where weddings happen.
 A planning offering — destination wedding planning, design, etc.
 
 **Outbound references:**
+
 - `relatedDestinations[]` → Destination (top markets for this service)
 - `relatedCultures[]` → Culture (cultures this service especially supports)
 - `featuredCaseStudies[]` → Wedding
 
 **Inbound references:**
+
 - Articles linking to this service
 - Destinations highlighting this service
 - Cultures recommending this service
@@ -127,6 +135,7 @@ A planning offering — destination wedding planning, design, etc.
 A case study of a real wedding. The most prestigious content type.
 
 **Outbound references:**
+
 - `destination` → Destination (required)
 - `venue` → Venue (required)
 - `culture` → Culture (or `cultures[]` for interfaith)
@@ -134,6 +143,7 @@ A case study of a real wedding. The most prestigious content type.
 - `relatedArticles[]` → Article (articles inspired by or covering this wedding)
 
 **Inbound references:**
+
 - Articles referencing this wedding as a case study
 - Destinations featuring this wedding
 - Cultures featuring this wedding
@@ -147,16 +157,19 @@ A case study of a real wedding. The most prestigious content type.
 The cluster content that creates the dense link graph. Every article must reference:
 
 **Mandatory outbound:**
+
 - `relatedDestination` → Destination (required, 1)
 - `relatedService` → Service (required, 1)
 - `relatedArticles[]` → Article (required, 3–5)
 
 **Optional but encouraged outbound:**
+
 - `relatedCulture` → Culture (if topically relevant)
 - `relatedVenue` → Venue (if topically relevant)
 - `featuredWedding` → Wedding (if case-study-style)
 
 **Inbound references:**
+
 - All entities above pull in articles that reference them (via reverse-reference queries)
 
 ---
@@ -168,16 +181,18 @@ The matrix lives because **every relationship is queryable in both directions**.
 ### Pattern 1: Direct reference (Article → Destination)
 
 Article schema:
+
 ```ts
 defineField({
-  name: 'relatedDestination',
-  type: 'reference',
-  to: [{ type: 'destination' }],
+  name: "relatedDestination",
+  type: "reference",
+  to: [{ type: "destination" }],
   validation: (Rule) => Rule.required(),
-})
+});
 ```
 
 Article query:
+
 ```groq
 *[_type == "article" && slug.current == $slug][0] {
   ...,
@@ -193,7 +208,7 @@ When rendering a destination page, find all articles that reference it:
 *[_type == "destination" && slug.current == $slug && language == $locale][0] {
   ...,
   "relatedArticles": *[
-    _type == "article" 
+    _type == "article"
     && references(^._id)
     && language == ^.language
   ] | order(publishedAt desc) [0...6] {
@@ -231,7 +246,7 @@ In queries, **always filter by `language`** when traversing references, otherwis
 
 // ✅ Correct
 "articles": *[
-  _type == "article" 
+  _type == "article"
   && references(^._id)
   && language == ^.language
 ]
@@ -285,13 +300,13 @@ Some relationships could be either:
 
 Some content surfaces are entirely computed:
 
-| Surface | Computed via |
-|---|---|
+| Surface                             | Computed via                                                                                          |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------ |
 | "Related articles" on Article pages | Combination of explicit `relatedArticles` + algorithmic suggestions (same category, same destination) |
-| Trending articles | View count from analytics ingestion (future) |
-| Featured wedding on Home | `*[_type == "wedding" && featured == true]` |
-| Breadcrumbs | URL parsing + Sanity slug lookup |
-| Latest journal articles | `*[_type == "article"] | order(publishedAt desc)` |
+| Trending articles                   | View count from analytics ingestion (future)                                                          |
+| Featured wedding on Home            | `*[_type == "wedding" && featured == true]`                                                           |
+| Breadcrumbs                         | URL parsing + Sanity slug lookup                                                                      |
+| Latest journal articles             | `\*[_type == "article"]                                                                               | order(publishedAt desc)` |
 
 Always cache aggressively — these queries get hit on every render.
 
@@ -317,20 +332,24 @@ When tags arrive, they'll be a `tag` document type referenced from `Article.tags
 At each milestone, run validation queries to maintain link graph health:
 
 ### 100 articles
+
 - Every article has the required references → enforced by schema
 - Manual audit of internal link distribution
 
 ### 500 articles
+
 - Run `/check-internal-links` command
 - Identify orphan pages (no inbound article references)
 - Audit related-article distribution (no single article over-referenced)
 
 ### 1,000+ articles
+
 - Automated dashboard tracking link graph metrics
 - Per-pillar link-equity audit
 - Reciprocal reference checks (Destination → Article and Article → Destination)
 
 ### 5,000+ articles
+
 - Sharded sitemaps
 - Cluster-level performance audit
 - Consider introducing the tagging system

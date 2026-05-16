@@ -1,22 +1,27 @@
-import Image from 'next/image'
+import Image from "next/image";
 
-import { urlFor } from '@/sanity/lib/image'
-import type { SiteSettings } from '@/sanity/queries/layout'
+import { urlFor } from "@/sanity/lib/image";
+import type { SiteSettings } from "@/sanity/queries/layout";
 
 type LogoProps = {
-  brandName?: string
-  size?: number
-  logo?: SiteSettings['logo']
-}
+  brandName?: string;
+  size?: number;
+  logo?: SiteSettings["logo"];
+};
 
 export function Logo({
-  brandName = 'Grecia Mejía',
+  brandName = "Grecia Mejía",
   size = 104,
   logo,
 }: LogoProps) {
   const logoUrl = logo?.asset
-    ? urlFor(logo).width(size * 2).height(size * 2).fit('max').auto('format').url()
-    : null
+    ? urlFor(logo)
+        .width(size * 2)
+        .height(size * 2)
+        .fit("max")
+        .auto("format")
+        .url()
+    : null;
 
   return (
     <span className="flex items-center gap-3">
@@ -31,7 +36,5 @@ export function Logo({
         />
       ) : null}
     </span>
-  )
+  );
 }
-
-

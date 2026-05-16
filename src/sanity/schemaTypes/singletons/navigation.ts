@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from "sanity";
 
 // const NAV_KEYS = [
 //   { title: 'Home', value: 'home' },
@@ -12,23 +12,23 @@ import { defineField, defineType } from 'sanity'
 // ] as const
 
 export const navigation = defineType({
-  name: 'navigation',
-  title: 'Navigation',
-  type: 'document',
+  name: "navigation",
+  title: "Navigation",
+  type: "document",
   fields: [
     defineField({
-      name: 'language',
-      type: 'string',
+      name: "language",
+      type: "string",
       readOnly: true,
       hidden: true,
     }),
     defineField({
-      name: 'mainLinks',
-      title: 'Main navigation links',
-      type: 'array',
+      name: "mainLinks",
+      title: "Main navigation links",
+      type: "array",
       of: [
         {
-          type: 'object',
+          type: "object",
           fields: [
             // {
             //   name: 'key',
@@ -38,57 +38,60 @@ export const navigation = defineType({
             //   validation: (r) => r.required(),
             // },
             {
-              name: 'label',
-              title: 'Label',
-              type: 'string',
+              name: "label",
+              title: "Label",
+              type: "string",
               validation: (r) => r.required(),
             },
             {
-              name: 'href',
-              title: 'Href',
-              type: 'string',
-              description: 'Locale-relative path.',
+              name: "href",
+              title: "Href",
+              type: "string",
+              description: "Locale-relative path.",
               options: {
                 list: [
-                  { title: '/', value: '/' },
-                  { title: '/about', value: '/about' },
-                  { title: '/destinations', value: '/destinations' },
-                  { title: '/multicultural-weddings', value: '/multicultural-weddings' },
-                  { title: '/venues', value: '/venues' },
-                  { title: '/portfolio', value: '/portfolio' },
-                  { title: '/journal', value: '/journal' },
-                  { title: '/contact', value: '/contact' },
-                  { title: '/experience', value: '/experience' },
-                  { title: '/press', value: '/press' },
-                  { title: '/privacy', value: '/privacy' },
-                  { title: '/terms', value: '/terms' },
+                  { title: "/", value: "/" },
+                  { title: "/about", value: "/about" },
+                  { title: "/destinations", value: "/destinations" },
+                  {
+                    title: "/multicultural-weddings",
+                    value: "/multicultural-weddings",
+                  },
+                  { title: "/venues", value: "/venues" },
+                  { title: "/portfolio", value: "/portfolio" },
+                  { title: "/journal", value: "/journal" },
+                  { title: "/contact", value: "/contact" },
+                  { title: "/experience", value: "/experience" },
+                  { title: "/press", value: "/press" },
+                  { title: "/privacy", value: "/privacy" },
+                  { title: "/terms", value: "/terms" },
                 ],
               },
               validation: (r) => r.required(),
             },
           ],
           preview: {
-            select: { title: 'label', subtitle: 'href' },
+            select: { title: "label", subtitle: "href" },
           },
         },
       ],
     }),
     defineField({
-      name: 'cta',
-      title: 'CTA button',
-      type: 'object',
+      name: "cta",
+      title: "CTA button",
+      type: "object",
       fields: [
-        { name: 'label', type: 'string', title: 'Label' },
-        { name: 'href', type: 'string', title: 'Href' },
+        { name: "label", type: "string", title: "Label" },
+        { name: "href", type: "string", title: "Href" },
       ],
     }),
   ],
   preview: {
-    select: { language: 'language' },
+    select: { language: "language" },
     prepare: ({ language }) => ({
-      title: 'Navigation',
+      title: "Navigation",
       subtitle: language ? language.toUpperCase() : undefined,
-      media: '🧭',
+      media: "🧭",
     }),
   },
-})
+});
