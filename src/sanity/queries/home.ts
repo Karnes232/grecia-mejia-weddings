@@ -19,7 +19,21 @@ export const homePageQuery = groq`
       body,
       signature
     },
-    whereWeWork,
+    whereWeWork{
+      eyebrow,
+      headline,
+      intro,
+      viewAllLabel,
+      viewAllHref,
+      destinations[]{
+        name,
+        region,
+        tagline,
+        subLocations,
+        slug,
+        image{ ..., alt }
+      }
+    },
     featuredWedding,
     traditions,
     venuesConsidered,
@@ -67,7 +81,21 @@ export type HomePage = {
     body?: PortableTextBlock[];
     signature?: string;
   };
-  whereWeWork?: unknown;
+  whereWeWork?: {
+    eyebrow?: string;
+    headline?: string;
+    intro?: string;
+    viewAllLabel?: string;
+    viewAllHref?: string;
+    destinations?: Array<{
+      name?: string;
+      region?: string;
+      tagline?: string;
+      subLocations?: string;
+      slug?: string;
+      image?: SanityImage;
+    }>;
+  };
   featuredWedding?: unknown;
   traditions?: unknown;
   venuesConsidered?: unknown;

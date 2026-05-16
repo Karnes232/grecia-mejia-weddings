@@ -152,6 +152,12 @@ export const homePage = defineType({
         }),
         { name: "viewAllLabel", title: "View-all label", type: "string" },
         { name: "viewAllHref", title: "View-all href", type: "string" },
+        {
+          name: "intro",
+          title: "Intro paragraph (right of head)",
+          type: "text",
+          rows: 2,
+        },
         defineField({
           name: "destinations",
           title: "Featured destinations",
@@ -169,6 +175,20 @@ export const homePage = defineType({
                 },
                 { name: "name", title: "Name", type: "string" },
                 { name: "region", title: "Region", type: "string" },
+                {
+                  name: "tagline",
+                  title: "Tagline (eyebrow on card)",
+                  type: "string",
+                  description:
+                    'e.g. "Caribbean — Year-round" or "Italy — May to October".',
+                },
+                {
+                  name: "subLocations",
+                  title: "Sub-locations (small-caps line)",
+                  type: "string",
+                  description:
+                    'Separate with " · " — e.g. "Cap Cana · Casa de Campo · Bávaro".',
+                },
                 {
                   name: "slug",
                   title: "Slug (future destination doc)",

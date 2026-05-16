@@ -1,6 +1,10 @@
 import { setRequestLocale } from "next-intl/server";
 
-import { AtelierIntro, CinematicHero } from "@/components/HomePage";
+import {
+  AtelierIntro,
+  CinematicHero,
+  WhereWeWork,
+} from "@/components/HomePage";
 import { getHomePage, getHomePageMedia } from "@/sanity/queries/home";
 
 type HomePageProps = {
@@ -41,7 +45,11 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {home?.atelier?.headline ? <AtelierIntro atelier={home.atelier} /> : null}
 
-      {/* TODO: subsequent sections (Atlas, Featured, Cultures, Venues, Portfolio, Press, Testimonials, CTA). */}
+      {home?.whereWeWork?.headline ? (
+        <WhereWeWork data={home.whereWeWork} />
+      ) : null}
+
+      {/* TODO: subsequent sections (Featured, Cultures, Venues, Portfolio, Press, Testimonials, CTA). */}
     </>
   );
 }

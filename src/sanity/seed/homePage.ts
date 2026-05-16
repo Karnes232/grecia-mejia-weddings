@@ -166,16 +166,52 @@ const ATELIER: Record<
   },
 };
 
-const WHERE_WE_WORK: Record<Locale, { headline: string; viewAll: string }> = {
-  en: { headline: "Where we work.", viewAll: "View all destinations" },
-  es: { headline: "Dónde trabajamos.", viewAll: "Ver todos los destinos" },
-  fr: {
-    headline: "Où nous travaillons.",
-    viewAll: "Voir toutes les destinations",
+const WHERE_WE_WORK: Record<
+  Locale,
+  { eyebrow: string; headline: string; viewAll: string; intro: string }
+> = {
+  en: {
+    eyebrow: "Destinations",
+    headline: "*Where* we work.",
+    viewAll: "View all destinations",
+    intro:
+      "From Cap Cana to Lake Como — five regions, one studio, every wedding held in the same hand.",
   },
-  pt: { headline: "Onde trabalhamos.", viewAll: "Ver todos os destinos" },
-  de: { headline: "Wo wir arbeiten.", viewAll: "Alle Reiseziele ansehen" },
-  it: { headline: "Dove lavoriamo.", viewAll: "Vedi tutte le destinazioni" },
+  es: {
+    eyebrow: "Destinos",
+    headline: "*Dónde* trabajamos.",
+    viewAll: "Ver todos los destinos",
+    intro:
+      "De Cap Cana al Lago di Como — cinco regiones, un solo atelier, cada boda sostenida con la misma mano.",
+  },
+  fr: {
+    eyebrow: "Destinations",
+    headline: "*Où* nous travaillons.",
+    viewAll: "Voir toutes les destinations",
+    intro:
+      "De Cap Cana au lac de Côme — cinq régions, un seul atelier, chaque mariage tenu de la même main.",
+  },
+  pt: {
+    eyebrow: "Destinos",
+    headline: "*Onde* trabalhamos.",
+    viewAll: "Ver todos os destinos",
+    intro:
+      "De Cap Cana ao Lago de Como — cinco regiões, um único ateliê, cada casamento sustentado pela mesma mão.",
+  },
+  de: {
+    eyebrow: "Reiseziele",
+    headline: "*Wo* wir arbeiten.",
+    viewAll: "Alle Reiseziele ansehen",
+    intro:
+      "Von Cap Cana bis zum Comer See — fünf Regionen, ein Atelier, jede Hochzeit von derselben Hand getragen.",
+  },
+  it: {
+    eyebrow: "Destinazioni",
+    headline: "*Dove* lavoriamo.",
+    viewAll: "Vedi tutte le destinazioni",
+    intro:
+      "Da Cap Cana al Lago di Como — cinque regioni, un solo atelier, ogni matrimonio tenuto dalla stessa mano.",
+  },
 };
 
 const DESTINATIONS = [
@@ -185,6 +221,61 @@ const DESTINATIONS = [
   { slug: "mallorca", name: "Mallorca", region: "Spain" },
   { slug: "tulum", name: "Tulum", region: "Mexico" },
 ] as const;
+
+type DestinationSlug = (typeof DESTINATIONS)[number]["slug"];
+
+const DESTINATION_SUB_LOCATIONS: Record<DestinationSlug, string> = {
+  "punta-cana": "Cap Cana · Casa de Campo · Bávaro",
+  santorini: "Oia · Imerovigli · Fira",
+  provence: "Aix · Luberon · Côte d’Azur",
+  mallorca: "Palma · Sóller · Deià",
+  tulum: "Riviera Maya · Sian Ka’an · Holbox",
+};
+
+const DESTINATION_TAGLINES: Record<Locale, Record<DestinationSlug, string>> = {
+  en: {
+    "punta-cana": "Caribbean — Year-round",
+    santorini: "Greece — Late Spring",
+    provence: "France — Spring & Summer",
+    mallorca: "Spain — All seasons",
+    tulum: "Mexico — November to April",
+  },
+  es: {
+    "punta-cana": "Caribe — Todo el año",
+    santorini: "Grecia — Finales de primavera",
+    provence: "Francia — Primavera y verano",
+    mallorca: "España — Todo el año",
+    tulum: "México — Noviembre a abril",
+  },
+  fr: {
+    "punta-cana": "Caraïbes — Toute l’année",
+    santorini: "Grèce — Fin du printemps",
+    provence: "France — Printemps & été",
+    mallorca: "Espagne — Toutes saisons",
+    tulum: "Mexique — Novembre à avril",
+  },
+  pt: {
+    "punta-cana": "Caribe — Todo o ano",
+    santorini: "Grécia — Fim da primavera",
+    provence: "França — Primavera e verão",
+    mallorca: "Espanha — O ano todo",
+    tulum: "México — Novembro a abril",
+  },
+  de: {
+    "punta-cana": "Karibik — Ganzjährig",
+    santorini: "Griechenland — Später Frühling",
+    provence: "Frankreich — Frühling & Sommer",
+    mallorca: "Spanien — Ganzjährig",
+    tulum: "Mexiko — November bis April",
+  },
+  it: {
+    "punta-cana": "Caraibi — Tutto l’anno",
+    santorini: "Grecia — Tarda primavera",
+    provence: "Francia — Primavera & estate",
+    mallorca: "Spagna — Tutte le stagioni",
+    tulum: "Messico — Da novembre ad aprile",
+  },
+};
 
 const FEATURED: Record<
   Locale,
@@ -867,11 +958,19 @@ function buildDoc(locale: Locale) {
       signature: atelier.signature,
     },
     whereWeWork: {
+      eyebrow: where.eyebrow,
       headline: where.headline,
+      intro: where.intro,
       viewAllLabel: where.viewAll,
       viewAllHref: "/destinations",
       destinations: DESTINATIONS.map((d) =>
-        keyed({ name: d.name, region: d.region, slug: d.slug }),
+        keyed({
+          name: d.name,
+          region: d.region,
+          tagline: DESTINATION_TAGLINES[locale][d.slug],
+          subLocations: DESTINATION_SUB_LOCATIONS[d.slug],
+          slug: d.slug,
+        }),
       ),
     },
     featuredWedding: {
