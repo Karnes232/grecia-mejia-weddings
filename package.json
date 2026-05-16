@@ -10,6 +10,8 @@
     "seed:nav": "tsx --env-file=.env.local src/sanity/seed/navigation.ts",
     "seed:footer": "tsx --env-file=.env.local src/sanity/seed/footer.ts",
     "seed:settings": "tsx --env-file=.env.local src/sanity/seed/siteSettings.ts",
+    "seed:home": "tsx --env-file=.env.local src/sanity/seed/homePage.ts",
+    "seed:home-media": "tsx --env-file=.env.local src/sanity/seed/homePageMedia.ts",
     "migrate:cleanup-site-settings": "tsx --env-file=.env.local src/sanity/migrations/cleanupSiteSettings.ts"
   },
   "dependencies": {

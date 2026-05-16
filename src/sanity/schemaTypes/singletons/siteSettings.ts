@@ -13,11 +13,18 @@ export const siteSettings = defineType({
   name: 'siteSettings',
   title: 'Site Settings',
   type: 'document',
+  groups: [
+    { name: 'brand', title: 'Brand', default: true },
+    { name: 'footer', title: 'Footer' },
+    { name: 'contact', title: 'Contact & studios' },
+    { name: 'seo', title: 'SEO' },
+  ],
   fields: [
     defineField({
       name: 'brandName',
       title: 'Brand name',
       type: 'string',
+      group: 'brand',
       initialValue: 'Grecia Mejía',
       validation: (r) => r.required(),
     }),
@@ -25,6 +32,7 @@ export const siteSettings = defineType({
       name: 'logo',
       title: 'Logo',
       type: 'image',
+      group: 'brand',
       options: { hotspot: true },
       validation: (r) => r.required(),
       fields: [
@@ -43,6 +51,7 @@ export const siteSettings = defineType({
       description:
         'Displayed in the footer in place of the brand wordmark. Use a transparent PNG or SVG.',
       type: 'image',
+      group: 'footer',
       options: { hotspot: true },
       fields: [
         {
@@ -60,6 +69,7 @@ export const siteSettings = defineType({
       title: 'Footer signature paragraph',
       description: 'Translated per locale.',
       type: 'object',
+      group: 'footer',
       options: { collapsible: true, collapsed: false },
       fields: LOCALES.map(({ name, title }) =>
         defineField({
@@ -80,6 +90,7 @@ export const siteSettings = defineType({
       name: 'copyrightLine',
       title: 'Footer copyright line',
       type: 'string',
+      group: 'footer',
       description: 'Use {year} for the current year.',
       initialValue:
         '© {year} · Grecia Mejía Weddings · Curating timeless weddings since 2011',
@@ -89,6 +100,7 @@ export const siteSettings = defineType({
       name: 'contact',
       title: 'Contact',
       type: 'object',
+      group: 'contact',
       fields: [
         { name: 'phone', type: 'string', title: 'Phone', validation: (r) => r.required() },
         { name: 'email', type: 'string', title: 'Email', validation: (r) => r.required() },
@@ -100,6 +112,7 @@ export const siteSettings = defineType({
       name: 'studios',
       title: 'Studios',
       type: 'array',
+      group: 'contact',
       of: [
         {
           type: 'object',
@@ -120,6 +133,7 @@ export const siteSettings = defineType({
       name: 'defaultOgImage',
       title: 'Default OG image',
       type: 'image',
+      group: 'seo',
     }),
   ],
   preview: {

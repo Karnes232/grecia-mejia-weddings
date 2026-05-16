@@ -14,7 +14,7 @@ import { apiVersion, dataset, projectId } from './src/sanity/env'
 import { schema } from './src/sanity/schemaTypes'
 import { structure } from './src/sanity/structure'
 import { media } from "sanity-plugin-media"
-const LOCALIZED_TYPES = ['navigation', 'footer']
+const LOCALIZED_TYPES = ['navigation', 'footer', 'homePage']
 
 export default defineConfig({
   basePath: '/studio',
