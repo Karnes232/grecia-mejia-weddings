@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "cta": "Consulta Privada",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "languageLabel": "Idioma"
+  },
+  "footer": {
+    "languageLabel": "Idiomas"
+  }
+}

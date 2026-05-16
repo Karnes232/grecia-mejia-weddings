@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "cta": "Privates Gespräch",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "languageLabel": "Sprache"
+  },
+  "footer": {
+    "languageLabel": "Sprachen"
+  }
+}

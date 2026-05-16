@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "project": {
+    "name": "grecia-mejia-weddings",
+    "description": "Luxury wedding planning platform — Next.js 16, Sanity CMS, six locales, SEO authority ecosystem"
+  },
+  "context": {
+    "primaryInstructionFile": ".claude/CLAUDE.md",
+    "alwaysInclude": [
+      ".claude/CLAUDE.md",
+      ".claude/file-structure.md",
+      ".claude/website-structure.md"
+    ],
+    "loadOnDemand": [
+      ".claude/design-vision.md",
+      ".claude/i18n-strategy.md",
+      ".claude/seo-strategy.md",
+      ".claude/sanity-schema-guide.md",
+      ".claude/content-model.md"
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(src/**)",
+      "Write(messages/**)",
+      "Write(public/**)",
+      "Write(.claude/**)",
+      "Write(*.md)",
+      "Write(*.ts)",
+      "Write(*.tsx)",
+      "Write(*.json)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run typecheck:*)",
+      "Bash(npx sanity:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [
+      "Write(.env*)",
+      "Write(node_modules/**)",
+      "Write(.next/**)",
+      "Write(.netlify/**)",
+      "Bash(rm -rf:*)",
+      "Bash(git push:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(npm publish:*)"
+    ],
+    "ask": [
+      "Bash(git checkout:*)",
+      "Bash(git branch -D:*)",
+      "Write(sanity.config.ts)",
+      "Write(next.config.ts)",
+      "Write(package.json)"
+    ]
+  },
+  "conventions": {
+    "language": "TypeScript",
+    "framework": "Next.js 16 (App Router, Turbopack)",
+    "react": "19",
+    "cms": "Sanity",
+    "styling": "Tailwind CSS 4 (CSS-first, @theme in globals.css)",
+    "i18n": "next-intl",
+    "forms": "Netlify Forms",
+    "animation": "Framer Motion + Lenis",
+    "fonts": "next/font/google (Cormorant Garamond, Inter, Pinyon Script)",
+    "componentOrganization": "by page/domain (see file-structure.md)",
+    "defaultComponentType": "Server Component",
+    "clientComponentRule": "Only when state, effects, browser APIs, or client libraries are required"
+  },
+  "locales": {
+    "default": "en",
+    "supported": ["en", "es", "fr", "pt", "de", "it"],
+    "routingStrategy": "as-needed (default locale unprefixed, others prefixed)",
+    "sanityLocalization": "document-level (@sanity/document-internationalization)"
+  },
+  "scale": {
+    "targetArticleCount": "3000-10000",
+    "renderingStrategy": "ISR with on-demand revalidation; generateStaticParams for popular content only",
+    "sitemapStrategy": "index pattern, split by section when >10000 URLs"
+  }
+}

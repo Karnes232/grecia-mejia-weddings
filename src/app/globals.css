@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ── Colors (The Edition palette) ─────────────────────────── */
+  --color-ivory: #f5f0e6;
+  --color-cream: #ebe3d3;
+  --color-sand: #d9cdb6;
+  --color-olive: #4a523d;
+  --color-olive-dk: #2f3527;
+  --color-sage: #a7a78b;
+  --color-gold: #b89968;
+  --color-gold-soft: #cbb38a;
+  --color-ink: #1c1c18;
+  --color-muted: #7a7568;
+  --color-rule: #d6cdb8;
+
+  /* Footer-only tokens (dark surface) */
+  --color-footer-text: #d4cdb8;
+  --color-footer-heading: #d4ba8c;
+  --color-footer-muted: #a8a293;
+
+  /* ── Fonts ────────────────────────────────────────────────── */
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-script: var(--font-script);
+
+  /* ── Tracking presets (Edition uses very wide eyebrows) ───── */
+  --tracking-eyebrow: 0.28em;
+  --tracking-wide-eyebrow: 0.32em;
+
+  /* ── Motion ───────────────────────────────────────────────── */
+  --ease-silk: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --duration-fast: 400ms;
+  --duration-medium: 900ms;
+  --duration-cinematic: 1400ms;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.005em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility tracking-eyebrow {
+  letter-spacing: var(--tracking-eyebrow);
+}
+
+@utility tracking-wide-eyebrow {
+  letter-spacing: var(--tracking-wide-eyebrow);
 }
