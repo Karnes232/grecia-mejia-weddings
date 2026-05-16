@@ -51,9 +51,18 @@ export const homePage = defineType({
       options: { collapsible: true, collapsed: false },
       fields: [
         defineField({
+          name: 'overline',
+          title: 'Eyebrow / overline',
+          type: 'string',
+          description:
+            'Small-caps line between gold hairlines above the headline.',
+        }),
+        defineField({
           name: 'headline',
           title: 'Headline',
           type: 'string',
+          description:
+            'Use *word* for italic-gold accents (e.g. The *art* of the *destination* wedding.).',
           validation: (r) => r.required(),
         }),
         defineField({

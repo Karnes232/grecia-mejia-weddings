@@ -1,0 +1,83 @@
+import { groq } from 'next-sanity'
+
+import { client } from '../lib/client'
+import { fetchWithFallback } from './layout'
+
+export const homePageQuery = groq`
+  *[_type == "homePage" && language == $locale][0]{
+    hero{
+      overline,
+      headline,
+      subheadline,
+      primaryCta,
+      secondaryCta
+    },
+    atelier,
+    whereWeWork,
+    featuredWedding,
+    traditions,
+    venuesConsidered,
+    recentWeddings,
+    testimonials,
+    journeyCta
+  }
+`
+
+export const homePageMediaQuery = groq`
+  *[_id == "homePageMedia"][0]{
+    hero{
+      image{ ..., alt }
+    },
+    marqueeDestinations,
+    featuredWedding{
+      image{ ..., alt }
+    },
+    recentWeddings{
+      images[]{ ..., alt, caption }
+    }
+  }
+`
+
+type SanityImage = {
+  asset?: { _ref: string; _type: 'reference' }
+  alt?: string
+  hotspot?: { x: number; y: number; height: number; width: number }
+  crop?: { top: number; bottom: number; left: number; right: number }
+}
+
+type Link = { label?: string; href?: string }
+
+export type HomePage = {
+  hero?: {
+    overline?: string
+    headline?: string
+    subheadline?: string
+    primaryCta?: Link
+    secondaryCta?: Link
+  }
+  atelier?: unknown
+  whereWeWork?: unknown
+  featuredWedding?: unknown
+  traditions?: unknown
+  venuesConsidered?: unknown
+  recentWeddings?: { eyebrow?: string; headline?: string }
+  testimonials?: unknown
+  journeyCta?: unknown
+}
+
+export type HomePageMedia = {
+  hero?: { image?: SanityImage }
+  marqueeDestinations?: string[]
+  featuredWedding?: { image?: SanityImage }
+  recentWeddings?: {
+    images?: Array<SanityImage & { caption?: string }>
+  }
+}
+
+export function getHomePage(locale: string) {
+  return fetchWithFallback<HomePage>(homePageQuery, locale)
+}
+
+export function getHomePageMedia() {
+  return client.fetch<HomePageMedia | null>(homePageMediaQuery)
+}

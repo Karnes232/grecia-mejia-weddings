@@ -31,6 +31,15 @@ export const homePageMedia = defineType({
       ],
     }),
     defineField({
+      name: 'marqueeDestinations',
+      title: 'Marquee destinations (bottom strip)',
+      type: 'array',
+      of: [defineArrayMember({ type: 'string' })],
+      validation: (r) => r.required(),
+      description:
+        'Italic names that scroll across the bottom of the hero. Shared across all languages. Leave empty to use the default set.',
+    }),
+    defineField({
       name: 'featuredWedding',
       title: 'Featured wedding',
       type: 'object',

@@ -82,7 +82,7 @@ function isEmpty(value: unknown): boolean {
  * field that's missing/empty (null, '', []) the English value fills in.
  * If the locale document doesn't exist at all, the English document is returned.
  */
-async function fetchWithFallback<T extends Record<string, unknown>>(
+export async function fetchWithFallback<T extends Record<string, unknown>>(
   query: string,
   locale: string,
 ): Promise<T | null> {

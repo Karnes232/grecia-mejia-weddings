@@ -43,48 +43,63 @@ const keyed = <T extends object>(value: T) => ({ _key: randomUUID(), ...value })
 
 // ── Copy ────────────────────────────────────────────────────────────────
 
-const HERO: Record<Locale, { headline: string; subheadline: string; primary: string; secondary: string }> = {
+const HERO: Record<
+  Locale,
+  {
+    overline: string
+    headline: string
+    subheadline: string
+    primary: string
+    secondary: string
+  }
+> = {
   en: {
-    headline: 'The art of the destination wedding.',
+    overline: 'An atelier for destination & multicultural weddings',
+    headline: 'The *art* of the *destination* wedding.',
     subheadline:
       'Curating timeless multicultural celebrations across Punta Cana, the Caribbean and the wider world.',
-    primary: 'Book your call',
-    secondary: 'View destinations',
+    primary: 'Begin your wedding journey →',
+    secondary: 'View the portfolio',
   },
   es: {
-    headline: 'El arte de la boda de destino.',
+    overline: 'Un atelier para bodas de destino y multiculturales',
+    headline: 'El *arte* de la boda de *destino*.',
     subheadline:
       'Curamos celebraciones multiculturales atemporales en Punta Cana, el Caribe y el mundo.',
-    primary: 'Agenda tu llamada',
-    secondary: 'Ver destinos',
+    primary: 'Comienza tu camino nupcial →',
+    secondary: 'Ver el portafolio',
   },
   fr: {
-    headline: 'L’art du mariage en destination.',
+    overline: 'Un atelier pour mariages en destination & multiculturels',
+    headline: 'L’*art* du mariage en *destination*.',
     subheadline:
       'Nous orchestrons des célébrations multiculturelles intemporelles à Punta Cana, dans les Caraïbes et à travers le monde.',
-    primary: 'Réservez votre appel',
-    secondary: 'Voir les destinations',
+    primary: 'Commencez votre chemin nuptial →',
+    secondary: 'Voir le portfolio',
   },
   pt: {
-    headline: 'A arte do casamento em destino.',
+    overline: 'Um ateliê para casamentos em destino e multiculturais',
+    headline: 'A *arte* do casamento em *destino*.',
     subheadline:
       'Curadoria de celebrações multiculturais atemporais em Punta Cana, no Caribe e pelo mundo.',
-    primary: 'Agende sua ligação',
-    secondary: 'Ver destinos',
+    primary: 'Comece sua jornada nupcial →',
+    secondary: 'Ver o portfólio',
   },
   de: {
-    headline: 'Die Kunst der Destination-Hochzeit.',
+    overline: 'Ein Atelier für Destination- und multikulturelle Hochzeiten',
+    headline: 'Die *Kunst* der *Destination*-Hochzeit.',
     subheadline:
       'Wir kuratieren zeitlose multikulturelle Feiern in Punta Cana, der Karibik und weltweit.',
-    primary: 'Gespräch buchen',
-    secondary: 'Reiseziele entdecken',
+    primary: 'Beginnen Sie Ihre Hochzeitsreise →',
+    secondary: 'Portfolio ansehen',
   },
   it: {
-    headline: 'L’arte del matrimonio di destinazione.',
+    overline: 'Un atelier per matrimoni di destinazione e multiculturali',
+    headline: 'L’*arte* del matrimonio di *destinazione*.',
     subheadline:
       'Curiamo celebrazioni multiculturali senza tempo a Punta Cana, nei Caraibi e in tutto il mondo.',
-    primary: 'Prenota la tua chiamata',
-    secondary: 'Scopri le destinazioni',
+    primary: 'Inizia il tuo viaggio nuziale →',
+    secondary: 'Vedi il portfolio',
   },
 }
 
@@ -566,10 +581,11 @@ function buildDoc(locale: Locale) {
 
   return {
     hero: {
+      overline: hero.overline,
       headline: hero.headline,
       subheadline: hero.subheadline,
       primaryCta: { label: hero.primary, href: '/contact' },
-      secondaryCta: { label: hero.secondary, href: '/destinations' },
+      secondaryCta: { label: hero.secondary, href: '/portfolio' },
     },
     atelier: {
       eyebrow: atelier.eyebrow,

@@ -32,10 +32,29 @@ const client = createClient({
 
 const SINGLETON_ID = 'homePageMedia'
 
+const DEFAULT_MARQUEE = [
+  'Punta Cana',
+  'Amalfi',
+  'Provence',
+  'Santorini',
+  'Mallorca',
+  "Cap d'Antibes",
+  'Mustique',
+  'Lake Como',
+  'Tuscany',
+  'Mykonos',
+  'St. Barths',
+  'Tulum',
+  'Marrakech',
+  'Hamptons',
+  'Aspen',
+]
+
 const doc = {
   _id: SINGLETON_ID,
   _type: 'homePageMedia',
   hero: {},
+  marqueeDestinations: DEFAULT_MARQUEE,
   featuredWedding: {},
   recentWeddings: { images: [] },
 }

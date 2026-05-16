@@ -19,6 +19,12 @@
   --color-footer-heading: #d4ba8c;
   --color-footer-muted: #a8a293;
 
+  /* Cinematic-hero tokens (dark cover) */
+  --color-cine-bg: #0d0f0a;
+  --color-cine-gold: #d4ba8c;
+  --color-cine-sage: #d4cdb8;
+  --color-cine-ivory: #e8e0c8;
+
   /* ── Fonts ────────────────────────────────────────────────── */
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
@@ -61,4 +67,40 @@
 
 @utility tracking-wide-eyebrow {
   letter-spacing: var(--tracking-wide-eyebrow);
+}
+
+/* ── Cinematic-hero keyframes ───────────────────────────────── */
+@keyframes ken-burns {
+  from { transform: scale(1.04) translate(0, 0); }
+  to { transform: scale(1.12) translate(-1.5%, -2%); }
+}
+@keyframes corner-in {
+  from { opacity: 0; transform: scale(1.4); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes headline-rise {
+  from { opacity: 0; transform: translateY(40px); filter: blur(8px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes deck-fade {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes scroll-cue {
+  0% { transform: translateY(0); }
+  60% { transform: translateY(72px); }
+  100% { transform: translateY(72px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-cine-anim] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
