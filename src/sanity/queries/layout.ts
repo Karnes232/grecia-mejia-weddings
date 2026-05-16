@@ -6,7 +6,7 @@ export const siteSettingsQuery = groq`
   *[_type == "siteSettings"][0]{
     brandName,
     logo{ ..., alt },
-    tagline,
+    footerLogo{ ..., alt },
     "signatureParagraph": coalesce(signatureParagraph[$locale], signatureParagraph.en),
     copyrightLine,
     contact,
@@ -39,7 +39,12 @@ export type SiteSettings = {
     hotspot?: { x: number; y: number; height: number; width: number }
     crop?: { top: number; bottom: number; left: number; right: number }
   }
-  tagline?: string
+  footerLogo?: {
+    asset?: { _ref: string; _type: 'reference' }
+    alt?: string
+    hotspot?: { x: number; y: number; height: number; width: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
+  }
   signatureParagraph?: string
   copyrightLine?: string
   contact?: {

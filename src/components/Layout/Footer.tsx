@@ -1,5 +1,8 @@
+import Image from 'next/image'
+
 import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
+import { urlFor } from '@/sanity/lib/image'
 import type { FooterData, SiteSettings } from '@/sanity/queries/layout'
 
 import { DEFAULT_FOOTER, DEFAULT_SETTINGS } from './defaults'
@@ -33,6 +36,10 @@ function resolveHref(
 export function Footer({ footer, settings, locale }: FooterProps) {
   const columns = footer?.columns?.length ? footer.columns : DEFAULT_FOOTER.columns
   const brandName = settings?.brandName ?? DEFAULT_SETTINGS.brandName!
+  const footerLogo = settings?.footerLogo
+  const footerLogoUrl = footerLogo?.asset
+    ? urlFor(footerLogo).width(560).fit('max').auto('format').url()
+    : null
   const signature =
     settings?.signatureParagraph ?? DEFAULT_SETTINGS.signatureParagraph
   const copyrightTemplate =
@@ -46,9 +53,19 @@ export function Footer({ footer, settings, locale }: FooterProps) {
     <footer className="bg-ink text-footer-text px-6 pt-20 pb-8 md:px-14">
       <div className="mx-auto mb-16 grid max-w-[1400px] gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr]">
         <div>
-          <span className="block font-script text-[46px] leading-none text-footer-heading">
-            {brandName}
-          </span>
+          {footerLogoUrl ? (
+            <Image
+              src={footerLogoUrl}
+              alt={footerLogo?.alt ?? brandName}
+              width={280}
+              height={120}
+              className="h-auto w-[220px] object-contain"
+            />
+          ) : (
+            <span className="block font-script text-[46px] leading-none text-footer-heading">
+              {brandName}
+            </span>
+          )}
           {signature ? (
             <p className="mt-5 max-w-[30ch] text-[13px] leading-relaxed text-footer-muted">
               {signature}

@@ -35,7 +35,6 @@ export function Navbar({
     ? navigation.cta
     : { ...DEFAULT_NAV.cta, label: labels.cta }
   const brandName = settings?.brandName ?? DEFAULT_SETTINGS.brandName
-  const tagline = settings?.tagline ?? DEFAULT_SETTINGS.tagline
 
   const brand = (
     <Link
@@ -43,35 +42,38 @@ export function Navbar({
       className="flex items-center gap-3 text-ink no-underline"
       aria-label={brandName}
     >
-      <Logo brandName={brandName} tagline={tagline} logo={settings?.logo} />
+      <Logo brandName={brandName} logo={settings?.logo} />
     </Link>
   )
 
-  const desktop = (
+  const desktopCenter = (
     <>
-      <nav className="flex items-center gap-8" aria-label="Primary">
-        {links.map((l) => (
-          <Link
-            key={l.key}
-            href={l.href as never}
-            className={clsx(
-              'pb-1 text-[11px] uppercase tracking-eyebrow text-ink no-underline',
-              'border-b border-transparent transition-colors duration-200',
-              'hover:text-olive hover:border-gold',
-              activeKey === l.key && 'text-olive border-gold',
-            )}
-          >
-            {l.label}
-          </Link>
-        ))}
-      </nav>
+      {links.map((l) => (
+        <Link
+          key={l.key}
+          href={l.href as never}
+          className={clsx(
+            'text-[11px] uppercase tracking-eyebrow text-ink no-underline',
+            'border-b border-transparent transition-colors duration-200',
+            'hover:text-olive hover:border-gold',
+            activeKey === l.key && 'text-olive border-gold',
+          )}
+        >
+          {l.label}
+        </Link>
+      ))}
+    </>
+  )
+
+  const desktopRight = (
+    <>
       <LanguageSwitcher currentLocale={locale} variant="inline" />
       {cta?.href ? (
         <Link
           href={cta.href as never}
           className={clsx(
             'inline-block border border-olive px-[18px] py-[10px] text-[10px] uppercase tracking-wide-eyebrow text-olive no-underline transition-colors duration-300',
-            'hover:bg-olive hover:text-ivory',
+            'hover:bg-olive hover:text-ivory ',
           )}
         >
           {cta.label}
@@ -113,7 +115,8 @@ export function Navbar({
 
   return (
     <NavbarShell
-      desktop={desktop}
+      desktopCenter={desktopCenter}
+      desktopRight={desktopRight}
       brand={brand}
       mobileMenu={mobileMenu}
       openLabel={labels.openMenu}

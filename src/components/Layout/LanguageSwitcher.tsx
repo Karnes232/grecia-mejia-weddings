@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useParams } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
 import { usePathname, useRouter } from '@/i18n/navigation'
@@ -25,10 +26,16 @@ export function LanguageSwitcher({
 }: LanguageSwitcherProps) {
   const pathname = usePathname()
   const router = useRouter()
+  const params = useParams()
 
   const select = (target: Locale) => {
     if (target === currentLocale) return
-    router.replace(pathname, { locale: target })
+    router.replace(
+      // Pathname may be a dynamic-segment key (e.g. "/venues/[region]/[venue]");
+      // next-intl requires { pathname, params } in that case. Passing both unconditionally is safe.
+      { pathname, params } as never,
+      { locale: target },
+    )
   }
 
   if (variant === 'footer') {

@@ -8,7 +8,8 @@ import { useEffect, useRef, useState } from 'react'
 import { usePathname } from '@/i18n/navigation'
 
 type NavbarShellProps = {
-  desktop: React.ReactNode
+  desktopCenter: React.ReactNode
+  desktopRight: React.ReactNode
   brand: React.ReactNode
   mobileMenu: React.ReactNode
   openLabel: string
@@ -16,7 +17,8 @@ type NavbarShellProps = {
 }
 
 export function NavbarShell({
-  desktop,
+  desktopCenter,
+  desktopRight,
   brand,
   mobileMenu,
   openLabel,
@@ -83,17 +85,23 @@ export function NavbarShell({
           'data-[visible=false]:-translate-y-full',
         )}
       >
-        <div className="flex items-center gap-12 px-6 py-5 md:px-14 md:py-6">
-          {brand}
-          <div className="ml-auto hidden lg:flex items-center gap-6">
-            {desktop}
+        <div className="flex items-center px-6 py-5 md:px-14 md:py-6">
+          <div className="flex-1 flex items-center">{brand}</div>
+          <nav
+            aria-label="Primary"
+            className="hidden xl:flex items-center justify-center gap-8"
+          >
+            {desktopCenter}
+          </nav>
+          <div className="hidden xl:flex xl:ml-4 flex-1 items-center justify-end gap-6">
+            {desktopRight}
           </div>
           <button
             type="button"
             aria-label={open ? closeLabel : openLabel}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="ml-auto inline-flex h-10 w-10 items-center justify-center text-ink lg:hidden"
+            className="ml-auto inline-flex h-10 w-10 items-center justify-center text-ink xl:hidden"
           >
             {open ? <X size={20} strokeWidth={1} /> : <Menu size={20} strokeWidth={1} />}
           </button>

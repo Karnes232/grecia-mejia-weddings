@@ -26,20 +26,34 @@ export const siteSettings = defineType({
       title: 'Logo',
       type: 'image',
       options: { hotspot: true },
+      validation: (r) => r.required(),
       fields: [
         {
           name: 'alt',
           type: 'string',
           title: 'Alt text',
           description: 'Used for accessibility and SEO.',
+          validation: (r) => r.required(),
         },
       ],
     }),
     defineField({
-      name: 'tagline',
-      title: 'Tagline (under wordmark)',
-      type: 'string',
-      initialValue: 'Weddings · Since 2011',
+      name: 'footerLogo',
+      title: 'Footer logo',
+      description:
+        'Displayed in the footer in place of the brand wordmark. Use a transparent PNG or SVG.',
+      type: 'image',
+      options: { hotspot: true },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alt text',
+          description: 'Used for accessibility and SEO.',
+          validation: (r) => r.required(),
+        },
+      ],
+      validation: (r) => r.required(),
     }),
     defineField({
       name: 'signatureParagraph',
@@ -53,6 +67,7 @@ export const siteSettings = defineType({
           title,
           type: 'text',
           rows: 3,
+          validation: (r) => r.required(),
         }),
       ),
       validation: (r) =>
@@ -68,16 +83,17 @@ export const siteSettings = defineType({
       description: 'Use {year} for the current year.',
       initialValue:
         '© {year} · Grecia Mejía Weddings · Curating timeless weddings since 2011',
+      validation: (r) => r.required(),
     }),
     defineField({
       name: 'contact',
       title: 'Contact',
       type: 'object',
       fields: [
-        { name: 'phone', type: 'string', title: 'Phone' },
-        { name: 'email', type: 'string', title: 'Email' },
-        { name: 'whatsappUrl', type: 'url', title: 'WhatsApp URL' },
-        { name: 'instagramUrl', type: 'url', title: 'Instagram URL' },
+        { name: 'phone', type: 'string', title: 'Phone', validation: (r) => r.required() },
+        { name: 'email', type: 'string', title: 'Email', validation: (r) => r.required() },
+        { name: 'whatsappUrl', type: 'url', title: 'WhatsApp URL', validation: (r) => r.required() },
+        { name: 'instagramUrl', type: 'url', title: 'Instagram URL', validation: (r) => r.required() },
       ],
     }),
     defineField({

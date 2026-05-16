@@ -53,7 +53,7 @@ export const navigation = defineType({
                   { title: '/', value: '/' },
                   { title: '/about', value: '/about' },
                   { title: '/destinations', value: '/destinations' },
-                  { title: '/multicultural', value: '/multicultural' },
+                  { title: '/multicultural-weddings', value: '/multicultural-weddings' },
                   { title: '/venues', value: '/venues' },
                   { title: '/portfolio', value: '/portfolio' },
                   { title: '/journal', value: '/journal' },

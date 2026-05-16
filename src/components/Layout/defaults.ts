@@ -55,7 +55,6 @@ export const DEFAULT_FOOTER: Required<Pick<FooterData, 'columns'>> = {
 
 export const DEFAULT_SETTINGS: SiteSettings = {
   brandName: 'Grecia Mejía',
-  tagline: 'Weddings · Since 2011',
   signatureParagraph:
     'Curating timeless multicultural destination weddings across Punta Cana, the Caribbean and the world.',
   copyrightLine:

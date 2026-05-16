@@ -42,7 +42,6 @@ const doc = {
   _id: SINGLETON_ID,
   _type: 'siteSettings',
   brandName: 'Grecia Mejía',
-  tagline: 'Weddings · Since 2011',
   signatureParagraph: SIGNATURE_PARAGRAPH,
   copyrightLine:
     '© {year} · Grecia Mejía Weddings · Curating timeless weddings since 2011',

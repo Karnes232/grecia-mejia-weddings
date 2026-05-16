@@ -5,14 +5,12 @@ import type { SiteSettings } from '@/sanity/queries/layout'
 
 type LogoProps = {
   brandName?: string
-  tagline?: string
   size?: number
   logo?: SiteSettings['logo']
 }
 
 export function Logo({
   brandName = 'Grecia Mejía',
-  tagline = 'Weddings · Since 2011',
   size = 104,
   logo,
 }: LogoProps) {
@@ -32,16 +30,6 @@ export function Logo({
           priority
         />
       ) : null}
-      {/* <span className="leading-none">
-        <span className="block font-serif italic text-[22px] leading-none tracking-[0.01em] text-olive">
-          {brandName}
-        </span>
-        {tagline ? (
-          <span className="mt-1 block text-[9px] uppercase tracking-wide-eyebrow text-muted">
-            {tagline}
-          </span>
-        ) : null}
-      </span> */}
     </span>
   )
 }
