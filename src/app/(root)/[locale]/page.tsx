@@ -25,7 +25,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <CinematicHero
           hero={hero}
           image={heroImage}
-          marqueeDestinations={media?.marqueeDestinations}
+          marqueeDestinations={media?.marqueeDestinations ?? []}
         />
       ) : (
         <div className="mx-auto max-w-[1100px] px-6 py-32 md:px-14">

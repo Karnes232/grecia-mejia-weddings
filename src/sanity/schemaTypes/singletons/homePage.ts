@@ -7,17 +7,37 @@ const altField = {
   description: 'Used for accessibility and SEO.',
 }
 
-const linkObject = (name: string, title: string) =>
+type LinkObjectOptions = {
+  /** Require the whole CTA object to be filled in */
+  required?: boolean
+  /** Require label only (defaults to `required` when omitted) */
+  labelRequired?: boolean
+  /** Require href only (defaults to `required` when omitted) */
+  hrefRequired?: boolean
+}
+const linkObject = (name: string, title: string, options?: LinkObjectOptions) =>
   defineField({
     name,
     title,
     type: 'object',
+    validation: (rule) => (options?.required ? rule.required() : rule),
     fields: [
-      { name: 'label', type: 'string', title: 'Label' },
-      { name: 'href', type: 'string', title: 'Href' },
+      defineField({
+        name: 'label',
+        type: 'string',
+        title: 'Label',
+        validation: (rule) =>
+          options?.labelRequired ?? options?.required ? rule.required() : rule,
+      }),
+      defineField({
+        name: 'href',
+        type: 'string',
+        title: 'Href',
+        validation: (rule) =>
+          options?.hrefRequired ?? options?.required ? rule.required() : rule,
+      }),
     ],
   })
-
 export const homePage = defineType({
   name: 'homePage',
   title: 'Home Page',
@@ -70,9 +90,10 @@ export const homePage = defineType({
           title: 'Subheadline',
           type: 'text',
           rows: 2,
+          validation: (r) => r.required(),
         }),
-        linkObject('primaryCta', 'Primary CTA'),
-        linkObject('secondaryCta', 'Secondary CTA'),
+        linkObject('primaryCta', 'Primary CTA', { required: true }),
+        linkObject('secondaryCta', 'Secondary CTA', { required: true }),
       ],
     }),
 

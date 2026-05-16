@@ -19,6 +19,7 @@ export const homePageMedia = defineType({
       title: 'Hero',
       type: 'object',
       options: { collapsible: true, collapsed: false },
+      validation: (r) => r.required(),
       fields: [
         defineField({
           name: 'image',
@@ -35,20 +36,22 @@ export const homePageMedia = defineType({
       title: 'Marquee destinations (bottom strip)',
       type: 'array',
       of: [defineArrayMember({ type: 'string' })],
-      validation: (r) => r.required(),
+      validation: (r) => r.required().min(4),
       description:
-        'Italic names that scroll across the bottom of the hero. Shared across all languages. Leave empty to use the default set.',
+        'Italic names that scroll across the bottom of the hero. Shared across all languages.',
     }),
     defineField({
       name: 'featuredWedding',
       title: 'Featured wedding',
       type: 'object',
       options: { collapsible: true, collapsed: true },
+      validation: (r) => r.required(),
       fields: [
         defineField({
           name: 'image',
           title: 'Image',
           type: 'image',
+          validation: (r) => r.required(),
           options: { hotspot: true },
           fields: [altField],
         }),
@@ -65,6 +68,7 @@ export const homePageMedia = defineType({
           title: 'Images',
           type: 'array',
           options: { layout: 'grid' },
+          validation: (r) => r.required().min(4),
           of: [
             defineArrayMember({
               type: 'image',

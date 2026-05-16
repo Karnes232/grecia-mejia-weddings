@@ -103,4 +103,7 @@
     transform: none !important;
     filter: none !important;
   }
+  [data-cine-parallax] {
+    --cine-parallax: 0px !important;
+  }
 }
