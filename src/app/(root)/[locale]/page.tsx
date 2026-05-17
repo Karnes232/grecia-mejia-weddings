@@ -4,6 +4,7 @@ import {
   AtelierIntro,
   CinematicHero,
   FeaturedWedding,
+  Traditions,
   WhereWeWork,
 } from "@/components/HomePage";
 import { getHomePage, getHomePageMedia } from "@/sanity/queries/home";
@@ -57,7 +58,11 @@ export default async function HomePage({ params }: HomePageProps) {
         />
       ) : null}
 
-      {/* TODO: subsequent sections (Cultures, Venues, Portfolio, Press, Testimonials, CTA). */}
+      {home?.traditions?.headline ? (
+        <Traditions data={home.traditions} locale={locale} />
+      ) : null}
+
+      {/* TODO: subsequent sections (Venues, Portfolio, Press, Testimonials, CTA). */}
     </>
   );
 }

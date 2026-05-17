@@ -44,7 +44,16 @@ export const homePageQuery = groq`
       linkLabel,
       linkHref
     },
-    traditions,
+    traditions{
+      eyebrow,
+      headline,
+      quote,
+      cultures[]{
+        name,
+        description,
+        slug
+      }
+    },
     venuesConsidered,
     recentWeddings,
     testimonials,
@@ -115,7 +124,16 @@ export type HomePage = {
     linkLabel?: string;
     linkHref?: string;
   };
-  traditions?: unknown;
+  traditions?: {
+    eyebrow?: string;
+    headline?: string;
+    quote?: string;
+    cultures?: Array<{
+      name?: string;
+      description?: string;
+      slug?: string;
+    }>;
+  };
   venuesConsidered?: unknown;
   recentWeddings?: { eyebrow?: string; headline?: string };
   testimonials?: unknown;

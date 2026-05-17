@@ -7,5 +7,10 @@
   },
   "footer": {
     "languageLabel": "Langues"
+  },
+  "homePage": {
+    "traditions": {
+      "discover": "Découvrir →"
+    }
   }
 }

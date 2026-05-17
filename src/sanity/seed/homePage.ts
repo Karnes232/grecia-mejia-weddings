@@ -406,40 +406,40 @@ const TRADITIONS_HEADLINE: Record<
   { eyebrow: string; headline: string; quote: string }
 > = {
   en: {
-    eyebrow: "Multicultural",
-    headline: "Traditions we hold with cultural fluency.",
+    eyebrow: "Multicultural weddings",
+    headline: "Traditions we hold with *cultural fluency*.",
     quote:
-      "We held a wedding in three languages and made it feel like one prayer.",
+      "Each tradition kept by specialists who have lived inside it — never improvised, never decorative.",
   },
   es: {
-    eyebrow: "Multicultural",
-    headline: "Tradiciones que sostenemos con fluidez cultural.",
+    eyebrow: "Bodas multiculturales",
+    headline: "Tradiciones sostenidas con *fluidez cultural*.",
     quote:
-      "Sostuvimos una boda en tres idiomas y se sintió como una sola oración.",
+      "Cada tradición sostenida por especialistas que la han vivido — nunca improvisada, nunca decorativa.",
   },
   fr: {
-    eyebrow: "Multiculturel",
-    headline: "Des traditions tenues avec aisance culturelle.",
+    eyebrow: "Mariages multiculturels",
+    headline: "Des traditions tenues avec *aisance culturelle*.",
     quote:
-      "Nous avons tenu un mariage en trois langues et il a sonné comme une seule prière.",
+      "Chaque tradition est tenue par des spécialistes qui l’ont vécue — jamais improvisée, jamais décorative.",
   },
   pt: {
-    eyebrow: "Multicultural",
-    headline: "Tradições que sustentamos com fluência cultural.",
+    eyebrow: "Casamentos multiculturais",
+    headline: "Tradições sustentadas com *fluência cultural*.",
     quote:
-      "Sustentamos um casamento em três línguas e soou como uma única oração.",
+      "Cada tradição sustentada por especialistas que a viveram — nunca improvisada, nunca decorativa.",
   },
   de: {
-    eyebrow: "Multikulturell",
-    headline: "Traditionen, gehalten mit kultureller Souveränität.",
+    eyebrow: "Multikulturelle Hochzeiten",
+    headline: "Traditionen, gehalten mit *kultureller Souveränität*.",
     quote:
-      "Wir hielten eine Hochzeit in drei Sprachen und sie klang wie ein einziges Gebet.",
+      "Jede Tradition wird von Spezialisten gehalten, die in ihr gelebt haben — nie improvisiert, nie dekorativ.",
   },
   it: {
-    eyebrow: "Multiculturale",
-    headline: "Tradizioni tenute con fluidità culturale.",
+    eyebrow: "Matrimoni multiculturali",
+    headline: "Tradizioni tenute con *fluidità culturale*.",
     quote:
-      "Abbiamo tenuto un matrimonio in tre lingue e ha avuto il suono di una sola preghiera.",
+      "Ogni tradizione è tenuta da specialisti che l’hanno vissuta — mai improvvisata, mai decorativa.",
   },
 };
 
@@ -460,221 +460,221 @@ const CULTURES: Record<
 > = {
   en: {
     "indian-weddings": {
-      name: "Indian Weddings",
+      name: "Indian *Weddings*",
       description:
         "Sangeet, mehndi, baraat and saat phere held with reverence.",
     },
     "jewish-weddings": {
-      name: "Jewish Weddings",
+      name: "Jewish *Weddings*",
       description: "Chuppah, ketubah and the breaking of the glass.",
     },
     "arab-weddings": {
-      name: "Arab Weddings",
+      name: "Arab *Weddings*",
       description: "Zaffeh, henna night and the procession.",
     },
     "south-asian-weddings": {
-      name: "South Asian Weddings",
+      name: "South Asian *Weddings*",
       description:
         "Pakistani, Bangladeshi and Sri Lankan rites woven with care.",
     },
     "christian-weddings": {
-      name: "Christian Weddings",
+      name: "Christian *Weddings*",
       description:
         "Catholic, Orthodox and Protestant ceremonies, full liturgy or quiet vow.",
     },
     "interfaith-weddings": {
-      name: "Interfaith Weddings",
+      name: "Interfaith *Weddings*",
       description: "Two traditions in one room, one prayer.",
     },
     "latin-weddings": {
-      name: "Latin Weddings",
+      name: "Latin *Weddings*",
       description: "Lazos, arras and the long second line.",
     },
     "european-weddings": {
-      name: "European Weddings",
+      name: "European *Weddings*",
       description: "Italian, French, Spanish and Greek heritage celebrations.",
     },
   },
   es: {
     "indian-weddings": {
-      name: "Bodas Indias",
+      name: "Bodas *Indias*",
       description: "Sangeet, mehndi, baraat y saat phere con reverencia.",
     },
     "jewish-weddings": {
-      name: "Bodas Judías",
+      name: "Bodas *Judías*",
       description: "Jupá, ketubá y la rotura del vaso.",
     },
     "arab-weddings": {
-      name: "Bodas Árabes",
+      name: "Bodas *Árabes*",
       description: "Zaffeh, noche de henna y la procesión.",
     },
     "south-asian-weddings": {
-      name: "Bodas del Sur de Asia",
+      name: "Bodas del *Sur de Asia*",
       description:
         "Ritos pakistaníes, bangladesíes y cingaleses entretejidos con cuidado.",
     },
     "christian-weddings": {
-      name: "Bodas Cristianas",
+      name: "Bodas *Cristianas*",
       description:
         "Ceremonias católicas, ortodoxas y protestantes — liturgia plena o voto silencioso.",
     },
     "interfaith-weddings": {
-      name: "Bodas Interreligiosas",
+      name: "Bodas *Interreligiosas*",
       description: "Dos tradiciones en una sala, una sola oración.",
     },
     "latin-weddings": {
-      name: "Bodas Latinas",
+      name: "Bodas *Latinas*",
       description: "Lazos, arras y la larga segunda línea.",
     },
     "european-weddings": {
-      name: "Bodas Europeas",
+      name: "Bodas *Europeas*",
       description: "Celebraciones italianas, francesas, españolas y griegas.",
     },
   },
   fr: {
     "indian-weddings": {
-      name: "Mariages Indiens",
+      name: "Mariages *Indiens*",
       description:
         "Sangeet, mehndi, baraat et saat phere tenus avec révérence.",
     },
     "jewish-weddings": {
-      name: "Mariages Juifs",
+      name: "Mariages *Juifs*",
       description: "Houppa, ketouba et bris du verre.",
     },
     "arab-weddings": {
-      name: "Mariages Arabes",
+      name: "Mariages *Arabes*",
       description: "Zaffeh, soirée du henné et procession.",
     },
     "south-asian-weddings": {
-      name: "Mariages d’Asie du Sud",
+      name: "Mariages d’*Asie du Sud*",
       description:
         "Rites pakistanais, bangladais et sri-lankais tissés avec soin.",
     },
     "christian-weddings": {
-      name: "Mariages Chrétiens",
+      name: "Mariages *Chrétiens*",
       description:
         "Cérémonies catholiques, orthodoxes et protestantes — liturgie complète ou vœu intime.",
     },
     "interfaith-weddings": {
-      name: "Mariages Interreligieux",
+      name: "Mariages *Interreligieux*",
       description: "Deux traditions dans une même salle, une seule prière.",
     },
     "latin-weddings": {
-      name: "Mariages Latins",
+      name: "Mariages *Latins*",
       description: "Lazos, arras et la longue seconde ligne.",
     },
     "european-weddings": {
-      name: "Mariages Européens",
+      name: "Mariages *Européens*",
       description:
         "Célébrations italiennes, françaises, espagnoles et grecques.",
     },
   },
   pt: {
     "indian-weddings": {
-      name: "Casamentos Indianos",
+      name: "Casamentos *Indianos*",
       description: "Sangeet, mehndi, baraat e saat phere com reverência.",
     },
     "jewish-weddings": {
-      name: "Casamentos Judaicos",
+      name: "Casamentos *Judaicos*",
       description: "Chuppah, ketubah e a quebra do copo.",
     },
     "arab-weddings": {
-      name: "Casamentos Árabes",
+      name: "Casamentos *Árabes*",
       description: "Zaffeh, noite da henna e a procissão.",
     },
     "south-asian-weddings": {
-      name: "Casamentos do Sul da Ásia",
+      name: "Casamentos do *Sul da Ásia*",
       description:
         "Ritos paquistaneses, bengaleses e cingaleses tecidos com cuidado.",
     },
     "christian-weddings": {
-      name: "Casamentos Cristãos",
+      name: "Casamentos *Cristãos*",
       description:
         "Cerimônias católicas, ortodoxas e protestantes — liturgia plena ou voto silencioso.",
     },
     "interfaith-weddings": {
-      name: "Casamentos Inter-religiosos",
+      name: "Casamentos *Inter-religiosos*",
       description: "Duas tradições em uma sala, uma só oração.",
     },
     "latin-weddings": {
-      name: "Casamentos Latinos",
+      name: "Casamentos *Latinos*",
       description: "Lazos, arras e a longa segunda linha.",
     },
     "european-weddings": {
-      name: "Casamentos Europeus",
+      name: "Casamentos *Europeus*",
       description: "Celebrações italianas, francesas, espanholas e gregas.",
     },
   },
   de: {
     "indian-weddings": {
-      name: "Indische Hochzeiten",
+      name: "Indische *Hochzeiten*",
       description:
         "Sangeet, Mehndi, Baraat und Saat Phere mit Ehrfurcht gehalten.",
     },
     "jewish-weddings": {
-      name: "Jüdische Hochzeiten",
+      name: "Jüdische *Hochzeiten*",
       description: "Chuppah, Ketubah und das Zerbrechen des Glases.",
     },
     "arab-weddings": {
-      name: "Arabische Hochzeiten",
+      name: "Arabische *Hochzeiten*",
       description: "Zaffeh, Henna-Nacht und die Prozession.",
     },
     "south-asian-weddings": {
-      name: "Südasiatische Hochzeiten",
+      name: "Südasiatische *Hochzeiten*",
       description:
         "Pakistanische, bangladeschische und srilankische Riten sorgsam verwoben.",
     },
     "christian-weddings": {
-      name: "Christliche Hochzeiten",
+      name: "Christliche *Hochzeiten*",
       description:
         "Katholische, orthodoxe und protestantische Zeremonien — volle Liturgie oder stilles Gelübde.",
     },
     "interfaith-weddings": {
-      name: "Interreligiöse Hochzeiten",
+      name: "Interreligiöse *Hochzeiten*",
       description: "Zwei Traditionen in einem Raum, ein Gebet.",
     },
     "latin-weddings": {
-      name: "Lateinamerikanische Hochzeiten",
+      name: "Lateinamerikanische *Hochzeiten*",
       description: "Lazos, Arras und die lange zweite Linie.",
     },
     "european-weddings": {
-      name: "Europäische Hochzeiten",
+      name: "Europäische *Hochzeiten*",
       description:
         "Italienische, französische, spanische und griechische Erbe-Feiern.",
     },
   },
   it: {
     "indian-weddings": {
-      name: "Matrimoni Indiani",
+      name: "Matrimoni *Indiani*",
       description: "Sangeet, mehndi, baraat e saat phere tenuti con riverenza.",
     },
     "jewish-weddings": {
-      name: "Matrimoni Ebraici",
+      name: "Matrimoni *Ebraici*",
       description: "Chuppah, ketubah e la rottura del bicchiere.",
     },
     "arab-weddings": {
-      name: "Matrimoni Arabi",
+      name: "Matrimoni *Arabi*",
       description: "Zaffeh, notte dell’henné e la processione.",
     },
     "south-asian-weddings": {
-      name: "Matrimoni Sud-Asiatici",
+      name: "Matrimoni *Sud-Asiatici*",
       description: "Riti pakistani, bangladesi e singalesi intessuti con cura.",
     },
     "christian-weddings": {
-      name: "Matrimoni Cristiani",
+      name: "Matrimoni *Cristiani*",
       description:
         "Cerimonie cattoliche, ortodosse e protestanti — liturgia piena o voto silenzioso.",
     },
     "interfaith-weddings": {
-      name: "Matrimoni Interreligiosi",
+      name: "Matrimoni *Interreligiosi*",
       description: "Due tradizioni in una stessa stanza, una sola preghiera.",
     },
     "latin-weddings": {
-      name: "Matrimoni Latini",
+      name: "Matrimoni *Latini*",
       description: "Lazos, arras e la lunga seconda linea.",
     },
     "european-weddings": {
-      name: "Matrimoni Europei",
+      name: "Matrimoni *Europei*",
       description: "Celebrazioni italiane, francesi, spagnole e greche.",
     },
   },

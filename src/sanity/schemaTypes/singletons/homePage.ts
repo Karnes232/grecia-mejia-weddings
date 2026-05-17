@@ -276,6 +276,8 @@ export const homePage = defineType({
           name: "headline",
           title: "Headline",
           type: "string",
+          description:
+            "Use *word* for italic-gold accents (e.g. Traditions we hold with *cultural fluency.*).",
           validation: (r) => r.required(),
         }),
         { name: "quote", title: "Centered quote", type: "text", rows: 3 },
