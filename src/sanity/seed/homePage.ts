@@ -685,40 +685,40 @@ const VENUES_HEADLINE: Record<
   { eyebrow: string; headline: string; intro: string }
 > = {
   en: {
-    eyebrow: "Curated",
-    headline: "Venues, considered.",
+    eyebrow: "Selected houses",
+    headline: "Venues, *considered*.",
     intro:
-      "A working selection of private estates, beach clubs, vineyards and quiet churches we return to year after year.",
+      "A working register of private estates, beach clubs, villas and architectural rarities we return to year after year.",
   },
   es: {
-    eyebrow: "Curado",
-    headline: "Locaciones, consideradas.",
+    eyebrow: "Casas seleccionadas",
+    headline: "Locaciones, *consideradas*.",
     intro:
-      "Una selección viva de fincas privadas, clubes de playa, viñedos e iglesias serenas a las que volvemos año tras año.",
+      "Un registro vivo de fincas privadas, clubes de playa, villas y rarezas arquitectónicas a las que volvemos año tras año.",
   },
   fr: {
-    eyebrow: "Sélection",
-    headline: "Lieux, considérés.",
+    eyebrow: "Maisons sélectionnées",
+    headline: "Lieux, *considérés*.",
     intro:
-      "Une sélection vivante de domaines privés, clubs de plage, vignobles et églises tranquilles que nous retrouvons année après année.",
+      "Un registre vivant de domaines privés, clubs de plage, villas et raretés architecturales que nous retrouvons année après année.",
   },
   pt: {
-    eyebrow: "Curadoria",
-    headline: "Locais, considerados.",
+    eyebrow: "Casas selecionadas",
+    headline: "Locais, *considerados*.",
     intro:
-      "Uma seleção viva de propriedades privadas, beach clubs, vinhas e igrejas serenas a que retornamos ano após ano.",
+      "Um registro vivo de propriedades privadas, beach clubs, villas e raridades arquitetônicas a que retornamos ano após ano.",
   },
   de: {
-    eyebrow: "Kuratiert",
-    headline: "Orte, betrachtet.",
+    eyebrow: "Ausgewählte Häuser",
+    headline: "Orte, *betrachtet*.",
     intro:
-      "Eine lebendige Auswahl privater Anwesen, Beach Clubs, Weingüter und stiller Kirchen, zu denen wir Jahr für Jahr zurückkehren.",
+      "Ein lebendiges Register privater Anwesen, Beach Clubs, Villen und architektonischer Raritäten, zu denen wir Jahr für Jahr zurückkehren.",
   },
   it: {
-    eyebrow: "Curato",
-    headline: "Sedi, considerate.",
+    eyebrow: "Case selezionate",
+    headline: "Sedi, *considerate*.",
     intro:
-      "Una selezione viva di tenute private, beach club, vigneti e chiese silenziose alle quali torniamo anno dopo anno.",
+      "Un registro vivo di tenute private, beach club, ville e rarità architettoniche alle quali torniamo anno dopo anno.",
   },
 };
 

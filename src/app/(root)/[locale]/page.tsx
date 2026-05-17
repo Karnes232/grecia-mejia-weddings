@@ -5,6 +5,7 @@ import {
   CinematicHero,
   FeaturedWedding,
   Traditions,
+  VenuesConsidered,
   WhereWeWork,
 } from "@/components/HomePage";
 import { getHomePage, getHomePageMedia } from "@/sanity/queries/home";
@@ -62,7 +63,11 @@ export default async function HomePage({ params }: HomePageProps) {
         <Traditions data={home.traditions} locale={locale} />
       ) : null}
 
-      {/* TODO: subsequent sections (Venues, Portfolio, Press, Testimonials, CTA). */}
+      {home?.venuesConsidered?.headline ? (
+        <VenuesConsidered data={home.venuesConsidered} />
+      ) : null}
+
+      {/* TODO: subsequent sections (Portfolio, Press, Testimonials, CTA). */}
     </>
   );
 }

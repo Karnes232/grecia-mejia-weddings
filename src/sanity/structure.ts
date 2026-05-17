@@ -1,5 +1,7 @@
 import type { StructureResolver } from "sanity/structure";
 
+import { apiVersion } from "./env";
+
 const SINGLETON_TYPES = new Set([
   "siteSettings",
   "navigation",
@@ -27,6 +29,7 @@ export const structure: StructureResolver = (S) =>
         .child(
           S.documentTypeList("homePage")
             .title("Home Page")
+            .apiVersion(apiVersion)
             .filter('_type == "homePage"'),
         ),
       S.listItem()
@@ -44,6 +47,7 @@ export const structure: StructureResolver = (S) =>
         .child(
           S.documentTypeList("navigation")
             .title("Navigation")
+            .apiVersion(apiVersion)
             .filter('_type == "navigation"'),
         ),
       S.listItem()
@@ -53,6 +57,7 @@ export const structure: StructureResolver = (S) =>
         .child(
           S.documentTypeList("footer")
             .title("Footer")
+            .apiVersion(apiVersion)
             .filter('_type == "footer"'),
         ),
       S.divider(),

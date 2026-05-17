@@ -54,7 +54,17 @@ export const homePageQuery = groq`
         slug
       }
     },
-    venuesConsidered,
+    venuesConsidered{
+      eyebrow,
+      headline,
+      intro,
+      venues[]{
+        name,
+        description,
+        region,
+        slug
+      }
+    },
     recentWeddings,
     testimonials,
     journeyCta
@@ -134,7 +144,17 @@ export type HomePage = {
       slug?: string;
     }>;
   };
-  venuesConsidered?: unknown;
+  venuesConsidered?: {
+    eyebrow?: string;
+    headline?: string;
+    intro?: string;
+    venues?: Array<{
+      name?: string;
+      description?: string;
+      region?: string;
+      slug?: string;
+    }>;
+  };
   recentWeddings?: { eyebrow?: string; headline?: string };
   testimonials?: unknown;
   journeyCta?: unknown;
