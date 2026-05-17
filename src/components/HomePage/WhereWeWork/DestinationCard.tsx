@@ -43,7 +43,11 @@ export function DestinationCard({ destination, tall }: DestinationCardProps) {
           src={imageUrl}
           alt={image?.alt ?? name ?? ""}
           fill
-          sizes={tall ? "(min-width:1024px) 50vw, 100vw" : "(min-width:1024px) 25vw, 100vw"}
+          sizes={
+            tall
+              ? "(min-width:1024px) 50vw, 100vw"
+              : "(min-width:1024px) 25vw, 100vw"
+          }
           className="object-cover transition-transform duration-[1400ms] ease-[var(--ease-silk)] group-hover:scale-[1.04]"
         />
       ) : null}
@@ -61,7 +65,9 @@ export function DestinationCard({ destination, tall }: DestinationCardProps) {
           <h3
             className={clsx(
               "m-0 font-serif italic font-normal leading-none text-ivory",
-              tall ? "text-[clamp(40px,5vw,56px)]" : "text-[clamp(30px,3.4vw,38px)]",
+              tall
+                ? "text-[clamp(40px,5vw,56px)]"
+                : "text-[clamp(30px,3.4vw,38px)]",
             )}
           >
             {name}

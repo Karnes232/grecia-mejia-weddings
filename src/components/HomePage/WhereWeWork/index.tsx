@@ -50,9 +50,7 @@ export function WhereWeWork({ data }: WhereWeWorkProps) {
 
         {data.viewAllHref && data.viewAllLabel ? (
           <div className="mt-12 text-center">
-            <GhostLink href={data.viewAllHref}>
-              {data.viewAllLabel} →
-            </GhostLink>
+            <GhostLink href={data.viewAllHref}>{data.viewAllLabel} →</GhostLink>
           </div>
         ) : null}
       </div>

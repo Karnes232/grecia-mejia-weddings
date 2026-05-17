@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import {
   AtelierIntro,
   CinematicHero,
+  FeaturedWedding,
   WhereWeWork,
 } from "@/components/HomePage";
 import { getHomePage, getHomePageMedia } from "@/sanity/queries/home";
@@ -49,7 +50,14 @@ export default async function HomePage({ params }: HomePageProps) {
         <WhereWeWork data={home.whereWeWork} />
       ) : null}
 
-      {/* TODO: subsequent sections (Featured, Cultures, Venues, Portfolio, Press, Testimonials, CTA). */}
+      {home?.featuredWedding?.headline ? (
+        <FeaturedWedding
+          data={home.featuredWedding}
+          image={media?.featuredWedding}
+        />
+      ) : null}
+
+      {/* TODO: subsequent sections (Cultures, Venues, Portfolio, Press, Testimonials, CTA). */}
     </>
   );
 }

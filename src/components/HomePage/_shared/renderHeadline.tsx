@@ -5,8 +5,13 @@ const TONE_CLASS: Record<Tone, string> = {
   olive: "italic text-olive",
 };
 
+const SCRIPT_CLASS =
+  "font-script text-[1.15em] leading-[0.85] text-olive align-[-0.06em]";
+
+const TOKEN_RE = /(\*[^*]+\*|~[^~]+~)/g;
+
 export function renderHeadline(text: string, tone: Tone = "gold") {
-  const parts = text.split(/(\*[^*]+\*)/g);
+  const parts = text.split(TOKEN_RE);
   const emClass = TONE_CLASS[tone];
   return parts.map((part, i) => {
     if (part.startsWith("*") && part.endsWith("*") && part.length > 2) {
@@ -14,6 +19,13 @@ export function renderHeadline(text: string, tone: Tone = "gold") {
         <em key={i} className={emClass}>
           {part.slice(1, -1)}
         </em>
+      );
+    }
+    if (part.startsWith("~") && part.endsWith("~") && part.length > 2) {
+      return (
+        <span key={i} className={SCRIPT_CLASS}>
+          {part.slice(1, -1)}
+        </span>
       );
     }
     return <span key={i}>{part}</span>;

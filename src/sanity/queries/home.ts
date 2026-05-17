@@ -34,7 +34,16 @@ export const homePageQuery = groq`
         image{ ..., alt }
       }
     },
-    featuredWedding,
+    featuredWedding{
+      headline,
+      subjectCaption,
+      metaCaption,
+      body,
+      facts[]{ label, value },
+      quote,
+      linkLabel,
+      linkHref
+    },
     traditions,
     venuesConsidered,
     recentWeddings,
@@ -96,7 +105,16 @@ export type HomePage = {
       image?: SanityImage;
     }>;
   };
-  featuredWedding?: unknown;
+  featuredWedding?: {
+    headline?: string;
+    subjectCaption?: string;
+    metaCaption?: string;
+    body?: PortableTextBlock[];
+    facts?: Array<{ label?: string; value?: string }>;
+    quote?: string;
+    linkLabel?: string;
+    linkHref?: string;
+  };
   traditions?: unknown;
   venuesConsidered?: unknown;
   recentWeddings?: { eyebrow?: string; headline?: string };

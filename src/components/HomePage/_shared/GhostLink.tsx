@@ -12,8 +12,7 @@ type GhostLinkProps = {
 
 const TONE_CLASS: Record<NonNullable<GhostLinkProps["tone"]>, string> = {
   olive: "border-olive text-olive hover:bg-olive hover:text-ivory",
-  ivory:
-    "border-gold-soft text-ivory hover:bg-gold-soft hover:text-olive-dk",
+  ivory: "border-gold-soft text-ivory hover:bg-gold-soft hover:text-olive-dk",
 };
 
 export function GhostLink({

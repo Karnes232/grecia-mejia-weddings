@@ -215,7 +215,25 @@ export const homePage = defineType({
       group: "featuredWedding",
       options: { collapsible: true, collapsed: true },
       fields: [
-        { name: "headline", title: "Headline", type: "string" },
+        defineField({
+          name: "headline",
+          title: "Headline",
+          type: "string",
+          description:
+            "Use *word* for italic-color accents, ~word~ for Pinyon Script accents (e.g. ~Sara~ & Adam.).",
+        }),
+        {
+          name: "subjectCaption",
+          title: "Subject caption (under image · left)",
+          type: "string",
+          description: 'e.g. "Sara & Adam · Cap Cana".',
+        },
+        {
+          name: "metaCaption",
+          title: "Meta caption (under image · right)",
+          type: "string",
+          description: 'e.g. "Three days · 312 guests".',
+        },
         defineField({
           name: "body",
           title: "Body",

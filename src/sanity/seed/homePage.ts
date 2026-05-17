@@ -279,10 +279,19 @@ const DESTINATION_TAGLINES: Record<Locale, Record<DestinationSlug, string>> = {
 
 const FEATURED: Record<
   Locale,
-  { headline: string; paragraphs: string[]; quote: string; linkLabel: string }
+  {
+    headline: string;
+    subjectCaption: string;
+    metaCaption: string;
+    paragraphs: string[];
+    quote: string;
+    linkLabel: string;
+  }
 > = {
   en: {
-    headline: "Sara & Adam.",
+    headline: "~Sara~ & Adam.",
+    subjectCaption: "Sara & Adam · Cap Cana",
+    metaCaption: "Three days · 312 guests",
     paragraphs: [
       "A three-day Hindu-Christian celebration on the Dominican coast — four ceremonies, two cultures, one steady thread.",
       "I had booked a year and four months, three languages held in the morning fire, the bride’s grandfather two paces behind the mandap. The groom’s mother served her own moros to the people who held it impossible.",
@@ -292,7 +301,9 @@ const FEATURED: Record<
     linkLabel: "View the story",
   },
   es: {
-    headline: "Sara y Adam.",
+    headline: "~Sara~ y Adam.",
+    subjectCaption: "Sara y Adam · Cap Cana",
+    metaCaption: "Tres días · 312 invitados",
     paragraphs: [
       "Una celebración hindú-cristiana de tres días en la costa dominicana — cuatro ceremonias, dos culturas, un mismo hilo sostenido.",
       "Reservada con un año y cuatro meses de anticipación, tres idiomas sostenidos junto al fuego de la mañana; el abuelo de la novia dos pasos detrás del mandap. La madre del novio sirvió su propio moros a quienes lo creían imposible.",
@@ -302,7 +313,9 @@ const FEATURED: Record<
     linkLabel: "Ver la historia",
   },
   fr: {
-    headline: "Sara & Adam.",
+    headline: "~Sara~ & Adam.",
+    subjectCaption: "Sara & Adam · Cap Cana",
+    metaCaption: "Trois jours · 312 invités",
     paragraphs: [
       "Une célébration hindoue-chrétienne de trois jours sur la côte dominicaine — quatre cérémonies, deux cultures, un même fil tenu.",
       "Réservée un an et quatre mois à l’avance, trois langues portées dans le feu du matin ; le grand-père de la mariée à deux pas derrière le mandap. La mère du marié a servi son propre moros à ceux qui le pensaient impossible.",
@@ -312,7 +325,9 @@ const FEATURED: Record<
     linkLabel: "Voir l’histoire",
   },
   pt: {
-    headline: "Sara e Adam.",
+    headline: "~Sara~ e Adam.",
+    subjectCaption: "Sara e Adam · Cap Cana",
+    metaCaption: "Três dias · 312 convidados",
     paragraphs: [
       "Uma celebração hindu-cristã de três dias na costa dominicana — quatro cerimônias, duas culturas, um mesmo fio.",
       "Reservada com um ano e quatro meses de antecedência, três línguas sustentadas no fogo da manhã; o avô da noiva dois passos atrás do mandap. A mãe do noivo serviu seu próprio moros a quem o julgava impossível.",
@@ -322,7 +337,9 @@ const FEATURED: Record<
     linkLabel: "Ver a história",
   },
   de: {
-    headline: "Sara & Adam.",
+    headline: "~Sara~ & Adam.",
+    subjectCaption: "Sara & Adam · Cap Cana",
+    metaCaption: "Drei Tage · 312 Gäste",
     paragraphs: [
       "Eine dreitägige hindu-christliche Feier an der dominikanischen Küste — vier Zeremonien, zwei Kulturen, ein zusammenhaltender Faden.",
       "Ein Jahr und vier Monate im Voraus gebucht, drei Sprachen im Morgenfeuer getragen; der Großvater der Braut zwei Schritte hinter dem Mandap. Die Mutter des Bräutigams servierte ihren eigenen Moros denen, die es für unmöglich hielten.",
@@ -332,7 +349,9 @@ const FEATURED: Record<
     linkLabel: "Die Geschichte ansehen",
   },
   it: {
-    headline: "Sara e Adam.",
+    headline: "~Sara~ e Adam.",
+    subjectCaption: "Sara e Adam · Cap Cana",
+    metaCaption: "Tre giorni · 312 ospiti",
     paragraphs: [
       "Una celebrazione indù-cristiana di tre giorni sulla costa dominicana — quattro cerimonie, due culture, un solo filo tenuto.",
       "Prenotata con un anno e quattro mesi di anticipo, tre lingue sostenute nel fuoco del mattino; il nonno della sposa due passi dietro il mandap. La madre dello sposo ha servito il proprio moros a chi lo riteneva impossibile.",
@@ -975,6 +994,8 @@ function buildDoc(locale: Locale) {
     },
     featuredWedding: {
       headline: featured.headline,
+      subjectCaption: featured.subjectCaption,
+      metaCaption: featured.metaCaption,
       body: featured.paragraphs.map((p) => block(p)),
       facts: FACTS[locale].map((f) => keyed(f)),
       quote: featured.quote,
