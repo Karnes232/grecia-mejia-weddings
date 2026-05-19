@@ -822,13 +822,14 @@ const VENUE_DESCRIPTIONS: Record<
 };
 
 const RECENT: Record<Locale, { eyebrow: string; headline: string }> = {
-  en: { eyebrow: "Architectural light", headline: "Recent weddings." },
-  es: { eyebrow: "Luz arquitectónica", headline: "Bodas recientes." },
-  fr: { eyebrow: "Lumière architecturale", headline: "Mariages récents." },
-  pt: { eyebrow: "Luz arquitetônica", headline: "Casamentos recentes." },
-  de: { eyebrow: "Architektonisches Licht", headline: "Jüngste Hochzeiten." },
-  it: { eyebrow: "Luce architettonica", headline: "Matrimoni recenti." },
+  en: { eyebrow: "Portfolio", headline: "Recent *weddings*." },
+  es: { eyebrow: "Portafolio", headline: "Bodas *recientes*." },
+  fr: { eyebrow: "Portfolio", headline: "Mariages *récents*." },
+  pt: { eyebrow: "Portfólio", headline: "Casamentos *recentes*." },
+  de: { eyebrow: "Portfolio", headline: "Jüngste *Hochzeiten*." },
+  it: { eyebrow: "Portfolio", headline: "Matrimoni *recenti*." },
 };
+
 
 const TESTIMONIALS: Record<
   Locale,

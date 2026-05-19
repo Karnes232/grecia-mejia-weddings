@@ -4,6 +4,7 @@ import {
   AtelierIntro,
   CinematicHero,
   FeaturedWedding,
+  RecentWeddings,
   Traditions,
   VenuesConsidered,
   WhereWeWork,
@@ -67,7 +68,14 @@ export default async function HomePage({ params }: HomePageProps) {
         <VenuesConsidered data={home.venuesConsidered} />
       ) : null}
 
-      {/* TODO: subsequent sections (Portfolio, Press, Testimonials, CTA). */}
+      {home?.recentWeddings?.headline ? (
+        <RecentWeddings
+          data={home.recentWeddings}
+          images={media?.recentWeddings?.images ?? []}
+        />
+      ) : null}
+
+      {/* TODO: subsequent sections (Press, Testimonials, CTA). */}
     </>
   );
 }

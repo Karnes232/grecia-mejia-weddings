@@ -65,7 +65,10 @@ export const homePageQuery = groq`
         slug
       }
     },
-    recentWeddings,
+    recentWeddings{
+      eyebrow,
+      headline
+    },
     testimonials,
     journeyCta
   }
@@ -155,7 +158,10 @@ export type HomePage = {
       slug?: string;
     }>;
   };
-  recentWeddings?: { eyebrow?: string; headline?: string };
+  recentWeddings?: {
+    eyebrow?: string;
+    headline?: string;
+  };
   testimonials?: unknown;
   journeyCta?: unknown;
 };

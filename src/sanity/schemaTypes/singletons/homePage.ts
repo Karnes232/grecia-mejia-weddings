@@ -372,6 +372,8 @@ export const homePage = defineType({
           name: "headline",
           title: "Headline",
           type: "string",
+          description:
+            "Use *word* for italic-olive accents (e.g. Recent *weddings*.).",
           validation: (r) => r.required(),
         }),
       ],
