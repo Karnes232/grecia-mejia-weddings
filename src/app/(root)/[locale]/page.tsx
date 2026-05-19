@@ -4,7 +4,9 @@ import {
   AtelierIntro,
   CinematicHero,
   FeaturedWedding,
+  JourneyCta,
   RecentWeddings,
+  Testimonials,
   Traditions,
   VenuesConsidered,
   WhereWeWork,
@@ -75,7 +77,15 @@ export default async function HomePage({ params }: HomePageProps) {
         />
       ) : null}
 
-      {/* TODO: subsequent sections (Press, Testimonials, CTA). */}
+      {home?.testimonials?.items?.length ? (
+        <Testimonials data={home.testimonials} />
+      ) : null}
+
+      {home?.journeyCta?.headline ? (
+        <JourneyCta data={home.journeyCta} />
+      ) : null}
+
+      {/* TODO: Press strip. */}
     </>
   );
 }

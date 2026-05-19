@@ -5,3 +5,5 @@ export { FeaturedWedding } from "./FeaturedWedding";
 export { Traditions } from "./Traditions";
 export { VenuesConsidered } from "./VenuesConsidered";
 export { RecentWeddings } from "./RecentWeddings";
+export { Testimonials } from "./Testimonials";
+export { JourneyCta } from "./JourneyCta";

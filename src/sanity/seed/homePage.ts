@@ -833,78 +833,90 @@ const RECENT: Record<Locale, { eyebrow: string; headline: string }> = {
 
 const TESTIMONIALS: Record<
   Locale,
-  Array<{ quote: string; attribution: string }>
+  Array<{ quote: string; attribution: string; caption: string }>
 > = {
   en: [
     {
       quote:
         "Grecia held a wedding in three languages and somehow made it feel like one. We did not plan our day; she did, and then she handed it back to us.",
-      attribution: "Sara & Adam — 2024",
+      attribution: "Sara & Adam",
+      caption: "Multilingual wedding · Cap Cana · 2024",
     },
     {
       quote:
         "An atelier in the truest sense. Slow, careful conversation and a calm hand on every detail, from the morning fire to the last toast.",
-      attribution: "Mira & Jacques — 2023",
+      attribution: "Mira & Jacques",
+      caption: "Atelier wedding · Casa de Campo · 2023",
     },
   ],
   es: [
     {
       quote:
         "Grecia sostuvo una boda en tres idiomas y de algún modo se sintió como uno solo. No planeamos nuestro día; ella lo hizo, y luego nos lo devolvió.",
-      attribution: "Sara y Adam — 2024",
+      attribution: "Sara y Adam",
+      caption: "Boda multilingüe · Cap Cana · 2024",
     },
     {
       quote:
         "Un atelier en el sentido más verdadero. Conversación lenta y cuidadosa, y una mano calmada en cada detalle, del fuego de la mañana al último brindis.",
-      attribution: "Mira y Jacques — 2023",
+      attribution: "Mira y Jacques",
+      caption: "Boda de atelier · Casa de Campo · 2023",
     },
   ],
   fr: [
     {
       quote:
         "Grecia a tenu un mariage en trois langues et, d’une certaine manière, il a sonné comme un seul. Nous n’avons pas planifié notre journée ; elle l’a fait, puis nous l’a rendue.",
-      attribution: "Sara & Adam — 2024",
+      attribution: "Sara & Adam",
+      caption: "Mariage multilingue · Cap Cana · 2024",
     },
     {
       quote:
         "Un atelier au sens le plus vrai. Conversation lente et soignée, une main calme sur chaque détail, du feu du matin au dernier toast.",
-      attribution: "Mira & Jacques — 2023",
+      attribution: "Mira & Jacques",
+      caption: "Mariage atelier · Casa de Campo · 2023",
     },
   ],
   pt: [
     {
       quote:
         "Grecia sustentou um casamento em três línguas e, de algum modo, ele soou como um só. Não planejamos o nosso dia; ela o fez, e depois nos devolveu.",
-      attribution: "Sara e Adam — 2024",
+      attribution: "Sara e Adam",
+      caption: "Casamento multilíngue · Cap Cana · 2024",
     },
     {
       quote:
         "Um ateliê no sentido mais verdadeiro. Conversa lenta e cuidadosa, mão serena em cada detalhe, do fogo da manhã ao último brinde.",
-      attribution: "Mira e Jacques — 2023",
+      attribution: "Mira e Jacques",
+      caption: "Casamento atelier · Casa de Campo · 2023",
     },
   ],
   de: [
     {
       quote:
         "Grecia hat eine Hochzeit in drei Sprachen gehalten — und sie klang wie eine einzige. Wir haben unseren Tag nicht geplant; sie hat es getan und ihn uns dann zurückgegeben.",
-      attribution: "Sara & Adam — 2024",
+      attribution: "Sara & Adam",
+      caption: "Mehrsprachige Hochzeit · Cap Cana · 2024",
     },
     {
       quote:
         "Ein Atelier im wahrsten Sinne. Langsame, sorgfältige Gespräche und eine ruhige Hand auf jedem Detail, vom Morgenfeuer bis zum letzten Toast.",
-      attribution: "Mira & Jacques — 2023",
+      attribution: "Mira & Jacques",
+      caption: "Atelier-Hochzeit · Casa de Campo · 2023",
     },
   ],
   it: [
     {
       quote:
         "Grecia ha tenuto un matrimonio in tre lingue e, in qualche modo, ha avuto il suono di uno solo. Non abbiamo pianificato la nostra giornata; l’ha fatto lei, e poi ce l’ha restituita.",
-      attribution: "Sara e Adam — 2024",
+      attribution: "Sara e Adam",
+      caption: "Matrimonio multilingue · Cap Cana · 2024",
     },
     {
       quote:
         "Un atelier nel senso più vero. Conversazione lenta e accurata, una mano calma su ogni dettaglio, dal fuoco del mattino all’ultimo brindisi.",
-      attribution: "Mira e Jacques — 2023",
+      attribution: "Mira e Jacques",
+      caption: "Matrimonio atelier · Casa de Campo · 2023",
     },
   ],
 };

@@ -391,12 +391,25 @@ export const homePage = defineType({
           name: "items",
           title: "Quotes",
           type: "array",
+          validation: (r) => r.required().min(2).max(2),
           of: [
             defineArrayMember({
               type: "object",
               fields: [
                 { name: "quote", title: "Quote", type: "text", rows: 4 },
-                { name: "attribution", title: "Attribution", type: "string" },
+                {
+                  name: "attribution",
+                  title: "Attribution (script names)",
+                  type: "string",
+                  description:
+                    "Couple names, rendered in Pinyon Script (e.g. 'Saira & Adam').",
+                },
+                {
+                  name: "caption",
+                  title: "Caption (small-caps line)",
+                  type: "string",
+                  description: 'e.g. "Hindu wedding · Cap Cana · 2025".',
+                },
               ],
               preview: {
                 select: { title: "attribution", subtitle: "quote" },
@@ -415,15 +428,29 @@ export const homePage = defineType({
       group: "journeyCta",
       options: { collapsible: true, collapsed: true },
       fields: [
-        { name: "eyebrow", title: "Eyebrow", type: "string" },
+        {
+          name: "eyebrow",
+          title: "Eyebrow (script line)",
+          type: "string",
+          description:
+            "Rendered in Pinyon Script above the headline (e.g. 'A private conversation —').",
+        },
         defineField({
           name: "headline",
           title: "Headline",
           type: "string",
+          description:
+            "Use *word* for gold accents (e.g. *Begin* your wedding journey.).",
           validation: (r) => r.required(),
         }),
-        { name: "body", title: "Body", type: "text", rows: 3 },
-        linkObject("cta", "CTA button"),
+        {
+          name: "body",
+          title: "Body (deck)",
+          type: "text",
+          rows: 3,
+          description: "Italic Cormorant supporting paragraph below the headline.",
+        },
+        linkObject("cta", "CTA button", { required: true }),
       ],
     }),
   ],

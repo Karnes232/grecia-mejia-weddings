@@ -69,8 +69,15 @@ export const homePageQuery = groq`
       eyebrow,
       headline
     },
-    testimonials,
-    journeyCta
+    testimonials{
+      items[]{ quote, attribution, caption }
+    },
+    journeyCta{
+      eyebrow,
+      headline,
+      body,
+      cta
+    }
   }
 `;
 
@@ -162,8 +169,19 @@ export type HomePage = {
     eyebrow?: string;
     headline?: string;
   };
-  testimonials?: unknown;
-  journeyCta?: unknown;
+  testimonials?: {
+    items?: Array<{
+      quote?: string;
+      attribution?: string;
+      caption?: string;
+    }>;
+  };
+  journeyCta?: {
+    eyebrow?: string;
+    headline?: string;
+    body?: string;
+    cta?: Link;
+  };
 };
 
 export type HomePageMedia = {
