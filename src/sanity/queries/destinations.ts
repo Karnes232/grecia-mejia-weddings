@@ -29,11 +29,11 @@ export const destinationsPageQuery = groq`
       slug,
       destinations[]{
         number,
-        country,
-        name,
-        subLocations,
-        slug,
-        tile
+        tile,
+        "country": destination->country,
+        "name": destination->name,
+        "subLocations": destination->subLocations,
+        "slug": destination->slug.current
       }
     },
     calendar{
@@ -41,6 +41,24 @@ export const destinationsPageQuery = groq`
       intro,
       rows[]{ region, note, months },
       legend{ peak, good, off }
+    },
+    spotlight{
+      eyebrow,
+      scriptAccent,
+      headline,
+      deck,
+      body,
+      facts[]{ label, value },
+      imageCaptionPlace,
+      imageCaptionDate,
+      ctaLabel,
+      ctaHref
+    },
+    journeyCta{
+      eyebrow,
+      headline,
+      body,
+      cta{ label, href }
     }
   }
 `;
@@ -52,6 +70,9 @@ export const destinationsPageMediaQuery = groq`
     },
     destinations[]{
       slug,
+      image{ ..., alt }
+    },
+    spotlight{
       image{ ..., alt }
     }
   }
@@ -117,6 +138,24 @@ export type DestinationsPage = {
     }>;
     legend?: { peak?: string; good?: string; off?: string };
   };
+  spotlight?: {
+    eyebrow?: string;
+    scriptAccent?: string;
+    headline?: string;
+    deck?: string;
+    body?: PortableTextBlock[];
+    facts?: Array<{ label?: string; value?: string }>;
+    imageCaptionPlace?: string;
+    imageCaptionDate?: string;
+    ctaLabel?: string;
+    ctaHref?: string;
+  };
+  journeyCta?: {
+    eyebrow?: string;
+    headline?: string;
+    body?: string;
+    cta?: { label?: string; href?: string };
+  };
 };
 
 export type CalendarCellValue = "peak" | "good" | "off";
@@ -124,6 +163,7 @@ export type CalendarCellValue = "peak" | "good" | "off";
 export type DestinationsPageMedia = {
   hero?: { image?: SanityImage };
   destinations?: Array<{ slug?: string; image?: SanityImage }>;
+  spotlight?: { image?: SanityImage };
 };
 
 export function getDestinationsPage(locale: string) {

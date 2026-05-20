@@ -19,6 +19,7 @@ const LOCALIZED_TYPES = [
   "footer",
   "homePage",
   "destinationsPage",
+  "destination",
 ];
 
 export default defineConfig({

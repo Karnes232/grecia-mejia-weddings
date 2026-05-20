@@ -6,4 +6,4 @@ export { Traditions } from "./Traditions";
 export { VenuesConsidered } from "./VenuesConsidered";
 export { RecentWeddings } from "./RecentWeddings";
 export { Testimonials } from "./Testimonials";
-export { JourneyCta } from "./JourneyCta";
+export { JourneyCta } from "@/components/_shared/JourneyCta";

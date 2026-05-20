@@ -13,6 +13,12 @@ import { randomUUID } from "node:crypto";
 
 import { apiVersion, dataset, projectId } from "../env";
 import { locales, type Locale } from "../../i18n/routing";
+import {
+  DESTINATIONS_BY_REGION,
+  REGION_ORDER,
+  ALL_SLUGS,
+  type Region,
+} from "./destinationCopy/facts";
 
 const token = process.env.SANITY_API_WRITE_TOKEN;
 if (!token) {
@@ -345,62 +351,7 @@ const REGIONS_COPY: Record<
   },
 };
 
-// ── Destinations data ──────────────────────────────────────────────────
-// Slugs are stable across locales. Country names + sub-locations stay in the
-// source language since they are mostly proper nouns.
-type DestRow = {
-  number: string;
-  country: string;
-  name: string;
-  subLocations: string;
-  slug: string;
-  tile: string;
-};
-
-const REGION_DESTINATIONS: Record<
-  "caribbean" | "mediterranean" | "western-europe" | "americas",
-  DestRow[]
-> = {
-  caribbean: [
-    { number: "01", country: "Dominican Republic", name: "Punta Cana", subLocations: "Cap Cana · Casa de Campo · Bávaro", slug: "punta-cana", tile: "featured" },
-    { number: "02", country: "French Antilles",     name: "St. Barths",  subLocations: "Gustavia · Anse de Grande Saline",     slug: "st-barths",  tile: "tall-lg" },
-    { number: "03", country: "British Antilles",    name: "Mustique",    subLocations: "Private island · 100 guests",          slug: "mustique",   tile: "square" },
-    { number: "04", country: "Turks & Caicos",      name: "Providenciales", subLocations: "Grace Bay coast · year-round",      slug: "providenciales", tile: "square" },
-    { number: "05", country: "Bahamas",             name: "Harbour Island", subLocations: "Pink-sand beach weddings",          slug: "harbour-island", tile: "square" },
-  ],
-  mediterranean: [
-    { number: "06", country: "Italy",  name: "Amalfi",      subLocations: "Positano · Ravello · Capri",     slug: "amalfi",     tile: "tall" },
-    { number: "07", country: "Italy",  name: "Lake Como",   subLocations: "Bellagio · Varenna · Tremezzo",  slug: "lake-como",  tile: "tall" },
-    { number: "08", country: "Italy",  name: "Tuscany",     subLocations: "Val d'Orcia · Chianti",          slug: "tuscany",    tile: "tall" },
-    { number: "09", country: "Spain",  name: "Mallorca",    subLocations: "Soller · Deia · Palma",          slug: "mallorca",   tile: "wide" },
-    { number: "10", country: "Greece", name: "Santorini",   subLocations: "Oia · Imerovigli",               slug: "santorini",  tile: "wide" },
-    { number: "11", country: "Greece", name: "Mykonos",     subLocations: "Kalafatis · Agios Ioannis",      slug: "mykonos",    tile: "square" },
-    { number: "12", country: "Spain",  name: "Andalucía",   subLocations: "Sevilla · Marbella · Ronda",     slug: "andalucia",  tile: "square" },
-    { number: "13", country: "Italy",  name: "Sicily",      subLocations: "Taormina · Noto · Palermo",      slug: "sicily",     tile: "square" },
-  ],
-  "western-europe": [
-    { number: "14", country: "France",        name: "Paris & Île de France", subLocations: "Versailles · 7th · Le Marais", slug: "paris-ile-de-france", tile: "tall-lg" },
-    { number: "15", country: "France",        name: "Provence",              subLocations: "Lavender, châteaux, slow Augusts", slug: "provence",  tile: "square" },
-    { number: "16", country: "France",        name: "Côte d'Azur",           subLocations: "Antibes · St. Tropez",           slug: "cote-dazur", tile: "square-sm" },
-    { number: "17", country: "United Kingdom",name: "The Cotswolds",         subLocations: "English country estates",        slug: "the-cotswolds", tile: "square" },
-    { number: "18", country: "Switzerland",   name: "Lake Geneva",           subLocations: "Montreux · Vevey",               slug: "lake-geneva", tile: "square" },
-    { number: "19", country: "Germany",       name: "Bavaria",               subLocations: "Lakes & estate gardens",         slug: "bavaria",     tile: "square" },
-  ],
-  americas: [
-    { number: "20", country: "México",        name: "Tulum & Los Cabos", subLocations: "Jungle · cenotes · Pacific bluffs", slug: "tulum-los-cabos", tile: "wide" },
-    { number: "21", country: "United States", name: "The Hamptons",      subLocations: "East Hampton · Sag Harbor",         slug: "the-hamptons",    tile: "wide" },
-    { number: "22", country: "United States", name: "Aspen & Napa",      subLocations: "Winter weddings · vineyards",       slug: "aspen-napa",      tile: "square" },
-    { number: "23", country: "Argentina",     name: "Mendoza",           subLocations: "Andes vineyards · big-sky weddings", slug: "mendoza",        tile: "square" },
-    { number: "24", country: "Canada",        name: "Whistler",          subLocations: "Coast Mountains · summer",          slug: "whistler",        tile: "square" },
-  ],
-};
-
-const REGION_ORDER = [
-  "caribbean",
-  "mediterranean",
-  "western-europe",
-  "americas",
-] as const;
+// Destinations data lives in `./destinationCopy/facts.ts` and is imported above.
 
 // ── Seasonal calendar ──────────────────────────────────────────────────
 const CALENDAR_ROWS: Array<{ slug: string; months: string[] }> = [
@@ -674,7 +625,17 @@ function buildDoc(locale: Locale) {
         eyebrow: regionsCopy[slug].eyebrow,
         name: regionsCopy[slug].name,
         intro: regionsCopy[slug].intro,
-        destinations: REGION_DESTINATIONS[slug].map((d) => keyed(d)),
+        destinations: DESTINATIONS_BY_REGION[slug as Region].map((d) =>
+          keyed({
+            number: d.number,
+            tile: d.tile,
+            destination: {
+              _type: "reference",
+              _ref: `destination.${d.slug}.${locale}`,
+              _weak: true,
+            },
+          }),
+        ),
       }),
     ),
     calendar: {
@@ -691,6 +652,7 @@ function buildDoc(locale: Locale) {
     },
     spotlight: {
       ...spotlight,
+      body: ptBlock(spotlight.body),
       facts: spotlight.facts.map((f) => keyed(f)),
       ctaHref: "/destinations/punta-cana",
     },
@@ -729,14 +691,10 @@ async function run() {
   });
 
   // Shared media doc — placeholder with destination slugs ready for images.
-  const allSlugs = REGION_ORDER.flatMap((r) =>
-    REGION_DESTINATIONS[r].map((d) => d.slug),
-  );
-
   tx.createIfNotExists({
     _id: "destinationsPageMedia",
     _type: "destinationsPageMedia",
-    destinations: allSlugs.map((slug) => keyed({ slug })),
+    destinations: ALL_SLUGS.map((slug) => keyed({ slug })),
   });
 
   await tx.commit();

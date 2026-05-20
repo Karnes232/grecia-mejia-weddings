@@ -85,14 +85,15 @@ function isEmpty(value: unknown): boolean {
 export async function fetchWithFallback<T extends Record<string, unknown>>(
   query: string,
   locale: string,
+  extraParams: Record<string, unknown> = {},
 ): Promise<T | null> {
   if (locale === FALLBACK_LOCALE) {
-    return client.fetch<T | null>(query, { locale });
+    return client.fetch<T | null>(query, { locale, ...extraParams });
   }
 
   const [localized, fallback] = await Promise.all([
-    client.fetch<T | null>(query, { locale }),
-    client.fetch<T | null>(query, { locale: FALLBACK_LOCALE }),
+    client.fetch<T | null>(query, { locale, ...extraParams }),
+    client.fetch<T | null>(query, { locale: FALLBACK_LOCALE, ...extraParams }),
   ]);
 
   if (!localized) return fallback;

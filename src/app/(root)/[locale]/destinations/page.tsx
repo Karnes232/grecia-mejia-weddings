@@ -1,10 +1,12 @@
 import { setRequestLocale } from "next-intl/server";
 
+import { JourneyCta } from "@/components/_shared/JourneyCta";
 import {
   DestinationsAtlas,
   DestinationsCalendar,
   DestinationsHero,
   DestinationsIntro,
+  DestinationsSpotlight,
   RegionFilter,
 } from "@/components/DestinationsPage";
 import {
@@ -61,7 +63,21 @@ export default async function DestinationsPage({
         <DestinationsCalendar calendar={page.calendar} locale={locale} />
       ) : null}
 
-      {!hero?.headline && !page?.intro?.headline && !page?.regions?.length ? (
+      {page?.spotlight?.headline ? (
+        <DestinationsSpotlight
+          spotlight={page.spotlight}
+          image={media?.spotlight?.image}
+        />
+      ) : null}
+
+      {page?.journeyCta?.headline ? (
+        <JourneyCta data={page.journeyCta} />
+      ) : null}
+
+      {!hero?.headline &&
+      !page?.intro?.headline &&
+      !page?.regions?.length &&
+      !page?.journeyCta?.headline ? (
         <div className="mx-auto max-w-[1100px] px-6 py-32 md:px-14">
           <p className="text-[10px] uppercase tracking-wide-eyebrow text-muted">
             Destinations content pending · {locale}

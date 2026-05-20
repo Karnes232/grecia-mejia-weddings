@@ -7,6 +7,8 @@ import { homePage } from "./singletons/homePage";
 import { homePageMedia } from "./singletons/homePageMedia";
 import { destinationsPage } from "./singletons/destinationsPage";
 import { destinationsPageMedia } from "./singletons/destinationsPageMedia";
+import { destination } from "./documents/destination";
+import { destinationMedia } from "./documents/destinationMedia";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -17,5 +19,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     homePageMedia,
     destinationsPage,
     destinationsPageMedia,
+    destination,
+    destinationMedia,
   ],
 };

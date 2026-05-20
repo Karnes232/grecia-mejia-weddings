@@ -1,11 +1,14 @@
-import type { HomePage } from "@/sanity/queries/home";
-
-import { GhostLink } from "../_shared/GhostLink";
+import { CTAButton } from "@/components/_shared/CTAButton";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 
 type JourneyCtaProps = {
-  data: NonNullable<HomePage["journeyCta"]>;
+  data: {
+    eyebrow?: string;
+    headline?: string;
+    body?: string;
+    cta?: { label?: string; href?: string };
+  };
 };
 
 export function JourneyCta({ data }: JourneyCtaProps) {
@@ -45,9 +48,9 @@ export function JourneyCta({ data }: JourneyCtaProps) {
           </p>
         ) : null}
         {data.cta?.label && data.cta?.href ? (
-          <GhostLink href={data.cta.href} tone="ivory">
+          <CTAButton href={data.cta.href} tone="ivory">
             {data.cta.label} →
-          </GhostLink>
+          </CTAButton>
         ) : null}
       </RevealOnScroll>
     </section>

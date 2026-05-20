@@ -10,6 +10,8 @@ const SINGLETON_TYPES = new Set([
   "homePageMedia",
   "destinationsPage",
   "destinationsPageMedia",
+  "destination",
+  "destinationMedia",
 ]);
 
 export const structure: StructureResolver = (S) =>
@@ -61,6 +63,26 @@ export const structure: StructureResolver = (S) =>
           S.document()
             .schemaType("destinationsPageMedia")
             .documentId("destinationsPageMedia"),
+        ),
+      S.listItem()
+        .title("Destinations")
+        .icon(() => "📍")
+        .schemaType("destination")
+        .child(
+          S.documentTypeList("destination")
+            .title("Destinations")
+            .apiVersion(apiVersion)
+            .filter('_type == "destination"'),
+        ),
+      S.listItem()
+        .title("Destination media")
+        .icon(() => "🖼️")
+        .schemaType("destinationMedia")
+        .child(
+          S.documentTypeList("destinationMedia")
+            .title("Destination media")
+            .apiVersion(apiVersion)
+            .filter('_type == "destinationMedia"'),
         ),
       S.listItem()
         .title("Navigation")

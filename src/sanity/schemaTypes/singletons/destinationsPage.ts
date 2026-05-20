@@ -169,32 +169,6 @@ export const destinationsPage = defineType({
                       type: "string",
                       description: 'e.g. "01", "02"…',
                     },
-                    {
-                      name: "country",
-                      title: "Country / area",
-                      type: "string",
-                      description: 'e.g. "Dominican Republic" or "French Antilles".',
-                    },
-                    defineField({
-                      name: "name",
-                      title: "Destination name",
-                      type: "string",
-                      validation: (r) => r.required(),
-                    }),
-                    {
-                      name: "subLocations",
-                      title: "Sub-locations (small-caps line)",
-                      type: "string",
-                      description: 'Separate with " · " — e.g. "Cap Cana · Casa de Campo".',
-                    },
-                    defineField({
-                      name: "slug",
-                      title: "Slug",
-                      type: "string",
-                      description:
-                        "Used for the link to /destinations/{slug} and for the media doc key.",
-                      validation: (r) => r.required(),
-                    }),
                     defineField({
                       name: "tile",
                       title: "Tile layout",
@@ -202,9 +176,33 @@ export const destinationsPage = defineType({
                       options: { list: [...TILE_OPTIONS] },
                       validation: (r) => r.required(),
                     }),
+                    defineField({
+                      name: "destination",
+                      title: "Destination",
+                      type: "reference",
+                      to: [{ type: "destination" }],
+                      options: {
+                        filter: ({ document }) =>
+                          document?.language
+                            ? {
+                                filter: "language == $language",
+                                params: { language: document.language },
+                              }
+                            : { filter: "true" },
+                      },
+                      validation: (r) => r.required(),
+                    }),
                   ],
                   preview: {
-                    select: { title: "name", subtitle: "country" },
+                    select: {
+                      title: "destination.country",
+                      subtitle: "destination.subLocations",
+                      n: "number",
+                    },
+                    prepare: ({ title, subtitle, n }) => ({
+                      title: `${n ?? ""} · ${title ?? "—"}`,
+                      subtitle: subtitle ?? "",
+                    }),
                   },
                 }),
               ],
@@ -298,7 +296,12 @@ export const destinationsPage = defineType({
             "Use *word* for italic-olive accents (e.g. the *Punta Cana* wedding.).",
         }),
         { name: "deck", title: "Deck", type: "text", rows: 2 },
-        { name: "body", title: "Body paragraph", type: "text", rows: 4 },
+        defineField({
+          name: "body",
+          title: "Body",
+          type: "array",
+          of: [defineArrayMember({ type: "block" })],
+        }),
         defineField({
           name: "facts",
           title: "Meta facts",

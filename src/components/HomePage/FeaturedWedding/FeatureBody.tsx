@@ -3,7 +3,7 @@ import type { PortableTextBlock } from "@portabletext/types";
 
 import type { HomePage } from "@/sanity/queries/home";
 
-import { GhostLink } from "../_shared/GhostLink";
+import { CTAButton } from "@/components/_shared/CTAButton";
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 
 type FeatureBodyProps = {
@@ -102,7 +102,7 @@ export function FeatureBody({
 
       {data.linkHref && data.linkLabel ? (
         <div className="mt-10">
-          <GhostLink href={data.linkHref}>{data.linkLabel} →</GhostLink>
+          <CTAButton href={data.linkHref}>{data.linkLabel} →</CTAButton>
         </div>
       ) : null}
     </div>

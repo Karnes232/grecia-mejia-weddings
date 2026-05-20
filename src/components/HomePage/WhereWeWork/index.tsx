@@ -1,6 +1,6 @@
 import type { HomePage } from "@/sanity/queries/home";
 
-import { GhostLink } from "../_shared/GhostLink";
+import { CTAButton } from "@/components/_shared/CTAButton";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 
@@ -50,7 +50,7 @@ export function WhereWeWork({ data }: WhereWeWorkProps) {
 
         {data.viewAllHref && data.viewAllLabel ? (
           <div className="mt-12 text-center">
-            <GhostLink href={data.viewAllHref}>{data.viewAllLabel} →</GhostLink>
+            <CTAButton href={data.viewAllHref}>{data.viewAllLabel} →</CTAButton>
           </div>
         ) : null}
       </div>
