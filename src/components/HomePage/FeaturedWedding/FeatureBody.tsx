@@ -4,7 +4,7 @@ import type { PortableTextBlock } from "@portabletext/types";
 import type { HomePage } from "@/sanity/queries/home";
 
 import { GhostLink } from "../_shared/GhostLink";
-import { renderHeadline } from "../_shared/renderHeadline";
+import { renderHeadline } from "@/components/_shared/renderHeadline";
 
 type FeatureBodyProps = {
   data: NonNullable<HomePage["featuredWedding"]>;

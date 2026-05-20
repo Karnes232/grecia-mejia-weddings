@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import type { HomePage } from "@/sanity/queries/home";
 
-import { renderHeadline } from "../_shared/renderHeadline";
+import { renderHeadline } from "@/components/_shared/renderHeadline";
 
 type Culture = NonNullable<
   NonNullable<HomePage["traditions"]>["cultures"]

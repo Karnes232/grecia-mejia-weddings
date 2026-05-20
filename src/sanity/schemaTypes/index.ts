@@ -5,7 +5,17 @@ import { navigation } from "./singletons/navigation";
 import { footer } from "./singletons/footer";
 import { homePage } from "./singletons/homePage";
 import { homePageMedia } from "./singletons/homePageMedia";
+import { destinationsPage } from "./singletons/destinationsPage";
+import { destinationsPageMedia } from "./singletons/destinationsPageMedia";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [siteSettings, navigation, footer, homePage, homePageMedia],
+  types: [
+    siteSettings,
+    navigation,
+    footer,
+    homePage,
+    homePageMedia,
+    destinationsPage,
+    destinationsPageMedia,
+  ],
 };

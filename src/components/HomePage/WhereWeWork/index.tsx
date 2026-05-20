@@ -1,8 +1,8 @@
 import type { HomePage } from "@/sanity/queries/home";
 
 import { GhostLink } from "../_shared/GhostLink";
-import { RevealOnScroll } from "../_shared/RevealOnScroll";
-import { renderHeadline } from "../_shared/renderHeadline";
+import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
+import { renderHeadline } from "@/components/_shared/renderHeadline";
 
 import { DestinationCard } from "./DestinationCard";
 

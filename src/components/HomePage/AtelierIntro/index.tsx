@@ -1,8 +1,8 @@
 import type { HomePage } from "@/sanity/queries/home";
 
-import { DiamondDivider } from "../_shared/DiamondDivider";
-import { RevealOnScroll } from "../_shared/RevealOnScroll";
-import { renderHeadline } from "../_shared/renderHeadline";
+import { DiamondDivider } from "@/components/_shared/DiamondDivider";
+import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
+import { renderHeadline } from "@/components/_shared/renderHeadline";
 
 import { AtelierBody } from "./AtelierBody";
 import { Signature } from "./Signature";

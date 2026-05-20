@@ -13,6 +13,7 @@
     "seed:settings": "tsx --env-file=.env.local src/sanity/seed/siteSettings.ts",
     "seed:home": "tsx --env-file=.env.local src/sanity/seed/homePage.ts",
     "seed:home-media": "tsx --env-file=.env.local src/sanity/seed/homePageMedia.ts",
+    "seed:destinations": "tsx --env-file=.env.local src/sanity/seed/destinationsPage.ts",
     "migrate:cleanup-site-settings": "tsx --env-file=.env.local src/sanity/migrations/cleanupSiteSettings.ts"
   },
   "dependencies": {

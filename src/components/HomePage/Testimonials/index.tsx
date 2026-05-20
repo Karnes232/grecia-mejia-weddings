@@ -1,6 +1,6 @@
 import type { HomePage } from "@/sanity/queries/home";
 
-import { RevealOnScroll } from "../_shared/RevealOnScroll";
+import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
 
 type TestimonialsProps = {
   data: NonNullable<HomePage["testimonials"]>;

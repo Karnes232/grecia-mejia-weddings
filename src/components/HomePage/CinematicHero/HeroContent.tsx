@@ -1,6 +1,6 @@
 import type { HomePage } from "@/sanity/queries/home";
 
-import { renderHeadline } from "../_shared/renderHeadline";
+import { renderHeadline } from "@/components/_shared/renderHeadline";
 
 type HeroContentProps = {
   hero: NonNullable<HomePage["hero"]>;

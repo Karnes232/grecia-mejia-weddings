@@ -1,6 +1,6 @@
 import type { HomePage, HomePageMedia } from "@/sanity/queries/home";
 
-import { RevealOnScroll } from "../_shared/RevealOnScroll";
+import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
 
 import { FeatureBody } from "./FeatureBody";
 import { FeatureImage } from "./FeatureImage";

@@ -1,7 +1,7 @@
 import type { HomePage, HomePageMedia } from "@/sanity/queries/home";
 
-import { RevealOnScroll } from "../_shared/RevealOnScroll";
-import { renderHeadline } from "../_shared/renderHeadline";
+import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
+import { renderHeadline } from "@/components/_shared/renderHeadline";
 
 import {
   RecentWeddingCard,

@@ -12,5 +12,11 @@
     "traditions": {
       "discover": "Descobrir →"
     }
+  },
+  "destinationsPage": {
+    "filter": {
+      "label": "Por região",
+      "all": "Todas"
+    }
   }
 }
