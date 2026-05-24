@@ -1,8 +1,11 @@
 export { DestinationFacts } from "./DestinationFacts";
+export { DestinationFaq } from "./DestinationFaq";
 export { DestinationGuest } from "./DestinationGuest";
 export { DestinationHero } from "./DestinationHero";
 export { DestinationLogistics } from "./DestinationLogistics";
+export { DestinationRelated } from "./DestinationRelated";
 export { DestinationStory } from "./DestinationStory";
 export { DestinationStyles } from "./DestinationStyles";
+export { DestinationTrends } from "./DestinationTrends";
 export { DestinationTypes } from "./DestinationTypes";
 export { DestinationVenues } from "./DestinationVenues";

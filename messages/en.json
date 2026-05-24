@@ -26,6 +26,11 @@
     },
     "weddingTypes": {
       "discover": "Discover →"
+    },
+    "related": {
+      "venues": "Related venues",
+      "cultures": "Related cultures",
+      "services": "Related services"
     }
   }
 }

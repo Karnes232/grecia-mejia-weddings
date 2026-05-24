@@ -39,7 +39,7 @@ export function JourneyCta({ data }: JourneyCtaProps) {
             {data.eyebrow}
           </span>
         ) : null}
-        <h2 className="m-0 mb-10 font-serif font-light text-[clamp(56px,8vw,96px)] leading-none tracking-[-0.005em] text-ivory">
+        <h2 className="m-0 mb-10 whitespace-pre-line font-serif font-light text-[clamp(56px,8vw,96px)] leading-none tracking-[-0.005em] text-ivory">
           {renderHeadline(data.headline, "gold")}
         </h2>
         {data.body ? (

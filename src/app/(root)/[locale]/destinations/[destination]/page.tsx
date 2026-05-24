@@ -1,13 +1,17 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
+import { JourneyCta } from "@/components/_shared/JourneyCta";
 import {
   DestinationFacts,
+  DestinationFaq,
   DestinationGuest,
   DestinationHero,
   DestinationLogistics,
+  DestinationRelated,
   DestinationStory,
   DestinationStyles,
+  DestinationTrends,
   DestinationTypes,
   DestinationVenues,
 } from "@/components/DestinationDetail";
@@ -68,7 +72,33 @@ export default async function DestinationPage({
         <DestinationGuest guest={doc.guest} images={media?.guestCards} />
       ) : null}
 
-      {/* Remaining sections (trends, related, …) — later passes. */}
+      {doc.trends?.items?.length ? (
+        <DestinationTrends trends={doc.trends} />
+      ) : null}
+
+      {doc.related?.headline ? (
+        <DestinationRelated
+          related={doc.related}
+          images={media?.relatedArticles}
+          locale={locale}
+        />
+      ) : null}
+
+      {doc.faq?.items?.length ? <DestinationFaq faq={doc.faq} /> : null}
+
+      {doc.cta?.headline ? (
+        <JourneyCta
+          data={{
+            eyebrow: doc.cta.eyebrow,
+            headline: doc.cta.headline,
+            body: doc.cta.body,
+            cta: {
+              label: doc.cta.ctaLabel?.replace(/\s*→\s*$/, ""),
+              href: doc.cta.ctaHref,
+            },
+          }}
+        />
+      ) : null}
     </>
   );
 }
