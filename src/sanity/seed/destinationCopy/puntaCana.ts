@@ -60,8 +60,7 @@ const en = {
       "The Dominican Republic is also, structurally, an easier place to wed than many destinations of equivalent scale. Marriage license requirements for foreign couples are clear and well-supported by every major resort. Customs allows florals, fabrics and ceremonial objects (mandap structures, chuppah poles, ketubah scrolls) through with proper paperwork.",
       "And it is generous. We have hosted four-day weddings here that span five hundred guests across three religions, with the venue staff absorbing each change of plan as if we had asked for an extra pillow.",
     ],
-    pull:
-      "Half of our weddings are here. The other half are influenced by how we plan here.",
+    pull: "Half of our weddings are here. The other half are influenced by how we plan here.",
     signatureName: "Grecia",
     signatureRole: "Founder · Cap Cana, 2026",
   },
@@ -74,37 +73,37 @@ const en = {
         numeral: "I",
         title: "The Beachfront Sunset",
         body: "A late-afternoon ceremony on white sand, finishing with cocktails on the dunes and dinner under string lights.",
-        imageKey: "style-beachfront",
+        imageKey: "style-1",
       },
       {
         numeral: "II",
         title: "The Resort Pavilion",
         body: "A covered open-air pavilion ceremony — weather-proof, photographs beautifully, holds three hundred guests in comfort.",
-        imageKey: "style-pavilion",
+        imageKey: "style-2",
       },
       {
         numeral: "III",
         title: "The Indian Wedding Weekend",
         body: "Three-to-five day arc: mehndi, sangeet, baraat, pheras, reception. Punta Cana absorbs this better than any destination we know.",
-        imageKey: "style-indian",
+        imageKey: "style-3",
       },
       {
         numeral: "IV",
         title: "The Jewish Ceremony",
         body: "Chuppah at golden hour, kosher catering coordinated with the resort kitchen, multilingual officiant.",
-        imageKey: "style-jewish",
+        imageKey: "style-4",
       },
       {
         numeral: "V",
         title: "The Catholic Garden",
         body: "Cathedral or estate-chapel mass followed by a Latin reception — arras, lazo, mariachi optional.",
-        imageKey: "style-catholic",
+        imageKey: "style-5",
       },
       {
         numeral: "VI",
         title: "The Black-Tie Estate",
         body: "A formal evening wedding inside a private villa or country club. Long-table dinner, jazz quintet, dancing into the small hours.",
-        imageKey: "style-black-tie",
+        imageKey: "style-6",
       },
     ],
   },
@@ -121,7 +120,7 @@ const en = {
         capacity: "40 – 220 guests",
         body: "Palm-thatched two-level pavilion on the beach, intimate evening light, photographs at every hour.",
         bestFor: "Sunset ceremony · cocktail dinner",
-        imageKey: "venue-jellyfish",
+        imageKey: "venue-1",
       },
       {
         name: "Kukua Beach Club",
@@ -130,7 +129,7 @@ const en = {
         capacity: "80 – 400 guests",
         body: "White-sand banquet with three-event capacity — perfect for Hindu and Jewish weekends with multiple ceremonies.",
         bestFor: "Multi-day weddings · three-religion arcs",
-        imageKey: "venue-kukua",
+        imageKey: "venue-2",
       },
       {
         name: "Chez Bisutti",
@@ -139,7 +138,7 @@ const en = {
         capacity: "60 – 180 guests",
         body: "Hidden cove with terraced gardens, oriented for a sunset ceremony and dinner among century-old palms.",
         bestFor: "Catholic mass · Latin reception",
-        imageKey: "venue-bisutti",
+        imageKey: "venue-3",
       },
     ],
   },
@@ -211,13 +210,11 @@ const en = {
         { label: "Time zone", value: "AST (GMT-4) · no daylight savings" },
         {
           label: "Visas",
-          value:
-            "Tourist card on arrival for most nationalities · USD 10",
+          value: "Tourist card on arrival for most nationalities · USD 10",
         },
         {
           label: "Currency",
-          value:
-            "Dominican peso · USD & EUR widely accepted at resorts",
+          value: "Dominican peso · USD & EUR widely accepted at resorts",
         },
         {
           label: "Tipping",
@@ -348,35 +345,35 @@ const en = {
         category: "Indian Weddings · Punta Cana",
         title: "Best Indian Wedding Venues in Punta Cana",
         body: "A working register of the resorts that hold a 300-guest baraat with grace.",
-        imageKey: "related-indian",
+        imageKey: "related-1",
         href: "/journal/best-indian-wedding-venues-punta-cana",
       },
       {
         category: "Logistics · Caribbean",
         title: "When to Wed in Punta Cana: A Month-by-Month Guide",
         body: "Climate, light, hurricane risk, and the cadence of our calendar.",
-        imageKey: "related-when",
+        imageKey: "related-2",
         href: "/journal/when-to-wed-punta-cana",
       },
       {
         category: "Cost · Punta Cana",
         title: "What a Luxury Punta Cana Wedding Actually Costs",
         body: "A frank breakdown of 2026 budgets by guest count, with line-item ranges.",
-        imageKey: "related-cost",
+        imageKey: "related-3",
         href: "/journal/punta-cana-wedding-cost-2026",
       },
       {
         category: "Interfaith",
         title: "Two Clergy, One Ceremony: Interfaith on the Coast",
         body: "How we structure interfaith ritual arcs in Punta Cana — without compromise.",
-        imageKey: "related-interfaith",
+        imageKey: "related-4",
         href: "/journal/interfaith-coast",
       },
       {
         category: "Guest experience",
         title: "The Welcome Party: Your Wedding's Second Star",
         body: "Why the night-before reception has become the most-photographed event.",
-        imageKey: "related-welcome",
+        imageKey: "related-5",
         href: "/journal/welcome-party",
       },
     ],
@@ -547,7 +544,11 @@ const de: typeof en = {
     captionCenter: "Fotografiert im Januar 2026",
   },
   facts: [
-    { label: "Beste Monate", value: "November – April", sub: "Trocken · Brise" },
+    {
+      label: "Beste Monate",
+      value: "November – April",
+      sub: "Trocken · Brise",
+    },
     {
       label: "Nebensaison",
       value: "August – Oktober",
@@ -570,7 +571,11 @@ const it: typeof en = {
     captionCenter: "Fotografato a gennaio 2026",
   },
   facts: [
-    { label: "Mesi migliori", value: "Novembre – Aprile", sub: "Secco · brezza" },
+    {
+      label: "Mesi migliori",
+      value: "Novembre – Aprile",
+      sub: "Secco · brezza",
+    },
     {
       label: "Bassa stagione",
       value: "Agosto – Ottobre",

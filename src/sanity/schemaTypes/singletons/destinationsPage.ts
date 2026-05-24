@@ -139,7 +139,11 @@ export const destinationsPage = defineType({
         defineArrayMember({
           type: "object",
           fields: [
-            { name: "eyebrow", title: "Eyebrow (e.g. 'Region One')", type: "string" },
+            {
+              name: "eyebrow",
+              title: "Eyebrow (e.g. 'Region One')",
+              type: "string",
+            },
             defineField({
               name: "name",
               title: "Region name",
@@ -182,6 +186,7 @@ export const destinationsPage = defineType({
                       type: "reference",
                       to: [{ type: "destination" }],
                       options: {
+                        disableNew: true,
                         filter: ({ document }) =>
                           document?.language
                             ? {
@@ -245,8 +250,7 @@ export const destinationsPage = defineType({
                   name: "months",
                   title: "Months (12)",
                   type: "array",
-                  description:
-                    "Exactly twelve entries, January → December.",
+                  description: "Exactly twelve entries, January → December.",
                   validation: (r) => r.required().length(12),
                   of: [
                     defineArrayMember({
@@ -286,7 +290,8 @@ export const destinationsPage = defineType({
           name: "scriptAccent",
           title: "Script accent (inline)",
           type: "string",
-          description: 'Pinyon Script word inside the headline (e.g. "Curating").',
+          description:
+            'Pinyon Script word inside the headline (e.g. "Curating").',
         },
         defineField({
           name: "headline",

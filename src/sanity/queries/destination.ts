@@ -67,7 +67,7 @@ export const destinationQuery = groq`
 `;
 
 export const destinationMediaQuery = groq`
-  *[_id == $mediaId][0]{
+  *[_type == "destinationMedia" && slug == $slug][0]{
     slug,
     heroImage{ ..., alt },
     storyPortrait{ ..., alt },
@@ -224,11 +224,10 @@ export function getDestination(locale: string, slug: string) {
 }
 
 export function getDestinationMedia(slug: string) {
-  return client.fetch<DestinationMedia | null>(destinationMediaQuery, {
-    mediaId: `destinationMedia-${slug}`,
-  });
+  return client.fetch<DestinationMedia | null>(destinationMediaQuery, { slug });
 }
 
 export function getDestinationSlugs() {
   return client.fetch<string[]>(destinationSlugsQuery);
 }
+

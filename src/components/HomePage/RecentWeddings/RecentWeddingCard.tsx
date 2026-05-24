@@ -29,15 +29,13 @@ const sizesByPosition: Record<RecentWeddingPosition, string> = {
   d: "(min-width:1024px) 67vw, 100vw",
 };
 
-const cropByPosition: Record<
-  RecentWeddingPosition,
-  { w: number; h: number }
-> = {
-  a: { w: 800, h: 1400 },
-  b: { w: 900, h: 1100 },
-  c: { w: 600, h: 1500 },
-  d: { w: 900, h: 1100 },
-};
+const cropByPosition: Record<RecentWeddingPosition, { w: number; h: number }> =
+  {
+    a: { w: 800, h: 1400 },
+    b: { w: 900, h: 1100 },
+    c: { w: 600, h: 1500 },
+    d: { w: 900, h: 1100 },
+  };
 
 export function RecentWeddingCard({ image, position }: RecentWeddingCardProps) {
   const { w, h } = cropByPosition[position];

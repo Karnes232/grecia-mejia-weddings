@@ -26,64 +26,7 @@ export const structure: StructureResolver = (S) =>
         .child(
           S.document().schemaType("siteSettings").documentId("siteSettings"),
         ),
-      S.listItem()
-        .title("Home Page")
-        .icon(() => "🏠")
-        .schemaType("homePage")
-        .child(
-          S.documentTypeList("homePage")
-            .title("Home Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "homePage"'),
-        ),
-      S.listItem()
-        .title("Home Page Media")
-        .id("homePageMedia")
-        .icon(() => "🖼️")
-        .schemaType("homePageMedia")
-        .child(
-          S.document().schemaType("homePageMedia").documentId("homePageMedia"),
-        ),
-      S.listItem()
-        .title("Destinations Page")
-        .icon(() => "🗺️")
-        .schemaType("destinationsPage")
-        .child(
-          S.documentTypeList("destinationsPage")
-            .title("Destinations Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "destinationsPage"'),
-        ),
-      S.listItem()
-        .title("Destinations Page Media")
-        .id("destinationsPageMedia")
-        .icon(() => "🗺️")
-        .schemaType("destinationsPageMedia")
-        .child(
-          S.document()
-            .schemaType("destinationsPageMedia")
-            .documentId("destinationsPageMedia"),
-        ),
-      S.listItem()
-        .title("Destinations")
-        .icon(() => "📍")
-        .schemaType("destination")
-        .child(
-          S.documentTypeList("destination")
-            .title("Destinations")
-            .apiVersion(apiVersion)
-            .filter('_type == "destination"'),
-        ),
-      S.listItem()
-        .title("Destination media")
-        .icon(() => "🖼️")
-        .schemaType("destinationMedia")
-        .child(
-          S.documentTypeList("destinationMedia")
-            .title("Destination media")
-            .apiVersion(apiVersion)
-            .filter('_type == "destinationMedia"'),
-        ),
+      S.divider(),
       S.listItem()
         .title("Navigation")
         .icon(() => "🧭")
@@ -104,6 +47,68 @@ export const structure: StructureResolver = (S) =>
             .apiVersion(apiVersion)
             .filter('_type == "footer"'),
         ),
+      S.divider(),
+      S.listItem()
+        .title("Home Page")
+        .icon(() => "🏠")
+        .schemaType("homePage")
+        .child(
+          S.documentTypeList("homePage")
+            .title("Home Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "homePage"'),
+        ),
+      S.listItem()
+        .title("Home Page Media")
+        .id("homePageMedia")
+        .icon(() => "🖼️")
+        .schemaType("homePageMedia")
+        .child(
+          S.document().schemaType("homePageMedia").documentId("homePageMedia"),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Destinations Page")
+        .icon(() => "🗺️")
+        .schemaType("destinationsPage")
+        .child(
+          S.documentTypeList("destinationsPage")
+            .title("Destinations Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "destinationsPage"'),
+        ),
+      S.listItem()
+        .title("Destinations Page Media")
+        .id("destinationsPageMedia")
+        .icon(() => "🗺️")
+        .schemaType("destinationsPageMedia")
+        .child(
+          S.document()
+            .schemaType("destinationsPageMedia")
+            .documentId("destinationsPageMedia"),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Destinations")
+        .icon(() => "📍")
+        .schemaType("destination")
+        .child(
+          S.documentTypeList("destination")
+            .title("Destinations")
+            .apiVersion(apiVersion)
+            .filter('_type == "destination"'),
+        ),
+      S.listItem()
+        .title("Destination media")
+        .icon(() => "🖼️")
+        .schemaType("destinationMedia")
+        .child(
+          S.documentTypeList("destinationMedia")
+            .title("Destination media")
+            .apiVersion(apiVersion)
+            .filter('_type == "destinationMedia"'),
+        ),
+
       S.divider(),
       ...S.documentTypeListItems().filter(
         (item) => !SINGLETON_TYPES.has(item.getId() ?? ""),

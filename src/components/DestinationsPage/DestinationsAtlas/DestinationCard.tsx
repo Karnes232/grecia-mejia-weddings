@@ -4,20 +4,13 @@ import type { ReactNode } from "react";
 
 import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
-import type {
-  DestinationCardData,
-  DestinationsPageMedia,
-} from "@/sanity/queries/destinations";
+import type { DestinationCardData } from "@/sanity/queries/destinations";
 
 import { DEFAULT_TILE, TILE_LAYOUTS } from "./tileLayout";
 
-type SanityImage = NonNullable<
-  NonNullable<DestinationsPageMedia["destinations"]>[number]["image"]
->;
-
 type DestinationCardProps = {
   card: DestinationCardData;
-  image?: SanityImage;
+  image?: DestinationCardData["image"];
 };
 
 export function DestinationCard({ card, image }: DestinationCardProps) {

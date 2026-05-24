@@ -18,5 +18,11 @@
       "label": "Por região",
       "all": "Todas"
     }
+  },
+  "destinationDetail": {
+    "venues": {
+      "capacity": "Capacidade",
+      "bestFor": "Ideal para"
+    }
   }
 }

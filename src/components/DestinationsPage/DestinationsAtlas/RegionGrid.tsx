@@ -1,22 +1,14 @@
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import type {
-  DestinationsPageMedia,
-  Region,
-} from "@/sanity/queries/destinations";
+import type { Region } from "@/sanity/queries/destinations";
 
 import { DestinationCard } from "./DestinationCard";
 import { RegionHead } from "./RegionHead";
 
-type SanityImage = NonNullable<
-  NonNullable<DestinationsPageMedia["destinations"]>[number]["image"]
->;
-
 type RegionGridProps = {
   region: Region;
-  imageBySlug: Map<string, SanityImage | undefined>;
 };
 
-export function RegionGrid({ region, imageBySlug }: RegionGridProps) {
+export function RegionGrid({ region }: RegionGridProps) {
   return (
     <div
       id={region.slug}
@@ -36,7 +28,7 @@ export function RegionGrid({ region, imageBySlug }: RegionGridProps) {
             <DestinationCard
               key={card.slug ?? `${region.slug}-${i}`}
               card={card}
-              image={card.slug ? imageBySlug.get(card.slug) : undefined}
+              image={card.image}
             />
           ))}
         </div>

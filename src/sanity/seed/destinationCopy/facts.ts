@@ -24,17 +24,17 @@ export type Fact = {
   region: Region;
   number: string;
   tile: AtlasTile;
-  name: string;            // canonical English name for templating
+  name: string; // canonical English name for templating
   country: string;
   subLocations: string;
-  peakWindow: string;      // e.g. "November – April"
-  offWindow: string;       // e.g. "August – October"
-  guestRange: string;      // e.g. "40 – 600"
-  flightTime: string;      // e.g. "3 – 9 hours · from major hubs"
-  languages: string;       // e.g. "EN · ES"
-  currency: string;        // e.g. "DOP / USD"
-  signature: string;       // short editorial hook used in the story section
-  climateCue: string;      // short note ("dry, breezy, mid-eighties")
+  peakWindow: string; // e.g. "November – April"
+  offWindow: string; // e.g. "August – October"
+  guestRange: string; // e.g. "40 – 600"
+  flightTime: string; // e.g. "3 – 9 hours · from major hubs"
+  languages: string; // e.g. "EN · ES"
+  currency: string; // e.g. "DOP / USD"
+  signature: string; // short editorial hook used in the story section
+  climateCue: string; // short note ("dry, breezy, mid-eighties")
   hurricaneRisk: boolean;
 };
 

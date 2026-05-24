@@ -33,7 +33,8 @@ export const destinationsPageQuery = groq`
         "country": destination->country,
         "name": destination->name,
         "subLocations": destination->subLocations,
-        "slug": destination->slug.current
+        "slug": destination->slug.current,
+        "image": *[_type == "destinationMedia" && slug == ^.destination->slug.current][0].cardImage{ ..., alt }
       }
     },
     calendar{
@@ -68,17 +69,13 @@ export const destinationsPageMediaQuery = groq`
     hero{
       image{ ..., alt }
     },
-    destinations[]{
-      slug,
-      image{ ..., alt }
-    },
     spotlight{
       image{ ..., alt }
     }
   }
 `;
 
-type SanityImage = {
+export type SanityImage = {
   asset?: { _ref: string; _type: "reference" };
   alt?: string;
   hotspot?: { x: number; y: number; height: number; width: number };
@@ -100,6 +97,7 @@ export type DestinationCardData = {
   subLocations?: string;
   slug?: string;
   tile?: DestinationTile;
+  image?: SanityImage;
 };
 
 export type Region = {
@@ -162,7 +160,6 @@ export type CalendarCellValue = "peak" | "good" | "off";
 
 export type DestinationsPageMedia = {
   hero?: { image?: SanityImage };
-  destinations?: Array<{ slug?: string; image?: SanityImage }>;
   spotlight?: { image?: SanityImage };
 };
 

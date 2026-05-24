@@ -547,9 +547,7 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
       sideNote: p.story.sideNote(fact),
       headline: p.story.headline,
       lede: p.story.lede(fact),
-      body: p.story
-        .bodyParagraphs(fact)
-        .flatMap((para) => ptBlock(para)),
+      body: p.story.bodyParagraphs(fact).flatMap((para) => ptBlock(para)),
       pull: p.story.pull(fact),
       signatureName: "Grecia",
       signatureRole: p.story.signatureRole,
@@ -624,7 +622,8 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
           k({ label: p.logistics.currency, value: fact.currency }),
           k({
             label: p.logistics.tipping,
-            value: "10% service included; additional 10% for excellent service.",
+            value:
+              "10% service included; additional 10% for excellent service.",
           }),
         ],
         footnote:
@@ -697,12 +696,7 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
           href: `/venues/${fact.slug}-venue-${i + 1}`,
         }),
       ),
-      sidebarCultures: [
-        "Indian",
-        "Jewish",
-        "Interfaith",
-        "Latin",
-      ].map((name) =>
+      sidebarCultures: ["Indian", "Jewish", "Interfaith", "Latin"].map((name) =>
         k({
           label: `${name} weddings`,
           href: `/multicultural/${name.toLowerCase()}`,
@@ -714,7 +708,10 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
         "Guest Experience",
         "Legal & Logistics",
       ].map((name) =>
-        k({ label: name, href: `/services/${name.toLowerCase().replaceAll(" & ", "-").replaceAll(" ", "-")}` }),
+        k({
+          label: name,
+          href: `/services/${name.toLowerCase().replaceAll(" & ", "-").replaceAll(" ", "-")}`,
+        }),
       ),
     },
     faq: {

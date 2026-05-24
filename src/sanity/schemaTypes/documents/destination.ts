@@ -1,6 +1,24 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { apiVersion } from "../../env";
+import {
+  GUEST_KEY_OPTIONS,
+  type ImageKeyOption,
+  RELATED_KEY_OPTIONS,
+  STYLE_KEY_OPTIONS,
+  VENUE_KEY_OPTIONS,
+} from "../imageKeyOptions";
+
+// `imageKey` is a dropdown of fixed image slots shared with the destination's
+// `destinationMedia` doc, so both sides always pick from the same list.
+const imageKeyField = (list: ImageKeyOption[]) =>
+  defineField({
+    name: "imageKey",
+    title: "Image",
+    type: "string",
+    options: { list },
+    description: "Pick the matching image slot from this destination's media doc.",
+  });
 
 const TILE_OPTIONS = [
   { title: "Featured (x7, panoramic)", value: "featured" },
@@ -72,8 +90,7 @@ export const destination = defineType({
           const { document, getClient } = context;
           const client = getClient({ apiVersion });
           const id = document?._id?.replace(/^drafts\./, "");
-          const language = (document as { language?: string } | null)
-            ?.language;
+          const language = (document as { language?: string } | null)?.language;
           const params = {
             draft: `drafts.${id}`,
             published: id,
@@ -142,7 +159,8 @@ export const destination = defineType({
           name: "headline",
           title: "Headline",
           type: "string",
-          description: "Use *word* for italic ivory accents on the roman base.",
+          description:
+            "Use *word* for italic-gold accents on the italic ivory base.",
           validation: (r) => r.required(),
         }),
         { name: "deck", title: "Deck", type: "text", rows: 3 },
@@ -236,11 +254,7 @@ export const destination = defineType({
                 { name: "numeral", title: "Roman numeral", type: "string" },
                 { name: "title", title: "Title", type: "string" },
                 { name: "body", title: "Body", type: "text", rows: 3 },
-                {
-                  name: "imageKey",
-                  title: "Image key (matches media doc)",
-                  type: "string",
-                },
+                imageKeyField(STYLE_KEY_OPTIONS),
               ],
               preview: { select: { title: "title", subtitle: "numeral" } },
             }),
@@ -280,11 +294,7 @@ export const destination = defineType({
                 { name: "capacity", title: "Capacity", type: "string" },
                 { name: "body", title: "Body", type: "text", rows: 3 },
                 { name: "bestFor", title: "Best for", type: "string" },
-                {
-                  name: "imageKey",
-                  title: "Image key (matches media doc)",
-                  type: "string",
-                },
+                imageKeyField(VENUE_KEY_OPTIONS),
               ],
               preview: { select: { title: "name", subtitle: "tag" } },
             }),
@@ -395,7 +405,9 @@ export const destination = defineType({
                       options: { list: [...SEASON_OPTIONS] },
                     }),
                   ],
-                  preview: { select: { title: "month", subtitle: "conditions" } },
+                  preview: {
+                    select: { title: "month", subtitle: "conditions" },
+                  },
                 }),
               ],
             }),
@@ -432,11 +444,7 @@ export const destination = defineType({
               fields: [
                 { name: "label", title: "Small-caps label", type: "string" },
                 { name: "headline", title: "Headline", type: "string" },
-                {
-                  name: "imageKey",
-                  title: "Image key (matches media doc)",
-                  type: "string",
-                },
+                imageKeyField(GUEST_KEY_OPTIONS),
               ],
               preview: { select: { title: "headline", subtitle: "label" } },
             }),
@@ -506,11 +514,7 @@ export const destination = defineType({
                 { name: "category", title: "Category", type: "string" },
                 { name: "title", title: "Title", type: "string" },
                 { name: "body", title: "Body", type: "text", rows: 2 },
-                {
-                  name: "imageKey",
-                  title: "Image key (matches media doc)",
-                  type: "string",
-                },
+                imageKeyField(RELATED_KEY_OPTIONS),
                 { name: "href", title: "Link href", type: "string" },
               ],
               preview: { select: { title: "title", subtitle: "category" } },

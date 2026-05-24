@@ -830,7 +830,6 @@ const RECENT: Record<Locale, { eyebrow: string; headline: string }> = {
   it: { eyebrow: "Portfolio", headline: "Matrimoni *recenti*." },
 };
 
-
 const TESTIMONIALS: Record<
   Locale,
   Array<{ quote: string; attribution: string; caption: string }>

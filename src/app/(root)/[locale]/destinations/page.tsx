@@ -31,31 +31,18 @@ export default async function DestinationsPage({
 
   const hero = page?.hero;
 
-  const imageBySlug = new Map(
-    (media?.destinations ?? [])
-      .filter((d): d is { slug: string; image?: typeof d.image } =>
-        Boolean(d.slug),
-      )
-      .map((d) => [d.slug, d.image] as const),
-  );
-
   return (
     <>
       {hero?.headline ? (
         <DestinationsHero hero={hero} image={media?.hero?.image} />
       ) : null}
 
-      {page?.intro?.headline ? (
-        <DestinationsIntro intro={page.intro} />
-      ) : null}
+      {page?.intro?.headline ? <DestinationsIntro intro={page.intro} /> : null}
 
       {page?.regions?.length ? (
         <div>
           <RegionFilter regions={page.regions} />
-          <DestinationsAtlas
-            regions={page.regions}
-            imageBySlug={imageBySlug}
-          />
+          <DestinationsAtlas regions={page.regions} />
         </div>
       ) : null}
 

@@ -33,9 +33,11 @@ const client = createClient({
   useCdn: false,
 });
 
-const docId = (slug: string, locale: Locale) =>
-  `destination.${slug}.${locale}`;
-const metadataId = (slug: string) => `destination.${slug}.metadata`;
+// IDs must be dot-free: on a public dataset, anonymous reads only serve
+// documents whose _id contains no "." (Sanity reserves "." for the
+// `drafts.`/`versions.` system). Dotted ids are visible only with a token.
+const docId = (slug: string, locale: Locale) => `destination-${slug}-${locale}`;
+const metadataId = (slug: string) => `destination-${slug}-metadata`;
 const mediaId = (slug: string) => `destinationMedia-${slug}`;
 
 const k = <T extends object>(obj: T) => ({ _key: randomUUID(), ...obj });
@@ -84,9 +86,7 @@ async function run() {
       _id: mediaId(fact.slug),
       _type: "destinationMedia",
       slug: fact.slug,
-      styles: Array.from({ length: 6 }, (_, i) =>
-        k({ key: `style-${i + 1}` }),
-      ),
+      styles: Array.from({ length: 6 }, (_, i) => k({ key: `style-${i + 1}` })),
       venueCards: Array.from({ length: 3 }, (_, i) =>
         k({ key: `venue-${i + 1}` }),
       ),

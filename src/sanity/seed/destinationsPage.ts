@@ -16,7 +16,6 @@ import { locales, type Locale } from "../../i18n/routing";
 import {
   DESTINATIONS_BY_REGION,
   REGION_ORDER,
-  ALL_SLUGS,
   type Region,
 } from "./destinationCopy/facts";
 
@@ -215,138 +214,165 @@ type RegionCopy = {
 
 const REGIONS_COPY: Record<
   Locale,
-  Record<"caribbean" | "mediterranean" | "western-europe" | "americas", RegionCopy>
+  Record<
+    "caribbean" | "mediterranean" | "western-europe" | "americas",
+    RegionCopy
+  >
 > = {
   en: {
     caribbean: {
       eyebrow: "Region One",
       name: "The *Caribbean*",
-      intro: "The home atelier. Year-round weddings on white-sand coastlines, with a calendar that peaks November through April.",
+      intro:
+        "The home atelier. Year-round weddings on white-sand coastlines, with a calendar that peaks November through April.",
     },
     mediterranean: {
       eyebrow: "Region Two",
       name: "The *Mediterranean*",
-      intro: "Cliffside palazzi, lemon groves, late-summer light. We work the Med from May through early October.",
+      intro:
+        "Cliffside palazzi, lemon groves, late-summer light. We work the Med from May through early October.",
     },
     "western-europe": {
       eyebrow: "Region Three",
       name: "Western *Europe*",
-      intro: "Châteaux, country estates, and the formal grace of French & English wedding tradition. May through September.",
+      intro:
+        "Châteaux, country estates, and the formal grace of French & English wedding tradition. May through September.",
     },
     americas: {
       eyebrow: "Region Four",
       name: "The *Americas*",
-      intro: "From Aspen winters to Tulum springs — the high desert, the long coastline, and the slow gardens of Mexico and Argentina.",
+      intro:
+        "From Aspen winters to Tulum springs — the high desert, the long coastline, and the slow gardens of Mexico and Argentina.",
     },
   },
   es: {
     caribbean: {
       eyebrow: "Región Uno",
       name: "El *Caribe*",
-      intro: "El atelier de casa. Bodas todo el año en costas de arena blanca, con un calendario que culmina de noviembre a abril.",
+      intro:
+        "El atelier de casa. Bodas todo el año en costas de arena blanca, con un calendario que culmina de noviembre a abril.",
     },
     mediterranean: {
       eyebrow: "Región Dos",
       name: "El *Mediterráneo*",
-      intro: "Palacios sobre acantilados, limonares, luz de fin de verano. Trabajamos el Mediterráneo de mayo a principios de octubre.",
+      intro:
+        "Palacios sobre acantilados, limonares, luz de fin de verano. Trabajamos el Mediterráneo de mayo a principios de octubre.",
     },
     "western-europe": {
       eyebrow: "Región Tres",
       name: "Europa *Occidental*",
-      intro: "Châteaux, fincas de campo y la gracia formal de la tradición nupcial francesa e inglesa. De mayo a septiembre.",
+      intro:
+        "Châteaux, fincas de campo y la gracia formal de la tradición nupcial francesa e inglesa. De mayo a septiembre.",
     },
     americas: {
       eyebrow: "Región Cuatro",
       name: "Las *Américas*",
-      intro: "De los inviernos de Aspen a las primaveras de Tulum — el alto desierto, la larga costa y los jardines pausados de México y Argentina.",
+      intro:
+        "De los inviernos de Aspen a las primaveras de Tulum — el alto desierto, la larga costa y los jardines pausados de México y Argentina.",
     },
   },
   fr: {
     caribbean: {
       eyebrow: "Région Un",
       name: "Les *Caraïbes*",
-      intro: "L'atelier d'origine. Mariages toute l'année sur des côtes de sable blanc, avec un calendrier qui culmine de novembre à avril.",
+      intro:
+        "L'atelier d'origine. Mariages toute l'année sur des côtes de sable blanc, avec un calendrier qui culmine de novembre à avril.",
     },
     mediterranean: {
       eyebrow: "Région Deux",
       name: "La *Méditerranée*",
-      intro: "Palazzi à flanc de falaise, citronniers, lumière de fin d'été. Nous travaillons la Méditerranée de mai à début octobre.",
+      intro:
+        "Palazzi à flanc de falaise, citronniers, lumière de fin d'été. Nous travaillons la Méditerranée de mai à début octobre.",
     },
     "western-europe": {
       eyebrow: "Région Trois",
       name: "Europe *Occidentale*",
-      intro: "Châteaux, domaines de campagne, et la grâce formelle de la tradition nuptiale française et anglaise. De mai à septembre.",
+      intro:
+        "Châteaux, domaines de campagne, et la grâce formelle de la tradition nuptiale française et anglaise. De mai à septembre.",
     },
     americas: {
       eyebrow: "Région Quatre",
       name: "Les *Amériques*",
-      intro: "Des hivers d'Aspen aux printemps de Tulum — le haut désert, la longue côte, et les jardins lents du Mexique et de l'Argentine.",
+      intro:
+        "Des hivers d'Aspen aux printemps de Tulum — le haut désert, la longue côte, et les jardins lents du Mexique et de l'Argentine.",
     },
   },
   pt: {
     caribbean: {
       eyebrow: "Região Um",
       name: "O *Caribe*",
-      intro: "O ateliê de casa. Casamentos o ano inteiro em costas de areia branca, com um calendário que culmina de novembro a abril.",
+      intro:
+        "O ateliê de casa. Casamentos o ano inteiro em costas de areia branca, com um calendário que culmina de novembro a abril.",
     },
     mediterranean: {
       eyebrow: "Região Dois",
       name: "O *Mediterrâneo*",
-      intro: "Palazzi à beira de falésia, limoeiros, luz de fim de verão. Trabalhamos o Mediterrâneo de maio a início de outubro.",
+      intro:
+        "Palazzi à beira de falésia, limoeiros, luz de fim de verão. Trabalhamos o Mediterrâneo de maio a início de outubro.",
     },
     "western-europe": {
       eyebrow: "Região Três",
       name: "Europa *Ocidental*",
-      intro: "Châteaux, propriedades rurais, e a graça formal da tradição nupcial francesa e inglesa. De maio a setembro.",
+      intro:
+        "Châteaux, propriedades rurais, e a graça formal da tradição nupcial francesa e inglesa. De maio a setembro.",
     },
     americas: {
       eyebrow: "Região Quatro",
       name: "As *Américas*",
-      intro: "Dos invernos de Aspen às primaveras de Tulum — o alto deserto, a longa costa, e os jardins lentos do México e da Argentina.",
+      intro:
+        "Dos invernos de Aspen às primaveras de Tulum — o alto deserto, a longa costa, e os jardins lentos do México e da Argentina.",
     },
   },
   de: {
     caribbean: {
       eyebrow: "Region Eins",
       name: "Die *Karibik*",
-      intro: "Das Heim-Atelier. Ganzjährige Hochzeiten an weißen Sandküsten, mit einem Kalender, der von November bis April seinen Höhepunkt erreicht.",
+      intro:
+        "Das Heim-Atelier. Ganzjährige Hochzeiten an weißen Sandküsten, mit einem Kalender, der von November bis April seinen Höhepunkt erreicht.",
     },
     mediterranean: {
       eyebrow: "Region Zwei",
       name: "Das *Mittelmeer*",
-      intro: "Palazzi am Klippenrand, Zitronenhaine, Spätsommerlicht. Wir arbeiten am Mittelmeer von Mai bis Anfang Oktober.",
+      intro:
+        "Palazzi am Klippenrand, Zitronenhaine, Spätsommerlicht. Wir arbeiten am Mittelmeer von Mai bis Anfang Oktober.",
     },
     "western-europe": {
       eyebrow: "Region Drei",
       name: "*West*europa",
-      intro: "Schlösser, Landsitze und die formale Anmut der französischen und englischen Hochzeitstradition. Von Mai bis September.",
+      intro:
+        "Schlösser, Landsitze und die formale Anmut der französischen und englischen Hochzeitstradition. Von Mai bis September.",
     },
     americas: {
       eyebrow: "Region Vier",
       name: "Die *Amerikas*",
-      intro: "Von Aspener Wintern bis zu Tulumer Frühlingen — die Hochwüste, die lange Küste und die langsamen Gärten Mexikos und Argentiniens.",
+      intro:
+        "Von Aspener Wintern bis zu Tulumer Frühlingen — die Hochwüste, die lange Küste und die langsamen Gärten Mexikos und Argentiniens.",
     },
   },
   it: {
     caribbean: {
       eyebrow: "Regione Uno",
       name: "I *Caraibi*",
-      intro: "L'atelier di casa. Matrimoni tutto l'anno su coste di sabbia bianca, con un calendario che culmina da novembre ad aprile.",
+      intro:
+        "L'atelier di casa. Matrimoni tutto l'anno su coste di sabbia bianca, con un calendario che culmina da novembre ad aprile.",
     },
     mediterranean: {
       eyebrow: "Regione Due",
       name: "Il *Mediterraneo*",
-      intro: "Palazzi a strapiombo, limoneti, luce di fine estate. Lavoriamo il Mediterraneo da maggio a inizio ottobre.",
+      intro:
+        "Palazzi a strapiombo, limoneti, luce di fine estate. Lavoriamo il Mediterraneo da maggio a inizio ottobre.",
     },
     "western-europe": {
       eyebrow: "Regione Tre",
       name: "Europa *Occidentale*",
-      intro: "Châteaux, tenute di campagna e la grazia formale della tradizione nuziale francese e inglese. Da maggio a settembre.",
+      intro:
+        "Châteaux, tenute di campagna e la grazia formale della tradizione nuziale francese e inglese. Da maggio a settembre.",
     },
     americas: {
       eyebrow: "Regione Quattro",
       name: "Le *Americhe*",
-      intro: "Dagli inverni di Aspen alle primavere di Tulum — l'altipiano desertico, la lunga costa e i giardini lenti del Messico e dell'Argentina.",
+      intro:
+        "Dagli inverni di Aspen alle primavere di Tulum — l'altipiano desertico, la lunga costa e i giardini lenti del Messico e dell'Argentina.",
     },
   },
 };
@@ -355,11 +381,91 @@ const REGIONS_COPY: Record<
 
 // ── Seasonal calendar ──────────────────────────────────────────────────
 const CALENDAR_ROWS: Array<{ slug: string; months: string[] }> = [
-  { slug: "caribbean",     months: ["peak","peak","peak","peak","good","off","off","off","good","good","peak","peak"] },
-  { slug: "mediterranean", months: ["off","off","off","good","peak","peak","peak","peak","peak","good","off","off"] },
-  { slug: "western-europe",months: ["off","off","off","good","peak","peak","peak","good","good","off","off","off"] },
-  { slug: "americas",      months: ["good","good","peak","peak","good","good","good","good","peak","peak","good","good"] },
-  { slug: "asia-pacific",  months: ["peak","peak","peak","good","off","off","off","off","off","good","peak","peak"] },
+  {
+    slug: "caribbean",
+    months: [
+      "peak",
+      "peak",
+      "peak",
+      "peak",
+      "good",
+      "off",
+      "off",
+      "off",
+      "good",
+      "good",
+      "peak",
+      "peak",
+    ],
+  },
+  {
+    slug: "mediterranean",
+    months: [
+      "off",
+      "off",
+      "off",
+      "good",
+      "peak",
+      "peak",
+      "peak",
+      "peak",
+      "peak",
+      "good",
+      "off",
+      "off",
+    ],
+  },
+  {
+    slug: "western-europe",
+    months: [
+      "off",
+      "off",
+      "off",
+      "good",
+      "peak",
+      "peak",
+      "peak",
+      "good",
+      "good",
+      "off",
+      "off",
+      "off",
+    ],
+  },
+  {
+    slug: "americas",
+    months: [
+      "good",
+      "good",
+      "peak",
+      "peak",
+      "good",
+      "good",
+      "good",
+      "good",
+      "peak",
+      "peak",
+      "good",
+      "good",
+    ],
+  },
+  {
+    slug: "asia-pacific",
+    months: [
+      "peak",
+      "peak",
+      "peak",
+      "good",
+      "off",
+      "off",
+      "off",
+      "off",
+      "off",
+      "good",
+      "peak",
+      "peak",
+    ],
+  },
 ];
 
 const CALENDAR_COPY: Record<
@@ -373,74 +479,152 @@ const CALENDAR_COPY: Record<
 > = {
   en: {
     headline: "When to wed *where.*",
-    intro: "A working calendar of when each region is at its best — and which months we recommend you avoid.",
-    legend: { peak: "Peak season", good: "Shoulder · good", off: "Off-season · we don't recommend" },
+    intro:
+      "A working calendar of when each region is at its best — and which months we recommend you avoid.",
+    legend: {
+      peak: "Peak season",
+      good: "Shoulder · good",
+      off: "Off-season · we don't recommend",
+    },
     rowLabels: {
-      caribbean:      { region: "Caribbean",      note: "Year-round" },
-      mediterranean:  { region: "Mediterranean",  note: "Late spring to early autumn" },
-      "western-europe":{region: "Western Europe", note: "Late spring to summer" },
-      americas:       { region: "The Americas",   note: "Variable by sub-region" },
+      caribbean: { region: "Caribbean", note: "Year-round" },
+      mediterranean: {
+        region: "Mediterranean",
+        note: "Late spring to early autumn",
+      },
+      "western-europe": {
+        region: "Western Europe",
+        note: "Late spring to summer",
+      },
+      americas: { region: "The Americas", note: "Variable by sub-region" },
       "asia-pacific": { region: "Asia & Pacific", note: "Dry seasons only" },
     },
   },
   es: {
     headline: "Cuándo casarse *dónde.*",
-    intro: "Un calendario vivo de cuándo cada región está en su mejor momento — y qué meses recomendamos evitar.",
-    legend: { peak: "Temporada alta", good: "Hombro · bueno", off: "Temporada baja · no recomendamos" },
+    intro:
+      "Un calendario vivo de cuándo cada región está en su mejor momento — y qué meses recomendamos evitar.",
+    legend: {
+      peak: "Temporada alta",
+      good: "Hombro · bueno",
+      off: "Temporada baja · no recomendamos",
+    },
     rowLabels: {
-      caribbean:      { region: "Caribe",             note: "Todo el año" },
-      mediterranean:  { region: "Mediterráneo",       note: "De primavera tardía a otoño temprano" },
-      "western-europe":{region: "Europa Occidental",  note: "De primavera tardía a verano" },
-      americas:       { region: "Las Américas",       note: "Variable por subregión" },
-      "asia-pacific": { region: "Asia y Pacífico",    note: "Solo estaciones secas" },
+      caribbean: { region: "Caribe", note: "Todo el año" },
+      mediterranean: {
+        region: "Mediterráneo",
+        note: "De primavera tardía a otoño temprano",
+      },
+      "western-europe": {
+        region: "Europa Occidental",
+        note: "De primavera tardía a verano",
+      },
+      americas: { region: "Las Américas", note: "Variable por subregión" },
+      "asia-pacific": {
+        region: "Asia y Pacífico",
+        note: "Solo estaciones secas",
+      },
     },
   },
   fr: {
     headline: "Quand se marier, *où.*",
-    intro: "Un calendrier vivant pour savoir quand chaque région est à son meilleur — et les mois que nous recommandons d'éviter.",
-    legend: { peak: "Haute saison", good: "Épaule · bon", off: "Hors saison · nous ne recommandons pas" },
+    intro:
+      "Un calendrier vivant pour savoir quand chaque région est à son meilleur — et les mois que nous recommandons d'éviter.",
+    legend: {
+      peak: "Haute saison",
+      good: "Épaule · bon",
+      off: "Hors saison · nous ne recommandons pas",
+    },
     rowLabels: {
-      caribbean:      { region: "Caraïbes",            note: "Toute l'année" },
-      mediterranean:  { region: "Méditerranée",        note: "De fin de printemps à début d'automne" },
-      "western-europe":{region: "Europe occidentale", note: "De fin de printemps à été" },
-      americas:       { region: "Les Amériques",       note: "Variable par sous-région" },
-      "asia-pacific": { region: "Asie & Pacifique",    note: "Saisons sèches uniquement" },
+      caribbean: { region: "Caraïbes", note: "Toute l'année" },
+      mediterranean: {
+        region: "Méditerranée",
+        note: "De fin de printemps à début d'automne",
+      },
+      "western-europe": {
+        region: "Europe occidentale",
+        note: "De fin de printemps à été",
+      },
+      americas: { region: "Les Amériques", note: "Variable par sous-région" },
+      "asia-pacific": {
+        region: "Asie & Pacifique",
+        note: "Saisons sèches uniquement",
+      },
     },
   },
   pt: {
     headline: "Quando se casar, *onde.*",
-    intro: "Um calendário vivo de quando cada região está no seu melhor — e quais meses recomendamos evitar.",
-    legend: { peak: "Alta temporada", good: "Meia-temporada · boa", off: "Baixa temporada · não recomendamos" },
+    intro:
+      "Um calendário vivo de quando cada região está no seu melhor — e quais meses recomendamos evitar.",
+    legend: {
+      peak: "Alta temporada",
+      good: "Meia-temporada · boa",
+      off: "Baixa temporada · não recomendamos",
+    },
     rowLabels: {
-      caribbean:      { region: "Caribe",              note: "Ano inteiro" },
-      mediterranean:  { region: "Mediterrâneo",        note: "Do fim da primavera ao início do outono" },
-      "western-europe":{region: "Europa Ocidental",    note: "Do fim da primavera ao verão" },
-      americas:       { region: "As Américas",         note: "Variável por sub-região" },
-      "asia-pacific": { region: "Ásia e Pacífico",     note: "Apenas estações secas" },
+      caribbean: { region: "Caribe", note: "Ano inteiro" },
+      mediterranean: {
+        region: "Mediterrâneo",
+        note: "Do fim da primavera ao início do outono",
+      },
+      "western-europe": {
+        region: "Europa Ocidental",
+        note: "Do fim da primavera ao verão",
+      },
+      americas: { region: "As Américas", note: "Variável por sub-região" },
+      "asia-pacific": {
+        region: "Ásia e Pacífico",
+        note: "Apenas estações secas",
+      },
     },
   },
   de: {
     headline: "Wann heiraten, *wo.*",
-    intro: "Ein lebendiger Kalender, wann jede Region am besten ist — und welche Monate wir abraten.",
-    legend: { peak: "Hochsaison", good: "Schulter · gut", off: "Nebensaison · nicht empfohlen" },
+    intro:
+      "Ein lebendiger Kalender, wann jede Region am besten ist — und welche Monate wir abraten.",
+    legend: {
+      peak: "Hochsaison",
+      good: "Schulter · gut",
+      off: "Nebensaison · nicht empfohlen",
+    },
     rowLabels: {
-      caribbean:      { region: "Karibik",            note: "Ganzjährig" },
-      mediterranean:  { region: "Mittelmeer",         note: "Spätfrühling bis Frühherbst" },
-      "western-europe":{region: "Westeuropa",         note: "Spätfrühling bis Sommer" },
-      americas:       { region: "Die Amerikas",       note: "Variabel je Teilregion" },
-      "asia-pacific": { region: "Asien & Pazifik",    note: "Nur Trockenzeiten" },
+      caribbean: { region: "Karibik", note: "Ganzjährig" },
+      mediterranean: {
+        region: "Mittelmeer",
+        note: "Spätfrühling bis Frühherbst",
+      },
+      "western-europe": {
+        region: "Westeuropa",
+        note: "Spätfrühling bis Sommer",
+      },
+      americas: { region: "Die Amerikas", note: "Variabel je Teilregion" },
+      "asia-pacific": { region: "Asien & Pazifik", note: "Nur Trockenzeiten" },
     },
   },
   it: {
     headline: "Quando sposarsi, *dove.*",
-    intro: "Un calendario vivo di quando ogni regione è al suo meglio — e quali mesi raccomandiamo di evitare.",
-    legend: { peak: "Alta stagione", good: "Mezza stagione · buona", off: "Bassa stagione · non raccomandiamo" },
+    intro:
+      "Un calendario vivo di quando ogni regione è al suo meglio — e quali mesi raccomandiamo di evitare.",
+    legend: {
+      peak: "Alta stagione",
+      good: "Mezza stagione · buona",
+      off: "Bassa stagione · non raccomandiamo",
+    },
     rowLabels: {
-      caribbean:      { region: "Caraibi",             note: "Tutto l'anno" },
-      mediterranean:  { region: "Mediterraneo",        note: "Da tarda primavera a inizio autunno" },
-      "western-europe":{region: "Europa occidentale", note: "Da tarda primavera a estate" },
-      americas:       { region: "Le Americhe",         note: "Variabile per sotto-regione" },
-      "asia-pacific": { region: "Asia e Pacifico",     note: "Solo stagioni secche" },
+      caribbean: { region: "Caraibi", note: "Tutto l'anno" },
+      mediterranean: {
+        region: "Mediterraneo",
+        note: "Da tarda primavera a inizio autunno",
+      },
+      "western-europe": {
+        region: "Europa occidentale",
+        note: "Da tarda primavera a estate",
+      },
+      americas: { region: "Le Americhe", note: "Variabile per sotto-regione" },
+      "asia-pacific": {
+        region: "Asia e Pacifico",
+        note: "Solo stagioni secche",
+      },
     },
   },
 };
@@ -690,11 +874,11 @@ async function run() {
     })),
   });
 
-  // Shared media doc — placeholder with destination slugs ready for images.
+  // Shared media doc — placeholder for hero + spotlight imagery.
+  // Atlas tile images now come from each destination's destinationMedia.cardImage.
   tx.createIfNotExists({
     _id: "destinationsPageMedia",
     _type: "destinationsPageMedia",
-    destinations: ALL_SLUGS.map((slug) => keyed({ slug })),
   });
 
   await tx.commit();

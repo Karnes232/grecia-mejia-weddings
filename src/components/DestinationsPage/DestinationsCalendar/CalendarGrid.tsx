@@ -74,7 +74,10 @@ function RowFragment({ row }: { row: CalendarRow }) {
           className="flex items-center justify-center border-b border-rule px-1 py-[18px]"
         >
           <span
-            className={clsx("block w-4/5 rounded-[3px]", CELL_STYLES[value ?? "off"])}
+            className={clsx(
+              "block w-4/5 rounded-[3px]",
+              CELL_STYLES[value ?? "off"],
+            )}
           />
         </div>
       ))}

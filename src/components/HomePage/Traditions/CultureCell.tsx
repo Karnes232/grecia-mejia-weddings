@@ -38,7 +38,10 @@ export function CultureCell({ culture, discoverLabel }: CultureCellProps) {
 
   if (culture.slug) {
     return (
-      <Link href={`/multicultural/${culture.slug}` as never} className={CELL_CLASS}>
+      <Link
+        href={`/multicultural/${culture.slug}` as never}
+        className={CELL_CLASS}
+      >
         {inner}
       </Link>
     );

@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 const altField = {
   name: "alt",
@@ -26,34 +26,6 @@ export const destinationsPageMedia = defineType({
           type: "image",
           options: { hotspot: true },
           fields: [altField],
-        }),
-      ],
-    }),
-    defineField({
-      name: "destinations",
-      title: "Destination images",
-      type: "array",
-      description:
-        "Keyed by destination slug — must match the slug on the localized doc's region cards.",
-      of: [
-        defineArrayMember({
-          type: "object",
-          fields: [
-            defineField({
-              name: "slug",
-              title: "Slug (matches destinations entry)",
-              type: "string",
-              validation: (r) => r.required(),
-            }),
-            defineField({
-              name: "image",
-              title: "Image",
-              type: "image",
-              options: { hotspot: true },
-              fields: [altField],
-            }),
-          ],
-          preview: { select: { title: "slug", media: "image" } },
         }),
       ],
     }),

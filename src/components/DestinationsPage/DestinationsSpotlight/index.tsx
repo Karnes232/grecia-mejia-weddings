@@ -1,5 +1,8 @@
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import type { DestinationsPage, DestinationsPageMedia } from "@/sanity/queries/destinations";
+import type {
+  DestinationsPage,
+  DestinationsPageMedia,
+} from "@/sanity/queries/destinations";
 
 import { SpotlightBody } from "./SpotlightBody";
 import { SpotlightImage } from "./SpotlightImage";

@@ -448,7 +448,8 @@ export const homePage = defineType({
           title: "Body (deck)",
           type: "text",
           rows: 3,
-          description: "Italic Cormorant supporting paragraph below the headline.",
+          description:
+            "Italic Cormorant supporting paragraph below the headline.",
         },
         linkObject("cta", "CTA button", { required: true }),
       ],
