@@ -39,7 +39,7 @@ export const destinationQuery = groq`
       items[]{ name, body, href }
     },
     logistics{
-      eyebrow, headline, downloadLabel, downloadHref,
+      eyebrow, headline,
       gettingThere{ headline, items[]{ label, value }, footnote },
       weather{ headline, intro, months[]{ month, temp, conditions, season }, footnote }
     },
@@ -148,8 +148,6 @@ export type Destination = {
   logistics?: {
     eyebrow?: string;
     headline?: string;
-    downloadLabel?: string;
-    downloadHref?: string;
     gettingThere?: {
       headline?: string;
       items?: Array<{ label?: string; value?: string }>;

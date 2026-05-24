@@ -353,8 +353,6 @@ export const destination = defineType({
           type: "string",
           description: "Use *word* for italic-olive accents.",
         }),
-        { name: "downloadLabel", title: "Download label", type: "string" },
-        { name: "downloadHref", title: "Download href", type: "string" },
         defineField({
           name: "gettingThere",
           title: "Getting there",

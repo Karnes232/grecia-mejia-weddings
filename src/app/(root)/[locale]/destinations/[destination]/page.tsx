@@ -3,9 +3,12 @@ import { setRequestLocale } from "next-intl/server";
 
 import {
   DestinationFacts,
+  DestinationGuest,
   DestinationHero,
+  DestinationLogistics,
   DestinationStory,
   DestinationStyles,
+  DestinationTypes,
   DestinationVenues,
 } from "@/components/DestinationDetail";
 import {
@@ -53,7 +56,19 @@ export default async function DestinationPage({
         />
       ) : null}
 
-      {/* Remaining sections (weddingTypes, logistics, …) — later passes. */}
+      {doc.weddingTypes?.items?.length ? (
+        <DestinationTypes weddingTypes={doc.weddingTypes} locale={locale} />
+      ) : null}
+
+      {doc.logistics?.headline ? (
+        <DestinationLogistics logistics={doc.logistics} />
+      ) : null}
+
+      {doc.guest?.cards?.length ? (
+        <DestinationGuest guest={doc.guest} images={media?.guestCards} />
+      ) : null}
+
+      {/* Remaining sections (trends, related, …) — later passes. */}
     </>
   );
 }

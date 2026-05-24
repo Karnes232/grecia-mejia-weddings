@@ -148,42 +148,42 @@ const en = {
     deck: "Eight cultural arcs we have planned in Punta Cana, with the logistics and venues that hold each one.",
     items: [
       {
-        name: "Indian",
+        name: "Indian *weddings*",
         body: "Mehndi · Sangeet · Baraat · Pheras. Resorts here absorb 300-guest baraats with grace.",
         href: "/multicultural/indian",
       },
       {
-        name: "Jewish",
+        name: "Jewish *weddings*",
         body: "Chuppah ceremonies on the sand, kosher catering with the resort kitchen.",
         href: "/multicultural/jewish",
       },
       {
-        name: "Christian",
+        name: "Christian *weddings*",
         body: "Catholic and Protestant ceremonies in estate chapels or cathedral-mass formats.",
         href: "/multicultural/christian",
       },
       {
-        name: "Arab",
+        name: "Arab *weddings*",
         body: "Zaffe processions, henna nights, multilingual officiant — fully supported.",
         href: "/multicultural/arab",
       },
       {
-        name: "Interfaith",
+        name: "Interfaith *weddings*",
         body: "Two clergy. Two languages. One cohesive arc — our specialty here.",
         href: "/multicultural/interfaith",
       },
       {
-        name: "Latin",
+        name: "Latin *weddings*",
         body: "Arras, lazo, padrinos. Bilingual receptions with mariachi or bachata.",
         href: "/multicultural/latin",
       },
       {
-        name: "Hindu",
+        name: "Hindu *weddings*",
         body: "Pheras at sunset, three-day weddings, our most-repeated arc in this destination.",
         href: "/multicultural/hindu",
       },
       {
-        name: "Civil",
+        name: "Civil *weddings*",
         body: "Symbolic ceremonies for couples who marry legally at home — flexible, simple.",
         href: "/multicultural/civil",
       },
@@ -192,8 +192,6 @@ const en = {
   logistics: {
     eyebrow: "Logistics & weather",
     headline: "The *practical* picture.",
-    downloadLabel: "Download the Punta Cana brief →",
-    downloadHref: "/destinations/punta-cana/brief.pdf",
     gettingThere: {
       headline: "Getting there & getting married",
       items: [
@@ -629,8 +627,6 @@ export function buildPuntaCanaDoc(locale: Locale) {
     logistics: {
       eyebrow: c.logistics.eyebrow,
       headline: c.logistics.headline,
-      downloadLabel: c.logistics.downloadLabel,
-      downloadHref: c.logistics.downloadHref,
       gettingThere: {
         headline: c.logistics.gettingThere.headline,
         items: c.logistics.gettingThere.items.map((i) => k(i)),

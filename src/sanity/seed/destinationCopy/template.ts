@@ -69,7 +69,6 @@ type Phrases = {
   logistics: {
     eyebrow: string;
     headline: string;
-    download: (f: Fact) => string;
     gettingThereHeadline: string;
     airport: string;
     marriageLicense: string;
@@ -216,7 +215,6 @@ const en: Phrases = {
   logistics: {
     eyebrow: "Logistics & weather",
     headline: "The *practical* picture.",
-    download: (f) => `Download the ${f.name} brief →`,
     gettingThereHeadline: "Getting there & getting married",
     airport: "Airport",
     marriageLicense: "Marriage license",
@@ -588,7 +586,7 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
       deck: p.weddingTypes.deck,
       items: p.weddingTypeNames.map((name, i) =>
         k({
-          name,
+          name: `${name} *weddings*`,
           body: p.weddingTypeBodies(fact)[i],
           href: `/multicultural/${name.toLowerCase()}`,
         }),
@@ -597,8 +595,6 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
     logistics: {
       eyebrow: p.logistics.eyebrow,
       headline: p.logistics.headline,
-      downloadLabel: p.logistics.download(fact),
-      downloadHref: `/destinations/${fact.slug}/brief.pdf`,
       gettingThere: {
         headline: p.logistics.gettingThereHeadline,
         items: [

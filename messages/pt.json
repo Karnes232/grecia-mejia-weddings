@@ -23,6 +23,9 @@
     "venues": {
       "capacity": "Capacidade",
       "bestFor": "Ideal para"
+    },
+    "weddingTypes": {
+      "discover": "Descobrir →"
     }
   }
 }
