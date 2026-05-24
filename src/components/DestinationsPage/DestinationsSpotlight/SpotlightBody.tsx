@@ -1,6 +1,3 @@
-import { PortableText, type PortableTextComponents } from "@portabletext/react";
-import type { PortableTextBlock } from "@portabletext/types";
-
 import { CTAButton } from "@/components/_shared/CTAButton";
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 
@@ -9,20 +6,10 @@ type SpotlightBodyProps = {
   scriptAccent?: string;
   headline?: string;
   deck?: string;
-  body?: PortableTextBlock[];
+  body?: string;
   facts?: Array<{ label?: string; value?: string }>;
   ctaLabel?: string;
   ctaHref?: string;
-};
-
-const bodyComponents: PortableTextComponents = {
-  block: {
-    normal: ({ children }) => (
-      <p className="mb-4 text-[15px] leading-[1.75] text-ink last:mb-0">
-        {children}
-      </p>
-    ),
-  },
 };
 
 export function SpotlightBody({
@@ -61,8 +48,10 @@ export function SpotlightBody({
         </p>
       )}
 
-      {body?.length ? (
-        <PortableText value={body} components={bodyComponents} />
+      {body ? (
+        <p className="mb-4 text-[15px] leading-[1.75] text-ink last:mb-0">
+          {body}
+        </p>
       ) : null}
 
       {facts?.length ? (

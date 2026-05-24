@@ -17,6 +17,9 @@
     "filter": {
       "label": "By region",
       "all": "All"
+    },
+    "spotlight": {
+      "cta": "Explore {name} →"
     }
   },
   "destinationDetail": {

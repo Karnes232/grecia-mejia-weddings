@@ -215,65 +215,60 @@ const WHERE_WE_WORK: Record<
 };
 
 const DESTINATIONS = [
-  { slug: "punta-cana", name: "Punta Cana", region: "Dominican Republic" },
-  { slug: "santorini", name: "Santorini", region: "Greece" },
-  { slug: "provence", name: "Provence", region: "France" },
-  { slug: "mallorca", name: "Mallorca", region: "Spain" },
-  { slug: "tulum", name: "Tulum", region: "Mexico" },
+  { slug: "punta-cana" },
+  { slug: "amalfi" },
+  { slug: "provence" },
+  { slug: "the-hamptons" },
+  { slug: "tulum-los-cabos" },
 ] as const;
 
 type DestinationSlug = (typeof DESTINATIONS)[number]["slug"];
 
-const DESTINATION_SUB_LOCATIONS: Record<DestinationSlug, string> = {
-  "punta-cana": "Cap Cana · Casa de Campo · Bávaro",
-  santorini: "Oia · Imerovigli · Fira",
-  provence: "Aix · Luberon · Côte d’Azur",
-  mallorca: "Palma · Sóller · Deià",
-  tulum: "Riviera Maya · Sian Ka’an · Holbox",
-};
-
+// Tagline (region + season) is editorial — it has no equivalent on the
+// destination doc. Name, sub-locations, image and link are derived from the
+// referenced destination at query time.
 const DESTINATION_TAGLINES: Record<Locale, Record<DestinationSlug, string>> = {
   en: {
     "punta-cana": "Caribbean — Year-round",
-    santorini: "Greece — Late Spring",
+    amalfi: "Italy — May to October",
     provence: "France — Spring & Summer",
-    mallorca: "Spain — All seasons",
-    tulum: "Mexico — November to April",
+    "the-hamptons": "New York — June to September",
+    "tulum-los-cabos": "Mexico — November to April",
   },
   es: {
     "punta-cana": "Caribe — Todo el año",
-    santorini: "Grecia — Finales de primavera",
+    amalfi: "Italia — Mayo a octubre",
     provence: "Francia — Primavera y verano",
-    mallorca: "España — Todo el año",
-    tulum: "México — Noviembre a abril",
+    "the-hamptons": "Nueva York — Junio a septiembre",
+    "tulum-los-cabos": "México — Noviembre a abril",
   },
   fr: {
     "punta-cana": "Caraïbes — Toute l’année",
-    santorini: "Grèce — Fin du printemps",
+    amalfi: "Italie — Mai à octobre",
     provence: "France — Printemps & été",
-    mallorca: "Espagne — Toutes saisons",
-    tulum: "Mexique — Novembre à avril",
+    "the-hamptons": "New York — Juin à septembre",
+    "tulum-los-cabos": "Mexique — Novembre à avril",
   },
   pt: {
     "punta-cana": "Caribe — Todo o ano",
-    santorini: "Grécia — Fim da primavera",
+    amalfi: "Itália — Maio a outubro",
     provence: "França — Primavera e verão",
-    mallorca: "Espanha — O ano todo",
-    tulum: "México — Novembro a abril",
+    "the-hamptons": "Nova York — Junho a setembro",
+    "tulum-los-cabos": "México — Novembro a abril",
   },
   de: {
     "punta-cana": "Karibik — Ganzjährig",
-    santorini: "Griechenland — Später Frühling",
+    amalfi: "Italien — Mai bis Oktober",
     provence: "Frankreich — Frühling & Sommer",
-    mallorca: "Spanien — Ganzjährig",
-    tulum: "Mexiko — November bis April",
+    "the-hamptons": "New York — Juni bis September",
+    "tulum-los-cabos": "Mexiko — November bis April",
   },
   it: {
     "punta-cana": "Caraibi — Tutto l’anno",
-    santorini: "Grecia — Tarda primavera",
+    amalfi: "Italia — Da maggio a ottobre",
     provence: "Francia — Primavera & estate",
-    mallorca: "Spagna — Tutte le stagioni",
-    tulum: "Messico — Da novembre ad aprile",
+    "the-hamptons": "New York — Da giugno a settembre",
+    "tulum-los-cabos": "Messico — Da novembre ad aprile",
   },
 };
 
@@ -996,11 +991,12 @@ function buildDoc(locale: Locale) {
       viewAllHref: "/destinations",
       destinations: DESTINATIONS.map((d) =>
         keyed({
-          name: d.name,
-          region: d.region,
           tagline: DESTINATION_TAGLINES[locale][d.slug],
-          subLocations: DESTINATION_SUB_LOCATIONS[d.slug],
-          slug: d.slug,
+          destination: {
+            _type: "reference",
+            _ref: `destination-${d.slug}-${locale}`,
+            _weak: true,
+          },
         }),
       ),
     },

@@ -51,10 +51,7 @@ export default async function DestinationsPage({
       ) : null}
 
       {page?.spotlight?.headline ? (
-        <DestinationsSpotlight
-          spotlight={page.spotlight}
-          image={media?.spotlight?.image}
-        />
+        <DestinationsSpotlight spotlight={page.spotlight} locale={locale} />
       ) : null}
 
       {page?.journeyCta?.headline ? (

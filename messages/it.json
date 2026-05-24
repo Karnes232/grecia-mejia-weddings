@@ -17,6 +17,9 @@
     "filter": {
       "label": "Per regione",
       "all": "Tutte"
+    },
+    "spotlight": {
+      "cta": "Scopri {name} →"
     }
   },
   "destinationDetail": {

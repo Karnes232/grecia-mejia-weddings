@@ -29,21 +29,6 @@ export const destinationsPageMedia = defineType({
         }),
       ],
     }),
-    defineField({
-      name: "spotlight",
-      title: "Spotlight",
-      type: "object",
-      options: { collapsible: true, collapsed: true },
-      fields: [
-        defineField({
-          name: "image",
-          title: "Image",
-          type: "image",
-          options: { hotspot: true },
-          fields: [altField],
-        }),
-      ],
-    }),
   ],
   preview: {
     prepare: () => ({ title: "Destinations Page Media", media: "🗺️" }),

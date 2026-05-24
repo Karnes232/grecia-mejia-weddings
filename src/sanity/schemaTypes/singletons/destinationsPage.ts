@@ -284,64 +284,27 @@ export const destinationsPage = defineType({
       type: "object",
       group: "spotlight",
       options: { collapsible: true, collapsed: true },
+      description:
+        "Feature one destination — its headline, deck, facts, image and CTA are pulled from that destination doc.",
       fields: [
         { name: "eyebrow", title: "Eyebrow", type: "string" },
-        {
-          name: "scriptAccent",
-          title: "Script accent (inline)",
-          type: "string",
-          description:
-            'Pinyon Script word inside the headline (e.g. "Curating").',
-        },
         defineField({
-          name: "headline",
-          title: "Headline",
-          type: "string",
-          description:
-            "Use *word* for italic-olive accents (e.g. the *Punta Cana* wedding.).",
+          name: "destination",
+          title: "Featured destination",
+          type: "reference",
+          to: [{ type: "destination" }],
+          options: {
+            disableNew: true,
+            filter: ({ document }) =>
+              document?.language
+                ? {
+                    filter: "language == $language",
+                    params: { language: document.language },
+                  }
+                : { filter: "true" },
+          },
+          validation: (r) => r.required(),
         }),
-        { name: "deck", title: "Deck", type: "text", rows: 2 },
-        defineField({
-          name: "body",
-          title: "Body",
-          type: "array",
-          of: [defineArrayMember({ type: "block" })],
-        }),
-        defineField({
-          name: "facts",
-          title: "Meta facts",
-          type: "array",
-          of: [
-            defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "label", title: "Label", type: "string" },
-                { name: "value", title: "Value", type: "string" },
-              ],
-              preview: { select: { title: "label", subtitle: "value" } },
-            }),
-          ],
-        }),
-        {
-          name: "imageCaptionPlace",
-          title: "Image caption · place",
-          type: "string",
-        },
-        {
-          name: "imageCaptionDate",
-          title: "Image caption · date",
-          type: "string",
-        },
-        {
-          name: "ctaLabel",
-          title: "CTA label",
-          type: "string",
-        },
-        {
-          name: "ctaHref",
-          title: "CTA href",
-          type: "string",
-        },
       ],
     }),
 

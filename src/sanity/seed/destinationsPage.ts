@@ -815,7 +815,7 @@ function buildDoc(locale: Locale) {
             tile: d.tile,
             destination: {
               _type: "reference",
-              _ref: `destination.${d.slug}.${locale}`,
+              _ref: `destination-${d.slug}-${locale}`,
               _weak: true,
             },
           }),
@@ -835,10 +835,12 @@ function buildDoc(locale: Locale) {
       ),
     },
     spotlight: {
-      ...spotlight,
-      body: ptBlock(spotlight.body),
-      facts: spotlight.facts.map((f) => keyed(f)),
-      ctaHref: "/destinations/punta-cana",
+      eyebrow: spotlight.eyebrow,
+      destination: {
+        _type: "reference",
+        _ref: `destination-punta-cana-${locale}`,
+        _weak: true,
+      },
     },
     journeyCta: {
       eyebrow: journey.eyebrow,
@@ -874,8 +876,9 @@ async function run() {
     })),
   });
 
-  // Shared media doc — placeholder for hero + spotlight imagery.
-  // Atlas tile images now come from each destination's destinationMedia.cardImage.
+  // Shared media doc — placeholder for the hero image.
+  // Atlas tile + spotlight images now come from each destination's
+  // destinationMedia doc.
   tx.createIfNotExists({
     _id: "destinationsPageMedia",
     _type: "destinationsPageMedia",

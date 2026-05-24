@@ -1,12 +1,5 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
-const altField = {
-  name: "alt",
-  type: "string",
-  title: "Alt text",
-  description: "Used for accessibility and SEO.",
-};
-
 type LinkObjectOptions = {
   /** Require the whole CTA object to be filled in */
   required?: boolean;
@@ -167,38 +160,32 @@ export const homePage = defineType({
               type: "object",
               fields: [
                 {
-                  name: "image",
-                  title: "Image",
-                  type: "image",
-                  options: { hotspot: true },
-                  fields: [altField],
-                },
-                { name: "name", title: "Name", type: "string" },
-                { name: "region", title: "Region", type: "string" },
-                {
                   name: "tagline",
                   title: "Tagline (eyebrow on card)",
                   type: "string",
                   description:
-                    'e.g. "Caribbean — Year-round" or "Italy — May to October".',
+                    'e.g. "Caribbean — Year-round". The name, sub-locations, image and link all come from the referenced destination.',
                 },
-                {
-                  name: "subLocations",
-                  title: "Sub-locations (small-caps line)",
-                  type: "string",
-                  description:
-                    'Separate with " · " — e.g. "Cap Cana · Casa de Campo · Bávaro".',
-                },
-                {
-                  name: "slug",
-                  title: "Slug (future destination doc)",
-                  type: "string",
-                  description:
-                    "Used for the link to /destinations/{slug} and for later migration to a reference.",
-                },
+                defineField({
+                  name: "destination",
+                  title: "Destination",
+                  type: "reference",
+                  to: [{ type: "destination" }],
+                  options: {
+                    disableNew: true,
+                    filter: ({ document }) =>
+                      document?.language
+                        ? {
+                            filter: "language == $language",
+                            params: { language: document.language },
+                          }
+                        : { filter: "true" },
+                  },
+                  validation: (r) => r.required(),
+                }),
               ],
               preview: {
-                select: { title: "name", subtitle: "region", media: "image" },
+                select: { title: "destination.name", subtitle: "tagline" },
               },
             }),
           ],

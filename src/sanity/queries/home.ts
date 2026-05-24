@@ -26,12 +26,11 @@ export const homePageQuery = groq`
       viewAllLabel,
       viewAllHref,
       destinations[]{
-        name,
-        region,
         tagline,
-        subLocations,
-        slug,
-        image{ ..., alt }
+        "name": destination->name,
+        "subLocations": destination->subLocations,
+        "slug": destination->slug.current,
+        "image": *[_type == "destinationMedia" && slug == ^.destination->slug.current][0].heroImage{ ..., alt }
       }
     },
     featuredWedding{
@@ -126,9 +125,8 @@ export type HomePage = {
     viewAllLabel?: string;
     viewAllHref?: string;
     destinations?: Array<{
-      name?: string;
-      region?: string;
       tagline?: string;
+      name?: string;
       subLocations?: string;
       slug?: string;
       image?: SanityImage;

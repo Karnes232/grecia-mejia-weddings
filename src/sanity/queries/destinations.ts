@@ -45,15 +45,15 @@ export const destinationsPageQuery = groq`
     },
     spotlight{
       eyebrow,
-      scriptAccent,
-      headline,
-      deck,
-      body,
-      facts[]{ label, value },
-      imageCaptionPlace,
-      imageCaptionDate,
-      ctaLabel,
-      ctaHref
+      "scriptAccent": destination->hero.scriptOverline,
+      "headline": destination->hero.headline,
+      "deck": destination->hero.deck,
+      "body": destination->story.lede,
+      "facts": destination->facts[]{ label, value },
+      "name": destination->name,
+      "slug": destination->slug.current,
+      "captionPlace": destination->subLocations,
+      "image": *[_type == "destinationMedia" && slug == ^.destination->slug.current][0].heroImage{ ..., alt }
     },
     journeyCta{
       eyebrow,
@@ -67,9 +67,6 @@ export const destinationsPageQuery = groq`
 export const destinationsPageMediaQuery = groq`
   *[_id == "destinationsPageMedia"][0]{
     hero{
-      image{ ..., alt }
-    },
-    spotlight{
       image{ ..., alt }
     }
   }
@@ -141,12 +138,12 @@ export type DestinationsPage = {
     scriptAccent?: string;
     headline?: string;
     deck?: string;
-    body?: PortableTextBlock[];
+    body?: string;
     facts?: Array<{ label?: string; value?: string }>;
-    imageCaptionPlace?: string;
-    imageCaptionDate?: string;
-    ctaLabel?: string;
-    ctaHref?: string;
+    name?: string;
+    slug?: string;
+    captionPlace?: string;
+    image?: SanityImage;
   };
   journeyCta?: {
     eyebrow?: string;
@@ -160,7 +157,6 @@ export type CalendarCellValue = "peak" | "good" | "off";
 
 export type DestinationsPageMedia = {
   hero?: { image?: SanityImage };
-  spotlight?: { image?: SanityImage };
 };
 
 export function getDestinationsPage(locale: string) {
