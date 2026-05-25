@@ -26,6 +26,7 @@ export const destinationsPage = defineType({
     { name: "calendar", title: "Seasonal calendar" },
     { name: "spotlight", title: "Spotlight" },
     { name: "journeyCta", title: "Journey CTA" },
+    { name: "seo", title: "SEO" },
   ],
   fields: [
     defineField({
@@ -34,6 +35,7 @@ export const destinationsPage = defineType({
       readOnly: true,
       hidden: true,
     }),
+    defineField({ name: "seo", title: "SEO", type: "seo", group: "seo" }),
 
     // ── Hero ──────────────────────────────────────────────────────────────
     defineField({

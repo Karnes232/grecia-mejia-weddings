@@ -47,6 +47,7 @@ export const homePage = defineType({
     { name: "recentWeddings", title: "Recent weddings" },
     { name: "testimonials", title: "Testimonials" },
     { name: "journeyCta", title: "Journey CTA" },
+    { name: "seo", title: "SEO" },
   ],
   fields: [
     defineField({
@@ -55,6 +56,7 @@ export const homePage = defineType({
       readOnly: true,
       hidden: true,
     }),
+    defineField({ name: "seo", title: "SEO", type: "seo", group: "seo" }),
 
     // ── Hero ──────────────────────────────────────────────────────────────
     // Hero background image is shared across locales — see `homePageMedia`.

@@ -3,6 +3,7 @@ import { groq } from "next-sanity";
 
 import { client } from "../lib/client";
 import { fetchWithFallback } from "./layout";
+import { SEO_PROJECTION, type SeoFields } from "./seo";
 
 type SanityImage = {
   asset?: { _ref: string; _type: "reference" };
@@ -62,7 +63,8 @@ export const destinationQuery = groq`
       eyebrow, headline,
       items[]{ question, answer }
     },
-    cta{ eyebrow, headline, body, ctaLabel, ctaHref }
+    cta{ eyebrow, headline, body, ctaLabel, ctaHref },
+    ${SEO_PROJECTION}
   }
 `;
 
@@ -205,6 +207,7 @@ export type Destination = {
     ctaLabel?: string;
     ctaHref?: string;
   };
+  seo?: SeoFields;
 };
 
 export type DestinationMedia = {

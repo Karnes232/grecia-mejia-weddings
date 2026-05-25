@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
@@ -15,6 +16,12 @@ import {
   DestinationTypes,
   DestinationVenues,
 } from "@/components/DestinationDetail";
+import { stripAccentTokens } from "@/components/_shared/stripAccentTokens";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { type Locale } from "@/i18n/routing";
+import { buildMetadata } from "@/lib/seo/metadata";
+import { parseStructuredData } from "@/lib/seo/structuredData";
+import { urlFor } from "@/sanity/lib/image";
 import {
   getDestination,
   getDestinationMedia,
@@ -24,6 +31,41 @@ import {
 type DestinationPageProps = {
   params: Promise<{ locale: string; destination: string }>;
 };
+
+const ogFrom = (
+  image: { asset?: unknown; alt?: string } | undefined | null,
+): string | undefined =>
+  image?.asset
+    ? urlFor(image as Parameters<typeof urlFor>[0])
+        .width(1200)
+        .height(630)
+        .fit("crop")
+        .auto("format")
+        .url()
+    : undefined;
+
+export async function generateMetadata({
+  params,
+}: DestinationPageProps): Promise<Metadata> {
+  const { locale, destination } = await params;
+  const [doc, media] = await Promise.all([
+    getDestination(locale, destination),
+    getDestinationMedia(destination),
+  ]);
+
+  if (!doc) return {};
+
+  return buildMetadata({
+    seo: doc.seo,
+    fallbackTitle:
+      doc.name ?? stripAccentTokens(doc.hero?.headline ?? "") ?? destination,
+    fallbackDescription: doc.hero?.deck ?? doc.story?.lede,
+    href: { pathname: "/destinations/[destination]", params: { destination } },
+    locale: locale as Locale,
+    ogImageUrl: ogFrom(media?.heroImage),
+    ogImageAlt: media?.heroImage?.alt,
+  });
+}
 
 export default async function DestinationPage({
   params,
@@ -38,8 +80,11 @@ export default async function DestinationPage({
 
   if (!doc) notFound();
 
+  const ld = parseStructuredData(doc.seo?.structuredData);
+
   return (
     <>
+      {ld ? <JsonLd data={ld} /> : null}
       {doc.hero?.headline ? (
         <DestinationHero hero={doc.hero} image={media?.heroImage} />
       ) : null}

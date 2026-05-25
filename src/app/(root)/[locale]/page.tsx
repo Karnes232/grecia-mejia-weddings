@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import {
@@ -11,11 +12,44 @@ import {
   VenuesConsidered,
   WhereWeWork,
 } from "@/components/HomePage";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { type Locale } from "@/i18n/routing";
+import { buildMetadata } from "@/lib/seo/metadata";
+import { parseStructuredData } from "@/lib/seo/structuredData";
+import { urlFor } from "@/sanity/lib/image";
 import { getHomePage, getHomePageMedia } from "@/sanity/queries/home";
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: HomePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const [home, media] = await Promise.all([
+    getHomePage(locale),
+    getHomePageMedia(),
+  ]);
+
+  const heroImage = media?.hero?.image;
+  const ogImageUrl = heroImage?.asset
+    ? urlFor(heroImage).width(1200).height(630).fit("crop").auto("format").url()
+    : undefined;
+
+  return buildMetadata({
+    seo: home?.seo,
+    fallbackTitle: "Grecia Mejía Weddings — Multicultural Destination Weddings",
+    fallbackDescription:
+      home?.hero?.subheadline ??
+      "Curating timeless multicultural destination weddings across Punta Cana, the Caribbean and the world.",
+    href: "/",
+    locale: locale as Locale,
+    ogImageUrl,
+    ogImageAlt: heroImage?.alt,
+    absoluteTitle: true,
+  });
+}
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
@@ -28,9 +62,12 @@ export default async function HomePage({ params }: HomePageProps) {
 
   const hero = home?.hero;
   const heroImage = media?.hero?.image;
+  const ld = parseStructuredData(home?.seo?.structuredData);
 
   return (
     <>
+      {ld ? <JsonLd data={ld} /> : null}
+
       {hero?.headline ? (
         <CinematicHero
           hero={hero}

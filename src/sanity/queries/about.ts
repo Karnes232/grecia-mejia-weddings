@@ -3,6 +3,7 @@ import { groq } from "next-sanity";
 
 import { client } from "../lib/client";
 import { fetchWithFallback } from "./layout";
+import { SEO_PROJECTION, type SeoFields } from "./seo";
 
 export const aboutPageQuery = groq`
   *[_type == "aboutPage" && language == $locale][0]{
@@ -62,7 +63,8 @@ export const aboutPageQuery = groq`
       body,
       cta{ label, href },
       details[]{ label, value, href }
-    }
+    },
+    ${SEO_PROJECTION}
   }
 `;
 
@@ -160,6 +162,7 @@ export type AboutPage = {
     cta?: { label?: string; href?: string };
     details?: Array<{ label?: string; value?: string; href?: string }>;
   };
+  seo?: SeoFields;
 };
 
 export type AboutPageMedia = {

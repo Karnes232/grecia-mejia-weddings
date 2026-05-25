@@ -15,6 +15,7 @@ export const aboutPage = defineType({
     { name: "team", title: "Team" },
     { name: "press", title: "Press & awards" },
     { name: "contact", title: "Contact" },
+    { name: "seo", title: "SEO" },
   ],
   fields: [
     defineField({
@@ -23,6 +24,7 @@ export const aboutPage = defineType({
       readOnly: true,
       hidden: true,
     }),
+    defineField({ name: "seo", title: "SEO", type: "seo", group: "seo" }),
 
     // ── Hero ──────────────────────────────────────────────────────────────
     defineField({

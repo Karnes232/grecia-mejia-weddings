@@ -60,6 +60,7 @@ export const destination = defineType({
     { name: "related", title: "Related" },
     { name: "faq", title: "FAQ" },
     { name: "cta", title: "CTA" },
+    { name: "seo", title: "SEO" },
   ],
   fields: [
     defineField({
@@ -68,6 +69,7 @@ export const destination = defineType({
       readOnly: true,
       hidden: true,
     }),
+    defineField({ name: "seo", title: "SEO", type: "seo", group: "seo" }),
 
     // ── Identity ─────────────────────────────────────────────────────────
     defineField({

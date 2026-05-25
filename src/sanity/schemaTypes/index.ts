@@ -1,5 +1,6 @@
 import { type SchemaTypeDefinition } from "sanity";
 
+import { seo } from "./objects/seo";
 import { siteSettings } from "./singletons/siteSettings";
 import { navigation } from "./singletons/navigation";
 import { footer } from "./singletons/footer";
@@ -14,6 +15,7 @@ import { destinationMedia } from "./documents/destinationMedia";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
+    seo,
     siteSettings,
     navigation,
     footer,

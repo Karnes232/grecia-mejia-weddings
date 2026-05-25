@@ -3,6 +3,7 @@ import { groq } from "next-sanity";
 
 import { client } from "../lib/client";
 import { fetchWithFallback } from "./layout";
+import { SEO_PROJECTION, type SeoFields } from "./seo";
 
 export const destinationsPageQuery = groq`
   *[_type == "destinationsPage" && language == $locale][0]{
@@ -60,7 +61,8 @@ export const destinationsPageQuery = groq`
       headline,
       body,
       cta{ label, href }
-    }
+    },
+    ${SEO_PROJECTION}
   }
 `;
 
@@ -151,6 +153,7 @@ export type DestinationsPage = {
     body?: string;
     cta?: { label?: string; href?: string };
   };
+  seo?: SeoFields;
 };
 
 export type CalendarCellValue = "peak" | "good" | "off";

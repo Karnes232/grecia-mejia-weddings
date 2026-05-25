@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Pinyon_Script } from "next/font/google";
 
+import { SITE_URL } from "@/lib/seo/siteUrl";
 import { urlFor } from "@/sanity/lib/image";
 import { getSiteSettings } from "@/sanity/queries/layout";
 
@@ -40,12 +41,20 @@ export async function generateMetadata(): Promise<Metadata> {
     : undefined;
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: {
       default: "Grecia Mejía Weddings",
       template: "%s · Grecia Mejía Weddings",
     },
     description:
       "Curating timeless multicultural destination weddings across Punta Cana, the Caribbean and the world.",
+    openGraph: {
+      siteName: "Grecia Mejía Weddings",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+    },
     icons: iconUrl
       ? {
           icon: [{ url: iconUrl, type: "image/png", sizes: "64x64" }],
