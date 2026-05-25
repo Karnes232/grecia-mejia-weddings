@@ -31,3 +31,13 @@ export const RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   { length: 5 },
   (_, i) => ({ title: `Related ${i + 1}`, value: `related-${i + 1}` }),
 );
+
+/**
+ * About-page team slots. Shared between the localized `aboutPage` team members
+ * (their `imageKey`) and the non-localized `aboutPageMedia` team images (their
+ * `key`), so both sides always pick from the identical set and stay aligned.
+ */
+export const ABOUT_TEAM_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 4 },
+  (_, i) => ({ title: `Member ${i + 1}`, value: `member-${i + 1}` }),
+);

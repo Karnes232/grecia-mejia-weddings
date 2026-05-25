@@ -15,6 +15,7 @@
     "seed:home-media": "tsx --env-file=.env.local src/sanity/seed/homePageMedia.ts",
     "seed:destinations": "tsx --env-file=.env.local src/sanity/seed/destinationsPage.ts",
     "seed:destination": "tsx --env-file=.env.local src/sanity/seed/destination.ts",
+    "seed:about": "tsx --env-file=.env.local src/sanity/seed/aboutPage.ts",
     "migrate:cleanup-site-settings": "tsx --env-file=.env.local src/sanity/migrations/cleanupSiteSettings.ts",
     "migrate:dedot-destination-ids": "tsx --env-file=.env.local src/sanity/migrations/dedotDestinationIds.ts"
   },

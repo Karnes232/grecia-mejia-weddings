@@ -19,6 +19,7 @@ const LOCALIZED_TYPES = [
   "footer",
   "homePage",
   "destinationsPage",
+  "aboutPage",
   "destination",
 ];
 

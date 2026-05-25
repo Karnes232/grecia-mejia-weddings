@@ -3,7 +3,7 @@ import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
 import type { Destination, DestinationMedia } from "@/sanity/queries/destination";
 
-import { keyedImageMap } from "../keyedImageMap";
+import { keyedImageMap } from "@/components/_shared/keyedImageMap";
 import { GuestCard } from "./GuestCard";
 
 type DestinationGuestProps = {

@@ -1,7 +1,7 @@
 /**
- * Build a `key → image` lookup from a destination media keyed-image array
- * (styles, venueCards, guestCards, relatedArticles). Each card section maps its
- * `imageKey` against this. Entries without a `key` are dropped.
+ * Build a `key → image` lookup from a media keyed-image array (destination
+ * styles/venues/guest/related cards, about team photos, …). Each consumer maps
+ * its `imageKey` against this. Entries without a `key` are dropped.
  */
 export function keyedImageMap<I>(
   arr?: Array<{ key?: string; image?: I }> | null,
