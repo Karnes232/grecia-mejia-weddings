@@ -35,5 +35,12 @@
       "cultures": "Ähnliche Kulturen",
       "services": "Ähnliche Leistungen"
     }
+  },
+  "multiculturalHub": {
+    "related": {
+      "destinations": "Reiseziele",
+      "services": "Leistungen",
+      "weddings": "Jüngste Hochzeiten"
+    }
   }
 }

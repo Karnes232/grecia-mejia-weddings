@@ -35,5 +35,12 @@
       "cultures": "Culturas relacionadas",
       "services": "Servicios relacionados"
     }
+  },
+  "multiculturalHub": {
+    "related": {
+      "destinations": "Destinos",
+      "services": "Servicios",
+      "weddings": "Bodas recientes"
+    }
   }
 }
