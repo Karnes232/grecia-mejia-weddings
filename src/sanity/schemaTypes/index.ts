@@ -1,17 +1,21 @@
 import { type SchemaTypeDefinition } from "sanity";
 
 import { seo } from "./objects/seo";
-import { siteSettings } from "./singletons/siteSettings";
-import { navigation } from "./singletons/navigation";
-import { footer } from "./singletons/footer";
-import { homePage } from "./singletons/homePage";
-import { homePageMedia } from "./singletons/homePageMedia";
-import { destinationsPage } from "./singletons/destinationsPage";
-import { destinationsPageMedia } from "./singletons/destinationsPageMedia";
-import { aboutPage } from "./singletons/aboutPage";
-import { aboutPageMedia } from "./singletons/aboutPageMedia";
+import { siteSettings, navigation, footer } from "./singletons/global";
+import { homePage, homePageMedia } from "./singletons/home";
+import {
+  destinationsPage,
+  destinationsPageMedia,
+} from "./singletons/destinations";
+import { aboutPage, aboutPageMedia } from "./singletons/about";
+import {
+  multiculturalPage,
+  multiculturalPageMedia,
+} from "./singletons/multicultural";
 import { destination } from "./documents/destination";
 import { destinationMedia } from "./documents/destinationMedia";
+import { culture } from "./documents/culture";
+import { cultureMedia } from "./documents/cultureMedia";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -25,7 +29,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     destinationsPageMedia,
     aboutPage,
     aboutPageMedia,
+    multiculturalPage,
+    multiculturalPageMedia,
     destination,
     destinationMedia,
+    culture,
+    cultureMedia,
   ],
 };

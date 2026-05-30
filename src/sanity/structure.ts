@@ -12,8 +12,12 @@ const SINGLETON_TYPES = new Set([
   "destinationsPageMedia",
   "aboutPage",
   "aboutPageMedia",
+  "multiculturalPage",
+  "multiculturalPageMedia",
   "destination",
   "destinationMedia",
+  "culture",
+  "cultureMedia",
 ]);
 
 export const structure: StructureResolver = (S) =>
@@ -110,6 +114,27 @@ export const structure: StructureResolver = (S) =>
         ),
       S.divider(),
       S.listItem()
+        .title("Multicultural Weddings Page")
+        .icon(() => "🪔")
+        .schemaType("multiculturalPage")
+        .child(
+          S.documentTypeList("multiculturalPage")
+            .title("Multicultural Weddings Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "multiculturalPage"'),
+        ),
+      S.listItem()
+        .title("Multicultural Page Media")
+        .id("multiculturalPageMedia")
+        .icon(() => "🖼️")
+        .schemaType("multiculturalPageMedia")
+        .child(
+          S.document()
+            .schemaType("multiculturalPageMedia")
+            .documentId("multiculturalPageMedia"),
+        ),
+      S.divider(),
+      S.listItem()
         .title("Destinations")
         .icon(() => "📍")
         .schemaType("destination")
@@ -128,6 +153,27 @@ export const structure: StructureResolver = (S) =>
             .title("Destination media")
             .apiVersion(apiVersion)
             .filter('_type == "destinationMedia"'),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Cultures")
+        .icon(() => "🪔")
+        .schemaType("culture")
+        .child(
+          S.documentTypeList("culture")
+            .title("Cultures")
+            .apiVersion(apiVersion)
+            .filter('_type == "culture"'),
+        ),
+      S.listItem()
+        .title("Culture media")
+        .icon(() => "🖼️")
+        .schemaType("cultureMedia")
+        .child(
+          S.documentTypeList("cultureMedia")
+            .title("Culture media")
+            .apiVersion(apiVersion)
+            .filter('_type == "cultureMedia"'),
         ),
 
       S.divider(),

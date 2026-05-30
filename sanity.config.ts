@@ -20,7 +20,9 @@ const LOCALIZED_TYPES = [
   "homePage",
   "destinationsPage",
   "aboutPage",
+  "multiculturalPage",
   "destination",
+  "culture",
 ];
 
 export default defineConfig({

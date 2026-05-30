@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
-import { ABOUT_TEAM_KEY_OPTIONS } from "../imageKeyOptions";
+import { ABOUT_TEAM_KEY_OPTIONS } from "../../imageKeyOptions";
 
 export const aboutPage = defineType({
   name: "aboutPage",
