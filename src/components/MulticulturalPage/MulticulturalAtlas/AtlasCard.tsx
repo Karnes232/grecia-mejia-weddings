@@ -91,7 +91,12 @@ export function AtlasCard({ card, image }: AtlasCardProps) {
   if (card.slug) {
     return (
       <Link
-        href={`/multicultural-weddings/${card.slug}` as never}
+        // Object-form href so next-intl localizes the path segment — a concrete
+        // string would keep the EN segment and resolve via a 307 redirect.
+        href={{
+          pathname: "/multicultural-weddings/[culture]",
+          params: { culture: card.slug },
+        }}
         className={cardClass}
       >
         {inner}

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { Footer, LenisProvider, Navbar } from "@/components/Layout";
+import { RouteParamsTranslationsProvider } from "@/components/Layout/_shared/RouteParamsTranslations";
 import { routing, type Locale } from "@/i18n/routing";
 import {
   getFooter,
@@ -38,20 +39,22 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider>
-      <LenisProvider>
-        <Navbar
-          navigation={navigation}
-          settings={settings}
-          locale={typedLocale}
-          labels={{
-            cta: t("cta"),
-            openMenu: t("openMenu"),
-            closeMenu: t("closeMenu"),
-          }}
-        />
-        <main className="flex-1">{children}</main>
-        <Footer footer={footer} settings={settings} locale={typedLocale} />
-      </LenisProvider>
+      <RouteParamsTranslationsProvider>
+        <LenisProvider>
+          <Navbar
+            navigation={navigation}
+            settings={settings}
+            locale={typedLocale}
+            labels={{
+              cta: t("cta"),
+              openMenu: t("openMenu"),
+              closeMenu: t("closeMenu"),
+            }}
+          />
+          <main className="flex-1">{children}</main>
+          <Footer footer={footer} settings={settings} locale={typedLocale} />
+        </LenisProvider>
+      </RouteParamsTranslationsProvider>
     </NextIntlClientProvider>
   );
 }

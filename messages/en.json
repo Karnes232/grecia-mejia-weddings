@@ -42,5 +42,13 @@
       "services": "Services",
       "weddings": "Recent weddings"
     }
+  },
+  "multiculturalDetail": {
+    "conceptLabel": "Concept",
+    "related": {
+      "destinations": "Related destinations",
+      "venues": "Related venues",
+      "cultures": "Other cultures"
+    }
   }
 }

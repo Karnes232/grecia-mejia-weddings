@@ -4,7 +4,12 @@ import { type Locale } from "@/i18n/routing";
 import { urlFor } from "@/sanity/lib/image";
 import type { SeoFields } from "@/sanity/queries/seo";
 
-import { buildHreflang, canonicalUrl, type Href } from "./hreflang";
+import {
+  buildHreflang,
+  canonicalUrl,
+  type Href,
+  type LocalizedParams,
+} from "./hreflang";
 import { BRAND_NAME } from "./siteUrl";
 
 const OG_LOCALE: Record<Locale, string> = {
@@ -30,6 +35,10 @@ type BuildMetadataArgs = {
   ogImageAlt?: string;
   /** When true, the title stands alone (no " · Brand" suffix) — used by the home page. */
   absoluteTitle?: boolean;
+  /** Per-locale param overrides for routes with translated slugs (canonical + og:url + hreflang). */
+  localizedParams?: LocalizedParams;
+  /** Restricts hreflang to the locales the document actually exists in. */
+  hreflangLocales?: readonly Locale[];
 };
 
 export function buildMetadata({
@@ -42,6 +51,8 @@ export function buildMetadata({
   ogImageUrl,
   ogImageAlt,
   absoluteTitle = false,
+  localizedParams,
+  hreflangLocales,
 }: BuildMetadataArgs): Metadata {
   const title = seo?.metaTitle?.trim()
     ? seo.metaTitle
@@ -58,7 +69,7 @@ export function buildMetadata({
   const imageUrl = seoOgUrl ?? ogImageUrl;
   const imageAlt = seo?.ogImage?.alt ?? ogImageAlt ?? title;
 
-  const canonical = canonicalUrl(href, locale);
+  const canonical = canonicalUrl(href, locale, localizedParams);
   const ogTitle = seo?.ogTitle?.trim() || title;
   const ogDescription = seo?.ogDescription?.trim() || description;
 
@@ -67,7 +78,7 @@ export function buildMetadata({
     description,
     alternates: {
       canonical,
-      languages: buildHreflang(href),
+      languages: buildHreflang(href, localizedParams, hreflangLocales),
     },
     openGraph: {
       title: ogTitle,

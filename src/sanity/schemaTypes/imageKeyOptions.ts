@@ -52,3 +52,23 @@ export const MULTICULTURAL_RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   { length: 5 },
   (_, i) => ({ title: `Related ${i + 1}`, value: `mc-related-${i + 1}` }),
 );
+
+/**
+ * Culture detail-page slots. Shared between the localized `culture` doc's
+ * `imageKey` fields and the non-localized `cultureMedia` keyed arrays, so both
+ * sides always pick from the identical set and stay aligned.
+ */
+export const DESIGN_CONCEPT_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 3 },
+  (_, i) => ({ title: `Concept ${i + 1}`, value: `concept-${i + 1}` }),
+);
+
+export const COMPATIBILITY_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 8 },
+  (_, i) => ({ title: `Destination ${i + 1}`, value: `compat-${i + 1}` }),
+);
+
+export const CULTURE_RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 5 },
+  (_, i) => ({ title: `Related ${i + 1}`, value: `culture-related-${i + 1}` }),
+);

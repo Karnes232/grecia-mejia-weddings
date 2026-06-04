@@ -43,7 +43,7 @@ export const multiculturalPageQuery = groq`
         cardEyebrow,
         cardBlurb,
         cardMeta,
-        "image": *[_type == "cultureMedia" && slug == ^.slug.current][0].cardImage{ ..., alt }
+        "image": media->cardImage{ ..., alt }
       }
     },
     pairings{

@@ -78,7 +78,15 @@ export function DestinationCard({ card, image }: DestinationCardProps) {
 
   if (card.slug) {
     return (
-      <Link href={`/destinations/${card.slug}` as never} className={cardClass}>
+      <Link
+        // Object-form href so next-intl localizes the path segment — a concrete
+        // string would keep the EN segment and resolve via a 307 redirect.
+        href={{
+          pathname: "/destinations/[destination]",
+          params: { destination: card.slug },
+        }}
+        className={cardClass}
+      >
         {inner}
       </Link>
     );

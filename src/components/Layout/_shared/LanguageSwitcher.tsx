@@ -8,6 +8,8 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { type Locale, locales } from "@/i18n/routing";
 
+import { useRouteParamsTranslations } from "./RouteParamsTranslations";
+
 type LanguageSwitcherProps = {
   currentLocale: Locale;
   /**
@@ -27,13 +29,19 @@ export function LanguageSwitcher({
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
+  const { map: paramsTranslations } = useRouteParamsTranslations();
 
   const select = (target: Locale) => {
     if (target === currentLocale) return;
+    // Routes with translated slugs (e.g. culture pages) publish a per-locale
+    // param map via RouteParamsTranslations; merge the target locale's slugs
+    // over the current params so we land on the real localized URL.
+    const override = paramsTranslations[target];
+    const targetParams = override ? { ...params, ...override } : params;
     router.replace(
       // Pathname may be a dynamic-segment key (e.g. "/venues/[region]/[venue]");
       // next-intl requires { pathname, params } in that case. Passing both unconditionally is safe.
-      { pathname, params } as never,
+      { pathname, params: targetParams } as never,
       { locale: target },
     );
   };

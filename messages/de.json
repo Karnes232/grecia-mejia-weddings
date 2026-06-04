@@ -42,5 +42,13 @@
       "services": "Leistungen",
       "weddings": "Jüngste Hochzeiten"
     }
+  },
+  "multiculturalDetail": {
+    "conceptLabel": "Konzept",
+    "related": {
+      "destinations": "Verwandte Reiseziele",
+      "venues": "Verwandte Locations",
+      "cultures": "Weitere Kulturen"
+    }
   }
 }
