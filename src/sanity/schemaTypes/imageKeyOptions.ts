@@ -63,11 +63,6 @@ export const DESIGN_CONCEPT_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   (_, i) => ({ title: `Concept ${i + 1}`, value: `concept-${i + 1}` }),
 );
 
-export const COMPATIBILITY_KEY_OPTIONS: ImageKeyOption[] = Array.from(
-  { length: 8 },
-  (_, i) => ({ title: `Destination ${i + 1}`, value: `compat-${i + 1}` }),
-);
-
 export const CULTURE_RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   { length: 5 },
   (_, i) => ({ title: `Related ${i + 1}`, value: `culture-related-${i + 1}` }),

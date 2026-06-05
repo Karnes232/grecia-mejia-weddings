@@ -49,7 +49,11 @@ export const cultureQuery = groq`
     },
     compatibility{
       eyebrow, headline, viewAllLabel, viewAllHref,
-      cards[]{ rating, name, sub, imageKey, destinationHref }
+      cards[]{
+        rating, name, sub,
+        "destinationSlug": destination->slug.current,
+        "image": *[_type == "destinationMedia" && slug == ^.destination->slug.current][0].cardImage{ ..., alt }
+      }
     },
     guest{
       eyebrow, headline, deck,
@@ -71,7 +75,6 @@ export const cultureQuery = groq`
       cardImage{ ..., alt },
       heroImage{ ..., alt },
       designConcepts[]{ key, image{ ..., alt } },
-      compatibilityCards[]{ key, image{ ..., alt } },
       relatedArticles[]{ key, image{ ..., alt } }
     },
     "translations": *[_type == "translation.metadata" && references(^._id)][0]
@@ -169,8 +172,8 @@ export type Culture = {
       rating?: number;
       name?: string;
       sub?: string;
-      imageKey?: string;
-      destinationHref?: string;
+      destinationSlug?: string;
+      image?: SanityImage;
     }>;
   };
   guest?: {
@@ -214,7 +217,6 @@ export type CultureMedia = {
   cardImage?: SanityImage;
   heroImage?: SanityImage;
   designConcepts?: Array<{ key?: string; image?: SanityImage }>;
-  compatibilityCards?: Array<{ key?: string; image?: SanityImage }>;
   relatedArticles?: Array<{ key?: string; image?: SanityImage }>;
 };
 

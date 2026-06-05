@@ -3,23 +3,20 @@ import type { ReactNode } from "react";
 
 import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
-import type { Culture, CultureMedia } from "@/sanity/queries/culture";
+import type { Culture } from "@/sanity/queries/culture";
 
 type Card = NonNullable<
   NonNullable<Culture["compatibility"]>["cards"]
 >[number];
-type CardImage = NonNullable<
-  CultureMedia["compatibilityCards"]
->[number]["image"];
 
 type CompatibilityCardProps = {
   card: Card;
-  image?: CardImage;
 };
 
 const WRAPPER = "group relative block overflow-hidden text-inherit no-underline";
 
-export function CompatibilityCard({ card, image }: CompatibilityCardProps) {
+export function CompatibilityCard({ card }: CompatibilityCardProps) {
+  const image = card.image;
   const imageUrl = image?.asset
     ? urlFor(image).width(700).height(900).fit("crop").auto("format").url()
     : null;
@@ -67,9 +64,17 @@ export function CompatibilityCard({ card, image }: CompatibilityCardProps) {
     </>
   );
 
-  if (card.destinationHref) {
+  if (card.destinationSlug) {
     return (
-      <Link href={card.destinationHref as never} className={WRAPPER}>
+      <Link
+        // Object-form href so next-intl localizes the path segment — a concrete
+        // string would keep the EN segment and resolve via a 307 redirect.
+        href={{
+          pathname: "/destinations/[destination]",
+          params: { destination: card.destinationSlug },
+        }}
+        className={WRAPPER}
+      >
         {inner}
       </Link>
     );

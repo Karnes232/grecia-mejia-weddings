@@ -218,8 +218,8 @@ export type CultureCopy = {
       rating: number;
       name: string;
       sub: string;
-      imageKey: string;
-      destinationHref?: string;
+      /** Destination slug (locale-invariant) — becomes a `destination` reference. */
+      destinationSlug: string;
     }>;
   };
   guest: {
@@ -326,7 +326,17 @@ export function buildCultureBody(
       headline: copy.compatibility.headline,
       viewAllLabel: copy.compatibility.viewAllLabel,
       viewAllHref: copy.compatibility.viewAllHref,
-      cards: copy.compatibility.cards.map((c) => k(c)),
+      // Image + href live on the referenced destination (same locale, so the
+      // deterministic `destination-{slug}-{locale}` id is known at build time).
+      cards: copy.compatibility.cards.map(({ destinationSlug, ...rest }) =>
+        k({
+          ...rest,
+          destination: {
+            _type: "reference",
+            _ref: `destination-${destinationSlug}-${locale}`,
+          },
+        }),
+      ),
     },
     guest: {
       eyebrow: copy.guest.eyebrow,

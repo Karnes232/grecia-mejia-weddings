@@ -2,7 +2,6 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { apiVersion } from "../../env";
 import {
-  COMPATIBILITY_KEY_OPTIONS,
   CULTURE_RELATED_KEY_OPTIONS,
   DESIGN_CONCEPT_KEY_OPTIONS,
   type ImageKeyOption,
@@ -518,12 +517,24 @@ export const culture = defineType({
                 }),
                 { name: "name", title: "Name", type: "string" },
                 { name: "sub", title: "Sub-line", type: "string" },
-                imageKeyField(COMPATIBILITY_KEY_OPTIONS),
-                {
-                  name: "destinationHref",
-                  title: "Destination href (optional)",
-                  type: "string",
-                },
+                defineField({
+                  name: "destination",
+                  title: "Destination",
+                  type: "reference",
+                  to: [{ type: "destination" }],
+                  description:
+                    "Card image and link come from this destination.",
+                  options: {
+                    disableNew: true,
+                    filter: ({ document }) =>
+                      document?.language
+                        ? {
+                            filter: "language == $language",
+                            params: { language: document.language },
+                          }
+                        : { filter: "true" },
+                  },
+                }),
               ],
               preview: { select: { title: "name", subtitle: "sub" } },
             }),

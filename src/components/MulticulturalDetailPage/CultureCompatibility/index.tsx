@@ -1,21 +1,17 @@
 import { CTAButton } from "@/components/_shared/CTAButton";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import { keyedImageMap } from "@/components/_shared/keyedImageMap";
-import type { Culture, CultureMedia } from "@/sanity/queries/culture";
+import type { Culture } from "@/sanity/queries/culture";
 
 import { SectionHead } from "../SectionHead";
 import { CompatibilityCard } from "./CompatibilityCard";
 
 type CultureCompatibilityProps = {
   compatibility: NonNullable<Culture["compatibility"]>;
-  images: CultureMedia["compatibilityCards"];
 };
 
 export function CultureCompatibility({
   compatibility,
-  images,
 }: CultureCompatibilityProps) {
-  const imageByKey = keyedImageMap(images);
   const cards = compatibility.cards ?? [];
 
   return (
@@ -39,11 +35,7 @@ export function CultureCompatibility({
         {cards.length ? (
           <RevealOnScroll className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {cards.map((card, i) => (
-              <CompatibilityCard
-                key={i}
-                card={card}
-                image={imageByKey.get(card.imageKey ?? "")}
-              />
+              <CompatibilityCard key={i} card={card} />
             ))}
           </RevealOnScroll>
         ) : null}

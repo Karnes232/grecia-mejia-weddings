@@ -143,10 +143,7 @@ export default async function CulturePage({ params }: CulturePageProps) {
       ) : null}
 
       {doc.compatibility?.cards?.length ? (
-        <CultureCompatibility
-          compatibility={doc.compatibility}
-          images={media?.compatibilityCards}
-        />
+        <CultureCompatibility compatibility={doc.compatibility} />
       ) : null}
 
       {doc.guest?.cells?.length ? <CultureGuest guest={doc.guest} /> : null}
