@@ -50,5 +50,76 @@
       "venues": "Location correlate",
       "cultures": "Altre culture"
     }
+  },
+  "contactPage": {
+    "form": {
+      "fields": {
+        "fullName": { "label": "Nome completo", "placeholder": "Il tuo nome" },
+        "country": { "label": "Paese di residenza", "placeholder": "Dove vivi" },
+        "email": { "label": "E-mail", "placeholder": "tu@email.com" },
+        "whatsapp": { "label": "WhatsApp", "placeholder": "Con prefisso internazionale" },
+        "date": { "label": "Data prevista", "placeholder": "Mese e anno, o una stagione" }
+      },
+      "selects": {
+        "destination": {
+          "label": "Destinazione desiderata",
+          "placeholder": "Seleziona una destinazione",
+          "options": {
+            "puntaCana": "Punta Cana e i Caraibi",
+            "italy": "Italia",
+            "france": "Francia",
+            "spain": "Spagna",
+            "greece": "Grecia",
+            "unitedStates": "Stati Uniti",
+            "undecided": "Indeciso — guidaci"
+          }
+        },
+        "tradition": {
+          "label": "Tipo di matrimonio / tradizione",
+          "placeholder": "Seleziona una tradizione",
+          "options": {
+            "indian": "Indiano",
+            "jewish": "Ebraico",
+            "arab": "Arabo",
+            "southAsian": "Asia meridionale",
+            "christian": "Cristiano / Cattolico",
+            "interfaith": "Interreligioso",
+            "latin": "Latino",
+            "civil": "Civile / Non religioso",
+            "other": "Altro / Multiplo"
+          }
+        },
+        "guests": {
+          "label": "Numero di invitati",
+          "placeholder": "Approssimativo",
+          "options": {
+            "under40": "Meno di 40",
+            "from40to100": "40 – 100",
+            "from100to200": "100 – 200",
+            "from200to400": "200 – 400",
+            "from400to600": "400 – 600",
+            "over600": "600+"
+          }
+        },
+        "budget": {
+          "label": "Budget stimato",
+          "placeholder": "Una fascia ci aiuta a consigliarti con onestà",
+          "options": {
+            "from100to250": "USD $100,000 – $250,000",
+            "from250to500": "USD $250,000 – $500,000",
+            "from500to1m": "USD $500,000 – $1M",
+            "over1m": "USD $1M+",
+            "discuss": "Preferisco parlarne"
+          }
+        }
+      },
+      "message": {
+        "label": "Raccontaci del tuo matrimonio",
+        "placeholder": "Le famiglie, le tradizioni, l'atmosfera che immagini — tutto ciò che vorresti che Grecia sapesse prima della vostra prima conversazione."
+      },
+      "requiredLabel": "obbligatorio",
+      "submitting": "Invio in corso…",
+      "errorMessage": "Qualcosa è andato storto. Riprova o scrivici direttamente a hello@greciamejia.com."
+    }
   }
 }

@@ -50,5 +50,76 @@
       "venues": "Related venues",
       "cultures": "Other cultures"
     }
+  },
+  "contactPage": {
+    "form": {
+      "fields": {
+        "fullName": { "label": "Full name", "placeholder": "Your name" },
+        "country": { "label": "Country of residence", "placeholder": "Where you live" },
+        "email": { "label": "Email", "placeholder": "you@email.com" },
+        "whatsapp": { "label": "WhatsApp", "placeholder": "With country code" },
+        "date": { "label": "Estimated date", "placeholder": "Month & year, or a season" }
+      },
+      "selects": {
+        "destination": {
+          "label": "Desired destination",
+          "placeholder": "Select a destination",
+          "options": {
+            "puntaCana": "Punta Cana & the Caribbean",
+            "italy": "Italy",
+            "france": "France",
+            "spain": "Spain",
+            "greece": "Greece",
+            "unitedStates": "United States",
+            "undecided": "Undecided — guide us"
+          }
+        },
+        "tradition": {
+          "label": "Wedding type / tradition",
+          "placeholder": "Select a tradition",
+          "options": {
+            "indian": "Indian",
+            "jewish": "Jewish",
+            "arab": "Arab",
+            "southAsian": "South Asian",
+            "christian": "Christian / Catholic",
+            "interfaith": "Interfaith",
+            "latin": "Latin",
+            "civil": "Civil / Non-religious",
+            "other": "Other / Multiple"
+          }
+        },
+        "guests": {
+          "label": "Guest count",
+          "placeholder": "Approximate",
+          "options": {
+            "under40": "Under 40",
+            "from40to100": "40 – 100",
+            "from100to200": "100 – 200",
+            "from200to400": "200 – 400",
+            "from400to600": "400 – 600",
+            "over600": "600+"
+          }
+        },
+        "budget": {
+          "label": "Estimated budget",
+          "placeholder": "A range helps us guide you honestly",
+          "options": {
+            "from100to250": "USD $100,000 – $250,000",
+            "from250to500": "USD $250,000 – $500,000",
+            "from500to1m": "USD $500,000 – $1M",
+            "over1m": "USD $1M+",
+            "discuss": "Prefer to discuss"
+          }
+        }
+      },
+      "message": {
+        "label": "Tell us about your wedding",
+        "placeholder": "The families, the traditions, the feeling you're imagining — anything you'd like Grecia to know before your first conversation."
+      },
+      "requiredLabel": "required",
+      "submitting": "Sending…",
+      "errorMessage": "Something went wrong. Please try again, or write to us directly at hello@greciamejia.com."
+    }
   }
 }

@@ -50,5 +50,76 @@
       "venues": "Lugares relacionados",
       "cultures": "Otras culturas"
     }
+  },
+  "contactPage": {
+    "form": {
+      "fields": {
+        "fullName": { "label": "Nombre completo", "placeholder": "Tu nombre" },
+        "country": { "label": "País de residencia", "placeholder": "Dónde vives" },
+        "email": { "label": "Correo electrónico", "placeholder": "tu@email.com" },
+        "whatsapp": { "label": "WhatsApp", "placeholder": "Con código de país" },
+        "date": { "label": "Fecha estimada", "placeholder": "Mes y año, o una temporada" }
+      },
+      "selects": {
+        "destination": {
+          "label": "Destino deseado",
+          "placeholder": "Selecciona un destino",
+          "options": {
+            "puntaCana": "Punta Cana y el Caribe",
+            "italy": "Italia",
+            "france": "Francia",
+            "spain": "España",
+            "greece": "Grecia",
+            "unitedStates": "Estados Unidos",
+            "undecided": "Indeciso — guíennos"
+          }
+        },
+        "tradition": {
+          "label": "Tipo de boda / tradición",
+          "placeholder": "Selecciona una tradición",
+          "options": {
+            "indian": "India",
+            "jewish": "Judía",
+            "arab": "Árabe",
+            "southAsian": "Sur de Asia",
+            "christian": "Cristiana / Católica",
+            "interfaith": "Interreligiosa",
+            "latin": "Latina",
+            "civil": "Civil / No religiosa",
+            "other": "Otra / Múltiple"
+          }
+        },
+        "guests": {
+          "label": "Número de invitados",
+          "placeholder": "Aproximado",
+          "options": {
+            "under40": "Menos de 40",
+            "from40to100": "40 – 100",
+            "from100to200": "100 – 200",
+            "from200to400": "200 – 400",
+            "from400to600": "400 – 600",
+            "over600": "600+"
+          }
+        },
+        "budget": {
+          "label": "Presupuesto estimado",
+          "placeholder": "Un rango nos ayuda a orientarte con honestidad",
+          "options": {
+            "from100to250": "USD $100,000 – $250,000",
+            "from250to500": "USD $250,000 – $500,000",
+            "from500to1m": "USD $500,000 – $1M",
+            "over1m": "USD $1M+",
+            "discuss": "Prefiero conversarlo"
+          }
+        }
+      },
+      "message": {
+        "label": "Cuéntanos sobre tu boda",
+        "placeholder": "Las familias, las tradiciones, la sensación que imaginas — cualquier cosa que quieras que Grecia sepa antes de vuestra primera conversación."
+      },
+      "requiredLabel": "obligatorio",
+      "submitting": "Enviando…",
+      "errorMessage": "Algo salió mal. Inténtalo de nuevo o escríbenos directamente a hello@greciamejia.com."
+    }
   }
 }

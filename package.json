@@ -16,6 +16,7 @@
     "seed:destinations": "tsx --env-file=.env.local src/sanity/seed/destinationsPage.ts",
     "seed:destination": "tsx --env-file=.env.local src/sanity/seed/destination.ts",
     "seed:about": "tsx --env-file=.env.local src/sanity/seed/aboutPage.ts",
+    "seed:contact": "tsx --env-file=.env.local src/sanity/seed/contactPage.ts",
     "seed:cultures": "tsx --env-file=.env.local src/sanity/seed/culture.ts",
     "seed:multicultural": "tsx --env-file=.env.local src/sanity/seed/multiculturalPage.ts",
     "seed:seo": "tsx --env-file=.env.local src/sanity/seed/seo.ts",

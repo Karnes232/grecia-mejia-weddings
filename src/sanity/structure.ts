@@ -14,6 +14,8 @@ const SINGLETON_TYPES = new Set([
   "aboutPageMedia",
   "multiculturalPage",
   "multiculturalPageMedia",
+  "contactPage",
+  "contactPageMedia",
   "destination",
   "destinationMedia",
   "culture",
@@ -132,6 +134,27 @@ export const structure: StructureResolver = (S) =>
           S.document()
             .schemaType("multiculturalPageMedia")
             .documentId("multiculturalPageMedia"),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Contact Page")
+        .icon(() => "✉️")
+        .schemaType("contactPage")
+        .child(
+          S.documentTypeList("contactPage")
+            .title("Contact Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "contactPage"'),
+        ),
+      S.listItem()
+        .title("Contact Page Media")
+        .id("contactPageMedia")
+        .icon(() => "🖼️")
+        .schemaType("contactPageMedia")
+        .child(
+          S.document()
+            .schemaType("contactPageMedia")
+            .documentId("contactPageMedia"),
         ),
       S.divider(),
       S.listItem()
