@@ -114,7 +114,8 @@ async function run() {
       `re-pointing ${referrers.length} referrer(s): ` +
       `${[...new Set(referrers.map((r) => r._type))].join(", ") || "none"}.`,
   );
-  for (const d of dotted) console.log(`  copy   ${d._id}  →  ${map.get(d._id)}`);
+  for (const d of dotted)
+    console.log(`  copy   ${d._id}  →  ${map.get(d._id)}`);
   for (const r of referrers) console.log(`  repoint ${r._id}`);
 
   if (dryRun) {
@@ -126,7 +127,10 @@ async function run() {
   // 1. dot-free copies (with any internal refs remapped)
   for (const doc of dotted) {
     const copy = stripSystem(
-      remapRefs({ ...doc, _id: map.get(doc._id) }, map) as Record<string, unknown>,
+      remapRefs({ ...doc, _id: map.get(doc._id) }, map) as Record<
+        string,
+        unknown
+      >,
     );
     tx.createOrReplace(copy as SanityDocument);
   }

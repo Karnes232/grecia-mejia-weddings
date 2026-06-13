@@ -46,7 +46,10 @@ const keyed = <T extends object>(value: T) => ({
 const STEP_NUMBERS = ["01", "02", "03", "04"] as const;
 
 const CONTACT = {
-  email: { value: "hello@greciamejia.com", href: "mailto:hello@greciamejia.com" },
+  email: {
+    value: "hello@greciamejia.com",
+    href: "mailto:hello@greciamejia.com",
+  },
   telephone: { value: "+1 829 000 0000", href: "tel:+18290000000" },
   whatsapp: { value: "+1 829 000 0000", href: "https://wa.me/18290000000" },
   instagram: {
@@ -65,7 +68,12 @@ const SCRIPT_NAME = "Grecia Mejía";
 
 // ── Per-locale editorial copy ────────────────────────────────────────────
 type Copy = {
-  hero: { eyebrow: string; scriptOverline: string; headline: string; deck: string };
+  hero: {
+    eyebrow: string;
+    scriptOverline: string;
+    headline: string;
+    deck: string;
+  };
   form: {
     eyebrow: string;
     headline: string;
@@ -91,7 +99,12 @@ type Copy = {
   rail: {
     featureBody: string;
     reachHeading: string;
-    reachLabels: { email: string; telephone: string; whatsapp: string; instagram: string };
+    reachLabels: {
+      email: string;
+      telephone: string;
+      whatsapp: string;
+      instagram: string;
+    };
     studiosHeading: string;
     studiosLabels: {
       inResidence: string;

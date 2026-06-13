@@ -11,7 +11,12 @@
  * accompanying this file for the specific claims flagged for editorial review.
  */
 
-import { culturePath, destinationPath, staticPath, type CultureCopy } from "./shared";
+import {
+  culturePath,
+  destinationPath,
+  staticPath,
+  type CultureCopy,
+} from "./shared";
 import type { Locale } from "../../../i18n/routing";
 
 export const christianWeddings: Record<Locale, CultureCopy> = {
@@ -33,12 +38,28 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       captionRight: "Plate V",
     },
     factStrip: [
-      { label: "Wedding length", value: "1 – 2 days", sub: "Ceremony + reception" },
+      {
+        label: "Wedding length",
+        value: "1 – 2 days",
+        sub: "Ceremony + reception",
+      },
       { label: "Guest range", value: "60 – 400", sub: "Intimate to grand" },
-      { label: "Lead time", value: "12 – 18 months", sub: "Parishes book early" },
+      {
+        label: "Lead time",
+        value: "12 – 18 months",
+        sub: "Parishes book early",
+      },
       { label: "Rites held", value: "Catholic · Orthodox", sub: "Protestant" },
-      { label: "Ceremony settings", value: "Chapel · cathedral", sub: "Garden" },
-      { label: "Languages", value: "EN · IT · FR", sub: "ES · Latin on request" },
+      {
+        label: "Ceremony settings",
+        value: "Chapel · cathedral",
+        sub: "Garden",
+      },
+      {
+        label: "Languages",
+        value: "EN · IT · FR",
+        sub: "ES · Latin on request",
+      },
     ],
     overview: {
       sideEyebrow: "The tradition",
@@ -52,7 +73,7 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
         "A growing number of our couples marry in their own church at home first, then hold a garden blessing abroad. This is often the most graceful path: the sacrament is celebrated in the parish that matters to the family, and the destination day becomes a blessing, a renewal of vows, and a reception under open sky — unbound by canonical venue rules.",
         "Across all of it, our register is the same one we keep for every tradition: hold the rite as the couple's clergy would hold it. We do not summarise a liturgy for pacing, we do not move the Eucharist for a photograph, and we never let a vendor handle what belongs to the sacristy. The celebration is ours to design. The sacrament is the church's to keep.",
       ],
-      pull: "\"The celebration is ours to design. The sacrament is the church's to keep.\"",
+      pull: '"The celebration is ours to design. The sacrament is the church\'s to keep."',
       signatureName: "Grecia",
       signatureRole: "Founder · On holding the rite with the parish",
     },
@@ -194,9 +215,18 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Rehearsal & welcome",
           body: "The ceremony rehearsal at the church with the celebrant, the wedding party and the musicians, followed by a welcome dinner for arriving guests. The rehearsal is led by the priest; we hold the logistics around it.",
           events: [
-            { time: "Morning", body: "Guest arrivals · airport transfers · hotel check-in" },
-            { time: "16:00", body: "Ceremony rehearsal at the church · with the celebrant" },
-            { time: "17:30", body: "Rehearsal walk-through with musicians and readers" },
+            {
+              time: "Morning",
+              body: "Guest arrivals · airport transfers · hotel check-in",
+            },
+            {
+              time: "16:00",
+              body: "Ceremony rehearsal at the church · with the celebrant",
+            },
+            {
+              time: "17:30",
+              body: "Rehearsal walk-through with musicians and readers",
+            },
             { time: "20:00", body: "Welcome dinner · terrace or trattoria" },
           ],
         },
@@ -206,10 +236,19 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "The wedding day",
           body: "Preparation, the ceremony at the appointed hour, photographs, and the reception into the evening. We schedule the day around the church's hour, not the other way around.",
           events: [
-            { time: "10:00", body: "Bride and groom preparation · separate suites" },
+            {
+              time: "10:00",
+              body: "Bride and groom preparation · separate suites",
+            },
             { time: "14:30", body: "Guests seated at the church" },
-            { time: "15:00", body: "Ceremony · nuptial mass or blessing · 60 minutes" },
-            { time: "16:15", body: "Receiving line · photographs on the steps" },
+            {
+              time: "15:00",
+              body: "Ceremony · nuptial mass or blessing · 60 minutes",
+            },
+            {
+              time: "16:15",
+              body: "Receiving line · photographs on the steps",
+            },
             { time: "18:00", body: "Reception cocktails · golden hour" },
             { time: "19:30", body: "Seated dinner · toasts · first dance" },
           ],
@@ -233,14 +272,54 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "View all destinations",
       viewAllHref: staticPath("en", "/destinations"),
       cards: [
-        { rating: 5, name: "Amalfi Coast", sub: "Italy · May – October", destinationSlug: "amalfi" },
-        { rating: 5, name: "Lake Como", sub: "Italy · June – September", destinationSlug: "lake-como" },
-        { rating: 5, name: "Tuscany", sub: "Italy · May – October", destinationSlug: "tuscany" },
-        { rating: 5, name: "Paris & Île-de-France", sub: "France · April – October", destinationSlug: "paris-ile-de-france" },
-        { rating: 5, name: "Provence", sub: "France · May – September", destinationSlug: "provence" },
-        { rating: 4, name: "Côte d'Azur", sub: "France · June – September", destinationSlug: "cote-dazur" },
-        { rating: 4, name: "Punta Cana", sub: "Caribbean · year-round", destinationSlug: "punta-cana" },
-        { rating: 4, name: "The Hamptons", sub: "United States · June – September", destinationSlug: "the-hamptons" },
+        {
+          rating: 5,
+          name: "Amalfi Coast",
+          sub: "Italy · May – October",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 5,
+          name: "Lake Como",
+          sub: "Italy · June – September",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 5,
+          name: "Tuscany",
+          sub: "Italy · May – October",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 5,
+          name: "Paris & Île-de-France",
+          sub: "France · April – October",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 5,
+          name: "Provence",
+          sub: "France · May – September",
+          destinationSlug: "provence",
+        },
+        {
+          rating: 4,
+          name: "Côte d'Azur",
+          sub: "France · June – September",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 4,
+          name: "Punta Cana",
+          sub: "Caribbean · year-round",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 4,
+          name: "The Hamptons",
+          sub: "United States · June – September",
+          destinationSlug: "the-hamptons",
+        },
       ],
     },
     guest: {
@@ -278,11 +357,36 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       eyebrow: "Continue reading",
       headline: "From the *journal.*",
       articles: [
-        { category: "Christian · Italy", title: "Marrying in a Catholic Church Abroad: What the Parish Needs", body: "A working guide to the paperwork, the preparation and the timeline — diocese by diocese.", imageKey: "culture-related-1" },
-        { category: "Tradition · Orthodox", title: "The Crowning, Explained", body: "On the stefana, the Dance of Isaiah, and arranging an Orthodox wedding far from home.", imageKey: "culture-related-2" },
-        { category: "Planning · Christian", title: "Church First at Home, Blessing Abroad", body: "Why a growing number of our couples marry in their own parish, then bless the union under open sky.", imageKey: "culture-related-3" },
-        { category: "Design · Christian", title: "A Field Guide to Cathedral Florals", body: "Scale, candlelight and the long aisle — designing for a historic nave.", imageKey: "culture-related-4" },
-        { category: "Cost · Christian", title: "What a Destination Christian Wedding Actually Costs", body: "Frank 2026 budgets by guest count and setting.", imageKey: "culture-related-5" },
+        {
+          category: "Christian · Italy",
+          title: "Marrying in a Catholic Church Abroad: What the Parish Needs",
+          body: "A working guide to the paperwork, the preparation and the timeline — diocese by diocese.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradition · Orthodox",
+          title: "The Crowning, Explained",
+          body: "On the stefana, the Dance of Isaiah, and arranging an Orthodox wedding far from home.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Planning · Christian",
+          title: "Church First at Home, Blessing Abroad",
+          body: "Why a growing number of our couples marry in their own parish, then bless the union under open sky.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Design · Christian",
+          title: "A Field Guide to Cathedral Florals",
+          body: "Scale, candlelight and the long aisle — designing for a historic nave.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Cost · Christian",
+          title: "What a Destination Christian Wedding Actually Costs",
+          body: "Frank 2026 budgets by guest count and setting.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Amalfi Coast", href: destinationPath("en", "amalfi") },
@@ -297,10 +401,19 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
         { label: "Villa del Balbianello, Lake Como" },
       ],
       sidebarCultures: [
-        { label: "Interfaith weddings", href: culturePath("en", "interfaith-weddings") },
+        {
+          label: "Interfaith weddings",
+          href: culturePath("en", "interfaith-weddings"),
+        },
         { label: "Latin weddings", href: culturePath("en", "latin-weddings") },
-        { label: "European weddings", href: culturePath("en", "european-weddings") },
-        { label: "Jewish weddings", href: culturePath("en", "jewish-weddings") },
+        {
+          label: "European weddings",
+          href: culturePath("en", "european-weddings"),
+        },
+        {
+          label: "Jewish weddings",
+          href: culturePath("en", "jewish-weddings"),
+        },
       ],
     },
     faq: {
@@ -308,7 +421,8 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       headline: "Frequently *asked.*",
       items: [
         {
-          question: "Can we have a Catholic wedding abroad — and what does the parish need?",
+          question:
+            "Can we have a Catholic wedding abroad — and what does the parish need?",
           answer: [
             "Yes, and we plan them regularly. The marriage is arranged through the couple's own parish at home, which prepares the file — baptismal and confirmation records, the pre-marriage preparation, and the canonical paperwork — and then transfers it to the church abroad with the diocese's permission.",
             "Requirements vary by diocese and by the parish that will marry you, so we begin this correspondence a year ahead. We coordinate the file; the priest sets what it must contain.",
@@ -322,7 +436,8 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "We want to marry in our church at home, then bless the union abroad. Does that work?",
+          question:
+            "We want to marry in our church at home, then bless the union abroad. Does that work?",
           answer: [
             "Beautifully — it is one of the most graceful paths we plan. The sacrament is celebrated in the parish that matters to your family, and the destination day becomes a blessing or a renewal of vows, free of canonical venue rules.",
             "A blessing can be led by a priest, a deacon or a celebrant of your choosing, in a garden, on a terrace or under the vines, followed by the reception you imagined.",
@@ -387,9 +502,21 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     factStrip: [
       { label: "Duración", value: "1 – 2 días", sub: "Ceremonia + recepción" },
       { label: "Invitados", value: "60 – 400", sub: "De íntima a grandiosa" },
-      { label: "Antelación", value: "12 – 18 meses", sub: "Las parroquias reservan pronto" },
-      { label: "Ritos celebrados", value: "Católico · Ortodoxo", sub: "Protestante" },
-      { label: "Espacios de ceremonia", value: "Capilla · catedral", sub: "Jardín" },
+      {
+        label: "Antelación",
+        value: "12 – 18 meses",
+        sub: "Las parroquias reservan pronto",
+      },
+      {
+        label: "Ritos celebrados",
+        value: "Católico · Ortodoxo",
+        sub: "Protestante",
+      },
+      {
+        label: "Espacios de ceremonia",
+        value: "Capilla · catedral",
+        sub: "Jardín",
+      },
       { label: "Idiomas", value: "ES · IT · FR", sub: "EN · latín a petición" },
     ],
     overview: {
@@ -546,8 +673,14 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Ensayo y bienvenida",
           body: "El ensayo de la ceremonia en la iglesia con el celebrante, el cortejo nupcial y los músicos, seguido de una cena de bienvenida para los invitados que llegan. El ensayo lo dirige el sacerdote; nosotros sostenemos la logística alrededor.",
           events: [
-            { time: "Mañana", body: "Llegada de invitados · traslados · check-in en el hotel" },
-            { time: "16:00", body: "Ensayo de la ceremonia en la iglesia · con el celebrante" },
+            {
+              time: "Mañana",
+              body: "Llegada de invitados · traslados · check-in en el hotel",
+            },
+            {
+              time: "16:00",
+              body: "Ensayo de la ceremonia en la iglesia · con el celebrante",
+            },
             { time: "17:30", body: "Repaso con músicos y lectores" },
             { time: "20:00", body: "Cena de bienvenida · terraza o trattoria" },
           ],
@@ -558,10 +691,19 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "El día de la boda",
           body: "Preparativos, la ceremonia a la hora señalada, las fotografías y la recepción hasta la noche. Planificamos el día en torno a la hora de la iglesia, y no al revés.",
           events: [
-            { time: "10:00", body: "Preparativos de los novios · suites separadas" },
+            {
+              time: "10:00",
+              body: "Preparativos de los novios · suites separadas",
+            },
             { time: "14:30", body: "Invitados sentados en la iglesia" },
-            { time: "15:00", body: "Ceremonia · misa nupcial o bendición · 60 minutos" },
-            { time: "16:15", body: "Fila de felicitaciones · fotografías en la escalinata" },
+            {
+              time: "15:00",
+              body: "Ceremonia · misa nupcial o bendición · 60 minutos",
+            },
+            {
+              time: "16:15",
+              body: "Fila de felicitaciones · fotografías en la escalinata",
+            },
             { time: "18:00", body: "Cóctel de recepción · hora dorada" },
             { time: "19:30", body: "Cena sentada · brindis · primer baile" },
           ],
@@ -572,7 +714,10 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Brunch de despedida",
           body: "Un brunch relajado del día después ofrecido por la pareja, normalmente al aire libre, centrado en las despedidas. El cierre no oficial de la boda para la mayoría de los invitados.",
           events: [
-            { time: "11:00", body: "Brunch de despedida · jardín o junto a la piscina" },
+            {
+              time: "11:00",
+              body: "Brunch de despedida · jardín o junto a la piscina",
+            },
             { time: "Tarde", body: "Salidas · traslados al aeropuerto" },
             { time: "Noche", body: "Cena de familia cercana (opcional)" },
           ],
@@ -585,14 +730,54 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Ver todos los destinos",
       viewAllHref: staticPath("es", "/destinations"),
       cards: [
-        { rating: 5, name: "Costa Amalfitana", sub: "Italia · mayo – octubre", destinationSlug: "amalfi" },
-        { rating: 5, name: "Lago de Como", sub: "Italia · junio – septiembre", destinationSlug: "lake-como" },
-        { rating: 5, name: "Toscana", sub: "Italia · mayo – octubre", destinationSlug: "tuscany" },
-        { rating: 5, name: "París e Isla de Francia", sub: "Francia · abril – octubre", destinationSlug: "paris-ile-de-france" },
-        { rating: 5, name: "Provenza", sub: "Francia · mayo – septiembre", destinationSlug: "provence" },
-        { rating: 4, name: "Costa Azul", sub: "Francia · junio – septiembre", destinationSlug: "cote-dazur" },
-        { rating: 4, name: "Punta Cana", sub: "Caribe · todo el año", destinationSlug: "punta-cana" },
-        { rating: 4, name: "Los Hamptons", sub: "Estados Unidos · junio – septiembre", destinationSlug: "the-hamptons" },
+        {
+          rating: 5,
+          name: "Costa Amalfitana",
+          sub: "Italia · mayo – octubre",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 5,
+          name: "Lago de Como",
+          sub: "Italia · junio – septiembre",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 5,
+          name: "Toscana",
+          sub: "Italia · mayo – octubre",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 5,
+          name: "París e Isla de Francia",
+          sub: "Francia · abril – octubre",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 5,
+          name: "Provenza",
+          sub: "Francia · mayo – septiembre",
+          destinationSlug: "provence",
+        },
+        {
+          rating: 4,
+          name: "Costa Azul",
+          sub: "Francia · junio – septiembre",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 4,
+          name: "Punta Cana",
+          sub: "Caribe · todo el año",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 4,
+          name: "Los Hamptons",
+          sub: "Estados Unidos · junio – septiembre",
+          destinationSlug: "the-hamptons",
+        },
       ],
     },
     guest: {
@@ -630,11 +815,37 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       eyebrow: "Seguir leyendo",
       headline: "Del *diario.*",
       articles: [
-        { category: "Cristiana · Italia", title: "Casarse por la Iglesia católica en el extranjero: qué necesita la parroquia", body: "Una guía práctica sobre los papeles, la preparación y los plazos — diócesis por diócesis.", imageKey: "culture-related-1" },
-        { category: "Tradición · Ortodoxa", title: "La Coronación, explicada", body: "Sobre las stefana, la Danza de Isaías y organizar una boda ortodoxa lejos de casa.", imageKey: "culture-related-2" },
-        { category: "Planificación · Cristiana", title: "Iglesia primero en casa, bendición en el extranjero", body: "Por qué un número creciente de nuestras parejas se casa en su parroquia y luego bendice la unión a cielo abierto.", imageKey: "culture-related-3" },
-        { category: "Diseño · Cristiana", title: "Guía de flores para catedral", body: "Escala, luz de velas y el pasillo largo — diseñar para una nave histórica.", imageKey: "culture-related-4" },
-        { category: "Coste · Cristiana", title: "Lo que cuesta de verdad una boda cristiana en destino", body: "Presupuestos francos de 2026 por número de invitados y escenario.", imageKey: "culture-related-5" },
+        {
+          category: "Cristiana · Italia",
+          title:
+            "Casarse por la Iglesia católica en el extranjero: qué necesita la parroquia",
+          body: "Una guía práctica sobre los papeles, la preparación y los plazos — diócesis por diócesis.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradición · Ortodoxa",
+          title: "La Coronación, explicada",
+          body: "Sobre las stefana, la Danza de Isaías y organizar una boda ortodoxa lejos de casa.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Planificación · Cristiana",
+          title: "Iglesia primero en casa, bendición en el extranjero",
+          body: "Por qué un número creciente de nuestras parejas se casa en su parroquia y luego bendice la unión a cielo abierto.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Diseño · Cristiana",
+          title: "Guía de flores para catedral",
+          body: "Escala, luz de velas y el pasillo largo — diseñar para una nave histórica.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Coste · Cristiana",
+          title: "Lo que cuesta de verdad una boda cristiana en destino",
+          body: "Presupuestos francos de 2026 por número de invitados y escenario.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Costa Amalfitana", href: destinationPath("es", "amalfi") },
@@ -649,9 +860,15 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
         { label: "Villa del Balbianello, Lago de Como" },
       ],
       sidebarCultures: [
-        { label: "Bodas interreligiosas", href: culturePath("es", "interfaith-weddings") },
+        {
+          label: "Bodas interreligiosas",
+          href: culturePath("es", "interfaith-weddings"),
+        },
         { label: "Bodas latinas", href: culturePath("es", "latin-weddings") },
-        { label: "Bodas europeas", href: culturePath("es", "european-weddings") },
+        {
+          label: "Bodas europeas",
+          href: culturePath("es", "european-weddings"),
+        },
         { label: "Bodas judías", href: culturePath("es", "jewish-weddings") },
       ],
     },
@@ -660,21 +877,24 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       headline: "Preguntas *frecuentes.*",
       items: [
         {
-          question: "¿Podemos casarnos por la Iglesia católica en el extranjero — y qué necesita la parroquia?",
+          question:
+            "¿Podemos casarnos por la Iglesia católica en el extranjero — y qué necesita la parroquia?",
           answer: [
             "Sí, y las organizamos con regularidad. El matrimonio se tramita a través de la propia parroquia de la pareja en casa, que prepara el expediente — partidas de bautismo y confirmación, la preparación prematrimonial y los papeles canónicos — y luego lo transfiere a la iglesia del extranjero con el permiso de la diócesis.",
             "Los requisitos varían según la diócesis y la parroquia que os case, por lo que iniciamos esta correspondencia con un año de antelación. Coordinamos el expediente; el sacerdote fija lo que debe contener.",
           ],
         },
         {
-          question: "¿Podemos celebrar una coronación ortodoxa en un resort o una villa?",
+          question:
+            "¿Podemos celebrar una coronación ortodoxa en un resort o una villa?",
           answer: [
             "La coronación la conduce el propio sacerdote de la familia, y cuando se celebra fuera de una iglesia consagrada, es el celebrante quien decide si es posible y cómo.",
             "Nuestra parte es lo que la rodea — el viaje del sacerdote, las stefana, las necesidades litúrgicas y el escenario. Nos remitimos por completo al celebrante en cuanto a la forma del rito.",
           ],
         },
         {
-          question: "Queremos casarnos en nuestra iglesia en casa y luego bendecir la unión en el extranjero. ¿Es posible?",
+          question:
+            "Queremos casarnos en nuestra iglesia en casa y luego bendecir la unión en el extranjero. ¿Es posible?",
           answer: [
             "Maravillosamente — es uno de los caminos más elegantes que planificamos. El sacramento se celebra en la parroquia que importa a vuestra familia, y el día en el destino se convierte en una bendición o renovación de votos, libre de las normas canónicas sobre el lugar.",
             "Una bendición puede dirigirla un sacerdote, un diácono o un celebrante de vuestra elección, en un jardín, en una terraza o entre las viñas, seguida de la recepción que imaginabais.",
@@ -695,14 +915,16 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "¿Cómo gestionáis las familias mixtas católico-protestantes?",
+          question:
+            "¿Cómo gestionáis las familias mixtas católico-protestantes?",
           answer: [
             "Con cuidado y un orden del oficio claro. El sacerdote o ministro oficiante decide la forma del rito y cómo se recibe a los invitados de la otra comunión; lo aclaramos todo a los invitados de antemano para que nadie se sienta inseguro ante el altar.",
             "Cuando ambas familias desean estar representadas en la ceremonia, a menudo puede organizarse un oficio cooficiado con el acuerdo de ambos clérigos.",
           ],
         },
         {
-          question: "¿Pueden asistir cómodamente invitados de otras religiones, o de ninguna?",
+          question:
+            "¿Pueden asistir cómodamente invitados de otras religiones, o de ninguna?",
           answer: [
             "Siempre. Enviamos a cada invitado una guía breve y cálida de la ceremonia — qué esperar, cuándo ponerse de pie y sentarse, y quién está invitado a comulgar y quién es simplemente bienvenido a estar presente.",
             "Ningún invitado se siente jamás fuera de lugar; el equipo del atelier está a mano durante todo el fin de semana para responder preguntas en persona.",
@@ -739,10 +961,26 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     factStrip: [
       { label: "Durée", value: "1 – 2 jours", sub: "Cérémonie + réception" },
       { label: "Invités", value: "60 – 400", sub: "De l'intime au grand" },
-      { label: "Anticipation", value: "12 – 18 mois", sub: "Les paroisses réservent tôt" },
-      { label: "Rites tenus", value: "Catholique · Orthodoxe", sub: "Protestant" },
-      { label: "Lieux de cérémonie", value: "Chapelle · cathédrale", sub: "Jardin" },
-      { label: "Langues", value: "FR · IT · EN", sub: "ES · latin sur demande" },
+      {
+        label: "Anticipation",
+        value: "12 – 18 mois",
+        sub: "Les paroisses réservent tôt",
+      },
+      {
+        label: "Rites tenus",
+        value: "Catholique · Orthodoxe",
+        sub: "Protestant",
+      },
+      {
+        label: "Lieux de cérémonie",
+        value: "Chapelle · cathédrale",
+        sub: "Jardin",
+      },
+      {
+        label: "Langues",
+        value: "FR · IT · EN",
+        sub: "ES · latin sur demande",
+      },
     ],
     overview: {
       sideEyebrow: "La tradition",
@@ -827,7 +1065,10 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#f6f1e7", "#e9e0cf", "#cbb994", "#8c7a5c", "#3a3328"],
           imageKey: "concept-1",
           rows: [
-            { label: "Cérémonie", value: "Cathédrale · messe nuptiale complète" },
+            {
+              label: "Cérémonie",
+              value: "Cathédrale · messe nuptiale complète",
+            },
             { label: "Fleurs", value: "Rose blanche · lisianthus · cierge" },
             { label: "Idéal pour", value: "Grand · formel · soirée" },
           ],
@@ -838,7 +1079,10 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#eee7d6", "#b9c1a3", "#7c8a63", "#4d5a3c", "#2c3322"],
           imageKey: "concept-2",
           rows: [
-            { label: "Cérémonie", value: "Jardin · bénédiction ou renouvellement" },
+            {
+              label: "Cérémonie",
+              value: "Jardin · bénédiction ou renouvellement",
+            },
             { label: "Fleurs", value: "Pivoine · olivier · verdure" },
             { label: "Idéal pour", value: "Jour · villa · vignoble" },
           ],
@@ -898,9 +1142,18 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Répétition et accueil",
           body: "La répétition de la cérémonie à l'église avec le célébrant, le cortège et les musiciens, suivie d'un dîner d'accueil pour les invités qui arrivent. La répétition est dirigée par le prêtre ; nous en tenons la logistique.",
           events: [
-            { time: "Matin", body: "Arrivée des invités · transferts · enregistrement à l'hôtel" },
-            { time: "16:00", body: "Répétition de la cérémonie à l'église · avec le célébrant" },
-            { time: "17:30", body: "Filage avec les musiciens et les lecteurs" },
+            {
+              time: "Matin",
+              body: "Arrivée des invités · transferts · enregistrement à l'hôtel",
+            },
+            {
+              time: "16:00",
+              body: "Répétition de la cérémonie à l'église · avec le célébrant",
+            },
+            {
+              time: "17:30",
+              body: "Filage avec les musiciens et les lecteurs",
+            },
             { time: "20:00", body: "Dîner d'accueil · terrasse ou trattoria" },
           ],
         },
@@ -912,8 +1165,14 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           events: [
             { time: "10:00", body: "Préparatifs des mariés · suites séparées" },
             { time: "14:30", body: "Invités installés à l'église" },
-            { time: "15:00", body: "Cérémonie · messe nuptiale ou bénédiction · 60 minutes" },
-            { time: "16:15", body: "Haie d'honneur · photographies sur le parvis" },
+            {
+              time: "15:00",
+              body: "Cérémonie · messe nuptiale ou bénédiction · 60 minutes",
+            },
+            {
+              time: "16:15",
+              body: "Haie d'honneur · photographies sur le parvis",
+            },
             { time: "18:00", body: "Cocktail de réception · heure dorée" },
             { time: "19:30", body: "Dîner assis · toasts · première danse" },
           ],
@@ -924,8 +1183,14 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Brunch d'adieu",
           body: "Un brunch détendu du lendemain offert par le couple, généralement en plein air, axé sur les au revoir. La clôture officieuse du mariage pour la plupart des invités.",
           events: [
-            { time: "11:00", body: "Brunch d'adieu · jardin ou bord de piscine" },
-            { time: "Après-midi", body: "Départs · transferts vers l'aéroport" },
+            {
+              time: "11:00",
+              body: "Brunch d'adieu · jardin ou bord de piscine",
+            },
+            {
+              time: "Après-midi",
+              body: "Départs · transferts vers l'aéroport",
+            },
             { time: "Soir", body: "Dîner en famille proche (facultatif)" },
           ],
         },
@@ -937,14 +1202,54 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Voir toutes les destinations",
       viewAllHref: staticPath("fr", "/destinations"),
       cards: [
-        { rating: 5, name: "Côte amalfitaine", sub: "Italie · mai – octobre", destinationSlug: "amalfi" },
-        { rating: 5, name: "Lac de Côme", sub: "Italie · juin – septembre", destinationSlug: "lake-como" },
-        { rating: 5, name: "Toscane", sub: "Italie · mai – octobre", destinationSlug: "tuscany" },
-        { rating: 5, name: "Paris & Île-de-France", sub: "France · avril – octobre", destinationSlug: "paris-ile-de-france" },
-        { rating: 5, name: "Provence", sub: "France · mai – septembre", destinationSlug: "provence" },
-        { rating: 4, name: "Côte d'Azur", sub: "France · juin – septembre", destinationSlug: "cote-dazur" },
-        { rating: 4, name: "Punta Cana", sub: "Caraïbes · toute l'année", destinationSlug: "punta-cana" },
-        { rating: 4, name: "Les Hamptons", sub: "États-Unis · juin – septembre", destinationSlug: "the-hamptons" },
+        {
+          rating: 5,
+          name: "Côte amalfitaine",
+          sub: "Italie · mai – octobre",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 5,
+          name: "Lac de Côme",
+          sub: "Italie · juin – septembre",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 5,
+          name: "Toscane",
+          sub: "Italie · mai – octobre",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 5,
+          name: "Paris & Île-de-France",
+          sub: "France · avril – octobre",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 5,
+          name: "Provence",
+          sub: "France · mai – septembre",
+          destinationSlug: "provence",
+        },
+        {
+          rating: 4,
+          name: "Côte d'Azur",
+          sub: "France · juin – septembre",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 4,
+          name: "Punta Cana",
+          sub: "Caraïbes · toute l'année",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 4,
+          name: "Les Hamptons",
+          sub: "États-Unis · juin – septembre",
+          destinationSlug: "the-hamptons",
+        },
       ],
     },
     guest: {
@@ -982,11 +1287,37 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       eyebrow: "Continuer la lecture",
       headline: "Du *journal.*",
       articles: [
-        { category: "Chrétien · Italie", title: "Se marier à l'église catholique à l'étranger : ce dont la paroisse a besoin", body: "Un guide de travail sur les papiers, la préparation et le calendrier — diocèse par diocèse.", imageKey: "culture-related-1" },
-        { category: "Tradition · Orthodoxe", title: "Le Couronnement, expliqué", body: "Sur les stéfana, la Danse d'Isaïe et l'organisation d'un mariage orthodoxe loin de chez soi.", imageKey: "culture-related-2" },
-        { category: "Planification · Chrétien", title: "L'église d'abord chez soi, la bénédiction à l'étranger", body: "Pourquoi un nombre croissant de nos couples se marient à leur paroisse puis bénissent l'union à ciel ouvert.", imageKey: "culture-related-3" },
-        { category: "Design · Chrétien", title: "Guide des fleurs de cathédrale", body: "Échelle, lumière de bougies et la longue allée — concevoir pour une nef historique.", imageKey: "culture-related-4" },
-        { category: "Coût · Chrétien", title: "Ce que coûte vraiment un mariage chrétien à destination", body: "Budgets francs de 2026 par nombre d'invités et par décor.", imageKey: "culture-related-5" },
+        {
+          category: "Chrétien · Italie",
+          title:
+            "Se marier à l'église catholique à l'étranger : ce dont la paroisse a besoin",
+          body: "Un guide de travail sur les papiers, la préparation et le calendrier — diocèse par diocèse.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradition · Orthodoxe",
+          title: "Le Couronnement, expliqué",
+          body: "Sur les stéfana, la Danse d'Isaïe et l'organisation d'un mariage orthodoxe loin de chez soi.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Planification · Chrétien",
+          title: "L'église d'abord chez soi, la bénédiction à l'étranger",
+          body: "Pourquoi un nombre croissant de nos couples se marient à leur paroisse puis bénissent l'union à ciel ouvert.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Design · Chrétien",
+          title: "Guide des fleurs de cathédrale",
+          body: "Échelle, lumière de bougies et la longue allée — concevoir pour une nef historique.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Coût · Chrétien",
+          title: "Ce que coûte vraiment un mariage chrétien à destination",
+          body: "Budgets francs de 2026 par nombre d'invités et par décor.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Côte amalfitaine", href: destinationPath("fr", "amalfi") },
@@ -1001,9 +1332,15 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
         { label: "Villa del Balbianello, Lac de Côme" },
       ],
       sidebarCultures: [
-        { label: "Mariages interconfessionnels", href: culturePath("fr", "interfaith-weddings") },
+        {
+          label: "Mariages interconfessionnels",
+          href: culturePath("fr", "interfaith-weddings"),
+        },
         { label: "Mariages latins", href: culturePath("fr", "latin-weddings") },
-        { label: "Mariages européens", href: culturePath("fr", "european-weddings") },
+        {
+          label: "Mariages européens",
+          href: culturePath("fr", "european-weddings"),
+        },
         { label: "Mariages juifs", href: culturePath("fr", "jewish-weddings") },
       ],
     },
@@ -1012,21 +1349,24 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       headline: "Questions *fréquentes.*",
       items: [
         {
-          question: "Pouvons-nous nous marier à l'église catholique à l'étranger — et que faut-il à la paroisse ?",
+          question:
+            "Pouvons-nous nous marier à l'église catholique à l'étranger — et que faut-il à la paroisse ?",
           answer: [
             "Oui, et nous en organisons régulièrement. Le mariage est arrangé par la propre paroisse du couple, chez lui, qui prépare le dossier — actes de baptême et de confirmation, préparation au mariage et papiers canoniques — puis le transfère à l'église étrangère avec l'autorisation du diocèse.",
             "Les exigences varient selon le diocèse et la paroisse qui vous mariera, c'est pourquoi nous entamons cette correspondance un an à l'avance. Nous coordonnons le dossier ; le prêtre fixe ce qu'il doit contenir.",
           ],
         },
         {
-          question: "Pouvons-nous tenir un couronnement orthodoxe dans un complexe hôtelier ou une villa ?",
+          question:
+            "Pouvons-nous tenir un couronnement orthodoxe dans un complexe hôtelier ou une villa ?",
           answer: [
             "Le couronnement est conduit par le propre prêtre de la famille, et lorsqu'il se tient hors d'une église consacrée, c'est le célébrant qui décide si cela est possible et comment.",
             "Notre part est ce qui l'entoure — le voyage du prêtre, les stéfana, les besoins liturgiques et le décor. Nous nous en remettons entièrement au célébrant quant à la forme du rite.",
           ],
         },
         {
-          question: "Nous voulons nous marier à notre église, chez nous, puis bénir l'union à l'étranger. Est-ce possible ?",
+          question:
+            "Nous voulons nous marier à notre église, chez nous, puis bénir l'union à l'étranger. Est-ce possible ?",
           answer: [
             "Magnifiquement — c'est l'une des voies les plus gracieuses que nous planifions. Le sacrement est célébré dans la paroisse qui compte pour votre famille, et le jour à destination devient une bénédiction ou un renouvellement des vœux, affranchi des règles canoniques sur le lieu.",
             "Une bénédiction peut être conduite par un prêtre, un diacre ou un célébrant de votre choix, dans un jardin, sur une terrasse ou sous les vignes, suivie de la réception que vous imaginiez.",
@@ -1047,14 +1387,16 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Comment gérez-vous les familles mixtes catholiques-protestantes ?",
+          question:
+            "Comment gérez-vous les familles mixtes catholiques-protestantes ?",
           answer: [
             "Avec soin et un ordre d'office clair. Le prêtre ou le ministre officiant décide de la forme du rite et de la manière dont les invités de l'autre communion sont reçus ; nous rendons tout cela clair pour les invités à l'avance, afin que personne ne se sente incertain à l'autel.",
             "Lorsque les deux familles souhaitent être représentées dans la cérémonie, un office co-célébré peut souvent être arrangé avec l'accord des deux clergés.",
           ],
         },
         {
-          question: "Des invités d'autres confessions, ou d'aucune, peuvent-ils assister sereinement ?",
+          question:
+            "Des invités d'autres confessions, ou d'aucune, peuvent-ils assister sereinement ?",
           answer: [
             "Toujours. Nous envoyons à chaque invité un guide bref et chaleureux de la cérémonie — à quoi s'attendre, quand se lever et s'asseoir, et qui est invité à communier et qui est simplement bienvenu à être présent.",
             "Aucun invité ne se sent jamais déplacé ; l'équipe de l'atelier est présente tout au long pour répondre aux questions en personne.",
@@ -1091,9 +1433,21 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     factStrip: [
       { label: "Duração", value: "1 – 2 dias", sub: "Cerimónia + receção" },
       { label: "Convidados", value: "60 – 400", sub: "Da íntima à grandiosa" },
-      { label: "Antecedência", value: "12 – 18 meses", sub: "As paróquias reservam cedo" },
-      { label: "Ritos celebrados", value: "Católico · Ortodoxo", sub: "Protestante" },
-      { label: "Espaços de cerimónia", value: "Capela · catedral", sub: "Jardim" },
+      {
+        label: "Antecedência",
+        value: "12 – 18 meses",
+        sub: "As paróquias reservam cedo",
+      },
+      {
+        label: "Ritos celebrados",
+        value: "Católico · Ortodoxo",
+        sub: "Protestante",
+      },
+      {
+        label: "Espaços de cerimónia",
+        value: "Capela · catedral",
+        sub: "Jardim",
+      },
       { label: "Idiomas", value: "PT · IT · FR", sub: "EN · latim a pedido" },
     ],
     overview: {
@@ -1250,10 +1604,19 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Ensaio e boas-vindas",
           body: "O ensaio da cerimónia na igreja com o celebrante, o cortejo e os músicos, seguido de um jantar de boas-vindas para os convidados que chegam. O ensaio é conduzido pelo padre; nós sustentamos a logística em redor.",
           events: [
-            { time: "Manhã", body: "Chegada de convidados · transferes · check-in no hotel" },
-            { time: "16:00", body: "Ensaio da cerimónia na igreja · com o celebrante" },
+            {
+              time: "Manhã",
+              body: "Chegada de convidados · transferes · check-in no hotel",
+            },
+            {
+              time: "16:00",
+              body: "Ensaio da cerimónia na igreja · com o celebrante",
+            },
             { time: "17:30", body: "Marcação com músicos e leitores" },
-            { time: "20:00", body: "Jantar de boas-vindas · terraço ou trattoria" },
+            {
+              time: "20:00",
+              body: "Jantar de boas-vindas · terraço ou trattoria",
+            },
           ],
         },
         {
@@ -1262,12 +1625,24 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "O dia do casamento",
           body: "Os preparativos, a cerimónia à hora marcada, as fotografias e a receção até à noite. Planeamos o dia em torno da hora da igreja, e não o contrário.",
           events: [
-            { time: "10:00", body: "Preparativos dos noivos · suites separadas" },
+            {
+              time: "10:00",
+              body: "Preparativos dos noivos · suites separadas",
+            },
             { time: "14:30", body: "Convidados sentados na igreja" },
-            { time: "15:00", body: "Cerimónia · missa nupcial ou bênção · 60 minutos" },
-            { time: "16:15", body: "Fila de cumprimentos · fotografias na escadaria" },
+            {
+              time: "15:00",
+              body: "Cerimónia · missa nupcial ou bênção · 60 minutos",
+            },
+            {
+              time: "16:15",
+              body: "Fila de cumprimentos · fotografias na escadaria",
+            },
             { time: "18:00", body: "Cocktail de receção · hora dourada" },
-            { time: "19:30", body: "Jantar sentado · brindes · primeira dança" },
+            {
+              time: "19:30",
+              body: "Jantar sentado · brindes · primeira dança",
+            },
           ],
         },
         {
@@ -1276,7 +1651,10 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Brunch de despedida",
           body: "Um brunch tranquilo do dia seguinte oferecido pelo casal, normalmente ao ar livre, centrado nas despedidas. O fecho não oficial do casamento para a maioria dos convidados.",
           events: [
-            { time: "11:00", body: "Brunch de despedida · jardim ou junto à piscina" },
+            {
+              time: "11:00",
+              body: "Brunch de despedida · jardim ou junto à piscina",
+            },
             { time: "Tarde", body: "Partidas · transferes para o aeroporto" },
             { time: "Noite", body: "Jantar de família próxima (opcional)" },
           ],
@@ -1289,14 +1667,54 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Ver todos os destinos",
       viewAllHref: staticPath("pt", "/destinations"),
       cards: [
-        { rating: 5, name: "Costa Amalfitana", sub: "Itália · maio – outubro", destinationSlug: "amalfi" },
-        { rating: 5, name: "Lago de Como", sub: "Itália · junho – setembro", destinationSlug: "lake-como" },
-        { rating: 5, name: "Toscana", sub: "Itália · maio – outubro", destinationSlug: "tuscany" },
-        { rating: 5, name: "Paris e Île-de-France", sub: "França · abril – outubro", destinationSlug: "paris-ile-de-france" },
-        { rating: 5, name: "Provença", sub: "França · maio – setembro", destinationSlug: "provence" },
-        { rating: 4, name: "Côte d'Azur", sub: "França · junho – setembro", destinationSlug: "cote-dazur" },
-        { rating: 4, name: "Punta Cana", sub: "Caraíbas · todo o ano", destinationSlug: "punta-cana" },
-        { rating: 4, name: "Os Hamptons", sub: "Estados Unidos · junho – setembro", destinationSlug: "the-hamptons" },
+        {
+          rating: 5,
+          name: "Costa Amalfitana",
+          sub: "Itália · maio – outubro",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 5,
+          name: "Lago de Como",
+          sub: "Itália · junho – setembro",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 5,
+          name: "Toscana",
+          sub: "Itália · maio – outubro",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 5,
+          name: "Paris e Île-de-France",
+          sub: "França · abril – outubro",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 5,
+          name: "Provença",
+          sub: "França · maio – setembro",
+          destinationSlug: "provence",
+        },
+        {
+          rating: 4,
+          name: "Côte d'Azur",
+          sub: "França · junho – setembro",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 4,
+          name: "Punta Cana",
+          sub: "Caraíbas · todo o ano",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 4,
+          name: "Os Hamptons",
+          sub: "Estados Unidos · junho – setembro",
+          destinationSlug: "the-hamptons",
+        },
       ],
     },
     guest: {
@@ -1334,11 +1752,37 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       eyebrow: "Continuar a ler",
       headline: "Do *diário.*",
       articles: [
-        { category: "Cristão · Itália", title: "Casar pela Igreja católica no estrangeiro: o que a paróquia precisa", body: "Um guia prático sobre os papéis, a preparação e os prazos — diocese a diocese.", imageKey: "culture-related-1" },
-        { category: "Tradição · Ortodoxo", title: "A Coroação, explicada", body: "Sobre as stefana, a Dança de Isaías e organizar um casamento ortodoxo longe de casa.", imageKey: "culture-related-2" },
-        { category: "Planeamento · Cristão", title: "Igreja primeiro em casa, bênção no estrangeiro", body: "Porque é que um número crescente dos nossos casais casa na sua paróquia e depois abençoa a união a céu aberto.", imageKey: "culture-related-3" },
-        { category: "Design · Cristão", title: "Guia de flores para catedral", body: "Escala, luz de velas e o corredor comprido — desenhar para uma nave histórica.", imageKey: "culture-related-4" },
-        { category: "Custo · Cristão", title: "Quanto custa de facto um casamento cristão em destino", body: "Orçamentos francos de 2026 por número de convidados e cenário.", imageKey: "culture-related-5" },
+        {
+          category: "Cristão · Itália",
+          title:
+            "Casar pela Igreja católica no estrangeiro: o que a paróquia precisa",
+          body: "Um guia prático sobre os papéis, a preparação e os prazos — diocese a diocese.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradição · Ortodoxo",
+          title: "A Coroação, explicada",
+          body: "Sobre as stefana, a Dança de Isaías e organizar um casamento ortodoxo longe de casa.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Planeamento · Cristão",
+          title: "Igreja primeiro em casa, bênção no estrangeiro",
+          body: "Porque é que um número crescente dos nossos casais casa na sua paróquia e depois abençoa a união a céu aberto.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Design · Cristão",
+          title: "Guia de flores para catedral",
+          body: "Escala, luz de velas e o corredor comprido — desenhar para uma nave histórica.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Custo · Cristão",
+          title: "Quanto custa de facto um casamento cristão em destino",
+          body: "Orçamentos francos de 2026 por número de convidados e cenário.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Costa Amalfitana", href: destinationPath("pt", "amalfi") },
@@ -1353,10 +1797,22 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
         { label: "Villa del Balbianello, Lago de Como" },
       ],
       sidebarCultures: [
-        { label: "Casamentos inter-religiosos", href: culturePath("pt", "interfaith-weddings") },
-        { label: "Casamentos latinos", href: culturePath("pt", "latin-weddings") },
-        { label: "Casamentos europeus", href: culturePath("pt", "european-weddings") },
-        { label: "Casamentos judaicos", href: culturePath("pt", "jewish-weddings") },
+        {
+          label: "Casamentos inter-religiosos",
+          href: culturePath("pt", "interfaith-weddings"),
+        },
+        {
+          label: "Casamentos latinos",
+          href: culturePath("pt", "latin-weddings"),
+        },
+        {
+          label: "Casamentos europeus",
+          href: culturePath("pt", "european-weddings"),
+        },
+        {
+          label: "Casamentos judaicos",
+          href: culturePath("pt", "jewish-weddings"),
+        },
       ],
     },
     faq: {
@@ -1364,21 +1820,24 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       headline: "Perguntas *frequentes.*",
       items: [
         {
-          question: "Podemos casar pela Igreja católica no estrangeiro — e o que precisa a paróquia?",
+          question:
+            "Podemos casar pela Igreja católica no estrangeiro — e o que precisa a paróquia?",
           answer: [
             "Sim, e organizamo-los com regularidade. O casamento é tratado através da própria paróquia do casal, em casa, que prepara o processo — registos de batismo e crisma, a preparação para o matrimónio e os papéis canónicos — e depois transfere-o para a igreja no estrangeiro com a permissão da diocese.",
             "Os requisitos variam conforme a diocese e a paróquia que vos casar, pelo que iniciamos esta correspondência com um ano de antecedência. Coordenamos o processo; o padre fixa o que deve conter.",
           ],
         },
         {
-          question: "Podemos celebrar uma coroação ortodoxa num resort ou numa villa?",
+          question:
+            "Podemos celebrar uma coroação ortodoxa num resort ou numa villa?",
           answer: [
             "A coroação é conduzida pelo próprio padre da família e, quando se celebra fora de uma igreja consagrada, é o celebrante quem decide se é possível e como.",
             "A nossa parte é o que a rodeia — a viagem do padre, as stefana, as necessidades litúrgicas e o cenário. Remetemo-nos por completo ao celebrante quanto à forma do rito.",
           ],
         },
         {
-          question: "Queremos casar na nossa igreja em casa e depois abençoar a união no estrangeiro. É possível?",
+          question:
+            "Queremos casar na nossa igreja em casa e depois abençoar a união no estrangeiro. É possível?",
           answer: [
             "Lindamente — é um dos caminhos mais elegantes que planeamos. O sacramento é celebrado na paróquia que importa à vossa família, e o dia no destino torna-se uma bênção ou renovação de votos, livre das regras canónicas sobre o local.",
             "Uma bênção pode ser conduzida por um padre, um diácono ou um celebrante à vossa escolha, num jardim, num terraço ou entre as vinhas, seguida da receção que imaginavam.",
@@ -1406,7 +1865,8 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Convidados de outras religiões, ou de nenhuma, podem assistir à vontade?",
+          question:
+            "Convidados de outras religiões, ou de nenhuma, podem assistir à vontade?",
           answer: [
             "Sempre. Enviamos a cada convidado um guia breve e caloroso da cerimónia — o que esperar, quando levantar-se e sentar-se, e quem está convidado a comungar e quem é simplesmente bem-vindo a estar presente.",
             "Nenhum convidado se sente alguma vez deslocado; a equipa do ateliê está à mão durante todo o fim de semana para responder a perguntas em pessoa.",
@@ -1443,10 +1903,22 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     factStrip: [
       { label: "Dauer", value: "1 – 2 Tage", sub: "Zeremonie + Empfang" },
       { label: "Gäste", value: "60 – 400", sub: "Von intim bis groß" },
-      { label: "Vorlaufzeit", value: "12 – 18 Monate", sub: "Pfarreien buchen früh" },
-      { label: "Gehaltene Riten", value: "Katholisch · Orthodox", sub: "Protestantisch" },
+      {
+        label: "Vorlaufzeit",
+        value: "12 – 18 Monate",
+        sub: "Pfarreien buchen früh",
+      },
+      {
+        label: "Gehaltene Riten",
+        value: "Katholisch · Orthodox",
+        sub: "Protestantisch",
+      },
       { label: "Zeremonieorte", value: "Kapelle · Kathedrale", sub: "Garten" },
-      { label: "Sprachen", value: "DE · IT · FR", sub: "EN · Latein auf Wunsch" },
+      {
+        label: "Sprachen",
+        value: "DE · IT · FR",
+        sub: "EN · Latein auf Wunsch",
+      },
     ],
     overview: {
       sideEyebrow: "Die Tradition",
@@ -1602,10 +2074,19 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Probe & Willkommen",
           body: "Die Zeremonienprobe in der Kirche mit dem Zelebranten, der Hochzeitsgesellschaft und den Musikern, gefolgt von einem Willkommensdinner für die anreisenden Gäste. Die Probe leitet der Priester; wir halten die Logistik darum.",
           events: [
-            { time: "Vormittag", body: "Ankunft der Gäste · Transfers · Hotel-Check-in" },
-            { time: "16:00", body: "Zeremonienprobe in der Kirche · mit dem Zelebranten" },
+            {
+              time: "Vormittag",
+              body: "Ankunft der Gäste · Transfers · Hotel-Check-in",
+            },
+            {
+              time: "16:00",
+              body: "Zeremonienprobe in der Kirche · mit dem Zelebranten",
+            },
             { time: "17:30", body: "Durchlauf mit Musikern und Lektoren" },
-            { time: "20:00", body: "Willkommensdinner · Terrasse oder Trattoria" },
+            {
+              time: "20:00",
+              body: "Willkommensdinner · Terrasse oder Trattoria",
+            },
           ],
         },
         {
@@ -1614,12 +2095,24 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Der Hochzeitstag",
           body: "Die Vorbereitung, die Zeremonie zur festgesetzten Stunde, die Fotografien und der Empfang bis in den Abend. Wir planen den Tag um die Stunde der Kirche, nicht umgekehrt.",
           events: [
-            { time: "10:00", body: "Vorbereitung von Braut und Bräutigam · getrennte Suiten" },
+            {
+              time: "10:00",
+              body: "Vorbereitung von Braut und Bräutigam · getrennte Suiten",
+            },
             { time: "14:30", body: "Gäste in der Kirche platziert" },
-            { time: "15:00", body: "Zeremonie · Brautmesse oder Segnung · 60 Minuten" },
-            { time: "16:15", body: "Gratulationsreihe · Fotografien auf den Stufen" },
+            {
+              time: "15:00",
+              body: "Zeremonie · Brautmesse oder Segnung · 60 Minuten",
+            },
+            {
+              time: "16:15",
+              body: "Gratulationsreihe · Fotografien auf den Stufen",
+            },
             { time: "18:00", body: "Empfangs-Cocktails · goldene Stunde" },
-            { time: "19:30", body: "Gesetztes Dinner · Trinksprüche · erster Tanz" },
+            {
+              time: "19:30",
+              body: "Gesetztes Dinner · Trinksprüche · erster Tanz",
+            },
           ],
         },
         {
@@ -1641,14 +2134,54 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Alle Reiseziele ansehen",
       viewAllHref: staticPath("de", "/destinations"),
       cards: [
-        { rating: 5, name: "Amalfiküste", sub: "Italien · Mai – Oktober", destinationSlug: "amalfi" },
-        { rating: 5, name: "Comer See", sub: "Italien · Juni – September", destinationSlug: "lake-como" },
-        { rating: 5, name: "Toskana", sub: "Italien · Mai – Oktober", destinationSlug: "tuscany" },
-        { rating: 5, name: "Paris & Île-de-France", sub: "Frankreich · April – Oktober", destinationSlug: "paris-ile-de-france" },
-        { rating: 5, name: "Provence", sub: "Frankreich · Mai – September", destinationSlug: "provence" },
-        { rating: 4, name: "Côte d'Azur", sub: "Frankreich · Juni – September", destinationSlug: "cote-dazur" },
-        { rating: 4, name: "Punta Cana", sub: "Karibik · ganzjährig", destinationSlug: "punta-cana" },
-        { rating: 4, name: "Die Hamptons", sub: "Vereinigte Staaten · Juni – September", destinationSlug: "the-hamptons" },
+        {
+          rating: 5,
+          name: "Amalfiküste",
+          sub: "Italien · Mai – Oktober",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 5,
+          name: "Comer See",
+          sub: "Italien · Juni – September",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 5,
+          name: "Toskana",
+          sub: "Italien · Mai – Oktober",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 5,
+          name: "Paris & Île-de-France",
+          sub: "Frankreich · April – Oktober",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 5,
+          name: "Provence",
+          sub: "Frankreich · Mai – September",
+          destinationSlug: "provence",
+        },
+        {
+          rating: 4,
+          name: "Côte d'Azur",
+          sub: "Frankreich · Juni – September",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 4,
+          name: "Punta Cana",
+          sub: "Karibik · ganzjährig",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 4,
+          name: "Die Hamptons",
+          sub: "Vereinigte Staaten · Juni – September",
+          destinationSlug: "the-hamptons",
+        },
       ],
     },
     guest: {
@@ -1686,11 +2219,37 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       eyebrow: "Weiterlesen",
       headline: "Aus dem *Journal.*",
       articles: [
-        { category: "Christlich · Italien", title: "Kirchlich katholisch heiraten im Ausland: Was die Pfarrei braucht", body: "Ein Arbeitsleitfaden zu den Papieren, der Vorbereitung und dem Zeitplan — Diözese für Diözese.", imageKey: "culture-related-1" },
-        { category: "Tradition · Orthodox", title: "Die Krönung, erklärt", body: "Über die Stefana, den Tanz Jesajas und das Ausrichten einer orthodoxen Hochzeit fern der Heimat.", imageKey: "culture-related-2" },
-        { category: "Planung · Christlich", title: "Kirche zuerst daheim, Segnung im Ausland", body: "Warum eine wachsende Zahl unserer Paare in der eigenen Pfarrei heiratet und die Verbindung dann unter freiem Himmel segnet.", imageKey: "culture-related-3" },
-        { category: "Design · Christlich", title: "Ein Leitfaden für Kathedralenblumen", body: "Maßstab, Kerzenlicht und der lange Mittelgang — Gestaltung für ein historisches Schiff.", imageKey: "culture-related-4" },
-        { category: "Kosten · Christlich", title: "Was eine christliche Destinationshochzeit wirklich kostet", body: "Offene Budgets für 2026 nach Gästezahl und Schauplatz.", imageKey: "culture-related-5" },
+        {
+          category: "Christlich · Italien",
+          title:
+            "Kirchlich katholisch heiraten im Ausland: Was die Pfarrei braucht",
+          body: "Ein Arbeitsleitfaden zu den Papieren, der Vorbereitung und dem Zeitplan — Diözese für Diözese.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradition · Orthodox",
+          title: "Die Krönung, erklärt",
+          body: "Über die Stefana, den Tanz Jesajas und das Ausrichten einer orthodoxen Hochzeit fern der Heimat.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Planung · Christlich",
+          title: "Kirche zuerst daheim, Segnung im Ausland",
+          body: "Warum eine wachsende Zahl unserer Paare in der eigenen Pfarrei heiratet und die Verbindung dann unter freiem Himmel segnet.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Design · Christlich",
+          title: "Ein Leitfaden für Kathedralenblumen",
+          body: "Maßstab, Kerzenlicht und der lange Mittelgang — Gestaltung für ein historisches Schiff.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Kosten · Christlich",
+          title: "Was eine christliche Destinationshochzeit wirklich kostet",
+          body: "Offene Budgets für 2026 nach Gästezahl und Schauplatz.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Amalfiküste", href: destinationPath("de", "amalfi") },
@@ -1705,10 +2264,22 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
         { label: "Villa del Balbianello, Comer See" },
       ],
       sidebarCultures: [
-        { label: "Interreligiöse Hochzeiten", href: culturePath("de", "interfaith-weddings") },
-        { label: "Lateinamerikanische Hochzeiten", href: culturePath("de", "latin-weddings") },
-        { label: "Europäische Hochzeiten", href: culturePath("de", "european-weddings") },
-        { label: "Jüdische Hochzeiten", href: culturePath("de", "jewish-weddings") },
+        {
+          label: "Interreligiöse Hochzeiten",
+          href: culturePath("de", "interfaith-weddings"),
+        },
+        {
+          label: "Lateinamerikanische Hochzeiten",
+          href: culturePath("de", "latin-weddings"),
+        },
+        {
+          label: "Europäische Hochzeiten",
+          href: culturePath("de", "european-weddings"),
+        },
+        {
+          label: "Jüdische Hochzeiten",
+          href: culturePath("de", "jewish-weddings"),
+        },
       ],
     },
     faq: {
@@ -1716,21 +2287,24 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       headline: "Häufig *gefragt.*",
       items: [
         {
-          question: "Können wir kirchlich katholisch im Ausland heiraten — und was braucht die Pfarrei?",
+          question:
+            "Können wir kirchlich katholisch im Ausland heiraten — und was braucht die Pfarrei?",
           answer: [
             "Ja, und wir planen sie regelmäßig. Die Ehe wird über die eigene Heimatpfarrei des Paares angebahnt, die die Unterlagen vorbereitet — Tauf- und Firmungsnachweise, die Ehevorbereitung und die kirchenrechtlichen Papiere — und sie dann mit Erlaubnis der Diözese an die Kirche im Ausland übergibt.",
             "Die Anforderungen variieren je nach Diözese und der Pfarrei, die Sie traut, weshalb wir diese Korrespondenz ein Jahr im Voraus beginnen. Wir koordinieren die Unterlagen; der Priester legt fest, was sie enthalten müssen.",
           ],
         },
         {
-          question: "Können wir eine orthodoxe Krönung in einem Resort oder einer Villa halten?",
+          question:
+            "Können wir eine orthodoxe Krönung in einem Resort oder einer Villa halten?",
           answer: [
             "Die Krönung wird vom eigenen Priester der Familie vollzogen, und wo sie außerhalb einer geweihten Kirche stattfindet, entscheidet der Zelebrant, ob und wie das möglich ist.",
             "Unser Teil ist das Drumherum — die Reise des Priesters, die Stefana, die liturgischen Erfordernisse und der Schauplatz. Die Form des Ritus überlassen wir ganz dem Zelebranten.",
           ],
         },
         {
-          question: "Wir möchten in unserer Kirche daheim heiraten und die Verbindung dann im Ausland segnen. Geht das?",
+          question:
+            "Wir möchten in unserer Kirche daheim heiraten und die Verbindung dann im Ausland segnen. Geht das?",
           answer: [
             "Wunderbar — es ist einer der anmutigsten Wege, die wir planen. Das Sakrament wird in der Pfarrei gefeiert, die Ihrer Familie wichtig ist, und der Tag am Zielort wird zu einer Segnung oder Erneuerung der Gelübde, frei von den kirchenrechtlichen Regeln zum Ort.",
             "Eine Segnung kann von einem Priester, einem Diakon oder einem Zelebranten Ihrer Wahl geleitet werden, in einem Garten, auf einer Terrasse oder unter den Reben, gefolgt vom Empfang, den Sie sich vorgestellt haben.",
@@ -1751,14 +2325,16 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Wie gehen Sie mit gemischten katholisch-protestantischen Familien um?",
+          question:
+            "Wie gehen Sie mit gemischten katholisch-protestantischen Familien um?",
           answer: [
             "Mit Sorgfalt und einer klaren Ordnung des Gottesdienstes. Der zelebrierende Priester oder Pfarrer entscheidet über die Form des Ritus und darüber, wie Gäste der anderen Konfession empfangen werden; wir machen das alles den Gästen im Voraus klar, damit sich niemand am Altar unsicher fühlt.",
             "Wo beide Familien in der Zeremonie vertreten sein möchten, lässt sich mit Zustimmung beider Geistlicher oft ein gemeinsam zelebrierter Gottesdienst einrichten.",
           ],
         },
         {
-          question: "Können Gäste anderen Glaubens oder ohne Bekenntnis unbeschwert teilnehmen?",
+          question:
+            "Können Gäste anderen Glaubens oder ohne Bekenntnis unbeschwert teilnehmen?",
           answer: [
             "Immer. Wir senden jedem Gast einen kurzen, herzlichen Leitfaden zur Zeremonie — was zu erwarten ist, wann man steht und sitzt, und wer zur Kommunion eingeladen ist und wer schlicht willkommen ist, dabei zu sein.",
             "Kein Gast fühlt sich je fehl am Platz; das Atelier-Team ist durchweg zur Stelle, um Fragen persönlich zu beantworten.",
@@ -1793,12 +2369,32 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       captionRight: "Tavola V",
     },
     factStrip: [
-      { label: "Durata", value: "1 – 2 giorni", sub: "Cerimonia + ricevimento" },
+      {
+        label: "Durata",
+        value: "1 – 2 giorni",
+        sub: "Cerimonia + ricevimento",
+      },
       { label: "Invitati", value: "60 – 400", sub: "Dall'intimo al grandioso" },
-      { label: "Anticipo", value: "12 – 18 mesi", sub: "Le parrocchie si prenotano presto" },
-      { label: "Riti celebrati", value: "Cattolico · Ortodosso", sub: "Protestante" },
-      { label: "Luoghi della cerimonia", value: "Cappella · cattedrale", sub: "Giardino" },
-      { label: "Lingue", value: "IT · FR · EN", sub: "ES · latino su richiesta" },
+      {
+        label: "Anticipo",
+        value: "12 – 18 mesi",
+        sub: "Le parrocchie si prenotano presto",
+      },
+      {
+        label: "Riti celebrati",
+        value: "Cattolico · Ortodosso",
+        sub: "Protestante",
+      },
+      {
+        label: "Luoghi della cerimonia",
+        value: "Cappella · cattedrale",
+        sub: "Giardino",
+      },
+      {
+        label: "Lingue",
+        value: "IT · FR · EN",
+        sub: "ES · latino su richiesta",
+      },
     ],
     overview: {
       sideEyebrow: "La tradizione",
@@ -1883,7 +2479,10 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#f6f1e7", "#e9e0cf", "#cbb994", "#8c7a5c", "#3a3328"],
           imageKey: "concept-1",
           rows: [
-            { label: "Cerimonia", value: "Cattedrale · messa nuziale completa" },
+            {
+              label: "Cerimonia",
+              value: "Cattedrale · messa nuziale completa",
+            },
             { label: "Fiori", value: "Rosa bianca · lisianthus · cero" },
             { label: "Ideale per", value: "Grandioso · formale · sera" },
           ],
@@ -1954,8 +2553,14 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Prova e benvenuto",
           body: "La prova della cerimonia in chiesa con il celebrante, il corteo e i musicisti, seguita da una cena di benvenuto per gli invitati in arrivo. La prova è guidata dal sacerdote; noi teniamo la logistica intorno.",
           events: [
-            { time: "Mattina", body: "Arrivo degli invitati · transfer · check-in in hotel" },
-            { time: "16:00", body: "Prova della cerimonia in chiesa · con il celebrante" },
+            {
+              time: "Mattina",
+              body: "Arrivo degli invitati · transfer · check-in in hotel",
+            },
+            {
+              time: "16:00",
+              body: "Prova della cerimonia in chiesa · con il celebrante",
+            },
             { time: "17:30", body: "Filata con musicisti e lettori" },
             { time: "20:00", body: "Cena di benvenuto · terrazza o trattoria" },
           ],
@@ -1968,7 +2573,10 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           events: [
             { time: "10:00", body: "Preparativi degli sposi · suite separate" },
             { time: "14:30", body: "Invitati seduti in chiesa" },
-            { time: "15:00", body: "Cerimonia · messa nuziale o benedizione · 60 minuti" },
+            {
+              time: "15:00",
+              body: "Cerimonia · messa nuziale o benedizione · 60 minuti",
+            },
             { time: "16:15", body: "Fila di auguri · fotografie sul sagrato" },
             { time: "18:00", body: "Cocktail di ricevimento · ora dorata" },
             { time: "19:30", body: "Cena seduti · brindisi · primo ballo" },
@@ -1980,9 +2588,15 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           title: "Brunch di commiato",
           body: "Un brunch disteso del giorno dopo offerto dalla coppia, di solito all'aperto, incentrato sui saluti. La chiusura non ufficiale del matrimonio per la maggior parte degli invitati.",
           events: [
-            { time: "11:00", body: "Brunch di commiato · giardino o a bordo piscina" },
+            {
+              time: "11:00",
+              body: "Brunch di commiato · giardino o a bordo piscina",
+            },
             { time: "Pomeriggio", body: "Partenze · transfer per l'aeroporto" },
-            { time: "Sera", body: "Cena con la famiglia stretta (facoltativa)" },
+            {
+              time: "Sera",
+              body: "Cena con la famiglia stretta (facoltativa)",
+            },
           ],
         },
       ],
@@ -1993,14 +2607,54 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Vedi tutte le destinazioni",
       viewAllHref: staticPath("it", "/destinations"),
       cards: [
-        { rating: 5, name: "Costiera Amalfitana", sub: "Italia · maggio – ottobre", destinationSlug: "amalfi" },
-        { rating: 5, name: "Lago di Como", sub: "Italia · giugno – settembre", destinationSlug: "lake-como" },
-        { rating: 5, name: "Toscana", sub: "Italia · maggio – ottobre", destinationSlug: "tuscany" },
-        { rating: 5, name: "Parigi e Île-de-France", sub: "Francia · aprile – ottobre", destinationSlug: "paris-ile-de-france" },
-        { rating: 5, name: "Provenza", sub: "Francia · maggio – settembre", destinationSlug: "provence" },
-        { rating: 4, name: "Costa Azzurra", sub: "Francia · giugno – settembre", destinationSlug: "cote-dazur" },
-        { rating: 4, name: "Punta Cana", sub: "Caraibi · tutto l'anno", destinationSlug: "punta-cana" },
-        { rating: 4, name: "Gli Hamptons", sub: "Stati Uniti · giugno – settembre", destinationSlug: "the-hamptons" },
+        {
+          rating: 5,
+          name: "Costiera Amalfitana",
+          sub: "Italia · maggio – ottobre",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 5,
+          name: "Lago di Como",
+          sub: "Italia · giugno – settembre",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 5,
+          name: "Toscana",
+          sub: "Italia · maggio – ottobre",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 5,
+          name: "Parigi e Île-de-France",
+          sub: "Francia · aprile – ottobre",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 5,
+          name: "Provenza",
+          sub: "Francia · maggio – settembre",
+          destinationSlug: "provence",
+        },
+        {
+          rating: 4,
+          name: "Costa Azzurra",
+          sub: "Francia · giugno – settembre",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 4,
+          name: "Punta Cana",
+          sub: "Caraibi · tutto l'anno",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 4,
+          name: "Gli Hamptons",
+          sub: "Stati Uniti · giugno – settembre",
+          destinationSlug: "the-hamptons",
+        },
       ],
     },
     guest: {
@@ -2038,11 +2692,37 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       eyebrow: "Continua a leggere",
       headline: "Dal *diario.*",
       articles: [
-        { category: "Cristiano · Italia", title: "Sposarsi in chiesa cattolica all'estero: cosa serve alla parrocchia", body: "Una guida di lavoro sulle carte, la preparazione e i tempi — diocesi per diocesi.", imageKey: "culture-related-1" },
-        { category: "Tradizione · Ortodosso", title: "L'Incoronazione, spiegata", body: "Sulle stefana, la Danza di Isaia e l'organizzare un matrimonio ortodosso lontano da casa.", imageKey: "culture-related-2" },
-        { category: "Pianificazione · Cristiano", title: "Prima la chiesa a casa, la benedizione all'estero", body: "Perché un numero crescente delle nostre coppie si sposa nella propria parrocchia e poi benedice l'unione a cielo aperto.", imageKey: "culture-related-3" },
-        { category: "Design · Cristiano", title: "Guida ai fiori per la cattedrale", body: "Scala, luce di candele e la navata lunga — progettare per una navata storica.", imageKey: "culture-related-4" },
-        { category: "Costo · Cristiano", title: "Quanto costa davvero un matrimonio cristiano in destinazione", body: "Budget franchi del 2026 per numero di invitati e ambientazione.", imageKey: "culture-related-5" },
+        {
+          category: "Cristiano · Italia",
+          title:
+            "Sposarsi in chiesa cattolica all'estero: cosa serve alla parrocchia",
+          body: "Una guida di lavoro sulle carte, la preparazione e i tempi — diocesi per diocesi.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradizione · Ortodosso",
+          title: "L'Incoronazione, spiegata",
+          body: "Sulle stefana, la Danza di Isaia e l'organizzare un matrimonio ortodosso lontano da casa.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Pianificazione · Cristiano",
+          title: "Prima la chiesa a casa, la benedizione all'estero",
+          body: "Perché un numero crescente delle nostre coppie si sposa nella propria parrocchia e poi benedice l'unione a cielo aperto.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Design · Cristiano",
+          title: "Guida ai fiori per la cattedrale",
+          body: "Scala, luce di candele e la navata lunga — progettare per una navata storica.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Costo · Cristiano",
+          title: "Quanto costa davvero un matrimonio cristiano in destinazione",
+          body: "Budget franchi del 2026 per numero di invitati e ambientazione.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Costiera Amalfitana", href: destinationPath("it", "amalfi") },
@@ -2057,10 +2737,22 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
         { label: "Villa del Balbianello, Lago di Como" },
       ],
       sidebarCultures: [
-        { label: "Matrimoni interreligiosi", href: culturePath("it", "interfaith-weddings") },
-        { label: "Matrimoni latini", href: culturePath("it", "latin-weddings") },
-        { label: "Matrimoni europei", href: culturePath("it", "european-weddings") },
-        { label: "Matrimoni ebraici", href: culturePath("it", "jewish-weddings") },
+        {
+          label: "Matrimoni interreligiosi",
+          href: culturePath("it", "interfaith-weddings"),
+        },
+        {
+          label: "Matrimoni latini",
+          href: culturePath("it", "latin-weddings"),
+        },
+        {
+          label: "Matrimoni europei",
+          href: culturePath("it", "european-weddings"),
+        },
+        {
+          label: "Matrimoni ebraici",
+          href: culturePath("it", "jewish-weddings"),
+        },
       ],
     },
     faq: {
@@ -2068,21 +2760,24 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
       headline: "Domande *frequenti.*",
       items: [
         {
-          question: "Possiamo sposarci in chiesa cattolica all'estero — e cosa serve alla parrocchia?",
+          question:
+            "Possiamo sposarci in chiesa cattolica all'estero — e cosa serve alla parrocchia?",
           answer: [
             "Sì, e li organizziamo regolarmente. Il matrimonio si tratta tramite la parrocchia della coppia a casa, che prepara il fascicolo — certificati di battesimo e cresima, la preparazione al matrimonio e le carte canoniche — e poi lo trasferisce alla chiesa all'estero con il permesso della diocesi.",
             "I requisiti variano a seconda della diocesi e della parrocchia che vi sposerà, perciò avviamo questa corrispondenza con un anno di anticipo. Coordiniamo il fascicolo; il sacerdote fissa ciò che deve contenere.",
           ],
         },
         {
-          question: "Possiamo celebrare un'incoronazione ortodossa in un resort o in una villa?",
+          question:
+            "Possiamo celebrare un'incoronazione ortodossa in un resort o in una villa?",
           answer: [
             "L'incoronazione è condotta dal sacerdote stesso della famiglia e, quando si celebra fuori da una chiesa consacrata, è il celebrante a decidere se è possibile e come.",
             "La nostra parte è ciò che la circonda — il viaggio del sacerdote, le stefana, le necessità liturgiche e l'ambientazione. Ci rimettiamo interamente al celebrante quanto alla forma del rito.",
           ],
         },
         {
-          question: "Vogliamo sposarci nella nostra chiesa a casa e poi benedire l'unione all'estero. È possibile?",
+          question:
+            "Vogliamo sposarci nella nostra chiesa a casa e poi benedire l'unione all'estero. È possibile?",
           answer: [
             "Splendidamente — è una delle vie più aggraziate che pianifichiamo. Il sacramento si celebra nella parrocchia che conta per la vostra famiglia, e il giorno nella destinazione diventa una benedizione o un rinnovo delle promesse, libero dalle regole canoniche sul luogo.",
             "Una benedizione può essere guidata da un sacerdote, un diacono o un celebrante a vostra scelta, in un giardino, su una terrazza o tra le vigne, seguita dal ricevimento che avevate immaginato.",
@@ -2096,7 +2791,8 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Quanto costa un matrimonio cristiano in destinazione nel 2026?",
+          question:
+            "Quanto costa un matrimonio cristiano in destinazione nel 2026?",
           answer: [
             "Un intervallo utile per il 2026, per un matrimonio di 100-200 invitati con cerimonia e ricevimento, è di 120.000 – 450.000 USD, tutto compreso, a seconda in larga misura dell'ambientazione e della stagione.",
             "Condividiamo budget completi e trasparenti già alla prima consulenza, con intervalli per voce in base al numero di invitati.",
@@ -2110,7 +2806,8 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Invitati di altre religioni, o di nessuna, possono partecipare serenamente?",
+          question:
+            "Invitati di altre religioni, o di nessuna, possono partecipare serenamente?",
           answer: [
             "Sempre. Inviamo a ogni invitato una guida breve e calorosa alla cerimonia — cosa aspettarsi, quando alzarsi e sedersi, e chi è invitato a ricevere la comunione e chi è semplicemente benvenuto a essere presente.",
             "Nessun invitato si sente mai fuori posto; il team dell'atelier è a disposizione per tutto il tempo per rispondere alle domande di persona.",

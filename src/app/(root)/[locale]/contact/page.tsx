@@ -44,7 +44,9 @@ export async function generateMetadata({
 }
 
 /** Build a schema.org FAQPage object from the editorial FAQ items. */
-function buildFaqLd(faq?: NonNullable<Awaited<ReturnType<typeof getContactPage>>>["faq"]) {
+function buildFaqLd(
+  faq?: NonNullable<Awaited<ReturnType<typeof getContactPage>>>["faq"],
+) {
   const items = (faq?.items ?? []).filter((i) => i.question && i.answer);
   if (!items.length) return null;
   return {

@@ -29,7 +29,9 @@ export function SectionHead({
   return (
     <RevealOnScroll
       className={`mb-14 grid grid-cols-1 items-end gap-12 pb-6 md:grid-cols-[1.4fr_1fr] ${
-        dark ? "border-b border-[rgba(212,205,184,0.3)]" : "border-b border-olive"
+        dark
+          ? "border-b border-[rgba(212,205,184,0.3)]"
+          : "border-b border-olive"
       } ${className ?? ""}`}
     >
       <div>

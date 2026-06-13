@@ -54,11 +54,17 @@
   "contactPage": {
     "form": {
       "fields": {
-        "fullName": { "label": "Vollständiger Name", "placeholder": "Ihr Name" },
+        "fullName": {
+          "label": "Vollständiger Name",
+          "placeholder": "Ihr Name"
+        },
         "country": { "label": "Wohnsitzland", "placeholder": "Wo Sie leben" },
         "email": { "label": "E-Mail", "placeholder": "sie@email.com" },
         "whatsapp": { "label": "WhatsApp", "placeholder": "Mit Ländervorwahl" },
-        "date": { "label": "Voraussichtliches Datum", "placeholder": "Monat und Jahr, oder eine Jahreszeit" }
+        "date": {
+          "label": "Voraussichtliches Datum",
+          "placeholder": "Monat und Jahr, oder eine Jahreszeit"
+        }
       },
       "selects": {
         "destination": {
@@ -128,5 +134,22 @@
     "effective": "Gültig ab",
     "appliesTo": "Gilt für",
     "contactCta": "Das Studio kontaktieren →"
+  },
+  "pressPage": {
+    "readFeature": "Den Beitrag lesen"
+  },
+  "venuesPage": {
+    "region": "Region",
+    "viewVenues": "{name} ansehen",
+    "filterLabel": "Filtern",
+    "all": "Alle",
+    "guests": "Gäste",
+    "readBrief": "Das Briefing lesen",
+    "subRegions": "Teilregionen",
+    "related": "Verwandtes",
+    "caseStudy": "Fallstudie",
+    "otherVenues": "Weitere Locations",
+    "compatibleTraditions": "Kompatible Traditionen",
+    "relatedDestinations": "Verwandte Reiseziele"
   }
 }

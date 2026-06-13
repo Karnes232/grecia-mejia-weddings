@@ -5,8 +5,9 @@ import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
 import type { DestinationMedia } from "@/sanity/queries/destination";
 
-type ArticleImage =
-  NonNullable<DestinationMedia["relatedArticles"]>[number]["image"];
+type ArticleImage = NonNullable<
+  DestinationMedia["relatedArticles"]
+>[number]["image"];
 
 type ArticleCardProps = {
   category?: string;
@@ -16,8 +17,7 @@ type ArticleCardProps = {
   image?: ArticleImage;
 };
 
-const WRAPPER =
-  "block border-b border-rule py-6 text-inherit no-underline";
+const WRAPPER = "block border-b border-rule py-6 text-inherit no-underline";
 
 export function ArticleCard({
   category,

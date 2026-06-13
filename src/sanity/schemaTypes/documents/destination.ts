@@ -17,7 +17,8 @@ const imageKeyField = (list: ImageKeyOption[]) =>
     title: "Image",
     type: "string",
     options: { list },
-    description: "Pick the matching image slot from this destination's media doc.",
+    description:
+      "Pick the matching image slot from this destination's media doc.",
   });
 
 const TILE_OPTIONS = [

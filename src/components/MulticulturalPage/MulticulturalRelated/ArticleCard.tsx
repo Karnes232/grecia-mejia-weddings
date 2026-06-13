@@ -5,8 +5,9 @@ import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
 import type { MulticulturalPageMedia } from "@/sanity/queries/multicultural";
 
-type ArticleImage =
-  NonNullable<MulticulturalPageMedia["relatedArticles"]>[number]["image"];
+type ArticleImage = NonNullable<
+  MulticulturalPageMedia["relatedArticles"]
+>[number]["image"];
 
 type ArticleCardProps = {
   category?: string;

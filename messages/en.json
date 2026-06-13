@@ -55,10 +55,16 @@
     "form": {
       "fields": {
         "fullName": { "label": "Full name", "placeholder": "Your name" },
-        "country": { "label": "Country of residence", "placeholder": "Where you live" },
+        "country": {
+          "label": "Country of residence",
+          "placeholder": "Where you live"
+        },
         "email": { "label": "Email", "placeholder": "you@email.com" },
         "whatsapp": { "label": "WhatsApp", "placeholder": "With country code" },
-        "date": { "label": "Estimated date", "placeholder": "Month & year, or a season" }
+        "date": {
+          "label": "Estimated date",
+          "placeholder": "Month & year, or a season"
+        }
       },
       "selects": {
         "destination": {
@@ -128,5 +134,22 @@
     "effective": "Effective",
     "appliesTo": "Applies to",
     "contactCta": "Contact the studio →"
+  },
+  "pressPage": {
+    "readFeature": "Read the feature"
+  },
+  "venuesPage": {
+    "region": "Region",
+    "viewVenues": "View {name} venues",
+    "filterLabel": "Filter",
+    "all": "All",
+    "guests": "guests",
+    "readBrief": "Read the venue brief",
+    "subRegions": "Sub-regions",
+    "related": "Related",
+    "caseStudy": "Case study",
+    "otherVenues": "Other venues",
+    "compatibleTraditions": "Compatible traditions",
+    "relatedDestinations": "Related destinations"
   }
 }

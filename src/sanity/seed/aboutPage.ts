@@ -97,7 +97,10 @@ const AWARD_META = [
 ] as const;
 
 const CONTACT_VALUES = {
-  email: { value: "hello@greciamejia.com", href: "mailto:hello@greciamejia.com" },
+  email: {
+    value: "hello@greciamejia.com",
+    href: "mailto:hello@greciamejia.com",
+  },
   phone: { value: "+1 829 000 0000", href: "tel:+18290000000" },
   whatsapp: { value: "+1 829 000 0000", href: "https://wa.me/18290000000" },
   instagram: {
@@ -1244,11 +1247,26 @@ const PRESS: Record<Locale, PressCopy> = {
     headline: "The studio, in *print.*",
     awardsHeading: "Awards & recognition",
     awards: [
-      { title: "Caribbean Wedding Planner of the Year", sub: "Best Destination Studio" },
-      { title: "Top 25 Wedding Planners Worldwide", sub: "International recognition list" },
-      { title: "Editor's Choice · Multicultural Weddings", sub: "Indian & Jewish weddings" },
-      { title: "Caribbean Wedding Planner of the Year", sub: "First award · Destination weddings" },
-      { title: "Editor's Pick · Best Studios", sub: "Boutique studio of the year" },
+      {
+        title: "Caribbean Wedding Planner of the Year",
+        sub: "Best Destination Studio",
+      },
+      {
+        title: "Top 25 Wedding Planners Worldwide",
+        sub: "International recognition list",
+      },
+      {
+        title: "Editor's Choice · Multicultural Weddings",
+        sub: "Indian & Jewish weddings",
+      },
+      {
+        title: "Caribbean Wedding Planner of the Year",
+        sub: "First award · Destination weddings",
+      },
+      {
+        title: "Editor's Pick · Best Studios",
+        sub: "Boutique studio of the year",
+      },
       { title: "Feature · 12 pages", sub: "Profile of the studio" },
     ],
   },
@@ -1257,11 +1275,26 @@ const PRESS: Record<Locale, PressCopy> = {
     headline: "El atelier, en *papel.*",
     awardsHeading: "Premios y reconocimientos",
     awards: [
-      { title: "Wedding Planner del Año del Caribe", sub: "Mejor estudio de bodas de destino" },
-      { title: "Top 25 Wedding Planners del mundo", sub: "Lista de reconocimiento internacional" },
-      { title: "Selección del editor · Bodas multiculturales", sub: "Bodas indias y judías" },
-      { title: "Wedding Planner del Año del Caribe", sub: "Primer premio · Bodas de destino" },
-      { title: "Elección del editor · Mejores estudios", sub: "Estudio boutique del año" },
+      {
+        title: "Wedding Planner del Año del Caribe",
+        sub: "Mejor estudio de bodas de destino",
+      },
+      {
+        title: "Top 25 Wedding Planners del mundo",
+        sub: "Lista de reconocimiento internacional",
+      },
+      {
+        title: "Selección del editor · Bodas multiculturales",
+        sub: "Bodas indias y judías",
+      },
+      {
+        title: "Wedding Planner del Año del Caribe",
+        sub: "Primer premio · Bodas de destino",
+      },
+      {
+        title: "Elección del editor · Mejores estudios",
+        sub: "Estudio boutique del año",
+      },
       { title: "Reportaje · 12 páginas", sub: "Perfil del atelier" },
     ],
   },
@@ -1270,11 +1303,26 @@ const PRESS: Record<Locale, PressCopy> = {
     headline: "L'atelier, sur le *papier.*",
     awardsHeading: "Prix & distinctions",
     awards: [
-      { title: "Wedding Planner de l'année des Caraïbes", sub: "Meilleur studio de mariages de destination" },
-      { title: "Top 25 des wedding planners au monde", sub: "Liste de reconnaissance internationale" },
-      { title: "Choix de la rédaction · Mariages multiculturels", sub: "Mariages indiens & juifs" },
-      { title: "Wedding Planner de l'année des Caraïbes", sub: "Premier prix · Mariages de destination" },
-      { title: "Sélection de la rédaction · Meilleurs studios", sub: "Studio boutique de l'année" },
+      {
+        title: "Wedding Planner de l'année des Caraïbes",
+        sub: "Meilleur studio de mariages de destination",
+      },
+      {
+        title: "Top 25 des wedding planners au monde",
+        sub: "Liste de reconnaissance internationale",
+      },
+      {
+        title: "Choix de la rédaction · Mariages multiculturels",
+        sub: "Mariages indiens & juifs",
+      },
+      {
+        title: "Wedding Planner de l'année des Caraïbes",
+        sub: "Premier prix · Mariages de destination",
+      },
+      {
+        title: "Sélection de la rédaction · Meilleurs studios",
+        sub: "Studio boutique de l'année",
+      },
       { title: "Reportage · 12 pages", sub: "Portrait de l'atelier" },
     ],
   },
@@ -1283,11 +1331,26 @@ const PRESS: Record<Locale, PressCopy> = {
     headline: "O ateliê, em *papel.*",
     awardsHeading: "Prémios & reconhecimento",
     awards: [
-      { title: "Wedding Planner do Ano das Caraíbas", sub: "Melhor estúdio de casamentos de destino" },
-      { title: "Top 25 Wedding Planners do mundo", sub: "Lista de reconhecimento internacional" },
-      { title: "Escolha do editor · Casamentos multiculturais", sub: "Casamentos indianos & judaicos" },
-      { title: "Wedding Planner do Ano das Caraíbas", sub: "Primeiro prémio · Casamentos de destino" },
-      { title: "Escolha do editor · Melhores estúdios", sub: "Estúdio boutique do ano" },
+      {
+        title: "Wedding Planner do Ano das Caraíbas",
+        sub: "Melhor estúdio de casamentos de destino",
+      },
+      {
+        title: "Top 25 Wedding Planners do mundo",
+        sub: "Lista de reconhecimento internacional",
+      },
+      {
+        title: "Escolha do editor · Casamentos multiculturais",
+        sub: "Casamentos indianos & judaicos",
+      },
+      {
+        title: "Wedding Planner do Ano das Caraíbas",
+        sub: "Primeiro prémio · Casamentos de destino",
+      },
+      {
+        title: "Escolha do editor · Melhores estúdios",
+        sub: "Estúdio boutique do ano",
+      },
       { title: "Reportagem · 12 páginas", sub: "Perfil do ateliê" },
     ],
   },
@@ -1296,11 +1359,26 @@ const PRESS: Record<Locale, PressCopy> = {
     headline: "Das Atelier, in *Druck.*",
     awardsHeading: "Auszeichnungen & Anerkennung",
     awards: [
-      { title: "Wedding Planner des Jahres der Karibik", sub: "Bestes Atelier für Destinationshochzeiten" },
-      { title: "Top 25 Wedding Planner weltweit", sub: "Internationale Anerkennungsliste" },
-      { title: "Wahl der Redaktion · Multikulturelle Hochzeiten", sub: "Indische & jüdische Hochzeiten" },
-      { title: "Wedding Planner des Jahres der Karibik", sub: "Erste Auszeichnung · Destinationshochzeiten" },
-      { title: "Empfehlung der Redaktion · Beste Ateliers", sub: "Boutique-Atelier des Jahres" },
+      {
+        title: "Wedding Planner des Jahres der Karibik",
+        sub: "Bestes Atelier für Destinationshochzeiten",
+      },
+      {
+        title: "Top 25 Wedding Planner weltweit",
+        sub: "Internationale Anerkennungsliste",
+      },
+      {
+        title: "Wahl der Redaktion · Multikulturelle Hochzeiten",
+        sub: "Indische & jüdische Hochzeiten",
+      },
+      {
+        title: "Wedding Planner des Jahres der Karibik",
+        sub: "Erste Auszeichnung · Destinationshochzeiten",
+      },
+      {
+        title: "Empfehlung der Redaktion · Beste Ateliers",
+        sub: "Boutique-Atelier des Jahres",
+      },
       { title: "Beitrag · 12 Seiten", sub: "Porträt des Ateliers" },
     ],
   },
@@ -1309,11 +1387,26 @@ const PRESS: Record<Locale, PressCopy> = {
     headline: "L'atelier, su *carta.*",
     awardsHeading: "Premi & riconoscimenti",
     awards: [
-      { title: "Wedding Planner dell'Anno dei Caraibi", sub: "Miglior atelier per matrimoni di destinazione" },
-      { title: "Top 25 Wedding Planner al mondo", sub: "Lista di riconoscimento internazionale" },
-      { title: "Scelta della redazione · Matrimoni multiculturali", sub: "Matrimoni indiani & ebraici" },
-      { title: "Wedding Planner dell'Anno dei Caraibi", sub: "Primo premio · Matrimoni di destinazione" },
-      { title: "Scelta della redazione · Migliori atelier", sub: "Atelier boutique dell'anno" },
+      {
+        title: "Wedding Planner dell'Anno dei Caraibi",
+        sub: "Miglior atelier per matrimoni di destinazione",
+      },
+      {
+        title: "Top 25 Wedding Planner al mondo",
+        sub: "Lista di riconoscimento internazionale",
+      },
+      {
+        title: "Scelta della redazione · Matrimoni multiculturali",
+        sub: "Matrimoni indiani & ebraici",
+      },
+      {
+        title: "Wedding Planner dell'Anno dei Caraibi",
+        sub: "Primo premio · Matrimoni di destinazione",
+      },
+      {
+        title: "Scelta della redazione · Migliori atelier",
+        sub: "Atelier boutique dell'anno",
+      },
       { title: "Servizio · 12 pagine", sub: "Ritratto dell'atelier" },
     ],
   },

@@ -12,7 +12,10 @@ export function MulticulturalAtlas({ atlas }: MulticulturalAtlasProps) {
   const cultures = atlas.cultures ?? [];
 
   return (
-    <section id="traditions-atlas" className="bg-ivory px-6 py-[140px] md:px-14">
+    <section
+      id="traditions-atlas"
+      className="bg-ivory px-6 py-[140px] md:px-14"
+    >
       <div className="mx-auto max-w-[1400px]">
         <RevealOnScroll className="mb-14 grid grid-cols-1 items-end gap-12 border-b border-olive pb-6 md:grid-cols-[1.4fr_1fr]">
           <div>

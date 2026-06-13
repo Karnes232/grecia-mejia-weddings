@@ -1,7 +1,10 @@
 import { CTAButton } from "@/components/_shared/CTAButton";
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import type { Destination, DestinationMedia } from "@/sanity/queries/destination";
+import type {
+  Destination,
+  DestinationMedia,
+} from "@/sanity/queries/destination";
 
 import { keyedImageMap } from "@/components/_shared/keyedImageMap";
 import { GuestCard } from "./GuestCard";

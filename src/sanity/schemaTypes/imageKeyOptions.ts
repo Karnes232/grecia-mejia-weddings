@@ -43,6 +43,42 @@ export const ABOUT_TEAM_KEY_OPTIONS: ImageKeyOption[] = Array.from(
 );
 
 /**
+ * Press-page featured-feature slots. Shared between the localized `pressPage`
+ * featured items (their `imageKey`) and the non-localized `pressPageMedia`
+ * featured images (their `key`), so both sides always pick from the identical
+ * set and stay aligned.
+ */
+export const PRESS_FEATURED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 5 },
+  (_, i) => ({ title: `Feature ${i + 1}`, value: `press-feat-${i + 1}` }),
+);
+
+/**
+ * Venue detail-page slots. Shared between a `venue` doc's `imageKey` fields and
+ * that venue's `venueMedia` keyed arrays, so both sides always pick from the
+ * identical set and stay aligned.
+ */
+export const VENUE_MOSAIC_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 5 },
+  (_, i) => ({ title: `Gallery ${i + 1}`, value: `venue-mosaic-${i + 1}` }),
+);
+
+export const VENUE_PHOTO_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 4 },
+  (_, i) => ({ title: `Moment ${i + 1}`, value: `venue-photo-${i + 1}` }),
+);
+
+export const VENUE_PORTFOLIO_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 3 },
+  (_, i) => ({ title: `Wedding ${i + 1}`, value: `venue-portfolio-${i + 1}` }),
+);
+
+export const VENUE_DETAIL_RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 3 },
+  (_, i) => ({ title: `Related ${i + 1}`, value: `venue-detail-related-${i + 1}` }),
+);
+
+/**
  * Multicultural hub "From the journal" related-article slots. Shared between
  * the localized `multiculturalPage` related articles (their `imageKey`) and the
  * non-localized `multiculturalPageMedia` related images (their `key`), so both
@@ -51,6 +87,28 @@ export const ABOUT_TEAM_KEY_OPTIONS: ImageKeyOption[] = Array.from(
 export const MULTICULTURAL_RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   { length: 5 },
   (_, i) => ({ title: `Related ${i + 1}`, value: `mc-related-${i + 1}` }),
+);
+
+/**
+ * Venues-hub typology slots. Shared between the localized `venuesPage`
+ * typology cards (their `imageKey`) and the non-localized `venuesPageMedia`
+ * typology images (their `key`), so both sides always pick from the identical
+ * set and stay aligned.
+ */
+export const VENUES_TYPOLOGY_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 8 },
+  (_, i) => ({ title: `Typology ${i + 1}`, value: `venues-typ-${i + 1}` }),
+);
+
+/**
+ * Venue-region venue-card slots. Shared between a `venueRegion` doc's venue
+ * cards (their `imageKey`) and that region's `venueRegionMedia` keyed images
+ * (their `key`), so both sides always pick from the identical set and stay
+ * aligned.
+ */
+export const VENUE_LIST_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 14 },
+  (_, i) => ({ title: `Venue ${i + 1}`, value: `venue-${i + 1}` }),
 );
 
 /**

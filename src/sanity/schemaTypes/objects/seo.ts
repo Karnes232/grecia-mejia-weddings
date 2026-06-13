@@ -76,7 +76,8 @@ export const seo = defineType({
       title: "OG Title",
       type: "string",
       group: "social",
-      description: "Title when shared on social media. Falls back to Meta Title.",
+      description:
+        "Title when shared on social media. Falls back to Meta Title.",
       validation: (Rule) =>
         Rule.max(60).warning("OG titles over 60 characters may be truncated."),
     }),

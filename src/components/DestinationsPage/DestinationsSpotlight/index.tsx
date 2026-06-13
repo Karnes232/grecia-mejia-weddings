@@ -23,7 +23,9 @@ export async function DestinationsSpotlight({
   const ctaHref = spotlight.slug
     ? `/destinations/${spotlight.slug}`
     : undefined;
-  const ctaLabel = spotlight.name ? t("cta", { name: spotlight.name }) : undefined;
+  const ctaLabel = spotlight.name
+    ? t("cta", { name: spotlight.name })
+    : undefined;
 
   return (
     <section className="bg-ivory px-6 py-[140px] md:px-14">

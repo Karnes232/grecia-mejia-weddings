@@ -36,7 +36,9 @@ export function StoryFigure({ image, caption }: StoryFigureProps) {
           ) : (
             <span />
           )}
-          {caption?.note ? <span className="text-right">{caption.note}</span> : null}
+          {caption?.note ? (
+            <span className="text-right">{caption.note}</span>
+          ) : null}
         </figcaption>
       ) : null}
     </figure>

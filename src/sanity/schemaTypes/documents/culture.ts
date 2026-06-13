@@ -612,7 +612,10 @@ export const culture = defineType({
             }),
           ],
         }),
-        sidebarLinkArray("sidebarDestinations", "Sidebar · related destinations"),
+        sidebarLinkArray(
+          "sidebarDestinations",
+          "Sidebar · related destinations",
+        ),
         sidebarLinkArray("sidebarVenues", "Sidebar · related venues"),
         sidebarLinkArray("sidebarCultures", "Sidebar · other cultures"),
       ],
@@ -681,7 +684,10 @@ export const culture = defineType({
     select: { title: "name", number: "number", language: "language" },
     prepare: ({ title, number, language }) => ({
       title: (title as string) ?? "Culture",
-      subtitle: [number ? `№ ${number}` : null, language ? `· ${language.toUpperCase()}` : null]
+      subtitle: [
+        number ? `№ ${number}` : null,
+        language ? `· ${language.toUpperCase()}` : null,
+      ]
         .filter(Boolean)
         .join(" "),
       media: "🪔",

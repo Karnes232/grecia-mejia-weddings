@@ -231,4 +231,3 @@ export function getDestinationMedia(slug: string) {
 export function getDestinationSlugs() {
   return client.fetch<string[]>(destinationSlugsQuery);
 }
-

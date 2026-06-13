@@ -16,7 +16,12 @@
  * untranslated in every locale.
  */
 
-import { culturePath, destinationPath, staticPath, type CultureCopy } from "./shared";
+import {
+  culturePath,
+  destinationPath,
+  staticPath,
+  type CultureCopy,
+} from "./shared";
 import type { Locale } from "../../../i18n/routing";
 
 export const southAsianWeddings: Record<Locale, CultureCopy> = {
@@ -39,10 +44,22 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     factStrip: [
       { label: "Wedding length", value: "2 – 4 days", sub: "3 – 6 events" },
       { label: "Guest range", value: "150 – 500", sub: "Larger by request" },
-      { label: "Lead time", value: "16 – 22 months", sub: "Officiants book early" },
-      { label: "Traditions held", value: "Pakistani · Sikh", sub: "Sri Lankan · Bangladeshi" },
+      {
+        label: "Lead time",
+        value: "16 – 22 months",
+        sub: "Officiants book early",
+      },
+      {
+        label: "Traditions held",
+        value: "Pakistani · Sikh",
+        sub: "Sri Lankan · Bangladeshi",
+      },
       { label: "Cuisine", value: "Halal-forward", sub: "Regional, by family" },
-      { label: "Languages", value: "EN · Urdu", sub: "Punjabi · Sinhala · Bengali" },
+      {
+        label: "Languages",
+        value: "EN · Urdu",
+        sub: "Punjabi · Sinhala · Bengali",
+      },
     ],
     overview: {
       sideEyebrow: "The traditions",
@@ -56,7 +73,7 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
         "A Sikh wedding centres on the Anand Karaj, conducted in the presence of the Guru Granth Sahib with an experienced granthi. The requirements here are real and we defer to them absolutely — venue conduct, the standard of the setting, the order of the lavan. We do not improvise around a faith we are guests within.",
         "Sri Lankan and Bangladeshi families bring their own grammar — the Poruwa platform and its Sinhalese rites, the turmeric warmth of the gaye holud. We staff each tradition with an officiant and a coordinator who know it from the inside, and we ask the family, in private, what is theirs to lead and what is ours to carry.",
       ],
-      pull: "\"A Pakistani nikkah, a Sikh Anand Karaj, a Sri Lankan Poruwa and a Bangladeshi gaye holud share a map and almost nothing else. We hold them apart on purpose.\"",
+      pull: '"A Pakistani nikkah, a Sikh Anand Karaj, a Sri Lankan Poruwa and a Bangladeshi gaye holud share a map and almost nothing else. We hold them apart on purpose."',
       signatureName: "Grecia",
       signatureRole: "Founder · Across the subcontinent's many traditions",
     },
@@ -65,13 +82,55 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "The contract, the procession, the *send-off.*",
       deck: "A typical Muslim South Asian arc, with the held variants named at each step. Sikh, Sri Lankan and Bangladeshi families reshape this around their own faith — every wedding adjusts by tradition and region.",
       steps: [
-        { numeral: "I", name: "Dholki", sub: "Bangladeshi: gaye holud", when: "Evening, days before", body: "An informal night of drumming and song among the women — the dholki for Pakistani families, the turmeric-lit gaye holud for Bangladeshi families. The celebration begins long before the vow." },
-        { numeral: "II", name: "Mehndi", sub: "Henna night", when: "Evening before", body: "Hands and feet decorated in intricate henna, with music and dancing. Held across most South Asian traditions, with regional songs and order kept by the family." },
-        { numeral: "III", name: "Nikkah", sub: "Sikh variant: Anand Karaj", when: "Wedding day", body: "The contract ceremony. For Muslim families, the nikkah is read, witnessed and documented under the officiating imam's guidance. Sikh families hold the Anand Karaj instead, before the Guru Granth Sahib with a granthi." },
-        { numeral: "IV", name: "Baraat", sub: "The procession", when: "Wedding day", body: "The groom's party arrives in celebration — drums, family, and welcome by the bride's side. Sri Lankan families instead gather at the Poruwa, the decorated platform where the rites are held." },
-        { numeral: "V", name: "Poruwa", sub: "Sri Lankan rite", when: "Wedding day", body: "Where the family is Sri Lankan, the couple ascends the Poruwa for the traditional Sinhalese ceremony — the binding of hands, the rituals overseen by the officiant the family names." },
-        { numeral: "VI", name: "Rukhsati", sub: "The send-off", when: "Wedding day, late", body: "The bride departs her family's care for her new home. The most emotional moment of the day; we give it full space and never schedule over it." },
-        { numeral: "VII", name: "Walima", sub: "The second reception", when: "Day after", body: "The reception hosted by the groom's family, the day following the nikkah. A formal celebration that completes the marriage in the community's sight." },
+        {
+          numeral: "I",
+          name: "Dholki",
+          sub: "Bangladeshi: gaye holud",
+          when: "Evening, days before",
+          body: "An informal night of drumming and song among the women — the dholki for Pakistani families, the turmeric-lit gaye holud for Bangladeshi families. The celebration begins long before the vow.",
+        },
+        {
+          numeral: "II",
+          name: "Mehndi",
+          sub: "Henna night",
+          when: "Evening before",
+          body: "Hands and feet decorated in intricate henna, with music and dancing. Held across most South Asian traditions, with regional songs and order kept by the family.",
+        },
+        {
+          numeral: "III",
+          name: "Nikkah",
+          sub: "Sikh variant: Anand Karaj",
+          when: "Wedding day",
+          body: "The contract ceremony. For Muslim families, the nikkah is read, witnessed and documented under the officiating imam's guidance. Sikh families hold the Anand Karaj instead, before the Guru Granth Sahib with a granthi.",
+        },
+        {
+          numeral: "IV",
+          name: "Baraat",
+          sub: "The procession",
+          when: "Wedding day",
+          body: "The groom's party arrives in celebration — drums, family, and welcome by the bride's side. Sri Lankan families instead gather at the Poruwa, the decorated platform where the rites are held.",
+        },
+        {
+          numeral: "V",
+          name: "Poruwa",
+          sub: "Sri Lankan rite",
+          when: "Wedding day",
+          body: "Where the family is Sri Lankan, the couple ascends the Poruwa for the traditional Sinhalese ceremony — the binding of hands, the rituals overseen by the officiant the family names.",
+        },
+        {
+          numeral: "VI",
+          name: "Rukhsati",
+          sub: "The send-off",
+          when: "Wedding day, late",
+          body: "The bride departs her family's care for her new home. The most emotional moment of the day; we give it full space and never schedule over it.",
+        },
+        {
+          numeral: "VII",
+          name: "Walima",
+          sub: "The second reception",
+          when: "Day after",
+          body: "The reception hosted by the groom's family, the day following the nikkah. A formal celebration that completes the marriage in the community's sight.",
+        },
       ],
     },
     designConcepts: {
@@ -119,12 +178,30 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "What we *hold sacred.*",
       deck: "Six principles we do not compromise on. Where practice varies between families, we defer to the officiant and the elders — not to our own convenience.",
       items: [
-        { title: "The nikkah is witnessed and documented", body: "The marriage contract is read, witnessed and recorded under the officiating imam's guidance. We arrange the witnesses, the documentation and the legal registration around the imam's requirements — not the other way around." },
-        { title: "The Anand Karaj is held with reverence", body: "A Sikh Anand Karaj is conducted in the presence of the Guru Granth Sahib with an experienced granthi. Venue conduct and the standard of the setting are respected absolutely; where any detail of the rite is in question, the granthi decides, and we follow." },
-        { title: "Halal kitchens are briefed early", body: "Where the family observes halal, the resort kitchen is briefed and sourcing arranged months ahead. We confirm certification and preparation with the family's guidance, and keep menus separate where overlapping traditions require it." },
-        { title: "The rukhsati keeps its space", body: "The send-off is the most emotional moment of a Pakistani wedding. We never compress it for pacing or schedule a vendor change over it. The family sets the tone and we hold the room quiet." },
-        { title: "Elders are honoured first", body: "Elders are greeted, seated and served before any wedding-party concern. Dietary and mobility needs for senior guests are settled before a menu or a floor plan is finalised." },
-        { title: "Regional music is live where possible", body: "Dhol for the baraat, devotional musicians for the sacred rites, regional song for the mehndi and gaye holud. Recorded music is welcome at the celebrations, but live where the family's tradition asks for it." },
+        {
+          title: "The nikkah is witnessed and documented",
+          body: "The marriage contract is read, witnessed and recorded under the officiating imam's guidance. We arrange the witnesses, the documentation and the legal registration around the imam's requirements — not the other way around.",
+        },
+        {
+          title: "The Anand Karaj is held with reverence",
+          body: "A Sikh Anand Karaj is conducted in the presence of the Guru Granth Sahib with an experienced granthi. Venue conduct and the standard of the setting are respected absolutely; where any detail of the rite is in question, the granthi decides, and we follow.",
+        },
+        {
+          title: "Halal kitchens are briefed early",
+          body: "Where the family observes halal, the resort kitchen is briefed and sourcing arranged months ahead. We confirm certification and preparation with the family's guidance, and keep menus separate where overlapping traditions require it.",
+        },
+        {
+          title: "The rukhsati keeps its space",
+          body: "The send-off is the most emotional moment of a Pakistani wedding. We never compress it for pacing or schedule a vendor change over it. The family sets the tone and we hold the room quiet.",
+        },
+        {
+          title: "Elders are honoured first",
+          body: "Elders are greeted, seated and served before any wedding-party concern. Dietary and mobility needs for senior guests are settled before a menu or a floor plan is finalised.",
+        },
+        {
+          title: "Regional music is live where possible",
+          body: "Dhol for the baraat, devotional musicians for the sacred rites, regional song for the mehndi and gaye holud. Recorded music is welcome at the celebrations, but live where the family's tradition asks for it.",
+        },
       ],
     },
     planning: {
@@ -138,9 +215,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           title: "Dholki & mehndi",
           body: "Guests arrive through the day, with transfers and check-ins coordinated by the studio. An informal dholki in the afternoon, then the mehndi in the evening — henna across several stations, music, and a relaxed dinner.",
           events: [
-            { time: "Morning", body: "Guest arrivals · airport transfers · hotel check-in" },
+            {
+              time: "Morning",
+              body: "Guest arrivals · airport transfers · hotel check-in",
+            },
             { time: "16:00", body: "Dholki · drumming and song · women" },
-            { time: "18:30", body: "Mehndi ceremony · henna stations · 3 hours" },
+            {
+              time: "18:30",
+              body: "Mehndi ceremony · henna stations · 3 hours",
+            },
             { time: "21:00", body: "Casual dinner · garden buffet" },
           ],
         },
@@ -151,7 +234,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           body: "The nikkah at the time the imam sets, read and witnessed. The baraat brings the groom's party in celebration. Family rites through the afternoon, then the rukhsati — given its full space — closes the day before the evening dinner.",
           events: [
             { time: "11:00", body: "Bride and groom prep · separate suites" },
-            { time: "14:00", body: "Nikkah · contract read and witnessed · 60 minutes" },
+            {
+              time: "14:00",
+              body: "Nikkah · contract read and witnessed · 60 minutes",
+            },
             { time: "15:30", body: "Baraat · groom's procession · welcome" },
             { time: "17:00", body: "Family rites · photographs" },
             { time: "18:30", body: "Rukhsati · the send-off · unhurried" },
@@ -166,7 +252,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           events: [
             { time: "11:00", body: "Farewell brunch · poolside" },
             { time: "19:00", body: "Walima cocktails · groom's family hosts" },
-            { time: "20:30", body: "Walima dinner · formal reception · speeches" },
+            {
+              time: "20:30",
+              body: "Walima dinner · formal reception · speeches",
+            },
             { time: "Late", body: "Departures begin · transfers next morning" },
           ],
         },
@@ -178,14 +267,54 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "View all destinations →",
       viewAllHref: staticPath("en", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caribbean · year-round", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Tulum & Los Cabos", sub: "Mexico · November – April", destinationSlug: "tulum-los-cabos" },
-        { rating: 4, name: "Lake Como", sub: "Italy · June – September", destinationSlug: "lake-como" },
-        { rating: 4, name: "Tuscany", sub: "Italy · May – October", destinationSlug: "tuscany" },
-        { rating: 4, name: "Amalfi", sub: "Italy · May – October", destinationSlug: "amalfi" },
-        { rating: 4, name: "The Hamptons", sub: "New York · June – September", destinationSlug: "the-hamptons" },
-        { rating: 3, name: "Côte d'Azur", sub: "France · June – September", destinationSlug: "cote-dazur" },
-        { rating: 3, name: "St. Barths", sub: "Caribbean · November – April", destinationSlug: "st-barths" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caribbean · year-round",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Tulum & Los Cabos",
+          sub: "Mexico · November – April",
+          destinationSlug: "tulum-los-cabos",
+        },
+        {
+          rating: 4,
+          name: "Lake Como",
+          sub: "Italy · June – September",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "Tuscany",
+          sub: "Italy · May – October",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Amalfi",
+          sub: "Italy · May – October",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "The Hamptons",
+          sub: "New York · June – September",
+          destinationSlug: "the-hamptons",
+        },
+        {
+          rating: 3,
+          name: "Côte d'Azur",
+          sub: "France · June – September",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 3,
+          name: "St. Barths",
+          sub: "Caribbean · November – April",
+          destinationSlug: "st-barths",
+        },
       ],
     },
     guest: {
@@ -193,27 +322,73 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "The *practical* care of 250 guests.",
       deck: "The logistics layer most planners under-resource. For these traditions, faith and family come first — we plan around both.",
       cells: [
-        { title: "Halal protocol", body: "Where the family observes halal, we brief the kitchen and confirm sourcing and certification months ahead. Menus are kept separate where overlapping traditions need it, and the family's guidance is final." },
-        { title: "Prayer timing", body: "Daily prayer times are built into the schedule, with a clean, quiet prayer space and wudu facilities arranged. Ceremony timings are set so they never collide with the obligations of observant guests." },
-        { title: "Mixed-tradition guidance", body: "When guests come from more than one faith — Muslim, Sikh, Hindu, Christian — we send tailored notes so each knows what to expect at the nikkah, the Anand Karaj or the Poruwa, and how to participate with grace." },
-        { title: "Elders & mobility", body: "Dedicated seating, separate transport, and an elders' liaison from the studio. Ground-floor rooms for senior guests, with medical-on-call across the weekend." },
-        { title: "Travel & accommodations", body: "Group room blocks across premium, standard and family tiers. Transfers coordinated over several days of arrivals, with a welcome package and schedule in every room." },
-        { title: "Communications", body: "A guest group three weeks ahead, a dedicated wedding site with schedule and dress codes, and printed guides — including etiquette notes for each ceremony in the family's languages." },
+        {
+          title: "Halal protocol",
+          body: "Where the family observes halal, we brief the kitchen and confirm sourcing and certification months ahead. Menus are kept separate where overlapping traditions need it, and the family's guidance is final.",
+        },
+        {
+          title: "Prayer timing",
+          body: "Daily prayer times are built into the schedule, with a clean, quiet prayer space and wudu facilities arranged. Ceremony timings are set so they never collide with the obligations of observant guests.",
+        },
+        {
+          title: "Mixed-tradition guidance",
+          body: "When guests come from more than one faith — Muslim, Sikh, Hindu, Christian — we send tailored notes so each knows what to expect at the nikkah, the Anand Karaj or the Poruwa, and how to participate with grace.",
+        },
+        {
+          title: "Elders & mobility",
+          body: "Dedicated seating, separate transport, and an elders' liaison from the studio. Ground-floor rooms for senior guests, with medical-on-call across the weekend.",
+        },
+        {
+          title: "Travel & accommodations",
+          body: "Group room blocks across premium, standard and family tiers. Transfers coordinated over several days of arrivals, with a welcome package and schedule in every room.",
+        },
+        {
+          title: "Communications",
+          body: "A guest group three weeks ahead, a dedicated wedding site with schedule and dress codes, and printed guides — including etiquette notes for each ceremony in the family's languages.",
+        },
       ],
     },
     related: {
       eyebrow: "Continue reading",
       headline: "From the *journal.*",
       articles: [
-        { category: "Pakistani · Punta Cana", title: "Hosting a Destination Nikkah, Step by Step", body: "How the contract ceremony is read, witnessed and registered abroad — and what the imam needs from us.", imageKey: "culture-related-1" },
-        { category: "Sikh · Tradition", title: "The Anand Karaj at a Resort: What It Asks", body: "On hosting the Sikh ceremony with the reverence the Guru Granth Sahib requires.", imageKey: "culture-related-2" },
-        { category: "Tradition · Sri Lankan", title: "Inside the Poruwa Ceremony", body: "A field guide to the Sinhalese platform rite and the rituals held upon it.", imageKey: "culture-related-3" },
-        { category: "Cost · South Asian", title: "What a Luxury South Asian Wedding Costs", body: "Frank 2026 budgets by tradition and guest count.", imageKey: "culture-related-4" },
-        { category: "Bangladeshi · Design", title: "Gaye Holud, in Detail", body: "On the turmeric night that opens a Bangladeshi wedding — and how we design it.", imageKey: "culture-related-5" },
+        {
+          category: "Pakistani · Punta Cana",
+          title: "Hosting a Destination Nikkah, Step by Step",
+          body: "How the contract ceremony is read, witnessed and registered abroad — and what the imam needs from us.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Sikh · Tradition",
+          title: "The Anand Karaj at a Resort: What It Asks",
+          body: "On hosting the Sikh ceremony with the reverence the Guru Granth Sahib requires.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Tradition · Sri Lankan",
+          title: "Inside the Poruwa Ceremony",
+          body: "A field guide to the Sinhalese platform rite and the rituals held upon it.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Cost · South Asian",
+          title: "What a Luxury South Asian Wedding Costs",
+          body: "Frank 2026 budgets by tradition and guest count.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Bangladeshi · Design",
+          title: "Gaye Holud, in Detail",
+          body: "On the turmeric night that opens a Bangladeshi wedding — and how we design it.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("en", "punta-cana") },
-        { label: "Tulum & Los Cabos", href: destinationPath("en", "tulum-los-cabos") },
+        {
+          label: "Tulum & Los Cabos",
+          href: destinationPath("en", "tulum-los-cabos"),
+        },
         { label: "Lake Como", href: destinationPath("en", "lake-como") },
         { label: "The Hamptons", href: destinationPath("en", "the-hamptons") },
       ],
@@ -224,10 +399,19 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
         { label: "Chileno Bay Resort" },
       ],
       sidebarCultures: [
-        { label: "Indian weddings", href: culturePath("en", "indian-weddings") },
+        {
+          label: "Indian weddings",
+          href: culturePath("en", "indian-weddings"),
+        },
         { label: "Arab weddings", href: culturePath("en", "arab-weddings") },
-        { label: "Interfaith weddings", href: culturePath("en", "interfaith-weddings") },
-        { label: "Jewish weddings", href: culturePath("en", "jewish-weddings") },
+        {
+          label: "Interfaith weddings",
+          href: culturePath("en", "interfaith-weddings"),
+        },
+        {
+          label: "Jewish weddings",
+          href: culturePath("en", "jewish-weddings"),
+        },
       ],
     },
     faq: {
@@ -305,11 +489,31 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     },
     factStrip: [
       { label: "Duración", value: "2 – 4 días", sub: "3 – 6 eventos" },
-      { label: "Número de invitados", value: "150 – 500", sub: "Más, bajo petición" },
-      { label: "Antelación", value: "16 – 22 meses", sub: "Los oficiantes reservan pronto" },
-      { label: "Tradiciones sostenidas", value: "Pakistaní · Sij", sub: "Esrilanquesa · Bangladesí" },
-      { label: "Cocina", value: "Halal preferente", sub: "Regional, según la familia" },
-      { label: "Idiomas", value: "EN · Urdu", sub: "Punjabi · Cingalés · Bengalí" },
+      {
+        label: "Número de invitados",
+        value: "150 – 500",
+        sub: "Más, bajo petición",
+      },
+      {
+        label: "Antelación",
+        value: "16 – 22 meses",
+        sub: "Los oficiantes reservan pronto",
+      },
+      {
+        label: "Tradiciones sostenidas",
+        value: "Pakistaní · Sij",
+        sub: "Esrilanquesa · Bangladesí",
+      },
+      {
+        label: "Cocina",
+        value: "Halal preferente",
+        sub: "Regional, según la familia",
+      },
+      {
+        label: "Idiomas",
+        value: "EN · Urdu",
+        sub: "Punjabi · Cingalés · Bengalí",
+      },
     ],
     overview: {
       sideEyebrow: "Las tradiciones",
@@ -325,20 +529,63 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       ],
       pull: "«Un nikkah pakistaní, un Anand Karaj sij, un Poruwa esrilanqués y un gaye holud bangladesí comparten un mapa y casi nada más. Las mantenemos separadas a propósito.»",
       signatureName: "Grecia",
-      signatureRole: "Fundadora · A través de las muchas tradiciones del subcontinente",
+      signatureRole:
+        "Fundadora · A través de las muchas tradiciones del subcontinente",
     },
     ceremonyArc: {
       eyebrow: "Estructura ceremonial",
       headline: "El contrato, el cortejo, la *despedida.*",
       deck: "Un arco musulmán típico del sur de Asia, con las variantes sostenidas nombradas en cada paso. Las familias sijs, esrilanquesas y bangladesíes lo reconfiguran en torno a su propia fe — cada boda se ajusta según la tradición y la región.",
       steps: [
-        { numeral: "I", name: "Dholki", sub: "Bangladesí: gaye holud", when: "Por la noche, días antes", body: "Una velada informal de tambores y canto entre las mujeres — el dholki para las familias pakistaníes, el gaye holud iluminado de cúrcuma para las bangladesíes. La celebración empieza mucho antes del voto." },
-        { numeral: "II", name: "Mehndi", sub: "Noche de henna", when: "La víspera", body: "Manos y pies decorados con henna intrincada, con música y baile. Se celebra en la mayoría de las tradiciones del sur de Asia, con cantos y orden regionales conservados por la familia." },
-        { numeral: "III", name: "Nikkah", sub: "Variante sij: Anand Karaj", when: "Día de la boda", body: "La ceremonia del contrato. Para las familias musulmanas, el nikkah se lee, atestigua y documenta bajo la guía del imán que oficia. Las familias sijs sostienen en su lugar el Anand Karaj, ante el Guru Granth Sahib con un granthi." },
-        { numeral: "IV", name: "Baraat", sub: "El cortejo", when: "Día de la boda", body: "El cortejo del novio llega entre celebración — tambores, familia y bienvenida por parte de la novia. Las familias esrilanquesas, en cambio, se reúnen en el Poruwa, la plataforma decorada donde se celebran los ritos." },
-        { numeral: "V", name: "Poruwa", sub: "Rito esrilanqués", when: "Día de la boda", body: "Cuando la familia es esrilanquesa, la pareja asciende al Poruwa para la ceremonia cingalesa tradicional — la unión de las manos, los ritos supervisados por el oficiante que la familia designa." },
-        { numeral: "VI", name: "Rukhsati", sub: "La despedida", when: "Día de la boda, al final", body: "La novia deja el amparo de su familia rumbo a su nuevo hogar. El momento más emotivo del día; le damos todo el espacio y nunca programamos nada por encima de él." },
-        { numeral: "VII", name: "Walima", sub: "La segunda recepción", when: "Al día siguiente", body: "La recepción que ofrece la familia del novio, el día posterior al nikkah. Una celebración formal que completa el matrimonio a la vista de la comunidad." },
+        {
+          numeral: "I",
+          name: "Dholki",
+          sub: "Bangladesí: gaye holud",
+          when: "Por la noche, días antes",
+          body: "Una velada informal de tambores y canto entre las mujeres — el dholki para las familias pakistaníes, el gaye holud iluminado de cúrcuma para las bangladesíes. La celebración empieza mucho antes del voto.",
+        },
+        {
+          numeral: "II",
+          name: "Mehndi",
+          sub: "Noche de henna",
+          when: "La víspera",
+          body: "Manos y pies decorados con henna intrincada, con música y baile. Se celebra en la mayoría de las tradiciones del sur de Asia, con cantos y orden regionales conservados por la familia.",
+        },
+        {
+          numeral: "III",
+          name: "Nikkah",
+          sub: "Variante sij: Anand Karaj",
+          when: "Día de la boda",
+          body: "La ceremonia del contrato. Para las familias musulmanas, el nikkah se lee, atestigua y documenta bajo la guía del imán que oficia. Las familias sijs sostienen en su lugar el Anand Karaj, ante el Guru Granth Sahib con un granthi.",
+        },
+        {
+          numeral: "IV",
+          name: "Baraat",
+          sub: "El cortejo",
+          when: "Día de la boda",
+          body: "El cortejo del novio llega entre celebración — tambores, familia y bienvenida por parte de la novia. Las familias esrilanquesas, en cambio, se reúnen en el Poruwa, la plataforma decorada donde se celebran los ritos.",
+        },
+        {
+          numeral: "V",
+          name: "Poruwa",
+          sub: "Rito esrilanqués",
+          when: "Día de la boda",
+          body: "Cuando la familia es esrilanquesa, la pareja asciende al Poruwa para la ceremonia cingalesa tradicional — la unión de las manos, los ritos supervisados por el oficiante que la familia designa.",
+        },
+        {
+          numeral: "VI",
+          name: "Rukhsati",
+          sub: "La despedida",
+          when: "Día de la boda, al final",
+          body: "La novia deja el amparo de su familia rumbo a su nuevo hogar. El momento más emotivo del día; le damos todo el espacio y nunca programamos nada por encima de él.",
+        },
+        {
+          numeral: "VII",
+          name: "Walima",
+          sub: "La segunda recepción",
+          when: "Al día siguiente",
+          body: "La recepción que ofrece la familia del novio, el día posterior al nikkah. Una celebración formal que completa el matrimonio a la vista de la comunidad.",
+        },
       ],
     },
     designConcepts: {
@@ -352,7 +599,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#0f3d2e", "#c89d4e", "#1c2a22", "#e8d6a0", "#f5f0e6"],
           imageKey: "concept-1",
           rows: [
-            { label: "Escenario / Decoración", value: "Telón de terciopelo, marco dorado" },
+            {
+              label: "Escenario / Decoración",
+              value: "Telón de terciopelo, marco dorado",
+            },
             { label: "Flores", value: "Rosa · orquídea · follaje dorado" },
             { label: "Ideal para", value: "Finca interior · salón" },
           ],
@@ -363,7 +613,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#f5f0e6", "#e8a843", "#c25422", "#7a3814", "#3a2a1e"],
           imageKey: "concept-2",
           rows: [
-            { label: "Escenario / Decoración", value: "Drapeado + asientos de suelo" },
+            {
+              label: "Escenario / Decoración",
+              value: "Drapeado + asientos de suelo",
+            },
             { label: "Flores", value: "Caléndula · jazmín · verde" },
             { label: "Ideal para", value: "Jardín · patio · playa" },
           ],
@@ -374,9 +627,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#e0a13a", "#ebe3d3", "#a7a78b", "#d6cdb8", "#4a523d"],
           imageKey: "concept-3",
           rows: [
-            { label: "Escenario / Decoración", value: "Plataforma de madera, flores bajas" },
+            {
+              label: "Escenario / Decoración",
+              value: "Plataforma de madera, flores bajas",
+            },
             { label: "Flores", value: "Peonía · loto · verde" },
-            { label: "Ideal para", value: "Jardín · villa · junto al santuario" },
+            {
+              label: "Ideal para",
+              value: "Jardín · villa · junto al santuario",
+            },
           ],
         },
       ],
@@ -386,12 +645,30 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "Lo que consideramos *sagrado.*",
       deck: "Seis principios que no negociamos. Cuando la práctica varía entre familias, nos remitimos al oficiante y a los mayores — no a nuestra propia comodidad.",
       items: [
-        { title: "El nikkah se atestigua y documenta", body: "El contrato matrimonial se lee, atestigua y registra bajo la guía del imán que oficia. Organizamos los testigos, la documentación y el registro legal en torno a las exigencias del imán — y no al revés." },
-        { title: "El Anand Karaj se sostiene con reverencia", body: "Un Anand Karaj sij se celebra en presencia del Guru Granth Sahib con un granthi experimentado. La conducta en el lugar y el nivel del entorno se respetan en absoluto; cuando algún detalle del rito está en duda, decide el granthi y nosotros seguimos." },
-        { title: "Las cocinas halal se informan pronto", body: "Cuando la familia observa el halal, se informa a la cocina del resort y se organiza el abastecimiento con meses de antelación. Confirmamos la certificación y la preparación con la guía de la familia, y mantenemos los menús separados cuando las tradiciones que se cruzan lo exigen." },
-        { title: "El rukhsati conserva su espacio", body: "La despedida es el momento más emotivo de una boda pakistaní. Nunca la comprimimos por ritmo ni programamos un cambio de proveedor por encima de ella. La familia marca el tono y nosotros mantenemos la sala en silencio." },
-        { title: "Los mayores se honran primero", body: "A los mayores se les saluda, se les sienta y se les sirve antes que cualquier asunto del cortejo nupcial. Las necesidades dietéticas y de movilidad de los invitados mayores se resuelven antes de cerrar un menú o un plano de sala." },
-        { title: "La música regional es en vivo cuando es posible", body: "Dhol para el baraat, músicos devocionales para los ritos sagrados, canto regional para el mehndi y el gaye holud. La música grabada es bienvenida en las celebraciones, pero en vivo allí donde la tradición de la familia lo pide." },
+        {
+          title: "El nikkah se atestigua y documenta",
+          body: "El contrato matrimonial se lee, atestigua y registra bajo la guía del imán que oficia. Organizamos los testigos, la documentación y el registro legal en torno a las exigencias del imán — y no al revés.",
+        },
+        {
+          title: "El Anand Karaj se sostiene con reverencia",
+          body: "Un Anand Karaj sij se celebra en presencia del Guru Granth Sahib con un granthi experimentado. La conducta en el lugar y el nivel del entorno se respetan en absoluto; cuando algún detalle del rito está en duda, decide el granthi y nosotros seguimos.",
+        },
+        {
+          title: "Las cocinas halal se informan pronto",
+          body: "Cuando la familia observa el halal, se informa a la cocina del resort y se organiza el abastecimiento con meses de antelación. Confirmamos la certificación y la preparación con la guía de la familia, y mantenemos los menús separados cuando las tradiciones que se cruzan lo exigen.",
+        },
+        {
+          title: "El rukhsati conserva su espacio",
+          body: "La despedida es el momento más emotivo de una boda pakistaní. Nunca la comprimimos por ritmo ni programamos un cambio de proveedor por encima de ella. La familia marca el tono y nosotros mantenemos la sala en silencio.",
+        },
+        {
+          title: "Los mayores se honran primero",
+          body: "A los mayores se les saluda, se les sienta y se les sirve antes que cualquier asunto del cortejo nupcial. Las necesidades dietéticas y de movilidad de los invitados mayores se resuelven antes de cerrar un menú o un plano de sala.",
+        },
+        {
+          title: "La música regional es en vivo cuando es posible",
+          body: "Dhol para el baraat, músicos devocionales para los ritos sagrados, canto regional para el mehndi y el gaye holud. La música grabada es bienvenida en las celebraciones, pero en vivo allí donde la tradición de la familia lo pide.",
+        },
       ],
     },
     planning: {
@@ -405,9 +682,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           title: "Dholki y mehndi",
           body: "Los invitados llegan a lo largo del día, con traslados y registros coordinados por el atelier. Un dholki informal por la tarde y luego el mehndi por la noche — henna en varias estaciones, música y una cena distendida.",
           events: [
-            { time: "Mañana", body: "Llegadas de invitados · traslados · registro en hotel" },
+            {
+              time: "Mañana",
+              body: "Llegadas de invitados · traslados · registro en hotel",
+            },
             { time: "16:00", body: "Dholki · tambores y canto · mujeres" },
-            { time: "18:30", body: "Ceremonia de mehndi · estaciones de henna · 3 horas" },
+            {
+              time: "18:30",
+              body: "Ceremonia de mehndi · estaciones de henna · 3 horas",
+            },
             { time: "21:00", body: "Cena informal · bufé en el jardín" },
           ],
         },
@@ -418,7 +701,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           body: "El nikkah a la hora que fija el imán, leído y atestiguado. El baraat trae al cortejo del novio entre celebración. Ritos familiares por la tarde y luego el rukhsati — con todo su espacio — cierra el día antes de la cena.",
           events: [
             { time: "11:00", body: "Preparación de novios · suites separadas" },
-            { time: "14:00", body: "Nikkah · contrato leído y atestiguado · 60 minutos" },
+            {
+              time: "14:00",
+              body: "Nikkah · contrato leído y atestiguado · 60 minutos",
+            },
             { time: "15:30", body: "Baraat · cortejo del novio · bienvenida" },
             { time: "17:00", body: "Ritos familiares · fotografías" },
             { time: "18:30", body: "Rukhsati · la despedida · sin prisa" },
@@ -432,9 +718,18 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           body: "El walima que ofrece la familia del novio — la segunda recepción formal que completa el matrimonio a la vista de la comunidad. Un brunch tardío para los invitados que parten, y las familias cercanas a menudo se quedan un día más.",
           events: [
             { time: "11:00", body: "Brunch de despedida · junto a la piscina" },
-            { time: "19:00", body: "Cóctel del walima · ofrece la familia del novio" },
-            { time: "20:30", body: "Cena del walima · recepción formal · discursos" },
-            { time: "Tarde-noche", body: "Comienzan las salidas · traslados a la mañana siguiente" },
+            {
+              time: "19:00",
+              body: "Cóctel del walima · ofrece la familia del novio",
+            },
+            {
+              time: "20:30",
+              body: "Cena del walima · recepción formal · discursos",
+            },
+            {
+              time: "Tarde-noche",
+              body: "Comienzan las salidas · traslados a la mañana siguiente",
+            },
           ],
         },
       ],
@@ -445,14 +740,54 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Ver todos los destinos →",
       viewAllHref: staticPath("es", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caribe · todo el año", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Tulum y Los Cabos", sub: "México · noviembre – abril", destinationSlug: "tulum-los-cabos" },
-        { rating: 4, name: "Lago de Como", sub: "Italia · junio – septiembre", destinationSlug: "lake-como" },
-        { rating: 4, name: "Toscana", sub: "Italia · mayo – octubre", destinationSlug: "tuscany" },
-        { rating: 4, name: "Amalfi", sub: "Italia · mayo – octubre", destinationSlug: "amalfi" },
-        { rating: 4, name: "Los Hamptons", sub: "Nueva York · junio – septiembre", destinationSlug: "the-hamptons" },
-        { rating: 3, name: "Costa Azul", sub: "Francia · junio – septiembre", destinationSlug: "cote-dazur" },
-        { rating: 3, name: "St. Barths", sub: "Caribe · noviembre – abril", destinationSlug: "st-barths" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caribe · todo el año",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Tulum y Los Cabos",
+          sub: "México · noviembre – abril",
+          destinationSlug: "tulum-los-cabos",
+        },
+        {
+          rating: 4,
+          name: "Lago de Como",
+          sub: "Italia · junio – septiembre",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "Toscana",
+          sub: "Italia · mayo – octubre",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Amalfi",
+          sub: "Italia · mayo – octubre",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Los Hamptons",
+          sub: "Nueva York · junio – septiembre",
+          destinationSlug: "the-hamptons",
+        },
+        {
+          rating: 3,
+          name: "Costa Azul",
+          sub: "Francia · junio – septiembre",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 3,
+          name: "St. Barths",
+          sub: "Caribe · noviembre – abril",
+          destinationSlug: "st-barths",
+        },
       ],
     },
     guest: {
@@ -460,27 +795,73 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "El cuidado *práctico* de 250 invitados.",
       deck: "La capa logística que la mayoría de planificadores infradota. En estas tradiciones, la fe y la familia van primero — planificamos en torno a ambas.",
       cells: [
-        { title: "Protocolo halal", body: "Cuando la familia observa el halal, informamos a la cocina y confirmamos el abastecimiento y la certificación con meses de antelación. Los menús se mantienen separados cuando las tradiciones que se cruzan lo necesitan, y la guía de la familia es definitiva." },
-        { title: "Horarios de oración", body: "Los horarios diarios de oración se integran en el programa, con un espacio de oración limpio y silencioso e instalaciones para el wudu. Las horas de las ceremonias se fijan para que nunca choquen con las obligaciones de los invitados observantes." },
-        { title: "Guía para tradiciones mixtas", body: "Cuando los invitados vienen de más de una fe — musulmana, sij, hindú, cristiana — enviamos notas a medida para que cada uno sepa qué esperar en el nikkah, el Anand Karaj o el Poruwa, y cómo participar con respeto." },
-        { title: "Mayores y movilidad", body: "Asientos dedicados, transporte separado y un enlace para los mayores del equipo del atelier. Habitaciones en planta baja para los invitados mayores, con asistencia médica de guardia durante todo el fin de semana." },
-        { title: "Viajes y alojamiento", body: "Bloques de habitaciones en categorías premium, estándar y familiar. Traslados coordinados a lo largo de varios días de llegadas, con un paquete de bienvenida y el programa en cada habitación." },
-        { title: "Comunicaciones", body: "Un grupo de invitados tres semanas antes, un sitio web dedicado con programa y códigos de vestimenta, y guías impresas — incluidas notas de etiqueta para cada ceremonia en los idiomas de la familia." },
+        {
+          title: "Protocolo halal",
+          body: "Cuando la familia observa el halal, informamos a la cocina y confirmamos el abastecimiento y la certificación con meses de antelación. Los menús se mantienen separados cuando las tradiciones que se cruzan lo necesitan, y la guía de la familia es definitiva.",
+        },
+        {
+          title: "Horarios de oración",
+          body: "Los horarios diarios de oración se integran en el programa, con un espacio de oración limpio y silencioso e instalaciones para el wudu. Las horas de las ceremonias se fijan para que nunca choquen con las obligaciones de los invitados observantes.",
+        },
+        {
+          title: "Guía para tradiciones mixtas",
+          body: "Cuando los invitados vienen de más de una fe — musulmana, sij, hindú, cristiana — enviamos notas a medida para que cada uno sepa qué esperar en el nikkah, el Anand Karaj o el Poruwa, y cómo participar con respeto.",
+        },
+        {
+          title: "Mayores y movilidad",
+          body: "Asientos dedicados, transporte separado y un enlace para los mayores del equipo del atelier. Habitaciones en planta baja para los invitados mayores, con asistencia médica de guardia durante todo el fin de semana.",
+        },
+        {
+          title: "Viajes y alojamiento",
+          body: "Bloques de habitaciones en categorías premium, estándar y familiar. Traslados coordinados a lo largo de varios días de llegadas, con un paquete de bienvenida y el programa en cada habitación.",
+        },
+        {
+          title: "Comunicaciones",
+          body: "Un grupo de invitados tres semanas antes, un sitio web dedicado con programa y códigos de vestimenta, y guías impresas — incluidas notas de etiqueta para cada ceremonia en los idiomas de la familia.",
+        },
       ],
     },
     related: {
       eyebrow: "Seguir leyendo",
       headline: "Del *diario.*",
       articles: [
-        { category: "Pakistaní · Punta Cana", title: "Cómo celebrar un nikkah de destino, paso a paso", body: "Cómo se lee, atestigua y registra el contrato en el extranjero — y qué necesita el imán de nosotros.", imageKey: "culture-related-1" },
-        { category: "Sij · Tradición", title: "El Anand Karaj en un resort: lo que exige", body: "Sobre acoger la ceremonia sij con la reverencia que exige el Guru Granth Sahib.", imageKey: "culture-related-2" },
-        { category: "Tradición · Esrilanquesa", title: "Dentro de la ceremonia del Poruwa", body: "Una guía del rito cingalés sobre plataforma y los rituales que se celebran en él.", imageKey: "culture-related-3" },
-        { category: "Coste · Sur de Asia", title: "Cuánto cuesta una boda de lujo del sur de Asia", body: "Presupuestos francos de 2026 por tradición y número de invitados.", imageKey: "culture-related-4" },
-        { category: "Bangladesí · Diseño", title: "El gaye holud, en detalle", body: "Sobre la noche de cúrcuma que abre una boda bangladesí — y cómo la diseñamos.", imageKey: "culture-related-5" },
+        {
+          category: "Pakistaní · Punta Cana",
+          title: "Cómo celebrar un nikkah de destino, paso a paso",
+          body: "Cómo se lee, atestigua y registra el contrato en el extranjero — y qué necesita el imán de nosotros.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Sij · Tradición",
+          title: "El Anand Karaj en un resort: lo que exige",
+          body: "Sobre acoger la ceremonia sij con la reverencia que exige el Guru Granth Sahib.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Tradición · Esrilanquesa",
+          title: "Dentro de la ceremonia del Poruwa",
+          body: "Una guía del rito cingalés sobre plataforma y los rituales que se celebran en él.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Coste · Sur de Asia",
+          title: "Cuánto cuesta una boda de lujo del sur de Asia",
+          body: "Presupuestos francos de 2026 por tradición y número de invitados.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Bangladesí · Diseño",
+          title: "El gaye holud, en detalle",
+          body: "Sobre la noche de cúrcuma que abre una boda bangladesí — y cómo la diseñamos.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("es", "punta-cana") },
-        { label: "Tulum y Los Cabos", href: destinationPath("es", "tulum-los-cabos") },
+        {
+          label: "Tulum y Los Cabos",
+          href: destinationPath("es", "tulum-los-cabos"),
+        },
         { label: "Lago de Como", href: destinationPath("es", "lake-como") },
         { label: "Los Hamptons", href: destinationPath("es", "the-hamptons") },
       ],
@@ -493,7 +874,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       sidebarCultures: [
         { label: "Bodas indias", href: culturePath("es", "indian-weddings") },
         { label: "Bodas árabes", href: culturePath("es", "arab-weddings") },
-        { label: "Bodas interreligiosas", href: culturePath("es", "interfaith-weddings") },
+        {
+          label: "Bodas interreligiosas",
+          href: culturePath("es", "interfaith-weddings"),
+        },
         { label: "Bodas judías", href: culturePath("es", "jewish-weddings") },
       ],
     },
@@ -523,7 +907,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "¿Cuánto cuesta una boda de destino del sur de Asia en 2026?",
+          question:
+            "¿Cuánto cuesta una boda de destino del sur de Asia en 2026?",
           answer: [
             "Un rango útil para bodas de 150–400 invitados a lo largo de dos a cuatro días es de USD 250.000 – 900.000, todo incluido, según la tradición, el destino y el número de invitados.",
             "Compartimos presupuestos transparentes y detallados en la primera consulta, con rangos por número de invitados y por los eventos que cada tradición requiere.",
@@ -537,7 +922,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "¿En qué se diferencia esto de vuestra página de Bodas Indias?",
+          question:
+            "¿En qué se diferencia esto de vuestra página de Bodas Indias?",
           answer: [
             "Nuestra página de Bodas Indias es para las bodas hindúes indias — el mandap, las pheras, el pandit con quien trabajamos desde hace años.",
             "Esta página es para el resto del subcontinente: tradiciones musulmana pakistaní, sij, esrilanquesa y bangladesí, cada una sostenida como su propia fe. Si tu boda es hindú, esa página es el lugar adecuado; si cruza fes, nuestra página interreligiosa quizá también lo sea.",
@@ -572,11 +958,31 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     },
     factStrip: [
       { label: "Durée", value: "2 – 4 jours", sub: "3 – 6 événements" },
-      { label: "Nombre d'invités", value: "150 – 500", sub: "Davantage sur demande" },
-      { label: "Délai", value: "16 – 22 mois", sub: "Les officiants se réservent tôt" },
-      { label: "Traditions tenues", value: "Pakistanais · Sikh", sub: "Sri-lankais · Bangladais" },
-      { label: "Cuisine", value: "Halal en priorité", sub: "Régionale, selon la famille" },
-      { label: "Langues", value: "EN · Ourdou", sub: "Pendjabi · Cingalais · Bengali" },
+      {
+        label: "Nombre d'invités",
+        value: "150 – 500",
+        sub: "Davantage sur demande",
+      },
+      {
+        label: "Délai",
+        value: "16 – 22 mois",
+        sub: "Les officiants se réservent tôt",
+      },
+      {
+        label: "Traditions tenues",
+        value: "Pakistanais · Sikh",
+        sub: "Sri-lankais · Bangladais",
+      },
+      {
+        label: "Cuisine",
+        value: "Halal en priorité",
+        sub: "Régionale, selon la famille",
+      },
+      {
+        label: "Langues",
+        value: "EN · Ourdou",
+        sub: "Pendjabi · Cingalais · Bengali",
+      },
     ],
     overview: {
       sideEyebrow: "Les traditions",
@@ -592,20 +998,63 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       ],
       pull: "« Un nikkah pakistanais, un Anand Karaj sikh, un Poruwa sri-lankais et un gaye holud bangladais partagent une carte et presque rien d'autre. Nous les tenons distincts à dessein. »",
       signatureName: "Grecia",
-      signatureRole: "Fondatrice · À travers les nombreuses traditions du sous-continent",
+      signatureRole:
+        "Fondatrice · À travers les nombreuses traditions du sous-continent",
     },
     ceremonyArc: {
       eyebrow: "Structure cérémonielle",
       headline: "Le contrat, le cortège, l'*adieu.*",
       deck: "Une trame musulmane typique d'Asie du Sud, avec les variantes tenues nommées à chaque étape. Les familles sikhes, sri-lankaises et bangladaises la remodèlent autour de leur propre foi — chaque mariage s'ajuste selon la tradition et la région.",
       steps: [
-        { numeral: "I", name: "Dholki", sub: "Bangladais : gaye holud", when: "Le soir, jours avant", body: "Une soirée informelle de tambours et de chant parmi les femmes — le dholki pour les familles pakistanaises, le gaye holud illuminé de curcuma pour les bangladaises. La célébration commence bien avant le vœu." },
-        { numeral: "II", name: "Mehndi", sub: "Soirée de henné", when: "La veille", body: "Mains et pieds décorés de henné minutieux, avec musique et danse. Tenu dans la plupart des traditions d'Asie du Sud, avec chants et ordre régionaux conservés par la famille." },
-        { numeral: "III", name: "Nikkah", sub: "Variante sikhe : Anand Karaj", when: "Jour du mariage", body: "La cérémonie du contrat. Pour les familles musulmanes, le nikkah est lu, attesté et documenté sous la conduite de l'imam qui officie. Les familles sikhes tiennent à la place l'Anand Karaj, devant le Guru Granth Sahib avec un granthi." },
-        { numeral: "IV", name: "Baraat", sub: "Le cortège", when: "Jour du mariage", body: "Le cortège du marié arrive en célébration — tambours, famille, et accueil par le côté de la mariée. Les familles sri-lankaises se rassemblent plutôt au Poruwa, la plateforme décorée où se tiennent les rites." },
-        { numeral: "V", name: "Poruwa", sub: "Rite sri-lankais", when: "Jour du mariage", body: "Lorsque la famille est sri-lankaise, le couple monte sur le Poruwa pour la cérémonie cingalaise traditionnelle — la liaison des mains, les rites supervisés par l'officiant que la famille désigne." },
-        { numeral: "VI", name: "Rukhsati", sub: "L'adieu", when: "Jour du mariage, tard", body: "La mariée quitte le soin de sa famille vers son nouveau foyer. Le moment le plus émouvant de la journée ; nous lui donnons tout l'espace et ne programmons jamais rien par-dessus." },
-        { numeral: "VII", name: "Walima", sub: "La seconde réception", when: "Le lendemain", body: "La réception offerte par la famille du marié, le jour suivant le nikkah. Une célébration formelle qui achève le mariage aux yeux de la communauté." },
+        {
+          numeral: "I",
+          name: "Dholki",
+          sub: "Bangladais : gaye holud",
+          when: "Le soir, jours avant",
+          body: "Une soirée informelle de tambours et de chant parmi les femmes — le dholki pour les familles pakistanaises, le gaye holud illuminé de curcuma pour les bangladaises. La célébration commence bien avant le vœu.",
+        },
+        {
+          numeral: "II",
+          name: "Mehndi",
+          sub: "Soirée de henné",
+          when: "La veille",
+          body: "Mains et pieds décorés de henné minutieux, avec musique et danse. Tenu dans la plupart des traditions d'Asie du Sud, avec chants et ordre régionaux conservés par la famille.",
+        },
+        {
+          numeral: "III",
+          name: "Nikkah",
+          sub: "Variante sikhe : Anand Karaj",
+          when: "Jour du mariage",
+          body: "La cérémonie du contrat. Pour les familles musulmanes, le nikkah est lu, attesté et documenté sous la conduite de l'imam qui officie. Les familles sikhes tiennent à la place l'Anand Karaj, devant le Guru Granth Sahib avec un granthi.",
+        },
+        {
+          numeral: "IV",
+          name: "Baraat",
+          sub: "Le cortège",
+          when: "Jour du mariage",
+          body: "Le cortège du marié arrive en célébration — tambours, famille, et accueil par le côté de la mariée. Les familles sri-lankaises se rassemblent plutôt au Poruwa, la plateforme décorée où se tiennent les rites.",
+        },
+        {
+          numeral: "V",
+          name: "Poruwa",
+          sub: "Rite sri-lankais",
+          when: "Jour du mariage",
+          body: "Lorsque la famille est sri-lankaise, le couple monte sur le Poruwa pour la cérémonie cingalaise traditionnelle — la liaison des mains, les rites supervisés par l'officiant que la famille désigne.",
+        },
+        {
+          numeral: "VI",
+          name: "Rukhsati",
+          sub: "L'adieu",
+          when: "Jour du mariage, tard",
+          body: "La mariée quitte le soin de sa famille vers son nouveau foyer. Le moment le plus émouvant de la journée ; nous lui donnons tout l'espace et ne programmons jamais rien par-dessus.",
+        },
+        {
+          numeral: "VII",
+          name: "Walima",
+          sub: "La seconde réception",
+          when: "Le lendemain",
+          body: "La réception offerte par la famille du marié, le jour suivant le nikkah. Une célébration formelle qui achève le mariage aux yeux de la communauté.",
+        },
       ],
     },
     designConcepts: {
@@ -641,9 +1090,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#e0a13a", "#ebe3d3", "#a7a78b", "#d6cdb8", "#4a523d"],
           imageKey: "concept-3",
           rows: [
-            { label: "Scène / Décor", value: "Plateforme de bois, fleurs basses" },
+            {
+              label: "Scène / Décor",
+              value: "Plateforme de bois, fleurs basses",
+            },
             { label: "Fleurs", value: "Pivoine · lotus · verdure" },
-            { label: "Idéal pour", value: "Jardin · villa · près du sanctuaire" },
+            {
+              label: "Idéal pour",
+              value: "Jardin · villa · près du sanctuaire",
+            },
           ],
         },
       ],
@@ -653,12 +1108,30 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "Ce que nous tenons pour *sacré.*",
       deck: "Six principes sur lesquels nous ne transigeons pas. Lorsque la pratique varie d'une famille à l'autre, nous nous en remettons à l'officiant et aux aînés — non à notre propre confort.",
       items: [
-        { title: "Le nikkah est attesté et documenté", body: "Le contrat de mariage est lu, attesté et enregistré sous la conduite de l'imam qui officie. Nous organisons les témoins, la documentation et l'enregistrement légal autour des exigences de l'imam — et non l'inverse." },
-        { title: "L'Anand Karaj est tenu avec révérence", body: "Un Anand Karaj sikh est célébré en présence du Guru Granth Sahib avec un granthi expérimenté. La conduite sur les lieux et le niveau du cadre sont respectés absolument ; lorsqu'un détail du rite est en question, le granthi décide, et nous suivons." },
-        { title: "Les cuisines halal sont briefées tôt", body: "Lorsque la famille observe le halal, la cuisine du resort est briefée et l'approvisionnement organisé des mois à l'avance. Nous confirmons la certification et la préparation avec la conduite de la famille, et gardons les menus séparés là où les traditions qui se croisent l'exigent." },
-        { title: "Le rukhsati garde son espace", body: "L'adieu est le moment le plus émouvant d'un mariage pakistanais. Nous ne le compressons jamais pour le rythme et ne programmons pas un changement de prestataire par-dessus. La famille donne le ton et nous tenons la salle silencieuse." },
-        { title: "Les aînés sont honorés en premier", body: "Les aînés sont salués, installés et servis avant tout souci du cortège nuptial. Les besoins alimentaires et de mobilité des invités âgés sont réglés avant qu'un menu ou un plan de salle ne soit arrêté." },
-        { title: "La musique régionale est live quand c'est possible", body: "Dhol pour le baraat, musiciens dévotionnels pour les rites sacrés, chant régional pour le mehndi et le gaye holud. La musique enregistrée est bienvenue aux célébrations, mais live là où la tradition de la famille le demande." },
+        {
+          title: "Le nikkah est attesté et documenté",
+          body: "Le contrat de mariage est lu, attesté et enregistré sous la conduite de l'imam qui officie. Nous organisons les témoins, la documentation et l'enregistrement légal autour des exigences de l'imam — et non l'inverse.",
+        },
+        {
+          title: "L'Anand Karaj est tenu avec révérence",
+          body: "Un Anand Karaj sikh est célébré en présence du Guru Granth Sahib avec un granthi expérimenté. La conduite sur les lieux et le niveau du cadre sont respectés absolument ; lorsqu'un détail du rite est en question, le granthi décide, et nous suivons.",
+        },
+        {
+          title: "Les cuisines halal sont briefées tôt",
+          body: "Lorsque la famille observe le halal, la cuisine du resort est briefée et l'approvisionnement organisé des mois à l'avance. Nous confirmons la certification et la préparation avec la conduite de la famille, et gardons les menus séparés là où les traditions qui se croisent l'exigent.",
+        },
+        {
+          title: "Le rukhsati garde son espace",
+          body: "L'adieu est le moment le plus émouvant d'un mariage pakistanais. Nous ne le compressons jamais pour le rythme et ne programmons pas un changement de prestataire par-dessus. La famille donne le ton et nous tenons la salle silencieuse.",
+        },
+        {
+          title: "Les aînés sont honorés en premier",
+          body: "Les aînés sont salués, installés et servis avant tout souci du cortège nuptial. Les besoins alimentaires et de mobilité des invités âgés sont réglés avant qu'un menu ou un plan de salle ne soit arrêté.",
+        },
+        {
+          title: "La musique régionale est live quand c'est possible",
+          body: "Dhol pour le baraat, musiciens dévotionnels pour les rites sacrés, chant régional pour le mehndi et le gaye holud. La musique enregistrée est bienvenue aux célébrations, mais live là où la tradition de la famille le demande.",
+        },
       ],
     },
     planning: {
@@ -672,9 +1145,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           title: "Dholki & mehndi",
           body: "Les invités arrivent tout au long de la journée, transferts et arrivées coordonnés par l'atelier. Un dholki informel l'après-midi, puis le mehndi le soir — henné sur plusieurs stations, musique et un dîner détendu.",
           events: [
-            { time: "Matin", body: "Arrivées des invités · transferts · enregistrement à l'hôtel" },
+            {
+              time: "Matin",
+              body: "Arrivées des invités · transferts · enregistrement à l'hôtel",
+            },
             { time: "16:00", body: "Dholki · tambours et chant · femmes" },
-            { time: "18:30", body: "Cérémonie de mehndi · stations de henné · 3 heures" },
+            {
+              time: "18:30",
+              body: "Cérémonie de mehndi · stations de henné · 3 heures",
+            },
             { time: "21:00", body: "Dîner décontracté · buffet au jardin" },
           ],
         },
@@ -685,7 +1164,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           body: "Le nikkah à l'heure fixée par l'imam, lu et attesté. Le baraat amène le cortège du marié en célébration. Rites familiaux durant l'après-midi, puis le rukhsati — avec tout son espace — clôt la journée avant le dîner.",
           events: [
             { time: "11:00", body: "Préparation des mariés · suites séparées" },
-            { time: "14:00", body: "Nikkah · contrat lu et attesté · 60 minutes" },
+            {
+              time: "14:00",
+              body: "Nikkah · contrat lu et attesté · 60 minutes",
+            },
             { time: "15:30", body: "Baraat · cortège du marié · accueil" },
             { time: "17:00", body: "Rites familiaux · photographies" },
             { time: "18:30", body: "Rukhsati · l'adieu · sans hâte" },
@@ -699,9 +1181,18 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           body: "Le walima offert par la famille du marié — la seconde réception formelle qui achève le mariage aux yeux de la communauté. Un brunch tardif pour les invités qui partent, les familles proches restant souvent un jour de plus.",
           events: [
             { time: "11:00", body: "Brunch d'adieu · au bord de la piscine" },
-            { time: "19:00", body: "Cocktail du walima · la famille du marié reçoit" },
-            { time: "20:30", body: "Dîner du walima · réception formelle · discours" },
-            { time: "Tard", body: "Les départs commencent · transferts le lendemain matin" },
+            {
+              time: "19:00",
+              body: "Cocktail du walima · la famille du marié reçoit",
+            },
+            {
+              time: "20:30",
+              body: "Dîner du walima · réception formelle · discours",
+            },
+            {
+              time: "Tard",
+              body: "Les départs commencent · transferts le lendemain matin",
+            },
           ],
         },
       ],
@@ -712,14 +1203,54 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Voir toutes les destinations →",
       viewAllHref: staticPath("fr", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caraïbes · toute l'année", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Tulum & Los Cabos", sub: "Mexique · novembre – avril", destinationSlug: "tulum-los-cabos" },
-        { rating: 4, name: "Lac de Côme", sub: "Italie · juin – septembre", destinationSlug: "lake-como" },
-        { rating: 4, name: "Toscane", sub: "Italie · mai – octobre", destinationSlug: "tuscany" },
-        { rating: 4, name: "Amalfi", sub: "Italie · mai – octobre", destinationSlug: "amalfi" },
-        { rating: 4, name: "Les Hamptons", sub: "New York · juin – septembre", destinationSlug: "the-hamptons" },
-        { rating: 3, name: "Côte d'Azur", sub: "France · juin – septembre", destinationSlug: "cote-dazur" },
-        { rating: 3, name: "St. Barths", sub: "Caraïbes · novembre – avril", destinationSlug: "st-barths" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caraïbes · toute l'année",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Tulum & Los Cabos",
+          sub: "Mexique · novembre – avril",
+          destinationSlug: "tulum-los-cabos",
+        },
+        {
+          rating: 4,
+          name: "Lac de Côme",
+          sub: "Italie · juin – septembre",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "Toscane",
+          sub: "Italie · mai – octobre",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Amalfi",
+          sub: "Italie · mai – octobre",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Les Hamptons",
+          sub: "New York · juin – septembre",
+          destinationSlug: "the-hamptons",
+        },
+        {
+          rating: 3,
+          name: "Côte d'Azur",
+          sub: "France · juin – septembre",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 3,
+          name: "St. Barths",
+          sub: "Caraïbes · novembre – avril",
+          destinationSlug: "st-barths",
+        },
       ],
     },
     guest: {
@@ -727,27 +1258,73 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "Le soin *pratique* de 250 invités.",
       deck: "La couche logistique que la plupart des planificateurs sous-dotent. Dans ces traditions, la foi et la famille passent d'abord — nous planifions autour des deux.",
       cells: [
-        { title: "Protocole halal", body: "Lorsque la famille observe le halal, nous briefons la cuisine et confirmons l'approvisionnement et la certification des mois à l'avance. Les menus restent séparés là où les traditions qui se croisent le requièrent, et la conduite de la famille est définitive." },
-        { title: "Heures de prière", body: "Les heures de prière quotidiennes sont intégrées au programme, avec un espace de prière propre et silencieux et des installations pour les ablutions. Les horaires des cérémonies sont fixés pour ne jamais entrer en conflit avec les obligations des invités pratiquants." },
-        { title: "Guide pour traditions mêlées", body: "Lorsque les invités viennent de plus d'une foi — musulmane, sikhe, hindoue, chrétienne — nous envoyons des notes sur mesure pour que chacun sache à quoi s'attendre au nikkah, à l'Anand Karaj ou au Poruwa, et comment y participer avec respect." },
-        { title: "Aînés & mobilité", body: "Sièges dédiés, transport séparé et un référent pour les aînés de l'équipe de l'atelier. Chambres au rez-de-chaussée pour les invités âgés, avec assistance médicale d'astreinte durant tout le week-end." },
-        { title: "Voyages & hébergement", body: "Blocs de chambres en catégories premium, standard et familiale. Transferts coordonnés sur plusieurs jours d'arrivées, avec un coffret de bienvenue et le programme dans chaque chambre." },
-        { title: "Communications", body: "Un groupe d'invités trois semaines à l'avance, un site dédié avec programme et codes vestimentaires, et des guides imprimés — y compris des notes d'étiquette pour chaque cérémonie dans les langues de la famille." },
+        {
+          title: "Protocole halal",
+          body: "Lorsque la famille observe le halal, nous briefons la cuisine et confirmons l'approvisionnement et la certification des mois à l'avance. Les menus restent séparés là où les traditions qui se croisent le requièrent, et la conduite de la famille est définitive.",
+        },
+        {
+          title: "Heures de prière",
+          body: "Les heures de prière quotidiennes sont intégrées au programme, avec un espace de prière propre et silencieux et des installations pour les ablutions. Les horaires des cérémonies sont fixés pour ne jamais entrer en conflit avec les obligations des invités pratiquants.",
+        },
+        {
+          title: "Guide pour traditions mêlées",
+          body: "Lorsque les invités viennent de plus d'une foi — musulmane, sikhe, hindoue, chrétienne — nous envoyons des notes sur mesure pour que chacun sache à quoi s'attendre au nikkah, à l'Anand Karaj ou au Poruwa, et comment y participer avec respect.",
+        },
+        {
+          title: "Aînés & mobilité",
+          body: "Sièges dédiés, transport séparé et un référent pour les aînés de l'équipe de l'atelier. Chambres au rez-de-chaussée pour les invités âgés, avec assistance médicale d'astreinte durant tout le week-end.",
+        },
+        {
+          title: "Voyages & hébergement",
+          body: "Blocs de chambres en catégories premium, standard et familiale. Transferts coordonnés sur plusieurs jours d'arrivées, avec un coffret de bienvenue et le programme dans chaque chambre.",
+        },
+        {
+          title: "Communications",
+          body: "Un groupe d'invités trois semaines à l'avance, un site dédié avec programme et codes vestimentaires, et des guides imprimés — y compris des notes d'étiquette pour chaque cérémonie dans les langues de la famille.",
+        },
       ],
     },
     related: {
       eyebrow: "Poursuivre la lecture",
       headline: "Du *journal.*",
       articles: [
-        { category: "Pakistanais · Punta Cana", title: "Tenir un nikkah de destination, étape par étape", body: "Comment le contrat est lu, attesté et enregistré à l'étranger — et ce dont l'imam a besoin de notre part.", imageKey: "culture-related-1" },
-        { category: "Sikh · Tradition", title: "L'Anand Karaj dans un resort : ce qu'il exige", body: "Sur le fait de tenir la cérémonie sikhe avec la révérence qu'exige le Guru Granth Sahib.", imageKey: "culture-related-2" },
-        { category: "Tradition · Sri-lankais", title: "Au cœur de la cérémonie du Poruwa", body: "Un guide du rite cingalais sur plateforme et des rituels qui s'y tiennent.", imageKey: "culture-related-3" },
-        { category: "Coût · Asie du Sud", title: "Ce que coûte un mariage de luxe d'Asie du Sud", body: "Budgets francs 2026 par tradition et par nombre d'invités.", imageKey: "culture-related-4" },
-        { category: "Bangladais · Design", title: "Le gaye holud, en détail", body: "Sur la soirée de curcuma qui ouvre un mariage bangladais — et la manière dont nous la concevons.", imageKey: "culture-related-5" },
+        {
+          category: "Pakistanais · Punta Cana",
+          title: "Tenir un nikkah de destination, étape par étape",
+          body: "Comment le contrat est lu, attesté et enregistré à l'étranger — et ce dont l'imam a besoin de notre part.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Sikh · Tradition",
+          title: "L'Anand Karaj dans un resort : ce qu'il exige",
+          body: "Sur le fait de tenir la cérémonie sikhe avec la révérence qu'exige le Guru Granth Sahib.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Tradition · Sri-lankais",
+          title: "Au cœur de la cérémonie du Poruwa",
+          body: "Un guide du rite cingalais sur plateforme et des rituels qui s'y tiennent.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Coût · Asie du Sud",
+          title: "Ce que coûte un mariage de luxe d'Asie du Sud",
+          body: "Budgets francs 2026 par tradition et par nombre d'invités.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Bangladais · Design",
+          title: "Le gaye holud, en détail",
+          body: "Sur la soirée de curcuma qui ouvre un mariage bangladais — et la manière dont nous la concevons.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("fr", "punta-cana") },
-        { label: "Tulum & Los Cabos", href: destinationPath("fr", "tulum-los-cabos") },
+        {
+          label: "Tulum & Los Cabos",
+          href: destinationPath("fr", "tulum-los-cabos"),
+        },
         { label: "Lac de Côme", href: destinationPath("fr", "lake-como") },
         { label: "Les Hamptons", href: destinationPath("fr", "the-hamptons") },
       ],
@@ -758,9 +1335,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
         { label: "Chileno Bay Resort" },
       ],
       sidebarCultures: [
-        { label: "Mariages indiens", href: culturePath("fr", "indian-weddings") },
+        {
+          label: "Mariages indiens",
+          href: culturePath("fr", "indian-weddings"),
+        },
         { label: "Mariages arabes", href: culturePath("fr", "arab-weddings") },
-        { label: "Mariages interconfessionnels", href: culturePath("fr", "interfaith-weddings") },
+        {
+          label: "Mariages interconfessionnels",
+          href: culturePath("fr", "interfaith-weddings"),
+        },
         { label: "Mariages juifs", href: culturePath("fr", "jewish-weddings") },
       ],
     },
@@ -769,7 +1352,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "Questions *fréquentes.*",
       items: [
         {
-          question: "Comment un nikkah de destination fonctionne-t-il légalement ?",
+          question:
+            "Comment un nikkah de destination fonctionne-t-il légalement ?",
           answer: [
             "Le nikkah est le contrat religieux, lu et attesté sous la conduite de l'imam qui officie. Le mariage légal est une affaire distincte, réglée selon les lois de la destination et de votre pays d'origine.",
             "Beaucoup de couples accomplissent l'enregistrement civil chez eux avant de voyager et tiennent le nikkah à l'étranger comme cérémonie de référence pour la famille. Nous coordonnons l'imam, les témoins et la documentation pour que la foi comme la loi soient satisfaites.",
@@ -783,28 +1367,32 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Des familles pakistanaises et indiennes peuvent-elles célébrer ensemble ?",
+          question:
+            "Des familles pakistanaises et indiennes peuvent-elles célébrer ensemble ?",
           answer: [
             "Souvent, et magnifiquement. Une famille musulmane pakistanaise et une famille hindoue indienne mariant leurs enfants est l'une des unions qu'on nous demande le plus.",
             "Nous la traitons comme deux fois tenues avec un soin égal — un nikkah et une cérémonie hindoue, deux officiants, un seul week-end — plutôt que comme un événement unique fondu. Notre page Mariages interconfessionnels approfondit ce travail.",
           ],
         },
         {
-          question: "Combien coûte un mariage de destination d'Asie du Sud en 2026 ?",
+          question:
+            "Combien coûte un mariage de destination d'Asie du Sud en 2026 ?",
           answer: [
             "Une fourchette utile pour des mariages de 150 à 400 invités sur deux à quatre jours est de 250 000 à 900 000 USD, tout compris, selon la tradition, la destination et le nombre d'invités.",
             "Nous partageons des budgets transparents et détaillés dès la première consultation, avec des fourchettes par nombre d'invités et par les événements que chaque tradition appelle.",
           ],
         },
         {
-          question: "Le halal peut-il être maintenu dans un resort des Caraïbes ?",
+          question:
+            "Le halal peut-il être maintenu dans un resort des Caraïbes ?",
           answer: [
             "Oui. Nous briefons la cuisine, confirmons un approvisionnement certifié et organisons une préparation séparée des mois à l'avance, le tout sous la conduite de la famille.",
             "Lorsque l'offre certifiée locale est limitée, nous approvisionnons et importons au niveau fixé par la famille, et gardons les menus séparés là où les traditions qui se croisent l'exigent.",
           ],
         },
         {
-          question: "En quoi cela diffère-t-il de votre page Mariages indiens ?",
+          question:
+            "En quoi cela diffère-t-il de votre page Mariages indiens ?",
           answer: [
             "Notre page Mariages indiens est pour les mariages hindous indiens — le mandap, les pheras, le pandit avec qui nous travaillons depuis des années.",
             "Cette page est pour le reste du sous-continent : traditions musulmane pakistanaise, sikhe, sri-lankaise et bangladaise, chacune tenue comme sa propre foi. Si votre mariage est hindou, cette page est le bon foyer ; s'il croise des fois, notre page interconfessionnelle l'est peut-être aussi.",
@@ -839,11 +1427,31 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     },
     factStrip: [
       { label: "Duração", value: "2 – 4 dias", sub: "3 – 6 eventos" },
-      { label: "Número de convidados", value: "150 – 500", sub: "Mais, a pedido" },
-      { label: "Antecedência", value: "16 – 22 meses", sub: "Os oficiantes reservam cedo" },
-      { label: "Tradições conduzidas", value: "Paquistanês · Sikh", sub: "Cingalês · Bangladechiano" },
-      { label: "Cozinha", value: "Halal preferencial", sub: "Regional, conforme a família" },
-      { label: "Línguas", value: "EN · Urdu", sub: "Punjabi · Cingalês · Bengali" },
+      {
+        label: "Número de convidados",
+        value: "150 – 500",
+        sub: "Mais, a pedido",
+      },
+      {
+        label: "Antecedência",
+        value: "16 – 22 meses",
+        sub: "Os oficiantes reservam cedo",
+      },
+      {
+        label: "Tradições conduzidas",
+        value: "Paquistanês · Sikh",
+        sub: "Cingalês · Bangladechiano",
+      },
+      {
+        label: "Cozinha",
+        value: "Halal preferencial",
+        sub: "Regional, conforme a família",
+      },
+      {
+        label: "Línguas",
+        value: "EN · Urdu",
+        sub: "Punjabi · Cingalês · Bengali",
+      },
     ],
     overview: {
       sideEyebrow: "As tradições",
@@ -859,20 +1467,63 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       ],
       pull: "«Um nikkah paquistanês, um Anand Karaj sikh, um Poruwa cingalês e um gaye holud bangladechiano partilham um mapa e quase nada mais. Mantemo-los separados de propósito.»",
       signatureName: "Grecia",
-      signatureRole: "Fundadora · Através das muitas tradições do subcontinente",
+      signatureRole:
+        "Fundadora · Através das muitas tradições do subcontinente",
     },
     ceremonyArc: {
       eyebrow: "Estrutura cerimonial",
       headline: "O contrato, o cortejo, a *despedida.*",
       deck: "Um arco muçulmano típico do sul da Ásia, com as variantes conduzidas nomeadas em cada passo. As famílias sikhs, cingalesas e bangladechianas remodelam-no em torno da sua própria fé — cada casamento se ajusta conforme a tradição e a região.",
       steps: [
-        { numeral: "I", name: "Dholki", sub: "Bangladechiano: gaye holud", when: "À noite, dias antes", body: "Uma noite informal de tambores e canto entre as mulheres — o dholki para as famílias paquistanesas, o gaye holud iluminado de açafrão-da-terra para as bangladechianas. A celebração começa muito antes do voto." },
-        { numeral: "II", name: "Mehndi", sub: "Noite de hena", when: "Na véspera", body: "Mãos e pés decorados com hena minuciosa, com música e dança. Conduzido na maioria das tradições do sul da Ásia, com cantos e ordem regionais conservados pela família." },
-        { numeral: "III", name: "Nikkah", sub: "Variante sikh: Anand Karaj", when: "Dia do casamento", body: "A cerimónia do contrato. Para as famílias muçulmanas, o nikkah é lido, testemunhado e documentado sob a orientação do imame que oficia. As famílias sikhs conduzem em vez disso o Anand Karaj, perante o Guru Granth Sahib com um granthi." },
-        { numeral: "IV", name: "Baraat", sub: "O cortejo", when: "Dia do casamento", body: "O cortejo do noivo chega em celebração — tambores, família, e boas-vindas pelo lado da noiva. As famílias cingalesas reúnem-se antes no Poruwa, a plataforma decorada onde se realizam os ritos." },
-        { numeral: "V", name: "Poruwa", sub: "Rito cingalês", when: "Dia do casamento", body: "Quando a família é cingalesa, o casal sobe ao Poruwa para a cerimónia cingalesa tradicional — a união das mãos, os ritos supervisionados pelo oficiante que a família designa." },
-        { numeral: "VI", name: "Rukhsati", sub: "A despedida", when: "Dia do casamento, ao fim", body: "A noiva deixa o cuidado da sua família rumo ao seu novo lar. O momento mais emotivo do dia; damos-lhe todo o espaço e nunca agendamos nada por cima dele." },
-        { numeral: "VII", name: "Walima", sub: "A segunda receção", when: "No dia seguinte", body: "A receção oferecida pela família do noivo, no dia a seguir ao nikkah. Uma celebração formal que completa o casamento à vista da comunidade." },
+        {
+          numeral: "I",
+          name: "Dholki",
+          sub: "Bangladechiano: gaye holud",
+          when: "À noite, dias antes",
+          body: "Uma noite informal de tambores e canto entre as mulheres — o dholki para as famílias paquistanesas, o gaye holud iluminado de açafrão-da-terra para as bangladechianas. A celebração começa muito antes do voto.",
+        },
+        {
+          numeral: "II",
+          name: "Mehndi",
+          sub: "Noite de hena",
+          when: "Na véspera",
+          body: "Mãos e pés decorados com hena minuciosa, com música e dança. Conduzido na maioria das tradições do sul da Ásia, com cantos e ordem regionais conservados pela família.",
+        },
+        {
+          numeral: "III",
+          name: "Nikkah",
+          sub: "Variante sikh: Anand Karaj",
+          when: "Dia do casamento",
+          body: "A cerimónia do contrato. Para as famílias muçulmanas, o nikkah é lido, testemunhado e documentado sob a orientação do imame que oficia. As famílias sikhs conduzem em vez disso o Anand Karaj, perante o Guru Granth Sahib com um granthi.",
+        },
+        {
+          numeral: "IV",
+          name: "Baraat",
+          sub: "O cortejo",
+          when: "Dia do casamento",
+          body: "O cortejo do noivo chega em celebração — tambores, família, e boas-vindas pelo lado da noiva. As famílias cingalesas reúnem-se antes no Poruwa, a plataforma decorada onde se realizam os ritos.",
+        },
+        {
+          numeral: "V",
+          name: "Poruwa",
+          sub: "Rito cingalês",
+          when: "Dia do casamento",
+          body: "Quando a família é cingalesa, o casal sobe ao Poruwa para a cerimónia cingalesa tradicional — a união das mãos, os ritos supervisionados pelo oficiante que a família designa.",
+        },
+        {
+          numeral: "VI",
+          name: "Rukhsati",
+          sub: "A despedida",
+          when: "Dia do casamento, ao fim",
+          body: "A noiva deixa o cuidado da sua família rumo ao seu novo lar. O momento mais emotivo do dia; damos-lhe todo o espaço e nunca agendamos nada por cima dele.",
+        },
+        {
+          numeral: "VII",
+          name: "Walima",
+          sub: "A segunda receção",
+          when: "No dia seguinte",
+          body: "A receção oferecida pela família do noivo, no dia a seguir ao nikkah. Uma celebração formal que completa o casamento à vista da comunidade.",
+        },
       ],
     },
     designConcepts: {
@@ -886,7 +1537,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#0f3d2e", "#c89d4e", "#1c2a22", "#e8d6a0", "#f5f0e6"],
           imageKey: "concept-1",
           rows: [
-            { label: "Palco / Decoração", value: "Pano de veludo, moldura dourada" },
+            {
+              label: "Palco / Decoração",
+              value: "Pano de veludo, moldura dourada",
+            },
             { label: "Flores", value: "Rosa · orquídea · folhagem dourada" },
             { label: "Ideal para", value: "Quinta interior · salão" },
           ],
@@ -897,7 +1551,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#f5f0e6", "#e8a843", "#c25422", "#7a3814", "#3a2a1e"],
           imageKey: "concept-2",
           rows: [
-            { label: "Palco / Decoração", value: "Drapeado + assentos no chão" },
+            {
+              label: "Palco / Decoração",
+              value: "Drapeado + assentos no chão",
+            },
             { label: "Flores", value: "Calêndula · jasmim · verde" },
             { label: "Ideal para", value: "Jardim · pátio · praia" },
           ],
@@ -908,9 +1565,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#e0a13a", "#ebe3d3", "#a7a78b", "#d6cdb8", "#4a523d"],
           imageKey: "concept-3",
           rows: [
-            { label: "Palco / Decoração", value: "Plataforma de madeira, flores baixas" },
+            {
+              label: "Palco / Decoração",
+              value: "Plataforma de madeira, flores baixas",
+            },
             { label: "Flores", value: "Peónia · lótus · verde" },
-            { label: "Ideal para", value: "Jardim · vila · junto ao santuário" },
+            {
+              label: "Ideal para",
+              value: "Jardim · vila · junto ao santuário",
+            },
           ],
         },
       ],
@@ -920,12 +1583,30 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "Aquilo que temos por *sagrado.*",
       deck: "Seis princípios em que não cedemos. Quando a prática varia entre famílias, remetemo-nos ao oficiante e aos mais velhos — não à nossa própria conveniência.",
       items: [
-        { title: "O nikkah é testemunhado e documentado", body: "O contrato matrimonial é lido, testemunhado e registado sob a orientação do imame que oficia. Organizamos as testemunhas, a documentação e o registo legal em torno das exigências do imame — e não o contrário." },
-        { title: "O Anand Karaj é conduzido com reverência", body: "Um Anand Karaj sikh é celebrado na presença do Guru Granth Sahib com um granthi experiente. A conduta no local e o nível do cenário são respeitados em absoluto; quando algum detalhe do rito está em dúvida, decide o granthi, e nós seguimos." },
-        { title: "As cozinhas halal são informadas cedo", body: "Quando a família observa o halal, a cozinha do resort é informada e o abastecimento organizado com meses de antecedência. Confirmamos a certificação e a preparação com a orientação da família, e mantemos os menus separados onde as tradições que se cruzam o exigem." },
-        { title: "O rukhsati conserva o seu espaço", body: "A despedida é o momento mais emotivo de um casamento paquistanês. Nunca o comprimimos por questões de ritmo nem agendamos uma troca de fornecedor por cima dele. A família marca o tom e nós mantemos a sala em silêncio." },
-        { title: "Os mais velhos são honrados primeiro", body: "Os mais velhos são saudados, sentados e servidos antes de qualquer assunto do cortejo nupcial. As necessidades alimentares e de mobilidade dos convidados idosos são resolvidas antes de se fechar um menu ou uma planta de sala." },
-        { title: "A música regional é ao vivo sempre que possível", body: "Dhol para o baraat, músicos devocionais para os ritos sagrados, canto regional para o mehndi e o gaye holud. A música gravada é bem-vinda nas celebrações, mas ao vivo onde a tradição da família o pede." },
+        {
+          title: "O nikkah é testemunhado e documentado",
+          body: "O contrato matrimonial é lido, testemunhado e registado sob a orientação do imame que oficia. Organizamos as testemunhas, a documentação e o registo legal em torno das exigências do imame — e não o contrário.",
+        },
+        {
+          title: "O Anand Karaj é conduzido com reverência",
+          body: "Um Anand Karaj sikh é celebrado na presença do Guru Granth Sahib com um granthi experiente. A conduta no local e o nível do cenário são respeitados em absoluto; quando algum detalhe do rito está em dúvida, decide o granthi, e nós seguimos.",
+        },
+        {
+          title: "As cozinhas halal são informadas cedo",
+          body: "Quando a família observa o halal, a cozinha do resort é informada e o abastecimento organizado com meses de antecedência. Confirmamos a certificação e a preparação com a orientação da família, e mantemos os menus separados onde as tradições que se cruzam o exigem.",
+        },
+        {
+          title: "O rukhsati conserva o seu espaço",
+          body: "A despedida é o momento mais emotivo de um casamento paquistanês. Nunca o comprimimos por questões de ritmo nem agendamos uma troca de fornecedor por cima dele. A família marca o tom e nós mantemos a sala em silêncio.",
+        },
+        {
+          title: "Os mais velhos são honrados primeiro",
+          body: "Os mais velhos são saudados, sentados e servidos antes de qualquer assunto do cortejo nupcial. As necessidades alimentares e de mobilidade dos convidados idosos são resolvidas antes de se fechar um menu ou uma planta de sala.",
+        },
+        {
+          title: "A música regional é ao vivo sempre que possível",
+          body: "Dhol para o baraat, músicos devocionais para os ritos sagrados, canto regional para o mehndi e o gaye holud. A música gravada é bem-vinda nas celebrações, mas ao vivo onde a tradição da família o pede.",
+        },
       ],
     },
     planning: {
@@ -939,9 +1620,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           title: "Dholki e mehndi",
           body: "Os convidados chegam ao longo do dia, com transferes e check-ins coordenados pelo ateliê. Um dholki informal à tarde e depois o mehndi à noite — hena em várias estações, música e um jantar descontraído.",
           events: [
-            { time: "Manhã", body: "Chegadas de convidados · transferes · check-in no hotel" },
+            {
+              time: "Manhã",
+              body: "Chegadas de convidados · transferes · check-in no hotel",
+            },
             { time: "16:00", body: "Dholki · tambores e canto · mulheres" },
-            { time: "18:30", body: "Cerimónia de mehndi · estações de hena · 3 horas" },
+            {
+              time: "18:30",
+              body: "Cerimónia de mehndi · estações de hena · 3 horas",
+            },
             { time: "21:00", body: "Jantar informal · bufete no jardim" },
           ],
         },
@@ -952,7 +1639,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           body: "O nikkah à hora que o imame fixa, lido e testemunhado. O baraat traz o cortejo do noivo em celebração. Ritos familiares pela tarde e depois o rukhsati — com todo o seu espaço — encerra o dia antes do jantar.",
           events: [
             { time: "11:00", body: "Preparação dos noivos · suites separadas" },
-            { time: "14:00", body: "Nikkah · contrato lido e testemunhado · 60 minutos" },
+            {
+              time: "14:00",
+              body: "Nikkah · contrato lido e testemunhado · 60 minutos",
+            },
             { time: "15:30", body: "Baraat · cortejo do noivo · boas-vindas" },
             { time: "17:00", body: "Ritos familiares · fotografias" },
             { time: "18:30", body: "Rukhsati · a despedida · sem pressa" },
@@ -966,9 +1656,18 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           body: "O walima oferecido pela família do noivo — a segunda receção formal que completa o casamento à vista da comunidade. Um brunch tardio para os convidados que partem, e as famílias próximas ficam muitas vezes mais um dia.",
           events: [
             { time: "11:00", body: "Brunch de despedida · junto à piscina" },
-            { time: "19:00", body: "Cocktail do walima · oferece a família do noivo" },
-            { time: "20:30", body: "Jantar do walima · receção formal · discursos" },
-            { time: "Ao fim do dia", body: "Começam as partidas · transferes na manhã seguinte" },
+            {
+              time: "19:00",
+              body: "Cocktail do walima · oferece a família do noivo",
+            },
+            {
+              time: "20:30",
+              body: "Jantar do walima · receção formal · discursos",
+            },
+            {
+              time: "Ao fim do dia",
+              body: "Começam as partidas · transferes na manhã seguinte",
+            },
           ],
         },
       ],
@@ -979,14 +1678,54 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Ver todos os destinos →",
       viewAllHref: staticPath("pt", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caraíbas · todo o ano", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Tulum e Los Cabos", sub: "México · novembro – abril", destinationSlug: "tulum-los-cabos" },
-        { rating: 4, name: "Lago de Como", sub: "Itália · junho – setembro", destinationSlug: "lake-como" },
-        { rating: 4, name: "Toscana", sub: "Itália · maio – outubro", destinationSlug: "tuscany" },
-        { rating: 4, name: "Amalfi", sub: "Itália · maio – outubro", destinationSlug: "amalfi" },
-        { rating: 4, name: "Os Hamptons", sub: "Nova Iorque · junho – setembro", destinationSlug: "the-hamptons" },
-        { rating: 3, name: "Costa Azul", sub: "França · junho – setembro", destinationSlug: "cote-dazur" },
-        { rating: 3, name: "St. Barths", sub: "Caraíbas · novembro – abril", destinationSlug: "st-barths" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caraíbas · todo o ano",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Tulum e Los Cabos",
+          sub: "México · novembro – abril",
+          destinationSlug: "tulum-los-cabos",
+        },
+        {
+          rating: 4,
+          name: "Lago de Como",
+          sub: "Itália · junho – setembro",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "Toscana",
+          sub: "Itália · maio – outubro",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Amalfi",
+          sub: "Itália · maio – outubro",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Os Hamptons",
+          sub: "Nova Iorque · junho – setembro",
+          destinationSlug: "the-hamptons",
+        },
+        {
+          rating: 3,
+          name: "Costa Azul",
+          sub: "França · junho – setembro",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 3,
+          name: "St. Barths",
+          sub: "Caraíbas · novembro – abril",
+          destinationSlug: "st-barths",
+        },
       ],
     },
     guest: {
@@ -994,27 +1733,73 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "O cuidado *prático* de 250 convidados.",
       deck: "A camada logística que a maioria dos planeadores subdota. Nestas tradições, a fé e a família vêm primeiro — planeamos em torno de ambas.",
       cells: [
-        { title: "Protocolo halal", body: "Quando a família observa o halal, informamos a cozinha e confirmamos o abastecimento e a certificação com meses de antecedência. Os menus mantêm-se separados onde as tradições que se cruzam o necessitam, e a orientação da família é definitiva." },
-        { title: "Horários de oração", body: "Os horários diários de oração são integrados no programa, com um espaço de oração limpo e silencioso e instalações para o wudu. As horas das cerimónias são fixadas para nunca colidirem com as obrigações dos convidados praticantes." },
-        { title: "Orientação para tradições mistas", body: "Quando os convidados vêm de mais de uma fé — muçulmana, sikh, hindu, cristã — enviamos notas à medida para que cada um saiba o que esperar no nikkah, no Anand Karaj ou no Poruwa, e como participar com respeito." },
-        { title: "Mais velhos e mobilidade", body: "Lugares dedicados, transporte separado e um elo de ligação para os mais velhos da equipa do ateliê. Quartos no rés-do-chão para os convidados idosos, com assistência médica de prevenção durante todo o fim de semana." },
-        { title: "Viagens e alojamento", body: "Blocos de quartos em categorias premium, padrão e familiar. Transferes coordenados ao longo de vários dias de chegadas, com um pacote de boas-vindas e o programa em cada quarto." },
-        { title: "Comunicações", body: "Um grupo de convidados três semanas antes, um site dedicado com programa e códigos de vestuário, e guias impressos — incluindo notas de etiqueta para cada cerimónia nas línguas da família." },
+        {
+          title: "Protocolo halal",
+          body: "Quando a família observa o halal, informamos a cozinha e confirmamos o abastecimento e a certificação com meses de antecedência. Os menus mantêm-se separados onde as tradições que se cruzam o necessitam, e a orientação da família é definitiva.",
+        },
+        {
+          title: "Horários de oração",
+          body: "Os horários diários de oração são integrados no programa, com um espaço de oração limpo e silencioso e instalações para o wudu. As horas das cerimónias são fixadas para nunca colidirem com as obrigações dos convidados praticantes.",
+        },
+        {
+          title: "Orientação para tradições mistas",
+          body: "Quando os convidados vêm de mais de uma fé — muçulmana, sikh, hindu, cristã — enviamos notas à medida para que cada um saiba o que esperar no nikkah, no Anand Karaj ou no Poruwa, e como participar com respeito.",
+        },
+        {
+          title: "Mais velhos e mobilidade",
+          body: "Lugares dedicados, transporte separado e um elo de ligação para os mais velhos da equipa do ateliê. Quartos no rés-do-chão para os convidados idosos, com assistência médica de prevenção durante todo o fim de semana.",
+        },
+        {
+          title: "Viagens e alojamento",
+          body: "Blocos de quartos em categorias premium, padrão e familiar. Transferes coordenados ao longo de vários dias de chegadas, com um pacote de boas-vindas e o programa em cada quarto.",
+        },
+        {
+          title: "Comunicações",
+          body: "Um grupo de convidados três semanas antes, um site dedicado com programa e códigos de vestuário, e guias impressos — incluindo notas de etiqueta para cada cerimónia nas línguas da família.",
+        },
       ],
     },
     related: {
       eyebrow: "Continuar a ler",
       headline: "Do *diário.*",
       articles: [
-        { category: "Paquistanês · Punta Cana", title: "Conduzir um nikkah de destino, passo a passo", body: "Como o contrato é lido, testemunhado e registado no estrangeiro — e o que o imame precisa de nós.", imageKey: "culture-related-1" },
-        { category: "Sikh · Tradição", title: "O Anand Karaj num resort: o que exige", body: "Sobre conduzir a cerimónia sikh com a reverência que o Guru Granth Sahib exige.", imageKey: "culture-related-2" },
-        { category: "Tradição · Cingalês", title: "Dentro da cerimónia do Poruwa", body: "Um guia do rito cingalês sobre plataforma e dos rituais nele realizados.", imageKey: "culture-related-3" },
-        { category: "Custo · Sul da Ásia", title: "Quanto custa um casamento de luxo do sul da Ásia", body: "Orçamentos francos de 2026 por tradição e número de convidados.", imageKey: "culture-related-4" },
-        { category: "Bangladechiano · Design", title: "O gaye holud, em detalhe", body: "Sobre a noite de açafrão-da-terra que abre um casamento bangladechiano — e como o concebemos.", imageKey: "culture-related-5" },
+        {
+          category: "Paquistanês · Punta Cana",
+          title: "Conduzir um nikkah de destino, passo a passo",
+          body: "Como o contrato é lido, testemunhado e registado no estrangeiro — e o que o imame precisa de nós.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Sikh · Tradição",
+          title: "O Anand Karaj num resort: o que exige",
+          body: "Sobre conduzir a cerimónia sikh com a reverência que o Guru Granth Sahib exige.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Tradição · Cingalês",
+          title: "Dentro da cerimónia do Poruwa",
+          body: "Um guia do rito cingalês sobre plataforma e dos rituais nele realizados.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Custo · Sul da Ásia",
+          title: "Quanto custa um casamento de luxo do sul da Ásia",
+          body: "Orçamentos francos de 2026 por tradição e número de convidados.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Bangladechiano · Design",
+          title: "O gaye holud, em detalhe",
+          body: "Sobre a noite de açafrão-da-terra que abre um casamento bangladechiano — e como o concebemos.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("pt", "punta-cana") },
-        { label: "Tulum e Los Cabos", href: destinationPath("pt", "tulum-los-cabos") },
+        {
+          label: "Tulum e Los Cabos",
+          href: destinationPath("pt", "tulum-los-cabos"),
+        },
         { label: "Lago de Como", href: destinationPath("pt", "lake-como") },
         { label: "Os Hamptons", href: destinationPath("pt", "the-hamptons") },
       ],
@@ -1025,10 +1810,22 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
         { label: "Chileno Bay Resort" },
       ],
       sidebarCultures: [
-        { label: "Casamentos indianos", href: culturePath("pt", "indian-weddings") },
-        { label: "Casamentos árabes", href: culturePath("pt", "arab-weddings") },
-        { label: "Casamentos inter-religiosos", href: culturePath("pt", "interfaith-weddings") },
-        { label: "Casamentos judaicos", href: culturePath("pt", "jewish-weddings") },
+        {
+          label: "Casamentos indianos",
+          href: culturePath("pt", "indian-weddings"),
+        },
+        {
+          label: "Casamentos árabes",
+          href: culturePath("pt", "arab-weddings"),
+        },
+        {
+          label: "Casamentos inter-religiosos",
+          href: culturePath("pt", "interfaith-weddings"),
+        },
+        {
+          label: "Casamentos judaicos",
+          href: culturePath("pt", "jewish-weddings"),
+        },
       ],
     },
     faq: {
@@ -1057,7 +1854,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Quanto custa um casamento de destino do sul da Ásia em 2026?",
+          question:
+            "Quanto custa um casamento de destino do sul da Ásia em 2026?",
           answer: [
             "Um intervalo útil para casamentos de 150 a 400 convidados ao longo de dois a quatro dias é de USD 250.000 – 900.000, tudo incluído, conforme a tradição, o destino e o número de convidados.",
             "Partilhamos orçamentos transparentes e detalhados na primeira consulta, com intervalos por número de convidados e pelos eventos que cada tradição exige.",
@@ -1071,7 +1869,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Em que difere isto da vossa página de Casamentos Indianos?",
+          question:
+            "Em que difere isto da vossa página de Casamentos Indianos?",
           answer: [
             "A nossa página de Casamentos Indianos é para os casamentos hindus indianos — o mandap, as pheras, o pandit com quem trabalhamos há anos.",
             "Esta página é para o resto do subcontinente: tradições muçulmana paquistanesa, sikh, cingalesa e bangladechiana, cada uma conduzida como a sua própria fé. Se o seu casamento é hindu, essa página é o lar certo; se cruza fés, a nossa página inter-religiosa talvez também o seja.",
@@ -1091,7 +1890,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
   de: {
     name: "Südasiatische Hochzeiten",
     cardEyebrow: "Südasiatisch",
-    cardBlurb: "Hinduistisch, sikhistisch, muslimisch, sri-lankisch, bangladeschisch.",
+    cardBlurb:
+      "Hinduistisch, sikhistisch, muslimisch, sri-lankisch, bangladeschisch.",
     cardMeta: "Entdecken",
     intro:
       "Hinduistische, sikhistische, muslimische, sri-lankische und bangladeschische Zeremonien, jede getragen von Spezialisten, die in der Tradition gelebt haben.",
@@ -1107,10 +1907,26 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     factStrip: [
       { label: "Dauer", value: "2 – 4 Tage", sub: "3 – 6 Anlässe" },
       { label: "Gästezahl", value: "150 – 500", sub: "Mehr auf Anfrage" },
-      { label: "Vorlauf", value: "16 – 22 Monate", sub: "Geistliche buchen früh" },
-      { label: "Getragene Traditionen", value: "Pakistanisch · Sikh", sub: "Sri-lankisch · Bangladeschisch" },
-      { label: "Küche", value: "Halal bevorzugt", sub: "Regional, je nach Familie" },
-      { label: "Sprachen", value: "EN · Urdu", sub: "Punjabi · Singhalesisch · Bengali" },
+      {
+        label: "Vorlauf",
+        value: "16 – 22 Monate",
+        sub: "Geistliche buchen früh",
+      },
+      {
+        label: "Getragene Traditionen",
+        value: "Pakistanisch · Sikh",
+        sub: "Sri-lankisch · Bangladeschisch",
+      },
+      {
+        label: "Küche",
+        value: "Halal bevorzugt",
+        sub: "Regional, je nach Familie",
+      },
+      {
+        label: "Sprachen",
+        value: "EN · Urdu",
+        sub: "Punjabi · Singhalesisch · Bengali",
+      },
     ],
     overview: {
       sideEyebrow: "Die Traditionen",
@@ -1126,20 +1942,63 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       ],
       pull: "„Ein pakistanisches Nikkah, ein sikhistisches Anand Karaj, ein sri-lankisches Poruwa und ein bangladeschisches gaye holud teilen eine Landkarte und fast nichts sonst. Wir halten sie bewusst auseinander.“",
       signatureName: "Grecia",
-      signatureRole: "Gründerin · Über die vielen Traditionen des Subkontinents hinweg",
+      signatureRole:
+        "Gründerin · Über die vielen Traditionen des Subkontinents hinweg",
     },
     ceremonyArc: {
       eyebrow: "Zeremonienstruktur",
       headline: "Der Vertrag, der Zug, der *Abschied.*",
       deck: "Ein typischer muslimischer südasiatischer Bogen, mit den getragenen Varianten bei jedem Schritt benannt. Sikhistische, sri-lankische und bangladeschische Familien formen ihn um ihren eigenen Glauben — jede Hochzeit passt sich nach Tradition und Region an.",
       steps: [
-        { numeral: "I", name: "Dholki", sub: "Bangladeschisch: gaye holud", when: "Abends, Tage zuvor", body: "Ein zwangloser Abend mit Trommeln und Gesang unter den Frauen — der dholki für pakistanische Familien, das kurkuma-erleuchtete gaye holud für bangladeschische. Die Feier beginnt lange vor dem Gelübde." },
-        { numeral: "II", name: "Mehndi", sub: "Henna-Abend", when: "Am Vorabend", body: "Hände und Füße mit kunstvollem Henna verziert, mit Musik und Tanz. In den meisten südasiatischen Traditionen gehalten, mit regionalen Liedern und einer von der Familie bewahrten Ordnung." },
-        { numeral: "III", name: "Nikkah", sub: "Sikh-Variante: Anand Karaj", when: "Hochzeitstag", body: "Die Vertragszeremonie. Bei muslimischen Familien wird das Nikkah unter Anleitung des amtierenden Imam verlesen, bezeugt und dokumentiert. Sikhistische Familien halten stattdessen das Anand Karaj, vor dem Guru Granth Sahib mit einem granthi." },
-        { numeral: "IV", name: "Baraat", sub: "Der Zug", when: "Hochzeitstag", body: "Die Begleitung des Bräutigams trifft festlich ein — Trommeln, Familie und Empfang durch die Seite der Braut. Sri-lankische Familien versammeln sich stattdessen am Poruwa, der geschmückten Plattform, auf der die Riten gehalten werden." },
-        { numeral: "V", name: "Poruwa", sub: "Sri-lankischer Ritus", when: "Hochzeitstag", body: "Ist die Familie sri-lankisch, besteigt das Paar das Poruwa für die traditionelle singhalesische Zeremonie — das Binden der Hände, die Riten unter Aufsicht des von der Familie benannten Geistlichen." },
-        { numeral: "VI", name: "Rukhsati", sub: "Der Abschied", when: "Hochzeitstag, spät", body: "Die Braut verlässt die Obhut ihrer Familie hin zu ihrem neuen Zuhause. Der bewegendste Augenblick des Tages; wir geben ihm allen Raum und legen niemals etwas darüber." },
-        { numeral: "VII", name: "Walima", sub: "Der zweite Empfang", when: "Am Folgetag", body: "Der von der Familie des Bräutigams ausgerichtete Empfang, am Tag nach dem Nikkah. Eine förmliche Feier, die die Ehe vor den Augen der Gemeinschaft vollendet." },
+        {
+          numeral: "I",
+          name: "Dholki",
+          sub: "Bangladeschisch: gaye holud",
+          when: "Abends, Tage zuvor",
+          body: "Ein zwangloser Abend mit Trommeln und Gesang unter den Frauen — der dholki für pakistanische Familien, das kurkuma-erleuchtete gaye holud für bangladeschische. Die Feier beginnt lange vor dem Gelübde.",
+        },
+        {
+          numeral: "II",
+          name: "Mehndi",
+          sub: "Henna-Abend",
+          when: "Am Vorabend",
+          body: "Hände und Füße mit kunstvollem Henna verziert, mit Musik und Tanz. In den meisten südasiatischen Traditionen gehalten, mit regionalen Liedern und einer von der Familie bewahrten Ordnung.",
+        },
+        {
+          numeral: "III",
+          name: "Nikkah",
+          sub: "Sikh-Variante: Anand Karaj",
+          when: "Hochzeitstag",
+          body: "Die Vertragszeremonie. Bei muslimischen Familien wird das Nikkah unter Anleitung des amtierenden Imam verlesen, bezeugt und dokumentiert. Sikhistische Familien halten stattdessen das Anand Karaj, vor dem Guru Granth Sahib mit einem granthi.",
+        },
+        {
+          numeral: "IV",
+          name: "Baraat",
+          sub: "Der Zug",
+          when: "Hochzeitstag",
+          body: "Die Begleitung des Bräutigams trifft festlich ein — Trommeln, Familie und Empfang durch die Seite der Braut. Sri-lankische Familien versammeln sich stattdessen am Poruwa, der geschmückten Plattform, auf der die Riten gehalten werden.",
+        },
+        {
+          numeral: "V",
+          name: "Poruwa",
+          sub: "Sri-lankischer Ritus",
+          when: "Hochzeitstag",
+          body: "Ist die Familie sri-lankisch, besteigt das Paar das Poruwa für die traditionelle singhalesische Zeremonie — das Binden der Hände, die Riten unter Aufsicht des von der Familie benannten Geistlichen.",
+        },
+        {
+          numeral: "VI",
+          name: "Rukhsati",
+          sub: "Der Abschied",
+          when: "Hochzeitstag, spät",
+          body: "Die Braut verlässt die Obhut ihrer Familie hin zu ihrem neuen Zuhause. Der bewegendste Augenblick des Tages; wir geben ihm allen Raum und legen niemals etwas darüber.",
+        },
+        {
+          numeral: "VII",
+          name: "Walima",
+          sub: "Der zweite Empfang",
+          when: "Am Folgetag",
+          body: "Der von der Familie des Bräutigams ausgerichtete Empfang, am Tag nach dem Nikkah. Eine förmliche Feier, die die Ehe vor den Augen der Gemeinschaft vollendet.",
+        },
       ],
     },
     designConcepts: {
@@ -1175,9 +2034,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#e0a13a", "#ebe3d3", "#a7a78b", "#d6cdb8", "#4a523d"],
           imageKey: "concept-3",
           rows: [
-            { label: "Bühne / Dekor", value: "Holzplattform, niedrige Floristik" },
+            {
+              label: "Bühne / Dekor",
+              value: "Holzplattform, niedrige Floristik",
+            },
             { label: "Floristik", value: "Pfingstrose · Lotus · Grün" },
-            { label: "Am besten für", value: "Garten · Villa · nahe dem Heiligtum" },
+            {
+              label: "Am besten für",
+              value: "Garten · Villa · nahe dem Heiligtum",
+            },
           ],
         },
       ],
@@ -1187,12 +2052,30 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "Was uns *heilig* ist.",
       deck: "Sechs Grundsätze, bei denen wir keine Kompromisse machen. Wo die Praxis zwischen Familien variiert, fügen wir uns dem Geistlichen und den Ältesten — nicht unserer eigenen Bequemlichkeit.",
       items: [
-        { title: "Das Nikkah wird bezeugt und dokumentiert", body: "Der Ehevertrag wird unter Anleitung des amtierenden Imam verlesen, bezeugt und festgehalten. Wir arrangieren die Zeugen, die Dokumentation und die rechtliche Registrierung um die Anforderungen des Imam herum — und nicht umgekehrt." },
-        { title: "Das Anand Karaj wird mit Ehrfurcht gehalten", body: "Ein sikhistisches Anand Karaj wird in Gegenwart des Guru Granth Sahib mit einem erfahrenen granthi vollzogen. Das Verhalten am Ort und das Niveau des Rahmens werden absolut respektiert; ist ein Detail des Ritus fraglich, entscheidet der granthi, und wir folgen." },
-        { title: "Halal-Küchen werden früh eingewiesen", body: "Beachtet die Familie das Halal, wird die Resortküche eingewiesen und die Beschaffung Monate im Voraus arrangiert. Wir bestätigen Zertifizierung und Zubereitung unter Anleitung der Familie und halten die Menüs getrennt, wo sich überschneidende Traditionen es verlangen." },
-        { title: "Der Rukhsati behält seinen Raum", body: "Der Abschied ist der bewegendste Augenblick einer pakistanischen Hochzeit. Wir verkürzen ihn nie aus Zeitgründen und legen keinen Dienstleisterwechsel darüber. Die Familie gibt den Ton an, und wir halten den Raum still." },
-        { title: "Die Ältesten werden zuerst geehrt", body: "Die Ältesten werden begrüßt, platziert und bedient, bevor irgendein Anliegen der Hochzeitsgesellschaft kommt. Ernährungs- und Mobilitätsbedürfnisse betagter Gäste werden geklärt, bevor ein Menü oder ein Saalplan festgelegt wird." },
-        { title: "Regionale Musik ist live, wo möglich", body: "Dhol für den baraat, andächtige Musiker für die heiligen Riten, regionaler Gesang für das mehndi und das gaye holud. Aufgenommene Musik ist bei den Feiern willkommen, aber live, wo die Tradition der Familie es verlangt." },
+        {
+          title: "Das Nikkah wird bezeugt und dokumentiert",
+          body: "Der Ehevertrag wird unter Anleitung des amtierenden Imam verlesen, bezeugt und festgehalten. Wir arrangieren die Zeugen, die Dokumentation und die rechtliche Registrierung um die Anforderungen des Imam herum — und nicht umgekehrt.",
+        },
+        {
+          title: "Das Anand Karaj wird mit Ehrfurcht gehalten",
+          body: "Ein sikhistisches Anand Karaj wird in Gegenwart des Guru Granth Sahib mit einem erfahrenen granthi vollzogen. Das Verhalten am Ort und das Niveau des Rahmens werden absolut respektiert; ist ein Detail des Ritus fraglich, entscheidet der granthi, und wir folgen.",
+        },
+        {
+          title: "Halal-Küchen werden früh eingewiesen",
+          body: "Beachtet die Familie das Halal, wird die Resortküche eingewiesen und die Beschaffung Monate im Voraus arrangiert. Wir bestätigen Zertifizierung und Zubereitung unter Anleitung der Familie und halten die Menüs getrennt, wo sich überschneidende Traditionen es verlangen.",
+        },
+        {
+          title: "Der Rukhsati behält seinen Raum",
+          body: "Der Abschied ist der bewegendste Augenblick einer pakistanischen Hochzeit. Wir verkürzen ihn nie aus Zeitgründen und legen keinen Dienstleisterwechsel darüber. Die Familie gibt den Ton an, und wir halten den Raum still.",
+        },
+        {
+          title: "Die Ältesten werden zuerst geehrt",
+          body: "Die Ältesten werden begrüßt, platziert und bedient, bevor irgendein Anliegen der Hochzeitsgesellschaft kommt. Ernährungs- und Mobilitätsbedürfnisse betagter Gäste werden geklärt, bevor ein Menü oder ein Saalplan festgelegt wird.",
+        },
+        {
+          title: "Regionale Musik ist live, wo möglich",
+          body: "Dhol für den baraat, andächtige Musiker für die heiligen Riten, regionaler Gesang für das mehndi und das gaye holud. Aufgenommene Musik ist bei den Feiern willkommen, aber live, wo die Tradition der Familie es verlangt.",
+        },
       ],
     },
     planning: {
@@ -1206,9 +2089,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           title: "Dholki & mehndi",
           body: "Die Gäste treffen über den Tag verteilt ein, Transfers und Check-ins vom Atelier koordiniert. Ein zwangloser dholki am Nachmittag, dann das mehndi am Abend — Henna an mehreren Stationen, Musik und ein entspanntes Abendessen.",
           events: [
-            { time: "Morgens", body: "Ankünfte der Gäste · Transfers · Hotel-Check-in" },
+            {
+              time: "Morgens",
+              body: "Ankünfte der Gäste · Transfers · Hotel-Check-in",
+            },
             { time: "16:00", body: "Dholki · Trommeln und Gesang · Frauen" },
-            { time: "18:30", body: "Mehndi-Zeremonie · Henna-Stationen · 3 Stunden" },
+            {
+              time: "18:30",
+              body: "Mehndi-Zeremonie · Henna-Stationen · 3 Stunden",
+            },
             { time: "21:00", body: "Lockeres Abendessen · Gartenbuffet" },
           ],
         },
@@ -1218,12 +2107,21 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           title: "Nikkah, baraat & rukhsati",
           body: "Das Nikkah zur vom Imam gesetzten Zeit, verlesen und bezeugt. Der baraat bringt die Begleitung des Bräutigams festlich. Familienriten über den Nachmittag, dann schließt der rukhsati — mit vollem Raum — den Tag vor dem Abendessen.",
           events: [
-            { time: "11:00", body: "Vorbereitung von Braut und Bräutigam · getrennte Suiten" },
-            { time: "14:00", body: "Nikkah · Vertrag verlesen und bezeugt · 60 Minuten" },
+            {
+              time: "11:00",
+              body: "Vorbereitung von Braut und Bräutigam · getrennte Suiten",
+            },
+            {
+              time: "14:00",
+              body: "Nikkah · Vertrag verlesen und bezeugt · 60 Minuten",
+            },
             { time: "15:30", body: "Baraat · Zug des Bräutigams · Empfang" },
             { time: "17:00", body: "Familienriten · Fotografien" },
             { time: "18:30", body: "Rukhsati · der Abschied · ohne Eile" },
-            { time: "20:00", body: "Abendessen · lange Tafel · regionales Menü" },
+            {
+              time: "20:00",
+              body: "Abendessen · lange Tafel · regionales Menü",
+            },
           ],
         },
         {
@@ -1233,9 +2131,18 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           body: "Das von der Familie des Bräutigams ausgerichtete walima — der förmliche zweite Empfang, der die Ehe vor den Augen der Gemeinschaft vollendet. Ein später Brunch für abreisende Gäste, wobei die engsten Familien oft einen Tag länger bleiben.",
           events: [
             { time: "11:00", body: "Abschieds-Brunch · am Pool" },
-            { time: "19:00", body: "Walima-Aperitif · die Familie des Bräutigams lädt ein" },
-            { time: "20:30", body: "Walima-Dinner · förmlicher Empfang · Reden" },
-            { time: "Spät", body: "Abreisen beginnen · Transfers am nächsten Morgen" },
+            {
+              time: "19:00",
+              body: "Walima-Aperitif · die Familie des Bräutigams lädt ein",
+            },
+            {
+              time: "20:30",
+              body: "Walima-Dinner · förmlicher Empfang · Reden",
+            },
+            {
+              time: "Spät",
+              body: "Abreisen beginnen · Transfers am nächsten Morgen",
+            },
           ],
         },
       ],
@@ -1246,14 +2153,54 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Alle Reiseziele ansehen →",
       viewAllHref: staticPath("de", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Karibik · ganzjährig", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Tulum & Los Cabos", sub: "Mexiko · November – April", destinationSlug: "tulum-los-cabos" },
-        { rating: 4, name: "Comer See", sub: "Italien · Juni – September", destinationSlug: "lake-como" },
-        { rating: 4, name: "Toskana", sub: "Italien · Mai – Oktober", destinationSlug: "tuscany" },
-        { rating: 4, name: "Amalfi", sub: "Italien · Mai – Oktober", destinationSlug: "amalfi" },
-        { rating: 4, name: "Die Hamptons", sub: "New York · Juni – September", destinationSlug: "the-hamptons" },
-        { rating: 3, name: "Côte d'Azur", sub: "Frankreich · Juni – September", destinationSlug: "cote-dazur" },
-        { rating: 3, name: "St. Barths", sub: "Karibik · November – April", destinationSlug: "st-barths" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Karibik · ganzjährig",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Tulum & Los Cabos",
+          sub: "Mexiko · November – April",
+          destinationSlug: "tulum-los-cabos",
+        },
+        {
+          rating: 4,
+          name: "Comer See",
+          sub: "Italien · Juni – September",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "Toskana",
+          sub: "Italien · Mai – Oktober",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Amalfi",
+          sub: "Italien · Mai – Oktober",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Die Hamptons",
+          sub: "New York · Juni – September",
+          destinationSlug: "the-hamptons",
+        },
+        {
+          rating: 3,
+          name: "Côte d'Azur",
+          sub: "Frankreich · Juni – September",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 3,
+          name: "St. Barths",
+          sub: "Karibik · November – April",
+          destinationSlug: "st-barths",
+        },
       ],
     },
     guest: {
@@ -1261,27 +2208,73 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "Die *praktische* Sorge um 250 Gäste.",
       deck: "Die logistische Ebene, die die meisten Planer unterbesetzen. In diesen Traditionen kommen Glaube und Familie zuerst — wir planen um beide herum.",
       cells: [
-        { title: "Halal-Protokoll", body: "Beachtet die Familie das Halal, weisen wir die Küche ein und bestätigen Beschaffung und Zertifizierung Monate im Voraus. Menüs bleiben getrennt, wo sich überschneidende Traditionen es brauchen, und die Anleitung der Familie ist endgültig." },
-        { title: "Gebetszeiten", body: "Die täglichen Gebetszeiten werden in den Ablauf eingebaut, mit einem sauberen, stillen Gebetsraum und Einrichtungen für das wudu. Die Zeremonienzeiten werden so gesetzt, dass sie nie mit den Pflichten praktizierender Gäste kollidieren." },
-        { title: "Hinweise für gemischte Traditionen", body: "Kommen Gäste aus mehr als einem Glauben — muslimisch, sikhistisch, hinduistisch, christlich — senden wir maßgeschneiderte Hinweise, damit jeder weiß, was ihn beim Nikkah, beim Anand Karaj oder beim Poruwa erwartet und wie er mit Anstand teilnimmt." },
-        { title: "Ältere & Mobilität", body: "Eigene Plätze, separater Transport und ein Älteren-Ansprechpartner aus dem Atelier-Team. Zimmer im Erdgeschoss für betagte Gäste, mit ärztlicher Rufbereitschaft über das gesamte Wochenende." },
-        { title: "Reise & Unterkunft", body: "Zimmerkontingente in den Stufen Premium, Standard und Familie. Transfers über mehrere Anreisetage koordiniert, mit einem Willkommenspaket und dem Ablauf in jedem Zimmer." },
-        { title: "Kommunikation", body: "Eine Gästegruppe drei Wochen im Voraus, eine eigene Hochzeitsseite mit Ablauf und Kleiderordnung sowie gedruckte Leitfäden — samt Etikette-Hinweisen zu jeder Zeremonie in den Sprachen der Familie." },
+        {
+          title: "Halal-Protokoll",
+          body: "Beachtet die Familie das Halal, weisen wir die Küche ein und bestätigen Beschaffung und Zertifizierung Monate im Voraus. Menüs bleiben getrennt, wo sich überschneidende Traditionen es brauchen, und die Anleitung der Familie ist endgültig.",
+        },
+        {
+          title: "Gebetszeiten",
+          body: "Die täglichen Gebetszeiten werden in den Ablauf eingebaut, mit einem sauberen, stillen Gebetsraum und Einrichtungen für das wudu. Die Zeremonienzeiten werden so gesetzt, dass sie nie mit den Pflichten praktizierender Gäste kollidieren.",
+        },
+        {
+          title: "Hinweise für gemischte Traditionen",
+          body: "Kommen Gäste aus mehr als einem Glauben — muslimisch, sikhistisch, hinduistisch, christlich — senden wir maßgeschneiderte Hinweise, damit jeder weiß, was ihn beim Nikkah, beim Anand Karaj oder beim Poruwa erwartet und wie er mit Anstand teilnimmt.",
+        },
+        {
+          title: "Ältere & Mobilität",
+          body: "Eigene Plätze, separater Transport und ein Älteren-Ansprechpartner aus dem Atelier-Team. Zimmer im Erdgeschoss für betagte Gäste, mit ärztlicher Rufbereitschaft über das gesamte Wochenende.",
+        },
+        {
+          title: "Reise & Unterkunft",
+          body: "Zimmerkontingente in den Stufen Premium, Standard und Familie. Transfers über mehrere Anreisetage koordiniert, mit einem Willkommenspaket und dem Ablauf in jedem Zimmer.",
+        },
+        {
+          title: "Kommunikation",
+          body: "Eine Gästegruppe drei Wochen im Voraus, eine eigene Hochzeitsseite mit Ablauf und Kleiderordnung sowie gedruckte Leitfäden — samt Etikette-Hinweisen zu jeder Zeremonie in den Sprachen der Familie.",
+        },
       ],
     },
     related: {
       eyebrow: "Weiterlesen",
       headline: "Aus dem *Journal.*",
       articles: [
-        { category: "Pakistanisch · Punta Cana", title: "Ein Destination-Nikkah halten, Schritt für Schritt", body: "Wie der Vertrag im Ausland verlesen, bezeugt und registriert wird — und was der Imam von uns braucht.", imageKey: "culture-related-1" },
-        { category: "Sikh · Tradition", title: "Das Anand Karaj im Resort: Was es verlangt", body: "Über das Halten der sikhistischen Zeremonie mit der Ehrfurcht, die der Guru Granth Sahib verlangt.", imageKey: "culture-related-2" },
-        { category: "Tradition · Sri-lankisch", title: "Im Inneren der Poruwa-Zeremonie", body: "Ein Leitfaden zum singhalesischen Plattform-Ritus und den darauf gehaltenen Ritualen.", imageKey: "culture-related-3" },
-        { category: "Kosten · Südasien", title: "Was eine luxuriöse südasiatische Hochzeit kostet", body: "Offene 2026er Budgets nach Tradition und Gästezahl.", imageKey: "culture-related-4" },
-        { category: "Bangladeschisch · Design", title: "Gaye Holud, im Detail", body: "Über den Kurkuma-Abend, der eine bangladeschische Hochzeit eröffnet — und wie wir ihn gestalten.", imageKey: "culture-related-5" },
+        {
+          category: "Pakistanisch · Punta Cana",
+          title: "Ein Destination-Nikkah halten, Schritt für Schritt",
+          body: "Wie der Vertrag im Ausland verlesen, bezeugt und registriert wird — und was der Imam von uns braucht.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Sikh · Tradition",
+          title: "Das Anand Karaj im Resort: Was es verlangt",
+          body: "Über das Halten der sikhistischen Zeremonie mit der Ehrfurcht, die der Guru Granth Sahib verlangt.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Tradition · Sri-lankisch",
+          title: "Im Inneren der Poruwa-Zeremonie",
+          body: "Ein Leitfaden zum singhalesischen Plattform-Ritus und den darauf gehaltenen Ritualen.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Kosten · Südasien",
+          title: "Was eine luxuriöse südasiatische Hochzeit kostet",
+          body: "Offene 2026er Budgets nach Tradition und Gästezahl.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Bangladeschisch · Design",
+          title: "Gaye Holud, im Detail",
+          body: "Über den Kurkuma-Abend, der eine bangladeschische Hochzeit eröffnet — und wie wir ihn gestalten.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("de", "punta-cana") },
-        { label: "Tulum & Los Cabos", href: destinationPath("de", "tulum-los-cabos") },
+        {
+          label: "Tulum & Los Cabos",
+          href: destinationPath("de", "tulum-los-cabos"),
+        },
         { label: "Comer See", href: destinationPath("de", "lake-como") },
         { label: "Die Hamptons", href: destinationPath("de", "the-hamptons") },
       ],
@@ -1292,10 +2285,22 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
         { label: "Chileno Bay Resort" },
       ],
       sidebarCultures: [
-        { label: "Indische Hochzeiten", href: culturePath("de", "indian-weddings") },
-        { label: "Arabische Hochzeiten", href: culturePath("de", "arab-weddings") },
-        { label: "Interreligiöse Hochzeiten", href: culturePath("de", "interfaith-weddings") },
-        { label: "Jüdische Hochzeiten", href: culturePath("de", "jewish-weddings") },
+        {
+          label: "Indische Hochzeiten",
+          href: culturePath("de", "indian-weddings"),
+        },
+        {
+          label: "Arabische Hochzeiten",
+          href: culturePath("de", "arab-weddings"),
+        },
+        {
+          label: "Interreligiöse Hochzeiten",
+          href: culturePath("de", "interfaith-weddings"),
+        },
+        {
+          label: "Jüdische Hochzeiten",
+          href: culturePath("de", "jewish-weddings"),
+        },
       ],
     },
     faq: {
@@ -1317,7 +2322,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Können pakistanische und indische Familien zusammen feiern?",
+          question:
+            "Können pakistanische und indische Familien zusammen feiern?",
           answer: [
             "Oft, und wunderschön. Eine muslimische pakistanische Familie und eine hinduistische indische Familie, die ihre Kinder verheiraten, ist eine der Verbindungen, um die wir am häufigsten gebeten werden.",
             "Wir behandeln sie als zwei mit gleicher Sorgfalt gehaltene Glauben — ein Nikkah und eine hinduistische Zeremonie, zwei Geistliche, ein Wochenende — statt als ein einziges verschmolzenes Ereignis. Unsere Seite zu interreligiösen Hochzeiten geht tiefer auf diese Arbeit ein.",
@@ -1338,7 +2344,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Wie unterscheidet sich das von Ihrer Seite zu indischen Hochzeiten?",
+          question:
+            "Wie unterscheidet sich das von Ihrer Seite zu indischen Hochzeiten?",
           answer: [
             "Unsere Seite zu indischen Hochzeiten ist für hinduistische indische Hochzeiten — das Mandap, die Pheras, der Pandit, mit dem wir seit Jahren arbeiten.",
             "Diese Seite ist für den übrigen Subkontinent: muslimische pakistanische, sikhistische, sri-lankische und bangladeschische Traditionen, jede als ihr eigener Glaube gehalten. Ist Ihre Hochzeit hinduistisch, ist jene Seite das richtige Zuhause; überschreitet sie Glaubensgrenzen, könnte es auch unsere interreligiöse Seite sein.",
@@ -1373,11 +2380,31 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     },
     factStrip: [
       { label: "Durata", value: "2 – 4 giorni", sub: "3 – 6 eventi" },
-      { label: "Numero di invitati", value: "150 – 500", sub: "Di più su richiesta" },
-      { label: "Preavviso", value: "16 – 22 mesi", sub: "I celebranti si prenotano presto" },
-      { label: "Tradizioni tenute", value: "Pakistana · Sikh", sub: "Srilankese · Bengalese" },
-      { label: "Cucina", value: "Halal in primo piano", sub: "Regionale, secondo la famiglia" },
-      { label: "Lingue", value: "EN · Urdu", sub: "Punjabi · Singalese · Bengali" },
+      {
+        label: "Numero di invitati",
+        value: "150 – 500",
+        sub: "Di più su richiesta",
+      },
+      {
+        label: "Preavviso",
+        value: "16 – 22 mesi",
+        sub: "I celebranti si prenotano presto",
+      },
+      {
+        label: "Tradizioni tenute",
+        value: "Pakistana · Sikh",
+        sub: "Srilankese · Bengalese",
+      },
+      {
+        label: "Cucina",
+        value: "Halal in primo piano",
+        sub: "Regionale, secondo la famiglia",
+      },
+      {
+        label: "Lingue",
+        value: "EN · Urdu",
+        sub: "Punjabi · Singalese · Bengali",
+      },
     ],
     overview: {
       sideEyebrow: "Le tradizioni",
@@ -1393,20 +2420,63 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       ],
       pull: "«Un nikkah pakistano, un Anand Karaj sikh, un Poruwa srilankese e un gaye holud bengalese condividono una mappa e quasi nient'altro. Li teniamo distinti di proposito.»",
       signatureName: "Grecia",
-      signatureRole: "Fondatrice · Attraverso le molte tradizioni del subcontinente",
+      signatureRole:
+        "Fondatrice · Attraverso le molte tradizioni del subcontinente",
     },
     ceremonyArc: {
       eyebrow: "Struttura cerimoniale",
       headline: "Il contratto, il corteo, il *congedo.*",
       deck: "Un arco musulmano tipico dell'Asia meridionale, con le varianti tenute nominate a ogni passo. Le famiglie sikh, srilankesi e bengalesi lo rimodellano attorno alla propria fede — ogni matrimonio si adatta secondo la tradizione e la regione.",
       steps: [
-        { numeral: "I", name: "Dholki", sub: "Bengalese: gaye holud", when: "La sera, giorni prima", body: "Una serata informale di tamburi e canto tra le donne — il dholki per le famiglie pakistane, il gaye holud illuminato di curcuma per quelle bengalesi. La celebrazione comincia molto prima del voto." },
-        { numeral: "II", name: "Mehndi", sub: "Notte dell'hennè", when: "La vigilia", body: "Mani e piedi decorati con hennè intricato, con musica e danza. Tenuto nella maggior parte delle tradizioni dell'Asia meridionale, con canti e ordine regionali conservati dalla famiglia." },
-        { numeral: "III", name: "Nikkah", sub: "Variante sikh: Anand Karaj", when: "Giorno del matrimonio", body: "La cerimonia del contratto. Per le famiglie musulmane, il nikkah viene letto, testimoniato e documentato sotto la guida dell'imam che officia. Le famiglie sikh tengono invece l'Anand Karaj, davanti al Guru Granth Sahib con un granthi." },
-        { numeral: "IV", name: "Baraat", sub: "Il corteo", when: "Giorno del matrimonio", body: "Il corteo dello sposo arriva in festa — tamburi, famiglia e accoglienza da parte della sposa. Le famiglie srilankesi si riuniscono invece al Poruwa, la pedana decorata dove si tengono i riti." },
-        { numeral: "V", name: "Poruwa", sub: "Rito srilankese", when: "Giorno del matrimonio", body: "Quando la famiglia è srilankese, la coppia sale sul Poruwa per la cerimonia singalese tradizionale — l'unione delle mani, i riti sovrintesi dal celebrante che la famiglia designa." },
-        { numeral: "VI", name: "Rukhsati", sub: "Il congedo", when: "Giorno del matrimonio, a sera", body: "La sposa lascia la cura della sua famiglia verso la sua nuova casa. Il momento più emozionante della giornata; gli diamo tutto lo spazio e non programmiamo mai nulla al di sopra di esso." },
-        { numeral: "VII", name: "Walima", sub: "Il secondo ricevimento", when: "Il giorno seguente", body: "Il ricevimento offerto dalla famiglia dello sposo, il giorno dopo il nikkah. Una celebrazione formale che completa il matrimonio agli occhi della comunità." },
+        {
+          numeral: "I",
+          name: "Dholki",
+          sub: "Bengalese: gaye holud",
+          when: "La sera, giorni prima",
+          body: "Una serata informale di tamburi e canto tra le donne — il dholki per le famiglie pakistane, il gaye holud illuminato di curcuma per quelle bengalesi. La celebrazione comincia molto prima del voto.",
+        },
+        {
+          numeral: "II",
+          name: "Mehndi",
+          sub: "Notte dell'hennè",
+          when: "La vigilia",
+          body: "Mani e piedi decorati con hennè intricato, con musica e danza. Tenuto nella maggior parte delle tradizioni dell'Asia meridionale, con canti e ordine regionali conservati dalla famiglia.",
+        },
+        {
+          numeral: "III",
+          name: "Nikkah",
+          sub: "Variante sikh: Anand Karaj",
+          when: "Giorno del matrimonio",
+          body: "La cerimonia del contratto. Per le famiglie musulmane, il nikkah viene letto, testimoniato e documentato sotto la guida dell'imam che officia. Le famiglie sikh tengono invece l'Anand Karaj, davanti al Guru Granth Sahib con un granthi.",
+        },
+        {
+          numeral: "IV",
+          name: "Baraat",
+          sub: "Il corteo",
+          when: "Giorno del matrimonio",
+          body: "Il corteo dello sposo arriva in festa — tamburi, famiglia e accoglienza da parte della sposa. Le famiglie srilankesi si riuniscono invece al Poruwa, la pedana decorata dove si tengono i riti.",
+        },
+        {
+          numeral: "V",
+          name: "Poruwa",
+          sub: "Rito srilankese",
+          when: "Giorno del matrimonio",
+          body: "Quando la famiglia è srilankese, la coppia sale sul Poruwa per la cerimonia singalese tradizionale — l'unione delle mani, i riti sovrintesi dal celebrante che la famiglia designa.",
+        },
+        {
+          numeral: "VI",
+          name: "Rukhsati",
+          sub: "Il congedo",
+          when: "Giorno del matrimonio, a sera",
+          body: "La sposa lascia la cura della sua famiglia verso la sua nuova casa. Il momento più emozionante della giornata; gli diamo tutto lo spazio e non programmiamo mai nulla al di sopra di esso.",
+        },
+        {
+          numeral: "VII",
+          name: "Walima",
+          sub: "Il secondo ricevimento",
+          when: "Il giorno seguente",
+          body: "Il ricevimento offerto dalla famiglia dello sposo, il giorno dopo il nikkah. Una celebrazione formale che completa il matrimonio agli occhi della comunità.",
+        },
       ],
     },
     designConcepts: {
@@ -1420,7 +2490,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           palette: ["#0f3d2e", "#c89d4e", "#1c2a22", "#e8d6a0", "#f5f0e6"],
           imageKey: "concept-1",
           rows: [
-            { label: "Palco / Décor", value: "Fondale di velluto, cornice dorata" },
+            {
+              label: "Palco / Décor",
+              value: "Fondale di velluto, cornice dorata",
+            },
             { label: "Fiori", value: "Rosa · orchidea · fogliame dorato" },
             { label: "Ideale per", value: "Tenuta interna · sala da ballo" },
           ],
@@ -1444,7 +2517,10 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           rows: [
             { label: "Palco / Décor", value: "Pedana di legno, fiori bassi" },
             { label: "Fiori", value: "Peonia · loto · verde" },
-            { label: "Ideale per", value: "Giardino · villa · presso il santuario" },
+            {
+              label: "Ideale per",
+              value: "Giardino · villa · presso il santuario",
+            },
           ],
         },
       ],
@@ -1454,12 +2530,30 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "Ciò che teniamo *sacro.*",
       deck: "Sei principi su cui non transigiamo. Dove la pratica varia tra le famiglie, ci atteniamo al celebrante e agli anziani — non alla nostra comodità.",
       items: [
-        { title: "Il nikkah è testimoniato e documentato", body: "Il contratto matrimoniale viene letto, testimoniato e registrato sotto la guida dell'imam che officia. Organizziamo i testimoni, la documentazione e la registrazione legale attorno alle esigenze dell'imam — e non viceversa." },
-        { title: "L'Anand Karaj è tenuto con reverenza", body: "Un Anand Karaj sikh è celebrato alla presenza del Guru Granth Sahib con un granthi esperto. La condotta nel luogo e il livello della cornice sono rispettati in modo assoluto; quando un dettaglio del rito è in dubbio, decide il granthi e noi seguiamo." },
-        { title: "Le cucine halal sono istruite per tempo", body: "Quando la famiglia osserva l'halal, la cucina del resort viene istruita e l'approvvigionamento organizzato con mesi di anticipo. Confermiamo la certificazione e la preparazione con la guida della famiglia, e teniamo i menù separati dove le tradizioni che si incrociano lo richiedono." },
-        { title: "Il rukhsati conserva il suo spazio", body: "Il congedo è il momento più emozionante di un matrimonio pakistano. Non lo comprimiamo mai per ragioni di ritmo né programmiamo un cambio di fornitore al di sopra di esso. La famiglia detta il tono e noi manteniamo la sala in silenzio." },
-        { title: "Gli anziani sono onorati per primi", body: "Gli anziani vengono salutati, fatti sedere e serviti prima di qualsiasi questione del corteo nuziale. Le esigenze alimentari e di mobilità degli ospiti anziani sono risolte prima di chiudere un menù o una pianta della sala." },
-        { title: "La musica regionale è dal vivo dove possibile", body: "Dhol per il baraat, musicisti devozionali per i riti sacri, canto regionale per il mehndi e il gaye holud. La musica registrata è benvenuta alle celebrazioni, ma dal vivo dove la tradizione della famiglia lo chiede." },
+        {
+          title: "Il nikkah è testimoniato e documentato",
+          body: "Il contratto matrimoniale viene letto, testimoniato e registrato sotto la guida dell'imam che officia. Organizziamo i testimoni, la documentazione e la registrazione legale attorno alle esigenze dell'imam — e non viceversa.",
+        },
+        {
+          title: "L'Anand Karaj è tenuto con reverenza",
+          body: "Un Anand Karaj sikh è celebrato alla presenza del Guru Granth Sahib con un granthi esperto. La condotta nel luogo e il livello della cornice sono rispettati in modo assoluto; quando un dettaglio del rito è in dubbio, decide il granthi e noi seguiamo.",
+        },
+        {
+          title: "Le cucine halal sono istruite per tempo",
+          body: "Quando la famiglia osserva l'halal, la cucina del resort viene istruita e l'approvvigionamento organizzato con mesi di anticipo. Confermiamo la certificazione e la preparazione con la guida della famiglia, e teniamo i menù separati dove le tradizioni che si incrociano lo richiedono.",
+        },
+        {
+          title: "Il rukhsati conserva il suo spazio",
+          body: "Il congedo è il momento più emozionante di un matrimonio pakistano. Non lo comprimiamo mai per ragioni di ritmo né programmiamo un cambio di fornitore al di sopra di esso. La famiglia detta il tono e noi manteniamo la sala in silenzio.",
+        },
+        {
+          title: "Gli anziani sono onorati per primi",
+          body: "Gli anziani vengono salutati, fatti sedere e serviti prima di qualsiasi questione del corteo nuziale. Le esigenze alimentari e di mobilità degli ospiti anziani sono risolte prima di chiudere un menù o una pianta della sala.",
+        },
+        {
+          title: "La musica regionale è dal vivo dove possibile",
+          body: "Dhol per il baraat, musicisti devozionali per i riti sacri, canto regionale per il mehndi e il gaye holud. La musica registrata è benvenuta alle celebrazioni, ma dal vivo dove la tradizione della famiglia lo chiede.",
+        },
       ],
     },
     planning: {
@@ -1473,9 +2567,15 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           title: "Dholki e mehndi",
           body: "Gli invitati arrivano nell'arco della giornata, con transfer e check-in coordinati dall'atelier. Un dholki informale nel pomeriggio, poi il mehndi la sera — hennè su più postazioni, musica e una cena rilassata.",
           events: [
-            { time: "Mattina", body: "Arrivi degli invitati · transfer · check-in in hotel" },
+            {
+              time: "Mattina",
+              body: "Arrivi degli invitati · transfer · check-in in hotel",
+            },
             { time: "16:00", body: "Dholki · tamburi e canto · donne" },
-            { time: "18:30", body: "Cerimonia del mehndi · postazioni di hennè · 3 ore" },
+            {
+              time: "18:30",
+              body: "Cerimonia del mehndi · postazioni di hennè · 3 ore",
+            },
             { time: "21:00", body: "Cena informale · buffet in giardino" },
           ],
         },
@@ -1485,9 +2585,18 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           title: "Nikkah, baraat e rukhsati",
           body: "Il nikkah all'ora fissata dall'imam, letto e testimoniato. Il baraat porta il corteo dello sposo in festa. Riti familiari nel pomeriggio, poi il rukhsati — con tutto il suo spazio — chiude la giornata prima della cena.",
           events: [
-            { time: "11:00", body: "Preparazione degli sposi · suite separate" },
-            { time: "14:00", body: "Nikkah · contratto letto e testimoniato · 60 minuti" },
-            { time: "15:30", body: "Baraat · corteo dello sposo · accoglienza" },
+            {
+              time: "11:00",
+              body: "Preparazione degli sposi · suite separate",
+            },
+            {
+              time: "14:00",
+              body: "Nikkah · contratto letto e testimoniato · 60 minuti",
+            },
+            {
+              time: "15:30",
+              body: "Baraat · corteo dello sposo · accoglienza",
+            },
             { time: "17:00", body: "Riti familiari · fotografie" },
             { time: "18:30", body: "Rukhsati · il congedo · senza fretta" },
             { time: "20:00", body: "Cena · tavolata · menù regionale" },
@@ -1500,9 +2609,18 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           body: "Il walima offerto dalla famiglia dello sposo — il secondo ricevimento formale che completa il matrimonio agli occhi della comunità. Un brunch tardivo per gli invitati in partenza, con le famiglie più strette che spesso si fermano un giorno in più.",
           events: [
             { time: "11:00", body: "Brunch di commiato · a bordo piscina" },
-            { time: "19:00", body: "Aperitivo del walima · ospita la famiglia dello sposo" },
-            { time: "20:30", body: "Cena del walima · ricevimento formale · discorsi" },
-            { time: "A sera", body: "Iniziano le partenze · transfer la mattina seguente" },
+            {
+              time: "19:00",
+              body: "Aperitivo del walima · ospita la famiglia dello sposo",
+            },
+            {
+              time: "20:30",
+              body: "Cena del walima · ricevimento formale · discorsi",
+            },
+            {
+              time: "A sera",
+              body: "Iniziano le partenze · transfer la mattina seguente",
+            },
           ],
         },
       ],
@@ -1513,14 +2631,54 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Vedi tutte le destinazioni →",
       viewAllHref: staticPath("it", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caraibi · tutto l'anno", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Tulum e Los Cabos", sub: "Messico · novembre – aprile", destinationSlug: "tulum-los-cabos" },
-        { rating: 4, name: "Lago di Como", sub: "Italia · giugno – settembre", destinationSlug: "lake-como" },
-        { rating: 4, name: "Toscana", sub: "Italia · maggio – ottobre", destinationSlug: "tuscany" },
-        { rating: 4, name: "Amalfi", sub: "Italia · maggio – ottobre", destinationSlug: "amalfi" },
-        { rating: 4, name: "Gli Hamptons", sub: "New York · giugno – settembre", destinationSlug: "the-hamptons" },
-        { rating: 3, name: "Costa Azzurra", sub: "Francia · giugno – settembre", destinationSlug: "cote-dazur" },
-        { rating: 3, name: "St. Barths", sub: "Caraibi · novembre – aprile", destinationSlug: "st-barths" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caraibi · tutto l'anno",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Tulum e Los Cabos",
+          sub: "Messico · novembre – aprile",
+          destinationSlug: "tulum-los-cabos",
+        },
+        {
+          rating: 4,
+          name: "Lago di Como",
+          sub: "Italia · giugno – settembre",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "Toscana",
+          sub: "Italia · maggio – ottobre",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Amalfi",
+          sub: "Italia · maggio – ottobre",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Gli Hamptons",
+          sub: "New York · giugno – settembre",
+          destinationSlug: "the-hamptons",
+        },
+        {
+          rating: 3,
+          name: "Costa Azzurra",
+          sub: "Francia · giugno – settembre",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 3,
+          name: "St. Barths",
+          sub: "Caraibi · novembre – aprile",
+          destinationSlug: "st-barths",
+        },
       ],
     },
     guest: {
@@ -1528,27 +2686,73 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
       headline: "La cura *pratica* di 250 invitati.",
       deck: "Lo strato logistico che la maggior parte dei planner sottodota. In queste tradizioni, la fede e la famiglia vengono prima — pianifichiamo attorno a entrambe.",
       cells: [
-        { title: "Protocollo halal", body: "Quando la famiglia osserva l'halal, istruiamo la cucina e confermiamo approvvigionamento e certificazione con mesi di anticipo. I menù restano separati dove le tradizioni che si incrociano lo necessitano, e la guida della famiglia è definitiva." },
-        { title: "Orari di preghiera", body: "Gli orari quotidiani di preghiera sono integrati nel programma, con uno spazio di preghiera pulito e silenzioso e strutture per il wudu. Gli orari delle cerimonie sono fissati così da non collidere mai con gli obblighi degli ospiti praticanti." },
-        { title: "Guida per tradizioni miste", body: "Quando gli invitati provengono da più di una fede — musulmana, sikh, indù, cristiana — inviamo note su misura affinché ciascuno sappia cosa aspettarsi al nikkah, all'Anand Karaj o al Poruwa, e come partecipare con rispetto." },
-        { title: "Anziani e mobilità", body: "Posti dedicati, trasporto separato e un referente per gli anziani del team dell'atelier. Camere al piano terra per gli ospiti anziani, con assistenza medica reperibile per tutto il fine settimana." },
-        { title: "Viaggi e alloggi", body: "Blocchi di camere nelle fasce premium, standard e famiglia. Transfer coordinati lungo più giorni di arrivi, con un pacchetto di benvenuto e il programma in ogni camera." },
-        { title: "Comunicazioni", body: "Un gruppo invitati tre settimane prima, un sito dedicato con programma e dress code, e guide stampate — comprese note di etichetta per ogni cerimonia nelle lingue della famiglia." },
+        {
+          title: "Protocollo halal",
+          body: "Quando la famiglia osserva l'halal, istruiamo la cucina e confermiamo approvvigionamento e certificazione con mesi di anticipo. I menù restano separati dove le tradizioni che si incrociano lo necessitano, e la guida della famiglia è definitiva.",
+        },
+        {
+          title: "Orari di preghiera",
+          body: "Gli orari quotidiani di preghiera sono integrati nel programma, con uno spazio di preghiera pulito e silenzioso e strutture per il wudu. Gli orari delle cerimonie sono fissati così da non collidere mai con gli obblighi degli ospiti praticanti.",
+        },
+        {
+          title: "Guida per tradizioni miste",
+          body: "Quando gli invitati provengono da più di una fede — musulmana, sikh, indù, cristiana — inviamo note su misura affinché ciascuno sappia cosa aspettarsi al nikkah, all'Anand Karaj o al Poruwa, e come partecipare con rispetto.",
+        },
+        {
+          title: "Anziani e mobilità",
+          body: "Posti dedicati, trasporto separato e un referente per gli anziani del team dell'atelier. Camere al piano terra per gli ospiti anziani, con assistenza medica reperibile per tutto il fine settimana.",
+        },
+        {
+          title: "Viaggi e alloggi",
+          body: "Blocchi di camere nelle fasce premium, standard e famiglia. Transfer coordinati lungo più giorni di arrivi, con un pacchetto di benvenuto e il programma in ogni camera.",
+        },
+        {
+          title: "Comunicazioni",
+          body: "Un gruppo invitati tre settimane prima, un sito dedicato con programma e dress code, e guide stampate — comprese note di etichetta per ogni cerimonia nelle lingue della famiglia.",
+        },
       ],
     },
     related: {
       eyebrow: "Continua a leggere",
       headline: "Dal *diario.*",
       articles: [
-        { category: "Pakistano · Punta Cana", title: "Tenere un nikkah di destinazione, passo dopo passo", body: "Come il contratto viene letto, testimoniato e registrato all'estero — e di cosa ha bisogno l'imam da noi.", imageKey: "culture-related-1" },
-        { category: "Sikh · Tradizione", title: "L'Anand Karaj in un resort: cosa richiede", body: "Sul tenere la cerimonia sikh con la reverenza che il Guru Granth Sahib richiede.", imageKey: "culture-related-2" },
-        { category: "Tradizione · Srilankese", title: "Dentro la cerimonia del Poruwa", body: "Una guida al rito singalese su pedana e ai rituali che vi si tengono.", imageKey: "culture-related-3" },
-        { category: "Costo · Asia meridionale", title: "Quanto costa un matrimonio di lusso dell'Asia meridionale", body: "Budget franchi 2026 per tradizione e numero di invitati.", imageKey: "culture-related-4" },
-        { category: "Bengalese · Design", title: "Il gaye holud, in dettaglio", body: "Sulla notte di curcuma che apre un matrimonio bengalese — e su come la progettiamo.", imageKey: "culture-related-5" },
+        {
+          category: "Pakistano · Punta Cana",
+          title: "Tenere un nikkah di destinazione, passo dopo passo",
+          body: "Come il contratto viene letto, testimoniato e registrato all'estero — e di cosa ha bisogno l'imam da noi.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Sikh · Tradizione",
+          title: "L'Anand Karaj in un resort: cosa richiede",
+          body: "Sul tenere la cerimonia sikh con la reverenza che il Guru Granth Sahib richiede.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Tradizione · Srilankese",
+          title: "Dentro la cerimonia del Poruwa",
+          body: "Una guida al rito singalese su pedana e ai rituali che vi si tengono.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Costo · Asia meridionale",
+          title: "Quanto costa un matrimonio di lusso dell'Asia meridionale",
+          body: "Budget franchi 2026 per tradizione e numero di invitati.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Bengalese · Design",
+          title: "Il gaye holud, in dettaglio",
+          body: "Sulla notte di curcuma che apre un matrimonio bengalese — e su come la progettiamo.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("it", "punta-cana") },
-        { label: "Tulum e Los Cabos", href: destinationPath("it", "tulum-los-cabos") },
+        {
+          label: "Tulum e Los Cabos",
+          href: destinationPath("it", "tulum-los-cabos"),
+        },
         { label: "Lago di Como", href: destinationPath("it", "lake-como") },
         { label: "Gli Hamptons", href: destinationPath("it", "the-hamptons") },
       ],
@@ -1559,10 +2763,19 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
         { label: "Chileno Bay Resort" },
       ],
       sidebarCultures: [
-        { label: "Matrimoni indiani", href: culturePath("it", "indian-weddings") },
+        {
+          label: "Matrimoni indiani",
+          href: culturePath("it", "indian-weddings"),
+        },
         { label: "Matrimoni arabi", href: culturePath("it", "arab-weddings") },
-        { label: "Matrimoni interreligiosi", href: culturePath("it", "interfaith-weddings") },
-        { label: "Matrimoni ebraici", href: culturePath("it", "jewish-weddings") },
+        {
+          label: "Matrimoni interreligiosi",
+          href: culturePath("it", "interfaith-weddings"),
+        },
+        {
+          label: "Matrimoni ebraici",
+          href: culturePath("it", "jewish-weddings"),
+        },
       ],
     },
     faq: {
@@ -1591,7 +2804,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Quanto costa un matrimonio di destinazione dell'Asia meridionale nel 2026?",
+          question:
+            "Quanto costa un matrimonio di destinazione dell'Asia meridionale nel 2026?",
           answer: [
             "Un intervallo utile per matrimoni da 150 a 400 invitati su due-quattro giorni è di USD 250.000 – 900.000, tutto compreso, a seconda della tradizione, della destinazione e del numero di invitati.",
             "Condividiamo budget trasparenti e dettagliati nella prima consulenza, con intervalli per numero di invitati e per gli eventi che ciascuna tradizione richiede.",
@@ -1605,7 +2819,8 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "In cosa differisce questa dalla vostra pagina sui Matrimoni Indiani?",
+          question:
+            "In cosa differisce questa dalla vostra pagina sui Matrimoni Indiani?",
           answer: [
             "La nostra pagina sui Matrimoni Indiani è per i matrimoni indù indiani — il mandap, le pheras, il pandit con cui lavoriamo da anni.",
             "Questa pagina è per il resto del subcontinente: tradizioni musulmana pakistana, sikh, srilankese e bengalese, ciascuna tenuta come la propria fede. Se il vostro matrimonio è indù, quella pagina è la dimora giusta; se attraversa più fedi, potrebbe esserlo anche la nostra pagina interreligiosa.",

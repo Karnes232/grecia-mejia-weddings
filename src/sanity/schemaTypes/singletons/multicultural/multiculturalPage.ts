@@ -52,7 +52,8 @@ export const multiculturalPage = defineType({
           name: "scriptOverline",
           title: "Script overline",
           type: "string",
-          description: "Pinyon-Script accent above the title (e.g. 'Curated with').",
+          description:
+            "Pinyon-Script accent above the title (e.g. 'Curated with').",
         },
         defineField({
           name: "headline",
@@ -118,7 +119,8 @@ export const multiculturalPage = defineType({
           title: "Pull quote",
           type: "text",
           rows: 2,
-          description: 'e.g. "We refuse to plan a tradition we cannot hold honestly."',
+          description:
+            'e.g. "We refuse to plan a tradition we cannot hold honestly."',
         },
       ],
     }),
@@ -136,7 +138,8 @@ export const multiculturalPage = defineType({
           name: "headline",
           title: "Headline",
           type: "string",
-          description: "Use *word* for italic accents (e.g. A *methodology* in five steps.).",
+          description:
+            "Use *word* for italic accents (e.g. A *methodology* in five steps.).",
         }),
         { name: "intro", title: "Intro paragraph", type: "text", rows: 3 },
         defineField({
@@ -176,7 +179,8 @@ export const multiculturalPage = defineType({
           name: "headline",
           title: "Headline",
           type: "string",
-          description: "Use *word* for italic accents (e.g. Eight cultural *arcs.*).",
+          description:
+            "Use *word* for italic accents (e.g. Eight cultural *arcs.*).",
         }),
         { name: "deck", title: "Deck", type: "text", rows: 2 },
         defineField({
@@ -301,7 +305,8 @@ export const multiculturalPage = defineType({
           name: "headline",
           title: "Headline",
           type: "string",
-          description: "Use *word* for italic accents (e.g. From the *journal.*).",
+          description:
+            "Use *word* for italic accents (e.g. From the *journal.*).",
         }),
         defineField({
           name: "articles",
@@ -361,13 +366,15 @@ export const multiculturalPage = defineType({
           name: "scriptLine",
           title: "Script line",
           type: "string",
-          description: "Rendered in Pinyon Script (e.g. 'A private conversation —').",
+          description:
+            "Rendered in Pinyon Script (e.g. 'A private conversation —').",
         },
         defineField({
           name: "headline",
           title: "Headline",
           type: "string",
-          description: "Use *word* for italic accents (e.g. *Begin* your multicultural wedding.).",
+          description:
+            "Use *word* for italic accents (e.g. *Begin* your multicultural wedding.).",
         }),
         { name: "body", title: "Body (deck)", type: "text", rows: 3 },
         { name: "ctaLabel", title: "CTA label", type: "string" },

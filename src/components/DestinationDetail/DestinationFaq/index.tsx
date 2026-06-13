@@ -34,7 +34,11 @@ export function DestinationFaq({ faq }: DestinationFaqProps) {
 
       <RevealOnScroll className="mx-auto max-w-[980px]">
         {items.map((item, i) => (
-          <details key={i} open={i === 0} className="group border-b border-rule">
+          <details
+            key={i}
+            open={i === 0}
+            className="group border-b border-rule"
+          >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-7 font-serif text-[26px] italic leading-[1.2] text-ink [&::-webkit-details-marker]:hidden">
               <span>{item.question}</span>
               <span
@@ -47,7 +51,10 @@ export function DestinationFaq({ faq }: DestinationFaqProps) {
             </summary>
             {item.answer?.length ? (
               <div className="max-w-[60ch] pb-7 text-[15px] leading-[1.75] text-[#2a2a24]">
-                <PortableText value={item.answer} components={answerComponents} />
+                <PortableText
+                  value={item.answer}
+                  components={answerComponents}
+                />
               </div>
             ) : null}
           </details>

@@ -75,7 +75,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...entriesFor("/", { changeFrequency: "weekly", priority: 1 }),
-    ...entriesFor("/destinations", { changeFrequency: "weekly", priority: 0.9 }),
+    ...entriesFor("/destinations", {
+      changeFrequency: "weekly",
+      priority: 0.9,
+    }),
     ...entriesFor("/multicultural-weddings", {
       changeFrequency: "weekly",
       priority: 0.9,

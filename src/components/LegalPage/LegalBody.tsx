@@ -26,7 +26,10 @@ export async function LegalBody({
 
   const items = sections
     .filter((s) => s.heading)
-    .map((s) => ({ heading: s.heading as string, slug: slugify(s.heading as string) }));
+    .map((s) => ({
+      heading: s.heading as string,
+      slug: slugify(s.heading as string),
+    }));
 
   return (
     <section className="bg-ivory px-6 pb-[140px] pt-[100px] md:px-14">

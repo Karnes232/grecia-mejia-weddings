@@ -2,7 +2,10 @@ import { getTranslations } from "next-intl/server";
 
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import type { Destination, DestinationMedia } from "@/sanity/queries/destination";
+import type {
+  Destination,
+  DestinationMedia,
+} from "@/sanity/queries/destination";
 
 import { keyedImageMap } from "@/components/_shared/keyedImageMap";
 

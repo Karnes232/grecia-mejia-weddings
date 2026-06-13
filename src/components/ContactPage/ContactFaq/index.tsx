@@ -35,7 +35,11 @@ export function ContactFaq({ faq }: ContactFaqProps) {
 
       <RevealOnScroll className="mx-auto max-w-[980px]">
         {items.map((item, i) => (
-          <details key={i} open={i === 0} className="group border-b border-rule">
+          <details
+            key={i}
+            open={i === 0}
+            className="group border-b border-rule"
+          >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-7 font-serif text-[26px] italic leading-[1.2] text-ink [&::-webkit-details-marker]:hidden">
               <span>{item.question}</span>
               <span

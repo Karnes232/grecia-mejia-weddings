@@ -1,4 +1,7 @@
-import type { Destination, DestinationMedia } from "@/sanity/queries/destination";
+import type {
+  Destination,
+  DestinationMedia,
+} from "@/sanity/queries/destination";
 
 import { HeroBackground } from "./HeroBackground";
 import { HeroBottomStrip } from "./HeroBottomStrip";

@@ -180,5 +180,8 @@ export default async function CulturePage({ params }: CulturePageProps) {
 // against every locale.
 export async function generateStaticParams() {
   const rows = await getCultureParams();
-  return rows.map(({ language, slug }) => ({ locale: language, culture: slug }));
+  return rows.map(({ language, slug }) => ({
+    locale: language,
+    culture: slug,
+  }));
 }

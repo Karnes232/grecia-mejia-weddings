@@ -9,7 +9,12 @@ type LegalTocProps = {
   contactCta: string;
 };
 
-export function LegalToc({ items, title, helpNote, contactCta }: LegalTocProps) {
+export function LegalToc({
+  items,
+  title,
+  helpNote,
+  contactCta,
+}: LegalTocProps) {
   return (
     <aside className="lg:sticky lg:top-[120px]">
       <h4 className="mb-[18px] border-b border-gold pb-3.5 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-muted">
@@ -33,7 +38,9 @@ export function LegalToc({ items, title, helpNote, contactCta }: LegalTocProps) 
 
       {helpNote ? (
         <div className="mt-8 border border-rule bg-cream p-6">
-          <p className="m-0 mb-3 text-xs leading-[1.7] text-muted">{helpNote}</p>
+          <p className="m-0 mb-3 text-xs leading-[1.7] text-muted">
+            {helpNote}
+          </p>
           <Link
             href="/contact"
             className="border-b border-gold pb-[3px] text-[10px] uppercase tracking-[0.28em] text-olive no-underline"

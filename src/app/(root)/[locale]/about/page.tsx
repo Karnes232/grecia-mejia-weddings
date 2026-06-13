@@ -67,7 +67,10 @@ export default async function AboutPage({ params }: AboutPageProps) {
       ) : null}
 
       {page?.story?.headline ? (
-        <AboutStory story={page.story} figureImage={media?.storyFigure?.image} />
+        <AboutStory
+          story={page.story}
+          figureImage={media?.storyFigure?.image}
+        />
       ) : null}
 
       {page?.manifesto?.headline ? (
@@ -88,9 +91,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
       {page?.press?.headline ? <AboutPress press={page.press} /> : null}
 
-      {page?.contact?.headline ? (
-        <AboutContact contact={page.contact} />
-      ) : null}
+      {page?.contact?.headline ? <AboutContact contact={page.contact} /> : null}
     </>
   );
 }

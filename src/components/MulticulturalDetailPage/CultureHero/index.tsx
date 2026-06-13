@@ -29,7 +29,9 @@ export function CultureHero({ hero, image }: CultureHeroProps) {
               priority
               sizes="100vw"
               className="object-cover"
-              style={{ filter: "saturate(0.85) contrast(1.04) brightness(0.7)" }}
+              style={{
+                filter: "saturate(0.85) contrast(1.04) brightness(0.7)",
+              }}
             />
           </div>
         </div>

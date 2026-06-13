@@ -72,7 +72,11 @@ async function run() {
       translations: locales.map((locale) => ({
         _key: locale,
         language: locale,
-        value: { _type: "reference", _ref: docId(meta.slug, locale), _weak: true },
+        value: {
+          _type: "reference",
+          _ref: docId(meta.slug, locale),
+          _weak: true,
+        },
       })),
     });
 

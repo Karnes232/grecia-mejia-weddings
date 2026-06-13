@@ -99,7 +99,8 @@ export const contactPage = defineType({
           name: "submitLabel",
           title: "Submit button label",
           type: "string",
-          description: 'The canonical CTA, e.g. "Request a private consultation →".',
+          description:
+            'The canonical CTA, e.g. "Request a private consultation →".',
         },
         {
           name: "submitNote",
@@ -114,7 +115,8 @@ export const contactPage = defineType({
           title: "Success message (shown after submit)",
           type: "text",
           rows: 3,
-          description: "The inline italic confirmation shown once the form is sent.",
+          description:
+            "The inline italic confirmation shown once the form is sent.",
         },
       ],
     }),
@@ -156,7 +158,8 @@ export const contactPage = defineType({
                   name: "script",
                   title: "Script line (feature only)",
                   type: "string",
-                  description: "Rendered in Pinyon Script (e.g. 'Grecia Mejía').",
+                  description:
+                    "Rendered in Pinyon Script (e.g. 'Grecia Mejía').",
                 },
                 { name: "heading", title: "Heading", type: "string" },
                 {
@@ -183,7 +186,8 @@ export const contactPage = defineType({
                           name: "value",
                           title: "Value",
                           type: "string",
-                          description: "Use a line break with Shift+Enter for two lines.",
+                          description:
+                            "Use a line break with Shift+Enter for two lines.",
                           validation: (r) => r.required(),
                         },
                         {
@@ -194,13 +198,19 @@ export const contactPage = defineType({
                             "e.g. mailto:… or tel:… — leave empty for plain text.",
                         },
                       ],
-                      preview: { select: { title: "label", subtitle: "value" } },
+                      preview: {
+                        select: { title: "label", subtitle: "value" },
+                      },
                     }),
                   ],
                 }),
               ],
               preview: {
-                select: { title: "heading", variant: "variant", script: "script" },
+                select: {
+                  title: "heading",
+                  variant: "variant",
+                  script: "script",
+                },
                 prepare: ({ title, variant, script }) => ({
                   title: title ?? script ?? "Card",
                   subtitle: variant,
@@ -287,7 +297,8 @@ export const contactPage = defineType({
           name: "headline",
           title: "Headline",
           type: "string",
-          description: "Use *word* for italic accents (e.g. A few *questions.*).",
+          description:
+            "Use *word* for italic accents (e.g. A few *questions.*).",
         }),
         defineField({
           name: "items",

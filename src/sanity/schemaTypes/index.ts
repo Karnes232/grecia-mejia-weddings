@@ -19,10 +19,16 @@ import {
   multiculturalPage,
   multiculturalPageMedia,
 } from "./singletons/multicultural";
+import { pressPage, pressPageMedia } from "./singletons/press";
+import { venuesPage, venuesPageMedia } from "./singletons/venues";
 import { destination } from "./documents/destination";
 import { destinationMedia } from "./documents/destinationMedia";
 import { culture } from "./documents/culture";
 import { cultureMedia } from "./documents/cultureMedia";
+import { venueRegion } from "./documents/venueRegion";
+import { venueRegionMedia } from "./documents/venueRegionMedia";
+import { venue } from "./documents/venue";
+import { venueMedia } from "./documents/venueMedia";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -44,9 +50,17 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     legalDefinitions,
     multiculturalPage,
     multiculturalPageMedia,
+    pressPage,
+    pressPageMedia,
+    venuesPage,
+    venuesPageMedia,
     destination,
     destinationMedia,
     culture,
     cultureMedia,
+    venueRegion,
+    venueRegionMedia,
+    venue,
+    venueMedia,
   ],
 };

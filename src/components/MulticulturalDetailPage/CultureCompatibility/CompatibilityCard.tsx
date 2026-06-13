@@ -5,15 +5,14 @@ import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
 import type { Culture } from "@/sanity/queries/culture";
 
-type Card = NonNullable<
-  NonNullable<Culture["compatibility"]>["cards"]
->[number];
+type Card = NonNullable<NonNullable<Culture["compatibility"]>["cards"]>[number];
 
 type CompatibilityCardProps = {
   card: Card;
 };
 
-const WRAPPER = "group relative block overflow-hidden text-inherit no-underline";
+const WRAPPER =
+  "group relative block overflow-hidden text-inherit no-underline";
 
 export function CompatibilityCard({ card }: CompatibilityCardProps) {
   const image = card.image;

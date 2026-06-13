@@ -31,14 +31,54 @@ export type CultureMeta = {
 };
 
 export const CULTURE_META: CultureMeta[] = [
-  { slug: "indian-weddings", number: "01", tile: "hero", alt: "An Indian wedding mandap" },
-  { slug: "jewish-weddings", number: "02", tile: "tall", alt: "A Jewish wedding chuppah" },
-  { slug: "arab-weddings", number: "03", tile: "square", alt: "Arab wedding floral design" },
-  { slug: "south-asian-weddings", number: "04", tile: "square", alt: "A South Asian bride" },
-  { slug: "christian-weddings", number: "05", tile: "square", alt: "A Catholic wedding chapel" },
-  { slug: "interfaith-weddings", number: "06", tile: "wide", alt: "An interfaith ceremony" },
-  { slug: "latin-weddings", number: "07", tile: "wide", alt: "A Latin wedding celebration" },
-  { slug: "european-weddings", number: "08", tile: "full", alt: "A European castle wedding" },
+  {
+    slug: "indian-weddings",
+    number: "01",
+    tile: "hero",
+    alt: "An Indian wedding mandap",
+  },
+  {
+    slug: "jewish-weddings",
+    number: "02",
+    tile: "tall",
+    alt: "A Jewish wedding chuppah",
+  },
+  {
+    slug: "arab-weddings",
+    number: "03",
+    tile: "square",
+    alt: "Arab wedding floral design",
+  },
+  {
+    slug: "south-asian-weddings",
+    number: "04",
+    tile: "square",
+    alt: "A South Asian bride",
+  },
+  {
+    slug: "christian-weddings",
+    number: "05",
+    tile: "square",
+    alt: "A Catholic wedding chapel",
+  },
+  {
+    slug: "interfaith-weddings",
+    number: "06",
+    tile: "wide",
+    alt: "An interfaith ceremony",
+  },
+  {
+    slug: "latin-weddings",
+    number: "07",
+    tile: "wide",
+    alt: "A Latin wedding celebration",
+  },
+  {
+    slug: "european-weddings",
+    number: "08",
+    tile: "full",
+    alt: "A European castle wedding",
+  },
 ];
 
 // ── Translated slugs (ASCII-safe, per i18n-strategy.md "concept slugs") ─────

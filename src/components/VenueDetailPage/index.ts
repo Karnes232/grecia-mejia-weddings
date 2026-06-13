@@ -1,0 +1,12 @@
+export { VenueGallery } from "./VenueGallery";
+export { VenueHeader } from "./VenueHeader";
+export { VenueFacts } from "./VenueFacts";
+export { VenueOverview } from "./VenueOverview";
+export { VenueCapacity } from "./VenueCapacity";
+export { VenueCompatibility } from "./VenueCompatibility";
+export { VenueLogistics } from "./VenueLogistics";
+export { VenuePhotography } from "./VenuePhotography";
+export { VenueHotels } from "./VenueHotels";
+export { VenuePortfolio } from "./VenuePortfolio";
+export { VenueRelated } from "./VenueRelated";
+export { VenueFaq } from "./VenueFaq";

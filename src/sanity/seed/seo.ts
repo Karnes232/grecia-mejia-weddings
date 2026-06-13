@@ -104,7 +104,8 @@ const PLACEHOLDERS: Record<Locale, Placeholders> = {
     },
     destination: {
       title: (name) => `${name} — Mariages de Destination`,
-      description: "Préparez votre mariage de destination avec Grecia Mejía Weddings.",
+      description:
+        "Préparez votre mariage de destination avec Grecia Mejía Weddings.",
     },
   },
   pt: {
@@ -125,7 +126,8 @@ const PLACEHOLDERS: Record<Locale, Placeholders> = {
     },
     destination: {
       title: (name) => `${name} — Casamentos de Destino`,
-      description: "Planeie o seu casamento de destino com Grecia Mejía Weddings.",
+      description:
+        "Planeie o seu casamento de destino com Grecia Mejía Weddings.",
     },
   },
   de: {
@@ -146,7 +148,8 @@ const PLACEHOLDERS: Record<Locale, Placeholders> = {
     },
     destination: {
       title: (name) => `${name} — Destinationshochzeiten`,
-      description: "Planen Sie Ihre Destinationshochzeit mit Grecia Mejía Weddings.",
+      description:
+        "Planen Sie Ihre Destinationshochzeit mit Grecia Mejía Weddings.",
     },
   },
   it: {
@@ -167,7 +170,8 @@ const PLACEHOLDERS: Record<Locale, Placeholders> = {
     },
     destination: {
       title: (name) => `${name} — Matrimoni di Destinazione`,
-      description: "Pianifica il tuo matrimonio di destinazione con Grecia Mejía Weddings.",
+      description:
+        "Pianifica il tuo matrimonio di destinazione con Grecia Mejía Weddings.",
     },
   },
 };
@@ -183,7 +187,9 @@ const docsQuery = `*[_type in ["homePage","destinationsPage","aboutPage","destin
   _id, _type, language, "name": name
 }`;
 
-function resolveSeo(doc: SeoDoc): { metaTitle: string; metaDescription: string } | null {
+function resolveSeo(
+  doc: SeoDoc,
+): { metaTitle: string; metaDescription: string } | null {
   const locale = (doc.language ?? "en") as Locale;
   const copy = PLACEHOLDERS[locale] ?? PLACEHOLDERS.en;
 
@@ -211,12 +217,10 @@ async function run() {
     if (!seo) continue;
 
     tx.patch(doc._id, (p) =>
-      p
-        .setIfMissing({ seo: {} })
-        .setIfMissing({
-          "seo.metaTitle": seo.metaTitle,
-          "seo.metaDescription": seo.metaDescription,
-        }),
+      p.setIfMissing({ seo: {} }).setIfMissing({
+        "seo.metaTitle": seo.metaTitle,
+        "seo.metaDescription": seo.metaDescription,
+      }),
     );
     patched += 1;
   }

@@ -6,7 +6,9 @@ import type { Culture, CultureMedia } from "@/sanity/queries/culture";
 type Concept = NonNullable<
   NonNullable<Culture["designConcepts"]>["cards"]
 >[number];
-type ConceptImage = NonNullable<CultureMedia["designConcepts"]>[number]["image"];
+type ConceptImage = NonNullable<
+  CultureMedia["designConcepts"]
+>[number]["image"];
 
 type ConceptCardProps = {
   eyebrow: string;
@@ -36,7 +38,11 @@ export function ConceptCard({ eyebrow, card, image }: ConceptCardProps) {
         {palette.length ? (
           <div aria-hidden className="absolute inset-x-0 bottom-0 flex h-2">
             {palette.map((color, i) => (
-              <span key={i} className="h-full flex-1" style={{ background: color }} />
+              <span
+                key={i}
+                className="h-full flex-1"
+                style={{ background: color }}
+              />
             ))}
           </div>
         ) : null}

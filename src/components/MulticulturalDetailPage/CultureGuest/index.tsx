@@ -17,7 +17,9 @@ export function CultureGuest({ guest }: CultureGuestProps) {
         <SectionHead
           eyebrow={guest.eyebrow}
           headline={guest.headline}
-          aside={guest.deck ? <SectionDeck>{guest.deck}</SectionDeck> : undefined}
+          aside={
+            guest.deck ? <SectionDeck>{guest.deck}</SectionDeck> : undefined
+          }
           className="mb-12"
         />
 

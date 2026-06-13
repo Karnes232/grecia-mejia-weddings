@@ -63,7 +63,9 @@ export function VenueCard({
           </div>
         ) : null}
         {body ? (
-          <p className="mb-4 text-[14px] leading-[1.6] text-[#3d3a30]">{body}</p>
+          <p className="mb-4 text-[14px] leading-[1.6] text-[#3d3a30]">
+            {body}
+          </p>
         ) : null}
         {capacity || bestFor ? (
           <dl className="grid grid-cols-[auto_1fr] gap-x-3.5 gap-y-1.5 text-[12px]">

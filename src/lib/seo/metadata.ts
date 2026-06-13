@@ -64,7 +64,12 @@ export function buildMetadata({
     seo?.metaDescription?.trim() || fallbackDescription || undefined;
 
   const seoOgUrl = seo?.ogImage?.asset
-    ? urlFor(seo.ogImage).width(1200).height(630).fit("crop").auto("format").url()
+    ? urlFor(seo.ogImage)
+        .width(1200)
+        .height(630)
+        .fit("crop")
+        .auto("format")
+        .url()
     : undefined;
   const imageUrl = seoOgUrl ?? ogImageUrl;
   const imageAlt = seo?.ogImage?.alt ?? ogImageAlt ?? title;

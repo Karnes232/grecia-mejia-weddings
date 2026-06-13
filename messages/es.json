@@ -55,10 +55,22 @@
     "form": {
       "fields": {
         "fullName": { "label": "Nombre completo", "placeholder": "Tu nombre" },
-        "country": { "label": "País de residencia", "placeholder": "Dónde vives" },
-        "email": { "label": "Correo electrónico", "placeholder": "tu@email.com" },
-        "whatsapp": { "label": "WhatsApp", "placeholder": "Con código de país" },
-        "date": { "label": "Fecha estimada", "placeholder": "Mes y año, o una temporada" }
+        "country": {
+          "label": "País de residencia",
+          "placeholder": "Dónde vives"
+        },
+        "email": {
+          "label": "Correo electrónico",
+          "placeholder": "tu@email.com"
+        },
+        "whatsapp": {
+          "label": "WhatsApp",
+          "placeholder": "Con código de país"
+        },
+        "date": {
+          "label": "Fecha estimada",
+          "placeholder": "Mes y año, o una temporada"
+        }
       },
       "selects": {
         "destination": {
@@ -128,5 +140,22 @@
     "effective": "Vigente",
     "appliesTo": "Se aplica a",
     "contactCta": "Contactar con el estudio →"
+  },
+  "pressPage": {
+    "readFeature": "Leer el reportaje"
+  },
+  "venuesPage": {
+    "region": "Región",
+    "viewVenues": "Ver locaciones de {name}",
+    "filterLabel": "Filtrar",
+    "all": "Todas",
+    "guests": "invitados",
+    "readBrief": "Leer la ficha",
+    "subRegions": "Subregiones",
+    "related": "Relacionado",
+    "caseStudy": "Caso",
+    "otherVenues": "Otras sedes",
+    "compatibleTraditions": "Tradiciones compatibles",
+    "relatedDestinations": "Destinos relacionados"
   }
 }

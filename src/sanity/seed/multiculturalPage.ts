@@ -35,7 +35,10 @@ const client = createClient({
 const docId = (locale: Locale) => `multiculturalPage-${locale}`;
 const cultureId = (slug: string, locale: Locale) => `culture-${slug}-${locale}`;
 
-const keyed = <T extends object>(value: T) => ({ _key: randomUUID(), ...value });
+const keyed = <T extends object>(value: T) => ({
+  _key: randomUUID(),
+  ...value,
+});
 
 type Block = { style: string; text: string };
 const ptBlocks = (blocks: Block[]) =>
@@ -73,9 +76,17 @@ const SPECIALIST_NAMES = [
 
 // Per related article: image slot + internal link. Order matches RELATED copy.
 const RELATED_META = [
-  { imageKey: "mc-related-1", href: "/journal", alt: "An Indian wedding mandap" },
+  {
+    imageKey: "mc-related-1",
+    href: "/journal",
+    alt: "An Indian wedding mandap",
+  },
   { imageKey: "mc-related-2", href: "/journal", alt: "An interfaith ceremony" },
-  { imageKey: "mc-related-3", href: "/journal", alt: "A Jewish wedding chuppah" },
+  {
+    imageKey: "mc-related-3",
+    href: "/journal",
+    alt: "A Jewish wedding chuppah",
+  },
   { imageKey: "mc-related-4", href: "/journal", alt: "A sangeet celebration" },
   { imageKey: "mc-related-5", href: "/journal", alt: "A Latin wedding dance" },
 ] as const;
@@ -86,8 +97,17 @@ const SIDEBAR_DESTINATION_HREFS = [
   "/destinations/provence",
   "/destinations/mallorca",
 ] as const;
-const SIDEBAR_SERVICE_HREFS = ["/services", "/services", "/services", "/services"] as const;
-const SIDEBAR_WEDDING_HREFS = ["/portfolio", "/portfolio", "/portfolio"] as const;
+const SIDEBAR_SERVICE_HREFS = [
+  "/services",
+  "/services",
+  "/services",
+  "/services",
+] as const;
+const SIDEBAR_WEDDING_HREFS = [
+  "/portfolio",
+  "/portfolio",
+  "/portfolio",
+] as const;
 
 const CTA_HREF = "/contact";
 
@@ -186,7 +206,8 @@ const PHILOSOPHY: Record<Locale, PhilosophyCopy> = {
     sideLabel: "Una filosofía",
     sideNote:
       "Aceptamos catorce bodas al año. Cerca de nueve son multiculturales. Casi todas son de varios días.",
-    headline: "La tradición, sostenida por *personas* que han vivido dentro de ella.",
+    headline:
+      "La tradición, sostenida por *personas* que han vivido dentro de ella.",
     lede: "Una boda multicultural no es un lugar con dos telones. Es un compromiso estructural: con el orden ritual, con los oficiantes, con el protocolo alimentario, con la coreografía de dos o tres familias sosteniendo una misma sala.",
     body: [
       "No montamos bodas culturales; las celebramos. Cada tradición que figura en esta página la sostienen especialistas con quienes hemos trabajado, por su nombre, durante años: el pandit hindú que ha oficiado cuarenta de nuestras bodas, el catering kosher que viaja con nosotros a Punta Cana y al Lago de Como, el sacerdote católico que conoce a nuestras familias.",
@@ -198,7 +219,8 @@ const PHILOSOPHY: Record<Locale, PhilosophyCopy> = {
     sideLabel: "Une philosophie",
     sideNote:
       "Nous acceptons quatorze mariages par an. Environ neuf sont multiculturels. Presque tous s'étendent sur plusieurs jours.",
-    headline: "La tradition, portée par des *personnes* qui ont vécu en son sein.",
+    headline:
+      "La tradition, portée par des *personnes* qui ont vécu en son sein.",
     lede: "Un mariage multiculturel n'est pas un lieu à deux décors. C'est un engagement structurel — envers l'ordre rituel, les officiants, le protocole alimentaire, la chorégraphie de deux ou trois familles tenant une même salle.",
     body: [
       "Nous ne mettons pas en scène les mariages culturels ; nous les accueillons. Chaque tradition figurant sur cette page est portée par des spécialistes avec qui nous travaillons, nommément, depuis des années — le pandit hindou qui a officié quarante de nos mariages, le traiteur casher qui voyage avec nous jusqu'à Punta Cana et au lac de Côme, le prêtre catholique qui connaît nos familles.",
@@ -246,7 +268,12 @@ const PHILOSOPHY: Record<Locale, PhilosophyCopy> = {
 
 // ── Methodology ────────────────────────────────────────────────────────────
 type Step = { title: string; body: string };
-type MethodologyCopy = { eyebrow: string; headline: string; intro: string; steps: Step[] };
+type MethodologyCopy = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  steps: Step[];
+};
 
 const METHODOLOGY: Record<Locale, MethodologyCopy> = {
   en: {
@@ -255,11 +282,26 @@ const METHODOLOGY: Record<Locale, MethodologyCopy> = {
     intro:
       "The same five-step process holds every multicultural wedding we plan. Each step takes time. The process begins eighteen-to-twenty-four months before the wedding.",
     steps: [
-      { title: "Listen", body: "We begin with the families. Two-to-three hours, in person where possible. We map the ritual structure each side considers non-negotiable." },
-      { title: "Map", body: "We draft the ceremony order — sometimes in two languages, often across two religions. We send it back to the families for revision." },
-      { title: "Source", body: "We bring in the specialists. Pandit, rabbi, priest, mehndi artist, kosher caterer, choreographer, decorator. Each chosen by name, never by directory." },
-      { title: "Stage", body: "We rehearse the multi-day arc on paper, day by day, hour by hour. Catering. Logistics. Attire changes. Guest accommodations." },
-      { title: "Host", body: "We hold the wedding. Grecia is on site for every event of every day. Nothing is delegated past the studio." },
+      {
+        title: "Listen",
+        body: "We begin with the families. Two-to-three hours, in person where possible. We map the ritual structure each side considers non-negotiable.",
+      },
+      {
+        title: "Map",
+        body: "We draft the ceremony order — sometimes in two languages, often across two religions. We send it back to the families for revision.",
+      },
+      {
+        title: "Source",
+        body: "We bring in the specialists. Pandit, rabbi, priest, mehndi artist, kosher caterer, choreographer, decorator. Each chosen by name, never by directory.",
+      },
+      {
+        title: "Stage",
+        body: "We rehearse the multi-day arc on paper, day by day, hour by hour. Catering. Logistics. Attire changes. Guest accommodations.",
+      },
+      {
+        title: "Host",
+        body: "We hold the wedding. Grecia is on site for every event of every day. Nothing is delegated past the studio.",
+      },
     ],
   },
   es: {
@@ -268,11 +310,26 @@ const METHODOLOGY: Record<Locale, MethodologyCopy> = {
     intro:
       "El mismo proceso de cinco pasos sostiene cada boda multicultural que planificamos. Cada paso lleva tiempo. El proceso comienza dieciocho a veinticuatro meses antes de la boda.",
     steps: [
-      { title: "Escuchar", body: "Comenzamos con las familias. Dos o tres horas, en persona cuando es posible. Trazamos la estructura ritual que cada parte considera innegociable." },
-      { title: "Trazar", body: "Redactamos el orden de la ceremonia — a veces en dos idiomas, a menudo entre dos religiones. Se lo devolvemos a las familias para que lo revisen." },
-      { title: "Buscar", body: "Incorporamos a los especialistas. Pandit, rabino, sacerdote, artista de mehndi, catering kosher, coreógrafo, decorador. Cada uno elegido por su nombre, nunca por directorio." },
-      { title: "Ensayar", body: "Ensayamos sobre el papel el arco de varios días, día a día, hora a hora. Catering. Logística. Cambios de vestuario. Alojamiento de los invitados." },
-      { title: "Celebrar", body: "Celebramos la boda. Grecia está presente en cada evento de cada día. Nada se delega más allá del atelier." },
+      {
+        title: "Escuchar",
+        body: "Comenzamos con las familias. Dos o tres horas, en persona cuando es posible. Trazamos la estructura ritual que cada parte considera innegociable.",
+      },
+      {
+        title: "Trazar",
+        body: "Redactamos el orden de la ceremonia — a veces en dos idiomas, a menudo entre dos religiones. Se lo devolvemos a las familias para que lo revisen.",
+      },
+      {
+        title: "Buscar",
+        body: "Incorporamos a los especialistas. Pandit, rabino, sacerdote, artista de mehndi, catering kosher, coreógrafo, decorador. Cada uno elegido por su nombre, nunca por directorio.",
+      },
+      {
+        title: "Ensayar",
+        body: "Ensayamos sobre el papel el arco de varios días, día a día, hora a hora. Catering. Logística. Cambios de vestuario. Alojamiento de los invitados.",
+      },
+      {
+        title: "Celebrar",
+        body: "Celebramos la boda. Grecia está presente en cada evento de cada día. Nada se delega más allá del atelier.",
+      },
     ],
   },
   fr: {
@@ -281,11 +338,26 @@ const METHODOLOGY: Record<Locale, MethodologyCopy> = {
     intro:
       "Le même processus en cinq étapes porte chaque mariage multiculturel que nous organisons. Chaque étape prend du temps. Le processus commence dix-huit à vingt-quatre mois avant le mariage.",
     steps: [
-      { title: "Écouter", body: "Nous commençons par les familles. Deux à trois heures, en personne lorsque c'est possible. Nous cartographions la structure rituelle que chaque partie juge non négociable." },
-      { title: "Cartographier", body: "Nous rédigeons l'ordre de la cérémonie — parfois en deux langues, souvent entre deux religions. Nous le renvoyons aux familles pour révision." },
-      { title: "Sourcer", body: "Nous faisons venir les spécialistes. Pandit, rabbin, prêtre, artiste mehndi, traiteur casher, chorégraphe, décorateur. Chacun choisi nommément, jamais par annuaire." },
-      { title: "Mettre en scène", body: "Nous répétons sur le papier la trame de plusieurs jours, jour après jour, heure par heure. Traiteur. Logistique. Changements de tenue. Hébergement des invités." },
-      { title: "Accueillir", body: "Nous tenons le mariage. Grecia est présente à chaque événement de chaque journée. Rien n'est délégué au-delà de l'atelier." },
+      {
+        title: "Écouter",
+        body: "Nous commençons par les familles. Deux à trois heures, en personne lorsque c'est possible. Nous cartographions la structure rituelle que chaque partie juge non négociable.",
+      },
+      {
+        title: "Cartographier",
+        body: "Nous rédigeons l'ordre de la cérémonie — parfois en deux langues, souvent entre deux religions. Nous le renvoyons aux familles pour révision.",
+      },
+      {
+        title: "Sourcer",
+        body: "Nous faisons venir les spécialistes. Pandit, rabbin, prêtre, artiste mehndi, traiteur casher, chorégraphe, décorateur. Chacun choisi nommément, jamais par annuaire.",
+      },
+      {
+        title: "Mettre en scène",
+        body: "Nous répétons sur le papier la trame de plusieurs jours, jour après jour, heure par heure. Traiteur. Logistique. Changements de tenue. Hébergement des invités.",
+      },
+      {
+        title: "Accueillir",
+        body: "Nous tenons le mariage. Grecia est présente à chaque événement de chaque journée. Rien n'est délégué au-delà de l'atelier.",
+      },
     ],
   },
   pt: {
@@ -294,11 +366,26 @@ const METHODOLOGY: Record<Locale, MethodologyCopy> = {
     intro:
       "O mesmo processo de cinco passos sustenta cada casamento multicultural que planeamos. Cada passo leva tempo. O processo começa dezoito a vinte e quatro meses antes do casamento.",
     steps: [
-      { title: "Ouvir", body: "Começamos pelas famílias. Duas a três horas, pessoalmente sempre que possível. Mapeamos a estrutura ritual que cada lado considera inegociável." },
-      { title: "Mapear", body: "Esboçamos a ordem da cerimónia — por vezes em duas línguas, muitas vezes entre duas religiões. Devolvemo-la às famílias para revisão." },
-      { title: "Selecionar", body: "Trazemos os especialistas. Pandit, rabino, padre, artista de mehndi, catering kosher, coreógrafo, decorador. Cada um escolhido pelo nome, nunca por diretório." },
-      { title: "Ensaiar", body: "Ensaiamos no papel o arco de vários dias, dia a dia, hora a hora. Catering. Logística. Mudanças de traje. Alojamento dos convidados." },
-      { title: "Acolher", body: "Realizamos o casamento. Grecia está presente em cada evento de cada dia. Nada é delegado para além do ateliê." },
+      {
+        title: "Ouvir",
+        body: "Começamos pelas famílias. Duas a três horas, pessoalmente sempre que possível. Mapeamos a estrutura ritual que cada lado considera inegociável.",
+      },
+      {
+        title: "Mapear",
+        body: "Esboçamos a ordem da cerimónia — por vezes em duas línguas, muitas vezes entre duas religiões. Devolvemo-la às famílias para revisão.",
+      },
+      {
+        title: "Selecionar",
+        body: "Trazemos os especialistas. Pandit, rabino, padre, artista de mehndi, catering kosher, coreógrafo, decorador. Cada um escolhido pelo nome, nunca por diretório.",
+      },
+      {
+        title: "Ensaiar",
+        body: "Ensaiamos no papel o arco de vários dias, dia a dia, hora a hora. Catering. Logística. Mudanças de traje. Alojamento dos convidados.",
+      },
+      {
+        title: "Acolher",
+        body: "Realizamos o casamento. Grecia está presente em cada evento de cada dia. Nada é delegado para além do ateliê.",
+      },
     ],
   },
   de: {
@@ -307,11 +394,26 @@ const METHODOLOGY: Record<Locale, MethodologyCopy> = {
     intro:
       "Derselbe fünfstufige Prozess trägt jede multikulturelle Hochzeit, die wir planen. Jeder Schritt braucht Zeit. Der Prozess beginnt achtzehn bis vierundzwanzig Monate vor der Hochzeit.",
     steps: [
-      { title: "Zuhören", body: "Wir beginnen bei den Familien. Zwei bis drei Stunden, nach Möglichkeit persönlich. Wir kartieren die rituelle Struktur, die jede Seite für unverhandelbar hält." },
-      { title: "Kartieren", body: "Wir entwerfen die Zeremonienreihenfolge — manchmal in zwei Sprachen, oft über zwei Religionen hinweg. Wir senden sie zur Überarbeitung an die Familien zurück." },
-      { title: "Beschaffen", body: "Wir holen die Spezialisten. Pandit, Rabbiner, Priester, Mehndi-Künstlerin, koscherer Caterer, Choreograf, Dekorateur. Jeder namentlich gewählt, nie aus einem Verzeichnis." },
-      { title: "Inszenieren", body: "Wir proben den mehrtägigen Bogen auf dem Papier, Tag für Tag, Stunde für Stunde. Catering. Logistik. Garderobenwechsel. Unterbringung der Gäste." },
-      { title: "Ausrichten", body: "Wir halten die Hochzeit. Grecia ist bei jedem Programmpunkt jedes Tages vor Ort. Nichts wird über das Atelier hinaus delegiert." },
+      {
+        title: "Zuhören",
+        body: "Wir beginnen bei den Familien. Zwei bis drei Stunden, nach Möglichkeit persönlich. Wir kartieren die rituelle Struktur, die jede Seite für unverhandelbar hält.",
+      },
+      {
+        title: "Kartieren",
+        body: "Wir entwerfen die Zeremonienreihenfolge — manchmal in zwei Sprachen, oft über zwei Religionen hinweg. Wir senden sie zur Überarbeitung an die Familien zurück.",
+      },
+      {
+        title: "Beschaffen",
+        body: "Wir holen die Spezialisten. Pandit, Rabbiner, Priester, Mehndi-Künstlerin, koscherer Caterer, Choreograf, Dekorateur. Jeder namentlich gewählt, nie aus einem Verzeichnis.",
+      },
+      {
+        title: "Inszenieren",
+        body: "Wir proben den mehrtägigen Bogen auf dem Papier, Tag für Tag, Stunde für Stunde. Catering. Logistik. Garderobenwechsel. Unterbringung der Gäste.",
+      },
+      {
+        title: "Ausrichten",
+        body: "Wir halten die Hochzeit. Grecia ist bei jedem Programmpunkt jedes Tages vor Ort. Nichts wird über das Atelier hinaus delegiert.",
+      },
     ],
   },
   it: {
@@ -320,11 +422,26 @@ const METHODOLOGY: Record<Locale, MethodologyCopy> = {
     intro:
       "Lo stesso processo in cinque passi regge ogni matrimonio multiculturale che organizziamo. Ogni passo richiede tempo. Il processo inizia da diciotto a ventiquattro mesi prima del matrimonio.",
     steps: [
-      { title: "Ascoltare", body: "Cominciamo dalle famiglie. Due-tre ore, di persona quando possibile. Mappiamo la struttura rituale che ciascuna parte considera non negoziabile." },
-      { title: "Mappare", body: "Redigiamo l'ordine della cerimonia — a volte in due lingue, spesso tra due religioni. Lo rimandiamo alle famiglie per la revisione." },
-      { title: "Selezionare", body: "Coinvolgiamo gli specialisti. Pandit, rabbino, sacerdote, artista di mehndi, catering kosher, coreografo, decoratore. Ciascuno scelto per nome, mai da un elenco." },
-      { title: "Allestire", body: "Proviamo sulla carta l'arco di più giorni, giorno per giorno, ora per ora. Catering. Logistica. Cambi d'abito. Sistemazione degli ospiti." },
-      { title: "Ospitare", body: "Teniamo il matrimonio. Grecia è presente a ogni evento di ogni giorno. Nulla viene delegato oltre l'atelier." },
+      {
+        title: "Ascoltare",
+        body: "Cominciamo dalle famiglie. Due-tre ore, di persona quando possibile. Mappiamo la struttura rituale che ciascuna parte considera non negoziabile.",
+      },
+      {
+        title: "Mappare",
+        body: "Redigiamo l'ordine della cerimonia — a volte in due lingue, spesso tra due religioni. Lo rimandiamo alle famiglie per la revisione.",
+      },
+      {
+        title: "Selezionare",
+        body: "Coinvolgiamo gli specialisti. Pandit, rabbino, sacerdote, artista di mehndi, catering kosher, coreografo, decoratore. Ciascuno scelto per nome, mai da un elenco.",
+      },
+      {
+        title: "Allestire",
+        body: "Proviamo sulla carta l'arco di più giorni, giorno per giorno, ora per ora. Catering. Logistica. Cambi d'abito. Sistemazione degli ospiti.",
+      },
+      {
+        title: "Ospitare",
+        body: "Teniamo il matrimonio. Grecia è presente a ogni evento di ogni giorno. Nulla viene delegato oltre l'atelier.",
+      },
     ],
   },
 };
@@ -367,7 +484,12 @@ const ATLAS: Record<Locale, AtlasCopy> = {
 
 // ── Interfaith pairings ─────────────────────────────────────────────────
 type Pairing = { first: string; second: string; body: string };
-type PairingsCopy = { eyebrow: string; headline: string; intro: string; items: Pairing[] };
+type PairingsCopy = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  items: Pairing[];
+};
 
 const PAIRINGS: Record<Locale, PairingsCopy> = {
   en: {
@@ -376,12 +498,36 @@ const PAIRINGS: Record<Locale, PairingsCopy> = {
     intro:
       "The pairings we have held more than three times each. Every combination here is one we have planned in person — never improvised.",
     items: [
-      { first: "Hindu", second: "Christian", body: "Two ceremonies, one weekend — the studio's most-requested combination. Pheras on day three, Catholic mass on day four." },
-      { first: "Jewish", second: "Catholic", body: "Chuppah followed by a Catholic blessing. Two officiants, one cohesive ritual arc." },
-      { first: "Hindu", second: "Jewish", body: "Chuppah held inside the mandap. Two clergy. Three languages." },
-      { first: "Muslim", second: "Christian", body: "Katb el-kitab in private, then a Christian ceremony for the families." },
-      { first: "Sikh", second: "Hindu", body: "Anand Karaj at dawn, Hindu pheras at dusk. One temple, two arcs." },
-      { first: "Arab", second: "Catholic", body: "Zaffe procession into a Catholic mass. The bride arrives twice." },
+      {
+        first: "Hindu",
+        second: "Christian",
+        body: "Two ceremonies, one weekend — the studio's most-requested combination. Pheras on day three, Catholic mass on day four.",
+      },
+      {
+        first: "Jewish",
+        second: "Catholic",
+        body: "Chuppah followed by a Catholic blessing. Two officiants, one cohesive ritual arc.",
+      },
+      {
+        first: "Hindu",
+        second: "Jewish",
+        body: "Chuppah held inside the mandap. Two clergy. Three languages.",
+      },
+      {
+        first: "Muslim",
+        second: "Christian",
+        body: "Katb el-kitab in private, then a Christian ceremony for the families.",
+      },
+      {
+        first: "Sikh",
+        second: "Hindu",
+        body: "Anand Karaj at dawn, Hindu pheras at dusk. One temple, two arcs.",
+      },
+      {
+        first: "Arab",
+        second: "Catholic",
+        body: "Zaffe procession into a Catholic mass. The bride arrives twice.",
+      },
     ],
   },
   es: {
@@ -390,12 +536,36 @@ const PAIRINGS: Record<Locale, PairingsCopy> = {
     intro:
       "Las combinaciones que hemos sostenido más de tres veces cada una. Cada combinación aquí es una que hemos planificado en persona — nunca improvisada.",
     items: [
-      { first: "Hindú", second: "Cristiana", body: "Dos ceremonias, un fin de semana — la combinación más solicitada del atelier. Pheras el tercer día, misa católica el cuarto." },
-      { first: "Judía", second: "Católica", body: "Chupá seguida de una bendición católica. Dos oficiantes, un único arco ritual cohesivo." },
-      { first: "Hindú", second: "Judía", body: "Chupá celebrada dentro del mandap. Dos oficiantes. Tres idiomas." },
-      { first: "Musulmana", second: "Cristiana", body: "Katb el-kitab en privado y luego una ceremonia cristiana para las familias." },
-      { first: "Sij", second: "Hindú", body: "Anand Karaj al amanecer, pheras hindúes al atardecer. Un templo, dos arcos." },
-      { first: "Árabe", second: "Católica", body: "Cortejo zaffe hacia una misa católica. La novia llega dos veces." },
+      {
+        first: "Hindú",
+        second: "Cristiana",
+        body: "Dos ceremonias, un fin de semana — la combinación más solicitada del atelier. Pheras el tercer día, misa católica el cuarto.",
+      },
+      {
+        first: "Judía",
+        second: "Católica",
+        body: "Chupá seguida de una bendición católica. Dos oficiantes, un único arco ritual cohesivo.",
+      },
+      {
+        first: "Hindú",
+        second: "Judía",
+        body: "Chupá celebrada dentro del mandap. Dos oficiantes. Tres idiomas.",
+      },
+      {
+        first: "Musulmana",
+        second: "Cristiana",
+        body: "Katb el-kitab en privado y luego una ceremonia cristiana para las familias.",
+      },
+      {
+        first: "Sij",
+        second: "Hindú",
+        body: "Anand Karaj al amanecer, pheras hindúes al atardecer. Un templo, dos arcos.",
+      },
+      {
+        first: "Árabe",
+        second: "Católica",
+        body: "Cortejo zaffe hacia una misa católica. La novia llega dos veces.",
+      },
     ],
   },
   fr: {
@@ -404,12 +574,36 @@ const PAIRINGS: Record<Locale, PairingsCopy> = {
     intro:
       "Les associations que nous avons tenues plus de trois fois chacune. Chaque combinaison ici est une que nous avons organisée en personne — jamais improvisée.",
     items: [
-      { first: "Hindou", second: "Chrétien", body: "Deux cérémonies, un week-end — la combinaison la plus demandée de l'atelier. Pheras le troisième jour, messe catholique le quatrième." },
-      { first: "Juif", second: "Catholique", body: "Houppa suivie d'une bénédiction catholique. Deux officiants, une seule trame rituelle cohérente." },
-      { first: "Hindou", second: "Juif", body: "Houppa tenue à l'intérieur du mandap. Deux officiants. Trois langues." },
-      { first: "Musulman", second: "Chrétien", body: "Katb el-kitab en privé, puis une cérémonie chrétienne pour les familles." },
-      { first: "Sikh", second: "Hindou", body: "Anand Karaj à l'aube, pheras hindous au crépuscule. Un temple, deux trames." },
-      { first: "Arabe", second: "Catholique", body: "Cortège zaffe vers une messe catholique. La mariée arrive deux fois." },
+      {
+        first: "Hindou",
+        second: "Chrétien",
+        body: "Deux cérémonies, un week-end — la combinaison la plus demandée de l'atelier. Pheras le troisième jour, messe catholique le quatrième.",
+      },
+      {
+        first: "Juif",
+        second: "Catholique",
+        body: "Houppa suivie d'une bénédiction catholique. Deux officiants, une seule trame rituelle cohérente.",
+      },
+      {
+        first: "Hindou",
+        second: "Juif",
+        body: "Houppa tenue à l'intérieur du mandap. Deux officiants. Trois langues.",
+      },
+      {
+        first: "Musulman",
+        second: "Chrétien",
+        body: "Katb el-kitab en privé, puis une cérémonie chrétienne pour les familles.",
+      },
+      {
+        first: "Sikh",
+        second: "Hindou",
+        body: "Anand Karaj à l'aube, pheras hindous au crépuscule. Un temple, deux trames.",
+      },
+      {
+        first: "Arabe",
+        second: "Catholique",
+        body: "Cortège zaffe vers une messe catholique. La mariée arrive deux fois.",
+      },
     ],
   },
   pt: {
@@ -418,12 +612,36 @@ const PAIRINGS: Record<Locale, PairingsCopy> = {
     intro:
       "As combinações que sustentámos mais de três vezes cada uma. Cada combinação aqui é uma que planeámos pessoalmente — nunca improvisada.",
     items: [
-      { first: "Hindu", second: "Cristão", body: "Duas cerimónias, um fim de semana — a combinação mais pedida do ateliê. Pheras no terceiro dia, missa católica no quarto." },
-      { first: "Judaico", second: "Católico", body: "Chupá seguida de uma bênção católica. Dois celebrantes, um único arco ritual coeso." },
-      { first: "Hindu", second: "Judaico", body: "Chupá realizada dentro do mandap. Dois celebrantes. Três línguas." },
-      { first: "Muçulmano", second: "Cristão", body: "Katb el-kitab em privado e depois uma cerimónia cristã para as famílias." },
-      { first: "Sikh", second: "Hindu", body: "Anand Karaj ao amanhecer, pheras hindus ao anoitecer. Um templo, dois arcos." },
-      { first: "Árabe", second: "Católico", body: "Cortejo zaffe rumo a uma missa católica. A noiva chega duas vezes." },
+      {
+        first: "Hindu",
+        second: "Cristão",
+        body: "Duas cerimónias, um fim de semana — a combinação mais pedida do ateliê. Pheras no terceiro dia, missa católica no quarto.",
+      },
+      {
+        first: "Judaico",
+        second: "Católico",
+        body: "Chupá seguida de uma bênção católica. Dois celebrantes, um único arco ritual coeso.",
+      },
+      {
+        first: "Hindu",
+        second: "Judaico",
+        body: "Chupá realizada dentro do mandap. Dois celebrantes. Três línguas.",
+      },
+      {
+        first: "Muçulmano",
+        second: "Cristão",
+        body: "Katb el-kitab em privado e depois uma cerimónia cristã para as famílias.",
+      },
+      {
+        first: "Sikh",
+        second: "Hindu",
+        body: "Anand Karaj ao amanhecer, pheras hindus ao anoitecer. Um templo, dois arcos.",
+      },
+      {
+        first: "Árabe",
+        second: "Católico",
+        body: "Cortejo zaffe rumo a uma missa católica. A noiva chega duas vezes.",
+      },
     ],
   },
   de: {
@@ -432,12 +650,36 @@ const PAIRINGS: Record<Locale, PairingsCopy> = {
     intro:
       "Die Kombinationen, die wir jeweils mehr als dreimal gehalten haben. Jede Kombination hier ist eine, die wir persönlich geplant haben — nie improvisiert.",
     items: [
-      { first: "Hinduistisch", second: "Christlich", body: "Zwei Zeremonien, ein Wochenende — die am häufigsten gewünschte Kombination des Ateliers. Pheras am dritten Tag, katholische Messe am vierten." },
-      { first: "Jüdisch", second: "Katholisch", body: "Chuppa gefolgt von einem katholischen Segen. Zwei Geistliche, ein stimmiger ritueller Bogen." },
-      { first: "Hinduistisch", second: "Jüdisch", body: "Chuppa im Inneren des Mandap gehalten. Zwei Geistliche. Drei Sprachen." },
-      { first: "Muslimisch", second: "Christlich", body: "Katb el-Kitab im Privaten, dann eine christliche Zeremonie für die Familien." },
-      { first: "Sikhistisch", second: "Hinduistisch", body: "Anand Karaj im Morgengrauen, hinduistische Pheras in der Dämmerung. Ein Tempel, zwei Bögen." },
-      { first: "Arabisch", second: "Katholisch", body: "Zaffe-Prozession in eine katholische Messe. Die Braut kommt zweimal an." },
+      {
+        first: "Hinduistisch",
+        second: "Christlich",
+        body: "Zwei Zeremonien, ein Wochenende — die am häufigsten gewünschte Kombination des Ateliers. Pheras am dritten Tag, katholische Messe am vierten.",
+      },
+      {
+        first: "Jüdisch",
+        second: "Katholisch",
+        body: "Chuppa gefolgt von einem katholischen Segen. Zwei Geistliche, ein stimmiger ritueller Bogen.",
+      },
+      {
+        first: "Hinduistisch",
+        second: "Jüdisch",
+        body: "Chuppa im Inneren des Mandap gehalten. Zwei Geistliche. Drei Sprachen.",
+      },
+      {
+        first: "Muslimisch",
+        second: "Christlich",
+        body: "Katb el-Kitab im Privaten, dann eine christliche Zeremonie für die Familien.",
+      },
+      {
+        first: "Sikhistisch",
+        second: "Hinduistisch",
+        body: "Anand Karaj im Morgengrauen, hinduistische Pheras in der Dämmerung. Ein Tempel, zwei Bögen.",
+      },
+      {
+        first: "Arabisch",
+        second: "Katholisch",
+        body: "Zaffe-Prozession in eine katholische Messe. Die Braut kommt zweimal an.",
+      },
     ],
   },
   it: {
@@ -446,12 +688,36 @@ const PAIRINGS: Record<Locale, PairingsCopy> = {
     intro:
       "Le combinazioni che abbiamo tenuto più di tre volte ciascuna. Ogni combinazione qui è una che abbiamo organizzato di persona — mai improvvisata.",
     items: [
-      { first: "Indù", second: "Cristiano", body: "Due cerimonie, un fine settimana — la combinazione più richiesta dell'atelier. Pheras il terzo giorno, messa cattolica il quarto." },
-      { first: "Ebraico", second: "Cattolico", body: "Chuppah seguita da una benedizione cattolica. Due celebranti, un unico arco rituale coeso." },
-      { first: "Indù", second: "Ebraico", body: "Chuppah tenuta all'interno del mandap. Due celebranti. Tre lingue." },
-      { first: "Musulmano", second: "Cristiano", body: "Katb el-kitab in privato, poi una cerimonia cristiana per le famiglie." },
-      { first: "Sikh", second: "Indù", body: "Anand Karaj all'alba, pheras indù al tramonto. Un tempio, due archi." },
-      { first: "Arabo", second: "Cattolico", body: "Corteo zaffe verso una messa cattolica. La sposa arriva due volte." },
+      {
+        first: "Indù",
+        second: "Cristiano",
+        body: "Due cerimonie, un fine settimana — la combinazione più richiesta dell'atelier. Pheras il terzo giorno, messa cattolica il quarto.",
+      },
+      {
+        first: "Ebraico",
+        second: "Cattolico",
+        body: "Chuppah seguita da una benedizione cattolica. Due celebranti, un unico arco rituale coeso.",
+      },
+      {
+        first: "Indù",
+        second: "Ebraico",
+        body: "Chuppah tenuta all'interno del mandap. Due celebranti. Tre lingue.",
+      },
+      {
+        first: "Musulmano",
+        second: "Cristiano",
+        body: "Katb el-kitab in privato, poi una cerimonia cristiana per le famiglie.",
+      },
+      {
+        first: "Sikh",
+        second: "Indù",
+        body: "Anand Karaj all'alba, pheras indù al tramonto. Un tempio, due archi.",
+      },
+      {
+        first: "Arabo",
+        second: "Cattolico",
+        body: "Corteo zaffe verso una messa cattolica. La sposa arriva due volte.",
+      },
     ],
   },
 };
@@ -471,7 +737,16 @@ const SPECIALISTS: Record<Locale, SpecialistsCopy> = {
     headline: "The *specialists* who hold each tradition.",
     intro:
       "A working register of the officiants, caterers, choreographers and decorators we partner with — by name, by year, by relationship.",
-    roles: ["Hindu pandit", "Rabbi", "Catholic priest", "Imam", "Sikh Granthi", "Kosher caterer", "Indian choreographer", "Mehndi artist"],
+    roles: [
+      "Hindu pandit",
+      "Rabbi",
+      "Catholic priest",
+      "Imam",
+      "Sikh Granthi",
+      "Kosher caterer",
+      "Indian choreographer",
+      "Mehndi artist",
+    ],
     bodies: [
       "14 years · 40 weddings · Cap Cana, Mumbai, London. Trained at Varanasi.",
       "Multilingual · Conservative & Reform · travels for destination weddings worldwide.",
@@ -488,7 +763,16 @@ const SPECIALISTS: Record<Locale, SpecialistsCopy> = {
     headline: "Los *especialistas* que sostienen cada tradición.",
     intro:
       "Un registro activo de los oficiantes, caterings, coreógrafos y decoradores con quienes colaboramos — por su nombre, por los años, por la relación.",
-    roles: ["Pandit hindú", "Rabino", "Sacerdote católico", "Imán", "Granthi sij", "Catering kosher", "Coreógrafo indio", "Artista de mehndi"],
+    roles: [
+      "Pandit hindú",
+      "Rabino",
+      "Sacerdote católico",
+      "Imán",
+      "Granthi sij",
+      "Catering kosher",
+      "Coreógrafo indio",
+      "Artista de mehndi",
+    ],
     bodies: [
       "14 años · 40 bodas · Cap Cana, Bombay, Londres. Formado en Varanasi.",
       "Multilingüe · conservador y reformista · viaja para bodas de destino por todo el mundo.",
@@ -505,7 +789,16 @@ const SPECIALISTS: Record<Locale, SpecialistsCopy> = {
     headline: "Les *spécialistes* qui portent chaque tradition.",
     intro:
       "Un registre actif des officiants, traiteurs, chorégraphes et décorateurs avec qui nous collaborons — nommément, par les années, par la relation.",
-    roles: ["Pandit hindou", "Rabbin", "Prêtre catholique", "Imam", "Granthi sikh", "Traiteur casher", "Chorégraphe indien", "Artiste mehndi"],
+    roles: [
+      "Pandit hindou",
+      "Rabbin",
+      "Prêtre catholique",
+      "Imam",
+      "Granthi sikh",
+      "Traiteur casher",
+      "Chorégraphe indien",
+      "Artiste mehndi",
+    ],
     bodies: [
       "14 ans · 40 mariages · Cap Cana, Mumbai, Londres. Formé à Varanasi.",
       "Multilingue · massorti et libéral · voyage pour des mariages de destination dans le monde entier.",
@@ -522,7 +815,16 @@ const SPECIALISTS: Record<Locale, SpecialistsCopy> = {
     headline: "Os *especialistas* que sustentam cada tradição.",
     intro:
       "Um registo ativo dos celebrantes, caterings, coreógrafos e decoradores com quem colaboramos — pelo nome, pelos anos, pela relação.",
-    roles: ["Pandit hindu", "Rabino", "Padre católico", "Imã", "Granthi sikh", "Catering kosher", "Coreógrafo indiano", "Artista de mehndi"],
+    roles: [
+      "Pandit hindu",
+      "Rabino",
+      "Padre católico",
+      "Imã",
+      "Granthi sikh",
+      "Catering kosher",
+      "Coreógrafo indiano",
+      "Artista de mehndi",
+    ],
     bodies: [
       "14 anos · 40 casamentos · Cap Cana, Mumbai, Londres. Formado em Varanasi.",
       "Multilingue · conservador e reformista · viaja para casamentos de destino em todo o mundo.",
@@ -539,7 +841,16 @@ const SPECIALISTS: Record<Locale, SpecialistsCopy> = {
     headline: "Die *Spezialisten,* die jede Tradition tragen.",
     intro:
       "Ein lebendiges Verzeichnis der Geistlichen, Caterer, Choreografen und Dekorateure, mit denen wir zusammenarbeiten — namentlich, nach Jahren, nach Beziehung.",
-    roles: ["Hinduistischer Pandit", "Rabbiner", "Katholischer Priester", "Imam", "Sikh-Granthi", "Koscherer Caterer", "Indischer Choreograf", "Mehndi-Künstlerin"],
+    roles: [
+      "Hinduistischer Pandit",
+      "Rabbiner",
+      "Katholischer Priester",
+      "Imam",
+      "Sikh-Granthi",
+      "Koscherer Caterer",
+      "Indischer Choreograf",
+      "Mehndi-Künstlerin",
+    ],
     bodies: [
       "14 Jahre · 40 Hochzeiten · Cap Cana, Mumbai, London. Ausgebildet in Varanasi.",
       "Mehrsprachig · konservativ & liberal · reist weltweit für Destinationshochzeiten.",
@@ -556,7 +867,16 @@ const SPECIALISTS: Record<Locale, SpecialistsCopy> = {
     headline: "Gli *specialisti* che reggono ogni tradizione.",
     intro:
       "Un registro attivo dei celebranti, dei catering, dei coreografi e dei decoratori con cui collaboriamo — per nome, per anni, per rapporto.",
-    roles: ["Pandit indù", "Rabbino", "Sacerdote cattolico", "Imam", "Granthi sikh", "Catering kosher", "Coreografo indiano", "Artista di mehndi"],
+    roles: [
+      "Pandit indù",
+      "Rabbino",
+      "Sacerdote cattolico",
+      "Imam",
+      "Granthi sikh",
+      "Catering kosher",
+      "Coreografo indiano",
+      "Artista di mehndi",
+    ],
     bodies: [
       "14 anni · 40 matrimoni · Cap Cana, Mumbai, Londra. Formatosi a Varanasi.",
       "Multilingue · conservatore e riformato · viaggia per matrimoni di destinazione in tutto il mondo.",
@@ -590,108 +910,318 @@ const RELATED: Record<Locale, RelatedCopy> = {
     eyebrow: "Continue reading",
     headline: "From the *journal.*",
     articles: [
-      { category: "Indian Weddings · Punta Cana", title: "Best Indian Wedding Venues in Punta Cana", body: "The resorts that hold a 300-guest baraat with grace." },
-      { category: "Interfaith", title: "Two Clergy, One Ceremony", body: "How we structure interfaith ritual arcs without compromise." },
-      { category: "Jewish · Destination", title: "A Jewish Wedding in the Caribbean: Kosher on the Coast", body: "On building a kosher kitchen 1,500 miles from the nearest mashgiach." },
-      { category: "Multi-day · Planning", title: "The Sangeet: Why the Night Before Matters More", body: "On the rehearsal that is no longer a rehearsal." },
-      { category: "Latin", title: "Padrinos, Arras, Lazo: A Catholic-Latin Glossary", body: "For the brides marrying into a tradition new to them." },
+      {
+        category: "Indian Weddings · Punta Cana",
+        title: "Best Indian Wedding Venues in Punta Cana",
+        body: "The resorts that hold a 300-guest baraat with grace.",
+      },
+      {
+        category: "Interfaith",
+        title: "Two Clergy, One Ceremony",
+        body: "How we structure interfaith ritual arcs without compromise.",
+      },
+      {
+        category: "Jewish · Destination",
+        title: "A Jewish Wedding in the Caribbean: Kosher on the Coast",
+        body: "On building a kosher kitchen 1,500 miles from the nearest mashgiach.",
+      },
+      {
+        category: "Multi-day · Planning",
+        title: "The Sangeet: Why the Night Before Matters More",
+        body: "On the rehearsal that is no longer a rehearsal.",
+      },
+      {
+        category: "Latin",
+        title: "Padrinos, Arras, Lazo: A Catholic-Latin Glossary",
+        body: "For the brides marrying into a tradition new to them.",
+      },
     ],
     destinationsHeading: "Destinations",
     servicesHeading: "Services",
     weddingsHeading: "Recent weddings",
-    destinations: [{ label: "Punta Cana" }, { label: "Lake Como" }, { label: "Provence" }, { label: "Mallorca" }],
-    services: [{ label: "Multicultural planning" }, { label: "Wedding weekend design" }, { label: "Cultural sourcing" }, { label: "Legal & protocol" }],
-    weddings: [{ label: "Saira & Adam · Hindu-Christian" }, { label: "Maya & Daniel · Jewish" }, { label: "Aisha & Tariq · Arab" }],
+    destinations: [
+      { label: "Punta Cana" },
+      { label: "Lake Como" },
+      { label: "Provence" },
+      { label: "Mallorca" },
+    ],
+    services: [
+      { label: "Multicultural planning" },
+      { label: "Wedding weekend design" },
+      { label: "Cultural sourcing" },
+      { label: "Legal & protocol" },
+    ],
+    weddings: [
+      { label: "Saira & Adam · Hindu-Christian" },
+      { label: "Maya & Daniel · Jewish" },
+      { label: "Aisha & Tariq · Arab" },
+    ],
   },
   es: {
     eyebrow: "Seguir leyendo",
     headline: "Del *diario.*",
     articles: [
-      { category: "Bodas Indias · Punta Cana", title: "Los mejores lugares para bodas indias en Punta Cana", body: "Los resorts que acogen con gracia un baraat de 300 invitados." },
-      { category: "Interreligiosa", title: "Dos oficiantes, una ceremonia", body: "Cómo estructuramos los arcos rituales interreligiosos sin concesiones." },
-      { category: "Judía · Destino", title: "Una boda judía en el Caribe: kosher en la costa", body: "Sobre montar una cocina kosher a 2.400 kilómetros del mashgiach más cercano." },
-      { category: "Varios días · Planificación", title: "El sangeet: por qué la noche anterior importa más", body: "Sobre el ensayo que ya no es un ensayo." },
-      { category: "Latina", title: "Padrinos, arras, lazo: un glosario católico-latino", body: "Para las novias que se casan en una tradición nueva para ellas." },
+      {
+        category: "Bodas Indias · Punta Cana",
+        title: "Los mejores lugares para bodas indias en Punta Cana",
+        body: "Los resorts que acogen con gracia un baraat de 300 invitados.",
+      },
+      {
+        category: "Interreligiosa",
+        title: "Dos oficiantes, una ceremonia",
+        body: "Cómo estructuramos los arcos rituales interreligiosos sin concesiones.",
+      },
+      {
+        category: "Judía · Destino",
+        title: "Una boda judía en el Caribe: kosher en la costa",
+        body: "Sobre montar una cocina kosher a 2.400 kilómetros del mashgiach más cercano.",
+      },
+      {
+        category: "Varios días · Planificación",
+        title: "El sangeet: por qué la noche anterior importa más",
+        body: "Sobre el ensayo que ya no es un ensayo.",
+      },
+      {
+        category: "Latina",
+        title: "Padrinos, arras, lazo: un glosario católico-latino",
+        body: "Para las novias que se casan en una tradición nueva para ellas.",
+      },
     ],
     destinationsHeading: "Destinos",
     servicesHeading: "Servicios",
     weddingsHeading: "Bodas recientes",
-    destinations: [{ label: "Punta Cana" }, { label: "Lago de Como" }, { label: "Provenza" }, { label: "Mallorca" }],
-    services: [{ label: "Planificación multicultural" }, { label: "Diseño de fin de semana nupcial" }, { label: "Búsqueda cultural" }, { label: "Legal y protocolo" }],
-    weddings: [{ label: "Saira y Adam · Hindú-Cristiana" }, { label: "Maya y Daniel · Judía" }, { label: "Aisha y Tariq · Árabe" }],
+    destinations: [
+      { label: "Punta Cana" },
+      { label: "Lago de Como" },
+      { label: "Provenza" },
+      { label: "Mallorca" },
+    ],
+    services: [
+      { label: "Planificación multicultural" },
+      { label: "Diseño de fin de semana nupcial" },
+      { label: "Búsqueda cultural" },
+      { label: "Legal y protocolo" },
+    ],
+    weddings: [
+      { label: "Saira y Adam · Hindú-Cristiana" },
+      { label: "Maya y Daniel · Judía" },
+      { label: "Aisha y Tariq · Árabe" },
+    ],
   },
   fr: {
     eyebrow: "Poursuivre la lecture",
     headline: "Du *journal.*",
     articles: [
-      { category: "Mariages Indiens · Punta Cana", title: "Les meilleurs lieux de mariage indien à Punta Cana", body: "Les resorts qui accueillent avec grâce un baraat de 300 invités." },
-      { category: "Interconfessionnel", title: "Deux officiants, une cérémonie", body: "Comment nous structurons les trames rituelles interconfessionnelles sans compromis." },
-      { category: "Juif · Destination", title: "Un mariage juif aux Caraïbes : casher sur la côte", body: "Monter une cuisine casher à 2 400 kilomètres du mashgiah le plus proche." },
-      { category: "Plusieurs jours · Planification", title: "Le sangeet : pourquoi la veille compte davantage", body: "Sur la répétition qui n'en est plus une." },
-      { category: "Latin", title: "Padrinos, arras, lazo : un glossaire catholique-latin", body: "Pour les mariées qui épousent une tradition nouvelle pour elles." },
+      {
+        category: "Mariages Indiens · Punta Cana",
+        title: "Les meilleurs lieux de mariage indien à Punta Cana",
+        body: "Les resorts qui accueillent avec grâce un baraat de 300 invités.",
+      },
+      {
+        category: "Interconfessionnel",
+        title: "Deux officiants, une cérémonie",
+        body: "Comment nous structurons les trames rituelles interconfessionnelles sans compromis.",
+      },
+      {
+        category: "Juif · Destination",
+        title: "Un mariage juif aux Caraïbes : casher sur la côte",
+        body: "Monter une cuisine casher à 2 400 kilomètres du mashgiah le plus proche.",
+      },
+      {
+        category: "Plusieurs jours · Planification",
+        title: "Le sangeet : pourquoi la veille compte davantage",
+        body: "Sur la répétition qui n'en est plus une.",
+      },
+      {
+        category: "Latin",
+        title: "Padrinos, arras, lazo : un glossaire catholique-latin",
+        body: "Pour les mariées qui épousent une tradition nouvelle pour elles.",
+      },
     ],
     destinationsHeading: "Destinations",
     servicesHeading: "Services",
     weddingsHeading: "Mariages récents",
-    destinations: [{ label: "Punta Cana" }, { label: "Lac de Côme" }, { label: "Provence" }, { label: "Majorque" }],
-    services: [{ label: "Planification multiculturelle" }, { label: "Design du week-end de mariage" }, { label: "Sourcing culturel" }, { label: "Juridique & protocole" }],
-    weddings: [{ label: "Saira & Adam · Hindou-Chrétien" }, { label: "Maya & Daniel · Juif" }, { label: "Aisha & Tariq · Arabe" }],
+    destinations: [
+      { label: "Punta Cana" },
+      { label: "Lac de Côme" },
+      { label: "Provence" },
+      { label: "Majorque" },
+    ],
+    services: [
+      { label: "Planification multiculturelle" },
+      { label: "Design du week-end de mariage" },
+      { label: "Sourcing culturel" },
+      { label: "Juridique & protocole" },
+    ],
+    weddings: [
+      { label: "Saira & Adam · Hindou-Chrétien" },
+      { label: "Maya & Daniel · Juif" },
+      { label: "Aisha & Tariq · Arabe" },
+    ],
   },
   pt: {
     eyebrow: "Continuar a ler",
     headline: "Do *diário.*",
     articles: [
-      { category: "Casamentos Indianos · Punta Cana", title: "Os melhores locais para casamentos indianos em Punta Cana", body: "Os resorts que acolhem com graça um baraat de 300 convidados." },
-      { category: "Inter-religioso", title: "Dois celebrantes, uma cerimónia", body: "Como estruturamos os arcos rituais inter-religiosos sem concessões." },
-      { category: "Judaico · Destino", title: "Um casamento judaico nas Caraíbas: kosher na costa", body: "Sobre montar uma cozinha kosher a 2.400 quilómetros do mashgiach mais próximo." },
-      { category: "Vários dias · Planeamento", title: "O sangeet: porque a noite anterior importa mais", body: "Sobre o ensaio que já não é um ensaio." },
-      { category: "Latino", title: "Padrinhos, arras, lazo: um glossário católico-latino", body: "Para as noivas que se casam numa tradição nova para elas." },
+      {
+        category: "Casamentos Indianos · Punta Cana",
+        title: "Os melhores locais para casamentos indianos em Punta Cana",
+        body: "Os resorts que acolhem com graça um baraat de 300 convidados.",
+      },
+      {
+        category: "Inter-religioso",
+        title: "Dois celebrantes, uma cerimónia",
+        body: "Como estruturamos os arcos rituais inter-religiosos sem concessões.",
+      },
+      {
+        category: "Judaico · Destino",
+        title: "Um casamento judaico nas Caraíbas: kosher na costa",
+        body: "Sobre montar uma cozinha kosher a 2.400 quilómetros do mashgiach mais próximo.",
+      },
+      {
+        category: "Vários dias · Planeamento",
+        title: "O sangeet: porque a noite anterior importa mais",
+        body: "Sobre o ensaio que já não é um ensaio.",
+      },
+      {
+        category: "Latino",
+        title: "Padrinhos, arras, lazo: um glossário católico-latino",
+        body: "Para as noivas que se casam numa tradição nova para elas.",
+      },
     ],
     destinationsHeading: "Destinos",
     servicesHeading: "Serviços",
     weddingsHeading: "Casamentos recentes",
-    destinations: [{ label: "Punta Cana" }, { label: "Lago de Como" }, { label: "Provença" }, { label: "Maiorca" }],
-    services: [{ label: "Planeamento multicultural" }, { label: "Design de fim de semana nupcial" }, { label: "Curadoria cultural" }, { label: "Jurídico e protocolo" }],
-    weddings: [{ label: "Saira & Adam · Hindu-Cristão" }, { label: "Maya & Daniel · Judaico" }, { label: "Aisha & Tariq · Árabe" }],
+    destinations: [
+      { label: "Punta Cana" },
+      { label: "Lago de Como" },
+      { label: "Provença" },
+      { label: "Maiorca" },
+    ],
+    services: [
+      { label: "Planeamento multicultural" },
+      { label: "Design de fim de semana nupcial" },
+      { label: "Curadoria cultural" },
+      { label: "Jurídico e protocolo" },
+    ],
+    weddings: [
+      { label: "Saira & Adam · Hindu-Cristão" },
+      { label: "Maya & Daniel · Judaico" },
+      { label: "Aisha & Tariq · Árabe" },
+    ],
   },
   de: {
     eyebrow: "Weiterlesen",
     headline: "Aus dem *Journal.*",
     articles: [
-      { category: "Indische Hochzeiten · Punta Cana", title: "Die besten indischen Hochzeitslocations in Punta Cana", body: "Die Resorts, die einen Baraat mit 300 Gästen mit Anmut tragen." },
-      { category: "Interreligiös", title: "Zwei Geistliche, eine Zeremonie", body: "Wie wir interreligiöse rituelle Bögen ohne Kompromisse strukturieren." },
-      { category: "Jüdisch · Destination", title: "Eine jüdische Hochzeit in der Karibik: koscher an der Küste", body: "Über den Aufbau einer koscheren Küche 2.400 Kilometer vom nächsten Maschgiach entfernt." },
-      { category: "Mehrtägig · Planung", title: "Das Sangeet: Warum der Abend davor mehr zählt", body: "Über die Probe, die keine Probe mehr ist." },
-      { category: "Lateinamerikanisch", title: "Padrinos, Arras, Lazo: ein katholisch-lateinamerikanisches Glossar", body: "Für Bräute, die in eine ihnen neue Tradition einheiraten." },
+      {
+        category: "Indische Hochzeiten · Punta Cana",
+        title: "Die besten indischen Hochzeitslocations in Punta Cana",
+        body: "Die Resorts, die einen Baraat mit 300 Gästen mit Anmut tragen.",
+      },
+      {
+        category: "Interreligiös",
+        title: "Zwei Geistliche, eine Zeremonie",
+        body: "Wie wir interreligiöse rituelle Bögen ohne Kompromisse strukturieren.",
+      },
+      {
+        category: "Jüdisch · Destination",
+        title: "Eine jüdische Hochzeit in der Karibik: koscher an der Küste",
+        body: "Über den Aufbau einer koscheren Küche 2.400 Kilometer vom nächsten Maschgiach entfernt.",
+      },
+      {
+        category: "Mehrtägig · Planung",
+        title: "Das Sangeet: Warum der Abend davor mehr zählt",
+        body: "Über die Probe, die keine Probe mehr ist.",
+      },
+      {
+        category: "Lateinamerikanisch",
+        title:
+          "Padrinos, Arras, Lazo: ein katholisch-lateinamerikanisches Glossar",
+        body: "Für Bräute, die in eine ihnen neue Tradition einheiraten.",
+      },
     ],
     destinationsHeading: "Reiseziele",
     servicesHeading: "Leistungen",
     weddingsHeading: "Jüngste Hochzeiten",
-    destinations: [{ label: "Punta Cana" }, { label: "Comer See" }, { label: "Provence" }, { label: "Mallorca" }],
-    services: [{ label: "Multikulturelle Planung" }, { label: "Gestaltung des Hochzeitswochenendes" }, { label: "Kulturelles Sourcing" }, { label: "Recht & Protokoll" }],
-    weddings: [{ label: "Saira & Adam · Hinduistisch-Christlich" }, { label: "Maya & Daniel · Jüdisch" }, { label: "Aisha & Tariq · Arabisch" }],
+    destinations: [
+      { label: "Punta Cana" },
+      { label: "Comer See" },
+      { label: "Provence" },
+      { label: "Mallorca" },
+    ],
+    services: [
+      { label: "Multikulturelle Planung" },
+      { label: "Gestaltung des Hochzeitswochenendes" },
+      { label: "Kulturelles Sourcing" },
+      { label: "Recht & Protokoll" },
+    ],
+    weddings: [
+      { label: "Saira & Adam · Hinduistisch-Christlich" },
+      { label: "Maya & Daniel · Jüdisch" },
+      { label: "Aisha & Tariq · Arabisch" },
+    ],
   },
   it: {
     eyebrow: "Continua a leggere",
     headline: "Dal *diario.*",
     articles: [
-      { category: "Matrimoni Indiani · Punta Cana", title: "Le migliori location per matrimoni indiani a Punta Cana", body: "I resort che accolgono con grazia un baraat da 300 invitati." },
-      { category: "Interreligioso", title: "Due celebranti, una cerimonia", body: "Come strutturiamo gli archi rituali interreligiosi senza compromessi." },
-      { category: "Ebraico · Destinazione", title: "Un matrimonio ebraico ai Caraibi: kosher sulla costa", body: "Sull'allestire una cucina kosher a 2.400 chilometri dal mashgiach più vicino." },
-      { category: "Più giorni · Pianificazione", title: "Il sangeet: perché la sera prima conta di più", body: "Sulla prova che non è più una prova." },
-      { category: "Latino", title: "Padrinos, arras, lazo: un glossario cattolico-latino", body: "Per le spose che si sposano in una tradizione nuova per loro." },
+      {
+        category: "Matrimoni Indiani · Punta Cana",
+        title: "Le migliori location per matrimoni indiani a Punta Cana",
+        body: "I resort che accolgono con grazia un baraat da 300 invitati.",
+      },
+      {
+        category: "Interreligioso",
+        title: "Due celebranti, una cerimonia",
+        body: "Come strutturiamo gli archi rituali interreligiosi senza compromessi.",
+      },
+      {
+        category: "Ebraico · Destinazione",
+        title: "Un matrimonio ebraico ai Caraibi: kosher sulla costa",
+        body: "Sull'allestire una cucina kosher a 2.400 chilometri dal mashgiach più vicino.",
+      },
+      {
+        category: "Più giorni · Pianificazione",
+        title: "Il sangeet: perché la sera prima conta di più",
+        body: "Sulla prova che non è più una prova.",
+      },
+      {
+        category: "Latino",
+        title: "Padrinos, arras, lazo: un glossario cattolico-latino",
+        body: "Per le spose che si sposano in una tradizione nuova per loro.",
+      },
     ],
     destinationsHeading: "Destinazioni",
     servicesHeading: "Servizi",
     weddingsHeading: "Matrimoni recenti",
-    destinations: [{ label: "Punta Cana" }, { label: "Lago di Como" }, { label: "Provenza" }, { label: "Maiorca" }],
-    services: [{ label: "Pianificazione multiculturale" }, { label: "Design del weekend di nozze" }, { label: "Ricerca culturale" }, { label: "Legale e protocollo" }],
-    weddings: [{ label: "Saira & Adam · Indù-Cristiano" }, { label: "Maya & Daniel · Ebraico" }, { label: "Aisha & Tariq · Arabo" }],
+    destinations: [
+      { label: "Punta Cana" },
+      { label: "Lago di Como" },
+      { label: "Provenza" },
+      { label: "Maiorca" },
+    ],
+    services: [
+      { label: "Pianificazione multiculturale" },
+      { label: "Design del weekend di nozze" },
+      { label: "Ricerca culturale" },
+      { label: "Legale e protocollo" },
+    ],
+    weddings: [
+      { label: "Saira & Adam · Indù-Cristiano" },
+      { label: "Maya & Daniel · Ebraico" },
+      { label: "Aisha & Tariq · Arabo" },
+    ],
   },
 };
 
 // ── CTA ──────────────────────────────────────────────────────────────────
-type CtaCopy = { scriptLine: string; headline: string; body: string; ctaLabel: string };
+type CtaCopy = {
+  scriptLine: string;
+  headline: string;
+  body: string;
+  ctaLabel: string;
+};
 
 const CTA: Record<Locale, CtaCopy> = {
   en: {
@@ -747,7 +1277,9 @@ function buildDoc(locale: Locale) {
       sideNote: philosophy.sideNote,
       headline: philosophy.headline,
       lede: philosophy.lede,
-      body: ptBlocks(philosophy.body.map((text) => ({ style: "normal", text }))),
+      body: ptBlocks(
+        philosophy.body.map((text) => ({ style: "normal", text })),
+      ),
       pull: philosophy.pull,
     },
     methodology: {
@@ -773,7 +1305,11 @@ function buildDoc(locale: Locale) {
       headline: specialists.headline,
       intro: specialists.intro,
       items: SPECIALIST_NAMES.map((name, i) =>
-        keyed({ role: specialists.roles[i], name, body: specialists.bodies[i] }),
+        keyed({
+          role: specialists.roles[i],
+          name,
+          body: specialists.bodies[i],
+        }),
       ),
     },
     related: {

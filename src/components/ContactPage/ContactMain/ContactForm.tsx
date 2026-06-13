@@ -115,8 +115,7 @@ export function ContactForm({ form }: ContactFormProps) {
   if (status === "success") {
     return (
       <div className="border border-gold bg-cream px-7 py-6 font-serif text-lg italic text-olive">
-        {form?.successMessage ??
-          "Thank you — your enquiry is with the studio."}
+        {form?.successMessage ?? "Thank you — your enquiry is with the studio."}
       </div>
     );
   }

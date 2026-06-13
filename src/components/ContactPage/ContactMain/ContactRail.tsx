@@ -16,12 +16,20 @@ function withBreaks(value: string) {
   ));
 }
 
-function RailCard({ card, isFirst }: { card: ContactRailCard; isFirst: boolean }) {
+function RailCard({
+  card,
+  isFirst,
+}: {
+  card: ContactRailCard;
+  isFirst: boolean;
+}) {
   const borderTop = isFirst ? "" : "border-t-0";
 
   if (card.variant === "feature") {
     return (
-      <div className={`border border-olive bg-olive p-10 text-ivory ${borderTop}`}>
+      <div
+        className={`border border-olive bg-olive p-10 text-ivory ${borderTop}`}
+      >
         {card.script ? (
           <span className="mb-3.5 block font-script text-[40px] leading-none text-cine-gold">
             {card.script}

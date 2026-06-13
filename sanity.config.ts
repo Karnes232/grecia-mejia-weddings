@@ -23,9 +23,13 @@ const LOCALIZED_TYPES = [
   "contactPage",
   "termsPage",
   "privacyPage",
+  "pressPage",
   "multiculturalPage",
+  "venuesPage",
   "destination",
   "culture",
+  "venueRegion",
+  "venue",
 ];
 
 export default defineConfig({

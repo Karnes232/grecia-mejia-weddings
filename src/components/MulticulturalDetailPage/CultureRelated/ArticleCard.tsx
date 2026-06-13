@@ -5,8 +5,9 @@ import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
 import type { CultureMedia } from "@/sanity/queries/culture";
 
-type ArticleImage =
-  NonNullable<CultureMedia["relatedArticles"]>[number]["image"];
+type ArticleImage = NonNullable<
+  CultureMedia["relatedArticles"]
+>[number]["image"];
 
 type ArticleCardProps = {
   category?: string;

@@ -55,10 +55,19 @@
     "form": {
       "fields": {
         "fullName": { "label": "Nome completo", "placeholder": "O seu nome" },
-        "country": { "label": "País de residência", "placeholder": "Onde vive" },
+        "country": {
+          "label": "País de residência",
+          "placeholder": "Onde vive"
+        },
         "email": { "label": "E-mail", "placeholder": "voce@email.com" },
-        "whatsapp": { "label": "WhatsApp", "placeholder": "Com o código do país" },
-        "date": { "label": "Data estimada", "placeholder": "Mês e ano, ou uma estação" }
+        "whatsapp": {
+          "label": "WhatsApp",
+          "placeholder": "Com o código do país"
+        },
+        "date": {
+          "label": "Data estimada",
+          "placeholder": "Mês e ano, ou uma estação"
+        }
       },
       "selects": {
         "destination": {
@@ -128,5 +137,22 @@
     "effective": "Em vigor",
     "appliesTo": "Aplica-se a",
     "contactCta": "Fale com o estúdio →"
+  },
+  "pressPage": {
+    "readFeature": "Ler a reportagem"
+  },
+  "venuesPage": {
+    "region": "Região",
+    "viewVenues": "Ver locais de {name}",
+    "filterLabel": "Filtrar",
+    "all": "Todos",
+    "guests": "convidados",
+    "readBrief": "Ler a ficha",
+    "subRegions": "Sub-regiões",
+    "related": "Relacionado",
+    "caseStudy": "Estudo de caso",
+    "otherVenues": "Outros locais",
+    "compatibleTraditions": "Tradições compatíveis",
+    "relatedDestinations": "Destinos relacionados"
   }
 }

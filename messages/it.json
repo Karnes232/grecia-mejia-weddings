@@ -55,10 +55,19 @@
     "form": {
       "fields": {
         "fullName": { "label": "Nome completo", "placeholder": "Il tuo nome" },
-        "country": { "label": "Paese di residenza", "placeholder": "Dove vivi" },
+        "country": {
+          "label": "Paese di residenza",
+          "placeholder": "Dove vivi"
+        },
         "email": { "label": "E-mail", "placeholder": "tu@email.com" },
-        "whatsapp": { "label": "WhatsApp", "placeholder": "Con prefisso internazionale" },
-        "date": { "label": "Data prevista", "placeholder": "Mese e anno, o una stagione" }
+        "whatsapp": {
+          "label": "WhatsApp",
+          "placeholder": "Con prefisso internazionale"
+        },
+        "date": {
+          "label": "Data prevista",
+          "placeholder": "Mese e anno, o una stagione"
+        }
       },
       "selects": {
         "destination": {
@@ -128,5 +137,22 @@
     "effective": "In vigore",
     "appliesTo": "Si applica a",
     "contactCta": "Contatta lo studio →"
+  },
+  "pressPage": {
+    "readFeature": "Leggi il servizio"
+  },
+  "venuesPage": {
+    "region": "Regione",
+    "viewVenues": "Vedi le sedi di {name}",
+    "filterLabel": "Filtra",
+    "all": "Tutte",
+    "guests": "ospiti",
+    "readBrief": "Leggi la scheda",
+    "subRegions": "Sotto-regioni",
+    "related": "Correlati",
+    "caseStudy": "Caso studio",
+    "otherVenues": "Altre sedi",
+    "compatibleTraditions": "Tradizioni compatibili",
+    "relatedDestinations": "Destinazioni correlate"
   }
 }

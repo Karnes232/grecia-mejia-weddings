@@ -44,7 +44,8 @@ export const aboutPage = defineType({
           name: "scriptOverline",
           title: "Script overline",
           type: "string",
-          description: "Pinyon-Script accent above the title (e.g. 'A note from').",
+          description:
+            "Pinyon-Script accent above the title (e.g. 'A note from').",
         },
         defineField({
           name: "headline",
@@ -134,7 +135,8 @@ export const aboutPage = defineType({
           name: "figureCaption",
           title: "Story figure caption",
           type: "object",
-          description: "Caption for the embedded photo (image set in About Page Media).",
+          description:
+            "Caption for the embedded photo (image set in About Page Media).",
           fields: [
             {
               name: "emphasis",
@@ -415,7 +417,11 @@ export const aboutPage = defineType({
                       validation: (r) => r.required(),
                     },
                     { name: "sub", title: "Sub-line", type: "string" },
-                    { name: "publication", title: "Publication", type: "string" },
+                    {
+                      name: "publication",
+                      title: "Publication",
+                      type: "string",
+                    },
                   ],
                   preview: {
                     select: {
@@ -460,7 +466,8 @@ export const aboutPage = defineType({
           name: "headline",
           title: "Headline",
           type: "string",
-          description: "Use *word* for italic accents (e.g. *write* to Grecia.).",
+          description:
+            "Use *word* for italic accents (e.g. *write* to Grecia.).",
         }),
         { name: "body", title: "Body (deck)", type: "text", rows: 3 },
         defineField({
@@ -476,7 +483,8 @@ export const aboutPage = defineType({
           name: "details",
           title: "Contact details",
           type: "array",
-          description: "Label / value rows (Email, Phone, WhatsApp, Instagram…).",
+          description:
+            "Label / value rows (Email, Phone, WhatsApp, Instagram…).",
           of: [
             defineArrayMember({
               type: "object",
@@ -497,7 +505,8 @@ export const aboutPage = defineType({
                   name: "href",
                   title: "Href (optional)",
                   type: "string",
-                  description: "e.g. mailto:… or tel:… — leave empty for plain text.",
+                  description:
+                    "e.g. mailto:… or tel:… — leave empty for plain text.",
                 },
               ],
               preview: { select: { title: "label", subtitle: "value" } },

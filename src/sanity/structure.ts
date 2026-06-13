@@ -2,6 +2,10 @@ import type { StructureResolver } from "sanity/structure";
 
 import { apiVersion } from "./env";
 
+// Base editing language. Localized lists filter to this so each item shows once;
+// other locales are reached via the document-internationalization banner.
+const BASE_LANGUAGE = "en";
+
 const SINGLETON_TYPES = new Set([
   "siteSettings",
   "navigation",
@@ -18,10 +22,18 @@ const SINGLETON_TYPES = new Set([
   "contactPageMedia",
   "termsPage",
   "privacyPage",
+  "pressPage",
+  "pressPageMedia",
+  "venuesPage",
+  "venuesPageMedia",
   "destination",
   "destinationMedia",
   "culture",
   "cultureMedia",
+  "venueRegion",
+  "venueRegionMedia",
+  "venue",
+  "venueMedia",
 ]);
 
 export const structure: StructureResolver = (S) =>
@@ -99,22 +111,24 @@ export const structure: StructureResolver = (S) =>
         ),
       S.divider(),
       S.listItem()
-        .title("About Page")
-        .icon(() => "🏛️")
-        .schemaType("aboutPage")
+        .title("Destinations")
+        .icon(() => "📍")
+        .schemaType("destination")
         .child(
-          S.documentTypeList("aboutPage")
-            .title("About Page")
+          S.documentTypeList("destination")
+            .title("Destinations")
             .apiVersion(apiVersion)
-            .filter('_type == "aboutPage"'),
+            .filter('_type == "destination"'),
         ),
       S.listItem()
-        .title("About Page Media")
-        .id("aboutPageMedia")
+        .title("Destination media")
         .icon(() => "🖼️")
-        .schemaType("aboutPageMedia")
+        .schemaType("destinationMedia")
         .child(
-          S.document().schemaType("aboutPageMedia").documentId("aboutPageMedia"),
+          S.documentTypeList("destinationMedia")
+            .title("Destination media")
+            .apiVersion(apiVersion)
+            .filter('_type == "destinationMedia"'),
         ),
       S.divider(),
       S.listItem()
@@ -136,6 +150,159 @@ export const structure: StructureResolver = (S) =>
           S.document()
             .schemaType("multiculturalPageMedia")
             .documentId("multiculturalPageMedia"),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Cultures")
+        .icon(() => "🪔")
+        .schemaType("culture")
+        .child(
+          S.documentTypeList("culture")
+            .title("Cultures")
+            .apiVersion(apiVersion)
+            .filter('_type == "culture"'),
+        ),
+      S.listItem()
+        .title("Culture media")
+        .icon(() => "🖼️")
+        .schemaType("cultureMedia")
+        .child(
+          S.documentTypeList("cultureMedia")
+            .title("Culture media")
+            .apiVersion(apiVersion)
+            .filter('_type == "cultureMedia"'),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Venues Page")
+        .icon(() => "🏛️")
+        .schemaType("venuesPage")
+        .child(
+          S.documentTypeList("venuesPage")
+            .title("Venues Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "venuesPage"'),
+        ),
+      S.listItem()
+        .title("Venues Page Media")
+        .id("venuesPageMedia")
+        .icon(() => "🖼️")
+        .schemaType("venuesPageMedia")
+        .child(
+          S.document()
+            .schemaType("venuesPageMedia")
+            .documentId("venuesPageMedia"),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Venues")
+        .icon(() => "🏝️")
+        .child(
+          S.list()
+            .title("Venues")
+            .items([
+              S.listItem()
+                .title("Venues by region")
+                .icon(() => "📍")
+                .child(
+                  S.documentTypeList("venueRegion")
+                    .title("Regions")
+                    .apiVersion(apiVersion)
+                    .filter('_type == "venueRegion" && language == $lang')
+                    .params({ lang: BASE_LANGUAGE })
+                    .child((regionId) =>
+                      S.documentList()
+                        .title("Venues")
+                        .schemaType("venue")
+                        .apiVersion(apiVersion)
+                        // Match all locale versions of every venue in this region:
+                        // each region locale shares one `venueRegionMedia`, and each
+                        // venue references its own-locale region → group by that media.
+                        .filter(
+                          '_type == "venue" && region->media._ref == *[_id == $regionId][0].media._ref',
+                        )
+                        .params({ regionId })
+                        .defaultOrdering([
+                          { field: "name", direction: "asc" },
+                          { field: "language", direction: "asc" },
+                        ]),
+                    ),
+                ),
+              S.listItem()
+                .title("All regions")
+                .icon(() => "📍")
+                .child(
+                  S.documentTypeList("venueRegion")
+                    .title("Regions")
+                    .apiVersion(apiVersion)
+                    .filter('_type == "venueRegion"')
+                    .defaultOrdering([
+                      { field: "name", direction: "asc" },
+                      { field: "language", direction: "asc" },
+                    ]),
+                ),
+              S.divider(),
+              S.listItem()
+                .title("Region media")
+                .icon(() => "🖼️")
+                .child(
+                  S.documentTypeList("venueRegionMedia")
+                    .title("Region media")
+                    .apiVersion(apiVersion)
+                    .filter('_type == "venueRegionMedia"'),
+                ),
+              S.listItem()
+                .title("Venue media")
+                .icon(() => "🖼️")
+                .child(
+                  S.documentTypeList("venueMedia")
+                    .title("Venue media")
+                    .apiVersion(apiVersion)
+                    .filter('_type == "venueMedia"'),
+                ),
+            ]),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("About Page")
+        .icon(() => "🏛️")
+        .schemaType("aboutPage")
+        .child(
+          S.documentTypeList("aboutPage")
+            .title("About Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "aboutPage"'),
+        ),
+      S.listItem()
+        .title("About Page Media")
+        .id("aboutPageMedia")
+        .icon(() => "🖼️")
+        .schemaType("aboutPageMedia")
+        .child(
+          S.document()
+            .schemaType("aboutPageMedia")
+            .documentId("aboutPageMedia"),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Press Page")
+        .icon(() => "📰")
+        .schemaType("pressPage")
+        .child(
+          S.documentTypeList("pressPage")
+            .title("Press Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "pressPage"'),
+        ),
+      S.listItem()
+        .title("Press Page Media")
+        .id("pressPageMedia")
+        .icon(() => "🖼️")
+        .schemaType("pressPageMedia")
+        .child(
+          S.document()
+            .schemaType("pressPageMedia")
+            .documentId("pressPageMedia"),
         ),
       S.divider(),
       S.listItem()
@@ -178,48 +345,6 @@ export const structure: StructureResolver = (S) =>
             .title("Privacy Policy")
             .apiVersion(apiVersion)
             .filter('_type == "privacyPage"'),
-        ),
-      S.divider(),
-      S.listItem()
-        .title("Destinations")
-        .icon(() => "📍")
-        .schemaType("destination")
-        .child(
-          S.documentTypeList("destination")
-            .title("Destinations")
-            .apiVersion(apiVersion)
-            .filter('_type == "destination"'),
-        ),
-      S.listItem()
-        .title("Destination media")
-        .icon(() => "🖼️")
-        .schemaType("destinationMedia")
-        .child(
-          S.documentTypeList("destinationMedia")
-            .title("Destination media")
-            .apiVersion(apiVersion)
-            .filter('_type == "destinationMedia"'),
-        ),
-      S.divider(),
-      S.listItem()
-        .title("Cultures")
-        .icon(() => "🪔")
-        .schemaType("culture")
-        .child(
-          S.documentTypeList("culture")
-            .title("Cultures")
-            .apiVersion(apiVersion)
-            .filter('_type == "culture"'),
-        ),
-      S.listItem()
-        .title("Culture media")
-        .icon(() => "🖼️")
-        .schemaType("cultureMedia")
-        .child(
-          S.documentTypeList("cultureMedia")
-            .title("Culture media")
-            .apiVersion(apiVersion)
-            .filter('_type == "cultureMedia"'),
         ),
 
       S.divider(),

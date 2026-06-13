@@ -27,7 +27,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
   en: {
     name: "Arab Weddings",
     cardEyebrow: "Arab",
-    cardBlurb: "Zaffe, henna, katb el-kitab. Lebanese, Saudi, Egyptian protocol.",
+    cardBlurb:
+      "Zaffe, henna, katb el-kitab. Lebanese, Saudi, Egyptian protocol.",
     cardMeta: "Discover",
     intro:
       "Zaffe processions, henna nights and katb el-kitab, held to Lebanese, Saudi and Egyptian protocol.",
@@ -41,11 +42,27 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       captionRight: "Plate III",
     },
     factStrip: [
-      { label: "Wedding length", value: "1 – 3 days", sub: "Henna night to farewell" },
+      {
+        label: "Wedding length",
+        value: "1 – 3 days",
+        sub: "Henna night to farewell",
+      },
       { label: "Guest range", value: "150 – 600", sub: "Larger by request" },
-      { label: "Lead time", value: "12 – 18 months", sub: "Musicians book early" },
-      { label: "Protocols held", value: "Lebanese · Saudi", sub: "Egyptian · Moroccan" },
-      { label: "Cuisine", value: "Halal · multi-regional", sub: "Levantine · Gulf · Egyptian" },
+      {
+        label: "Lead time",
+        value: "12 – 18 months",
+        sub: "Musicians book early",
+      },
+      {
+        label: "Protocols held",
+        value: "Lebanese · Saudi",
+        sub: "Egyptian · Moroccan",
+      },
+      {
+        label: "Cuisine",
+        value: "Halal · multi-regional",
+        sub: "Levantine · Gulf · Egyptian",
+      },
       { label: "Languages", value: "EN · Arabic", sub: "French on request" },
     ],
     overview: {
@@ -60,7 +77,7 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
         "What is shared, almost everywhere, is the henna night before — an evening of the women, of song, of hands marked in deep red — and the zaffe that announces the couple. We hold both as the families keep them, never as a generic 'Arab' set piece.",
         "We work with zaffe troupes who travel with their own drummers and dabke line, henna artists who bring a full team for the evening, and a halal kitchen protocol briefed with the resort months ahead. Prayer times are read into the schedule from the first draft.",
       ],
-      pull: "\"The couple does not slip into the room — they are carried into it, on the shoulders of the zaffe.\"",
+      pull: '"The couple does not slip into the room — they are carried into it, on the shoulders of the zaffe."',
       signatureName: "Grecia",
       signatureRole: "Founder · After many Arab weddings",
     },
@@ -202,9 +219,15 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Welcome & henna night",
           body: "Guests arrive through the day; transfers and check-ins are run by the studio. An evening welcome, then the henna night — traditionally the women's evening, with henna artists in several stations, song and dabke.",
           events: [
-            { time: "Morning", body: "Guest arrivals · airport transfers · hotel check-in" },
+            {
+              time: "Morning",
+              body: "Guest arrivals · airport transfers · hotel check-in",
+            },
             { time: "14:00", body: "Welcome lunch at the resort" },
-            { time: "18:00", body: "Henna night · women · henna stations · 4 hours" },
+            {
+              time: "18:00",
+              body: "Henna night · women · henna stations · 4 hours",
+            },
             { time: "21:00", body: "Casual dinner · Levantine mezze buffet" },
           ],
         },
@@ -214,12 +237,27 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "The wedding",
           body: "If the katb el-kitab is held the same day, it sits in the afternoon, privately, before the reception. The zaffe announces the couple in the evening; the kosha, banquet, speeches and dancing follow. Prayer times held throughout.",
           events: [
-            { time: "Afternoon", body: "Katb el-Kitab · private · if held same day" },
+            {
+              time: "Afternoon",
+              body: "Katb el-Kitab · private · if held same day",
+            },
             { time: "18:30", body: "Guests seated · reception opens" },
-            { time: "19:30", body: "Zaffe · live troupe · couple's entrance · 20 minutes" },
-            { time: "19:50", body: "Kosha · receiving line · first photographs" },
-            { time: "20:30", body: "Banquet dinner · multi-regional halal · speeches" },
-            { time: "22:00", body: "Zaghareet · cake · dabke · dancing till late" },
+            {
+              time: "19:30",
+              body: "Zaffe · live troupe · couple's entrance · 20 minutes",
+            },
+            {
+              time: "19:50",
+              body: "Kosha · receiving line · first photographs",
+            },
+            {
+              time: "20:30",
+              body: "Banquet dinner · multi-regional halal · speeches",
+            },
+            {
+              time: "22:00",
+              body: "Zaghareet · cake · dabke · dancing till late",
+            },
           ],
         },
         {
@@ -241,14 +279,54 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "View all destinations →",
       viewAllHref: staticPath("en", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caribbean · year-round", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Côte d'Azur", sub: "France · June – September", destinationSlug: "cote-dazur" },
-        { rating: 5, name: "Amalfi Coast", sub: "Italy · May – October", destinationSlug: "amalfi" },
-        { rating: 4, name: "Lake Como", sub: "Italy · June – September", destinationSlug: "lake-como" },
-        { rating: 4, name: "St. Barths", sub: "Caribbean · November – April", destinationSlug: "st-barths" },
-        { rating: 4, name: "Tuscany", sub: "Italy · May – October", destinationSlug: "tuscany" },
-        { rating: 4, name: "Paris & Île-de-France", sub: "France · year-round indoor", destinationSlug: "paris-ile-de-france" },
-        { rating: 3, name: "Provence", sub: "France · May – September", destinationSlug: "provence" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caribbean · year-round",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Côte d'Azur",
+          sub: "France · June – September",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 5,
+          name: "Amalfi Coast",
+          sub: "Italy · May – October",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Lake Como",
+          sub: "Italy · June – September",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "St. Barths",
+          sub: "Caribbean · November – April",
+          destinationSlug: "st-barths",
+        },
+        {
+          rating: 4,
+          name: "Tuscany",
+          sub: "Italy · May – October",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Paris & Île-de-France",
+          sub: "France · year-round indoor",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 3,
+          name: "Provence",
+          sub: "France · May – September",
+          destinationSlug: "provence",
+        },
       ],
     },
     guest: {
@@ -256,23 +334,66 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "The *practical* care of 300 guests.",
       deck: "The logistics layer most planners under-resource. We start more than a year ahead.",
       cells: [
-        { title: "Halal dietary protocol", body: "Halal sourcing and preparation confirmed in writing with the resort kitchen, separation verified, allergen and vegetarian options at every meal. A consultant on the rehearsal week where the family wants one." },
-        { title: "Prayer space & timing", body: "A clean, quiet prayer space held for the duration, with mats and direction marked, and prayer times read into the schedule so the celebration pauses cleanly where they are observed." },
-        { title: "Gender-considerate staffing", body: "Where the family requests it, staffing and photography are arranged to respect a separated celebration — female photographers and servers for the women's side, entrances and sightlines planned accordingly." },
-        { title: "Elders & mobility", body: "Dedicated seating near the kosha, separate transport, ground-floor rooms reserved for senior guests, and a studio liaison for the elders across the weekend." },
-        { title: "Travel & room blocks", body: "Group room blocks across tiers, transfers coordinated over several days of arrivals, and welcome packages in every room with the schedule, dress code per event and contacts." },
-        { title: "Communications", body: "A guest group ahead of travel, a wedding site with the daily schedule and dress codes, and printed Arabic-language guides alongside English for guests who prefer them." },
+        {
+          title: "Halal dietary protocol",
+          body: "Halal sourcing and preparation confirmed in writing with the resort kitchen, separation verified, allergen and vegetarian options at every meal. A consultant on the rehearsal week where the family wants one.",
+        },
+        {
+          title: "Prayer space & timing",
+          body: "A clean, quiet prayer space held for the duration, with mats and direction marked, and prayer times read into the schedule so the celebration pauses cleanly where they are observed.",
+        },
+        {
+          title: "Gender-considerate staffing",
+          body: "Where the family requests it, staffing and photography are arranged to respect a separated celebration — female photographers and servers for the women's side, entrances and sightlines planned accordingly.",
+        },
+        {
+          title: "Elders & mobility",
+          body: "Dedicated seating near the kosha, separate transport, ground-floor rooms reserved for senior guests, and a studio liaison for the elders across the weekend.",
+        },
+        {
+          title: "Travel & room blocks",
+          body: "Group room blocks across tiers, transfers coordinated over several days of arrivals, and welcome packages in every room with the schedule, dress code per event and contacts.",
+        },
+        {
+          title: "Communications",
+          body: "A guest group ahead of travel, a wedding site with the daily schedule and dress codes, and printed Arabic-language guides alongside English for guests who prefer them.",
+        },
       ],
     },
     related: {
       eyebrow: "Continue reading",
       headline: "From the *journal.*",
       articles: [
-        { category: "Arab Weddings · Punta Cana", title: "Best Caribbean Resorts for a Halal Wedding", body: "A working register of the resorts that hold a halal kitchen and a 300-guest zaffe with grace.", imageKey: "culture-related-1" },
-        { category: "Tradition · Arab", title: "The Zaffe, in Detail", body: "On the procession that announces the couple — and why it is never recorded.", imageKey: "culture-related-2" },
-        { category: "Design · Arab", title: "A Field Guide to Kosha Styles", body: "White-and-gold, jasmine courtyard, modern damask — and how they differ.", imageKey: "culture-related-3" },
-        { category: "Planning · Regional", title: "How Lebanese and Saudi Weddings Differ", body: "Two protocols, two registers — and what changes in the planning.", imageKey: "culture-related-4" },
-        { category: "Cost · Arab", title: "What a Luxury Arab Wedding Actually Costs", body: "Frank 2026 budgets by guest count and region.", imageKey: "culture-related-5" },
+        {
+          category: "Arab Weddings · Punta Cana",
+          title: "Best Caribbean Resorts for a Halal Wedding",
+          body: "A working register of the resorts that hold a halal kitchen and a 300-guest zaffe with grace.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradition · Arab",
+          title: "The Zaffe, in Detail",
+          body: "On the procession that announces the couple — and why it is never recorded.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Design · Arab",
+          title: "A Field Guide to Kosha Styles",
+          body: "White-and-gold, jasmine courtyard, modern damask — and how they differ.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Planning · Regional",
+          title: "How Lebanese and Saudi Weddings Differ",
+          body: "Two protocols, two registers — and what changes in the planning.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Cost · Arab",
+          title: "What a Luxury Arab Wedding Actually Costs",
+          body: "Frank 2026 budgets by guest count and region.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("en", "punta-cana") },
@@ -287,10 +408,22 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
         { label: "Grand-Hôtel du Cap-Ferrat" },
       ],
       sidebarCultures: [
-        { label: "Indian weddings", href: culturePath("en", "indian-weddings") },
-        { label: "Jewish weddings", href: culturePath("en", "jewish-weddings") },
-        { label: "Interfaith weddings", href: culturePath("en", "interfaith-weddings") },
-        { label: "European weddings", href: culturePath("en", "european-weddings") },
+        {
+          label: "Indian weddings",
+          href: culturePath("en", "indian-weddings"),
+        },
+        {
+          label: "Jewish weddings",
+          href: culturePath("en", "jewish-weddings"),
+        },
+        {
+          label: "Interfaith weddings",
+          href: culturePath("en", "interfaith-weddings"),
+        },
+        {
+          label: "European weddings",
+          href: culturePath("en", "european-weddings"),
+        },
       ],
     },
     faq: {
@@ -337,7 +470,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "What about guests who have never attended an Arab wedding?",
+          question:
+            "What about guests who have never attended an Arab wedding?",
           answer: [
             "We send every guest a pre-wedding guide: schedule, dress code per event, and notes on the zaffe, kosha and zaghareet so the evening reads clearly. The studio team is on hand throughout the weekend.",
           ],
@@ -356,7 +490,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
   es: {
     name: "Bodas Árabes",
     cardEyebrow: "Árabe",
-    cardBlurb: "Zaffe, henna, katb el-kitab. Protocolo libanés, saudí, egipcio.",
+    cardBlurb:
+      "Zaffe, henna, katb el-kitab. Protocolo libanés, saudí, egipcio.",
     cardMeta: "Descubrir",
     intro:
       "Cortejos zaffe, noches de henna y katb el-kitab, celebrados según el protocolo libanés, saudí y egipcio.",
@@ -370,11 +505,31 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       captionRight: "Lámina III",
     },
     factStrip: [
-      { label: "Duración de la boda", value: "1 – 3 días", sub: "De la noche de henna a la despedida" },
-      { label: "Número de invitados", value: "150 – 600", sub: "Más, bajo petición" },
-      { label: "Antelación", value: "12 – 18 meses", sub: "Los músicos se reservan pronto" },
-      { label: "Protocolos celebrados", value: "Libanés · Saudí", sub: "Egipcio · Marroquí" },
-      { label: "Cocina", value: "Halal · multirregional", sub: "Levantina · del Golfo · egipcia" },
+      {
+        label: "Duración de la boda",
+        value: "1 – 3 días",
+        sub: "De la noche de henna a la despedida",
+      },
+      {
+        label: "Número de invitados",
+        value: "150 – 600",
+        sub: "Más, bajo petición",
+      },
+      {
+        label: "Antelación",
+        value: "12 – 18 meses",
+        sub: "Los músicos se reservan pronto",
+      },
+      {
+        label: "Protocolos celebrados",
+        value: "Libanés · Saudí",
+        sub: "Egipcio · Marroquí",
+      },
+      {
+        label: "Cocina",
+        value: "Halal · multirregional",
+        sub: "Levantina · del Golfo · egipcia",
+      },
       { label: "Idiomas", value: "EN · árabe", sub: "Francés bajo petición" },
     ],
     overview: {
@@ -531,9 +686,15 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Bienvenida y noche de henna",
           body: "Los invitados llegan a lo largo del día; el atelier gestiona traslados y registros. Una bienvenida por la tarde y luego la noche de henna —tradicionalmente la velada de las mujeres—, con artistas de henna en varias estaciones, canto y dabke.",
           events: [
-            { time: "Mañana", body: "Llegadas · traslados al aeropuerto · registro en el hotel" },
+            {
+              time: "Mañana",
+              body: "Llegadas · traslados al aeropuerto · registro en el hotel",
+            },
             { time: "14:00", body: "Almuerzo de bienvenida en el resort" },
-            { time: "18:00", body: "Noche de henna · mujeres · estaciones de henna · 4 horas" },
+            {
+              time: "18:00",
+              body: "Noche de henna · mujeres · estaciones de henna · 4 horas",
+            },
             { time: "21:00", body: "Cena informal · bufé de mezze levantino" },
           ],
         },
@@ -543,12 +704,27 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "La boda",
           body: "Si el katb el-kitab se celebra el mismo día, se sitúa por la tarde, en privado, antes de la recepción. El zaffe anuncia a la pareja por la noche; siguen la kosha, el banquete, los discursos y el baile. Los tiempos de oración se respetan a lo largo del día.",
           events: [
-            { time: "Tarde", body: "Katb el-Kitab · en privado · si se celebra el mismo día" },
-            { time: "18:30", body: "Invitados sentados · apertura de la recepción" },
-            { time: "19:30", body: "Zaffe · troupe en vivo · entrada de la pareja · 20 minutos" },
+            {
+              time: "Tarde",
+              body: "Katb el-Kitab · en privado · si se celebra el mismo día",
+            },
+            {
+              time: "18:30",
+              body: "Invitados sentados · apertura de la recepción",
+            },
+            {
+              time: "19:30",
+              body: "Zaffe · troupe en vivo · entrada de la pareja · 20 minutos",
+            },
             { time: "19:50", body: "Kosha · besamanos · primeras fotografías" },
-            { time: "20:30", body: "Cena de banquete · halal multirregional · discursos" },
-            { time: "22:00", body: "Zaghareet · tarta · dabke · baile hasta tarde" },
+            {
+              time: "20:30",
+              body: "Cena de banquete · halal multirregional · discursos",
+            },
+            {
+              time: "22:00",
+              body: "Zaghareet · tarta · dabke · baile hasta tarde",
+            },
           ],
         },
         {
@@ -557,7 +733,10 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Brunch de despedida",
           body: "Un brunch a la mañana siguiente ofrecido por la pareja —al aire libre, más distendido, centrado en las despedidas—. El cierre extraoficial para la mayoría de los invitados; la familia cercana suele quedarse un día o dos más.",
           events: [
-            { time: "11:00", body: "Brunch de despedida · junto a la piscina o en el jardín" },
+            {
+              time: "11:00",
+              body: "Brunch de despedida · junto a la piscina o en el jardín",
+            },
             { time: "Tarde", body: "Salidas · traslados al aeropuerto" },
             { time: "Noche", body: "Cena de familia cercana · opcional" },
           ],
@@ -570,14 +749,54 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Ver todos los destinos →",
       viewAllHref: staticPath("es", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caribe · todo el año", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Costa Azul", sub: "Francia · junio – septiembre", destinationSlug: "cote-dazur" },
-        { rating: 5, name: "Costa de Amalfi", sub: "Italia · mayo – octubre", destinationSlug: "amalfi" },
-        { rating: 4, name: "Lago de Como", sub: "Italia · junio – septiembre", destinationSlug: "lake-como" },
-        { rating: 4, name: "St. Barths", sub: "Caribe · noviembre – abril", destinationSlug: "st-barths" },
-        { rating: 4, name: "Toscana", sub: "Italia · mayo – octubre", destinationSlug: "tuscany" },
-        { rating: 4, name: "París e Isla de Francia", sub: "Francia · todo el año en interior", destinationSlug: "paris-ile-de-france" },
-        { rating: 3, name: "Provenza", sub: "Francia · mayo – septiembre", destinationSlug: "provence" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caribe · todo el año",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Costa Azul",
+          sub: "Francia · junio – septiembre",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 5,
+          name: "Costa de Amalfi",
+          sub: "Italia · mayo – octubre",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Lago de Como",
+          sub: "Italia · junio – septiembre",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "St. Barths",
+          sub: "Caribe · noviembre – abril",
+          destinationSlug: "st-barths",
+        },
+        {
+          rating: 4,
+          name: "Toscana",
+          sub: "Italia · mayo – octubre",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "París e Isla de Francia",
+          sub: "Francia · todo el año en interior",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 3,
+          name: "Provenza",
+          sub: "Francia · mayo – septiembre",
+          destinationSlug: "provence",
+        },
       ],
     },
     guest: {
@@ -585,23 +804,66 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "El cuidado *práctico* de 300 invitados.",
       deck: "La capa logística que la mayoría de los planificadores infradotan. Empezamos más de un año antes.",
       cells: [
-        { title: "Protocolo dietético halal", body: "Origen y preparación halal confirmados por escrito con la cocina del resort, separación verificada, opciones para alérgenos y vegetarianas en cada comida. Un consultor en la semana de ensayo cuando la familia lo desea." },
-        { title: "Espacio y tiempos de oración", body: "Un espacio de oración limpio y sereno reservado durante todo el evento, con alfombras y dirección marcadas, y los tiempos de oración incorporados al programa para que la celebración haga una pausa clara allí donde se observan." },
-        { title: "Personal con perspectiva de género", body: "Cuando la familia lo solicita, el personal y la fotografía se organizan para respetar una celebración separada: fotógrafas y personal de servicio femenino para el lado de las mujeres, con entradas y líneas de visión planificadas en consecuencia." },
-        { title: "Mayores y movilidad", body: "Asientos dedicados cerca de la kosha, transporte aparte, habitaciones en planta baja reservadas para los invitados mayores y un enlace del atelier para los mayores durante todo el fin de semana." },
-        { title: "Viajes y bloques de habitaciones", body: "Bloques de habitaciones por categorías, traslados coordinados a lo largo de varios días de llegadas y paquetes de bienvenida en cada habitación con el programa, el código de vestimenta por evento y los contactos." },
-        { title: "Comunicaciones", body: "Un grupo de invitados antes del viaje, un sitio de la boda con el programa diario y los códigos de vestimenta, y guías impresas en árabe junto al inglés para los invitados que las prefieran." },
+        {
+          title: "Protocolo dietético halal",
+          body: "Origen y preparación halal confirmados por escrito con la cocina del resort, separación verificada, opciones para alérgenos y vegetarianas en cada comida. Un consultor en la semana de ensayo cuando la familia lo desea.",
+        },
+        {
+          title: "Espacio y tiempos de oración",
+          body: "Un espacio de oración limpio y sereno reservado durante todo el evento, con alfombras y dirección marcadas, y los tiempos de oración incorporados al programa para que la celebración haga una pausa clara allí donde se observan.",
+        },
+        {
+          title: "Personal con perspectiva de género",
+          body: "Cuando la familia lo solicita, el personal y la fotografía se organizan para respetar una celebración separada: fotógrafas y personal de servicio femenino para el lado de las mujeres, con entradas y líneas de visión planificadas en consecuencia.",
+        },
+        {
+          title: "Mayores y movilidad",
+          body: "Asientos dedicados cerca de la kosha, transporte aparte, habitaciones en planta baja reservadas para los invitados mayores y un enlace del atelier para los mayores durante todo el fin de semana.",
+        },
+        {
+          title: "Viajes y bloques de habitaciones",
+          body: "Bloques de habitaciones por categorías, traslados coordinados a lo largo de varios días de llegadas y paquetes de bienvenida en cada habitación con el programa, el código de vestimenta por evento y los contactos.",
+        },
+        {
+          title: "Comunicaciones",
+          body: "Un grupo de invitados antes del viaje, un sitio de la boda con el programa diario y los códigos de vestimenta, y guías impresas en árabe junto al inglés para los invitados que las prefieran.",
+        },
       ],
     },
     related: {
       eyebrow: "Seguir leyendo",
       headline: "Del *diario.*",
       articles: [
-        { category: "Bodas Árabes · Punta Cana", title: "Los mejores resorts del Caribe para una boda halal", body: "Un registro vivo de los resorts que sostienen una cocina halal y un zaffe de 300 invitados con gracia.", imageKey: "culture-related-1" },
-        { category: "Tradición · Árabe", title: "El zaffe, en detalle", body: "Sobre el cortejo que anuncia a la pareja y por qué nunca se graba.", imageKey: "culture-related-2" },
-        { category: "Diseño · Árabe", title: "Guía de estilos de kosha", body: "Blanca y oro, patio de jazmín, damasco moderno, y en qué se diferencian.", imageKey: "culture-related-3" },
-        { category: "Planificación · Regional", title: "En qué se diferencian las bodas libanesas y saudíes", body: "Dos protocolos, dos registros, y qué cambia en la planificación.", imageKey: "culture-related-4" },
-        { category: "Coste · Árabe", title: "Cuánto cuesta realmente una boda árabe de lujo", body: "Presupuestos francos de 2026 por número de invitados y región.", imageKey: "culture-related-5" },
+        {
+          category: "Bodas Árabes · Punta Cana",
+          title: "Los mejores resorts del Caribe para una boda halal",
+          body: "Un registro vivo de los resorts que sostienen una cocina halal y un zaffe de 300 invitados con gracia.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradición · Árabe",
+          title: "El zaffe, en detalle",
+          body: "Sobre el cortejo que anuncia a la pareja y por qué nunca se graba.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Diseño · Árabe",
+          title: "Guía de estilos de kosha",
+          body: "Blanca y oro, patio de jazmín, damasco moderno, y en qué se diferencian.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Planificación · Regional",
+          title: "En qué se diferencian las bodas libanesas y saudíes",
+          body: "Dos protocolos, dos registros, y qué cambia en la planificación.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Coste · Árabe",
+          title: "Cuánto cuesta realmente una boda árabe de lujo",
+          body: "Presupuestos francos de 2026 por número de invitados y región.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("es", "punta-cana") },
@@ -618,8 +880,14 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       sidebarCultures: [
         { label: "Bodas indias", href: culturePath("es", "indian-weddings") },
         { label: "Bodas judías", href: culturePath("es", "jewish-weddings") },
-        { label: "Bodas interreligiosas", href: culturePath("es", "interfaith-weddings") },
-        { label: "Bodas europeas", href: culturePath("es", "european-weddings") },
+        {
+          label: "Bodas interreligiosas",
+          href: culturePath("es", "interfaith-weddings"),
+        },
+        {
+          label: "Bodas europeas",
+          href: culturePath("es", "european-weddings"),
+        },
       ],
     },
     faq: {
@@ -627,7 +895,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "Preguntas *frecuentes.*",
       items: [
         {
-          question: "¿Pueden organizar una boda totalmente halal en un resort del Caribe?",
+          question:
+            "¿Pueden organizar una boda totalmente halal en un resort del Caribe?",
           answer: [
             "Sí. Acordamos el protocolo de cocina halal con el resort con meses de antelación: origen, separación y preparación confirmados por escrito y revisados de nuevo en la semana de ensayo.",
             "Cuando la familia desea una segunda mirada, aportamos un consultor para la semana de ensayo. La disposición de la barra, sin alcohol o discreta, se planifica según los deseos de la familia.",
@@ -659,7 +928,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "¿En qué se diferencian las bodas libanesas y saudíes en la planificación?",
+          question:
+            "¿En qué se diferencian las bodas libanesas y saudíes en la planificación?",
           answer: [
             "A grandes rasgos —y siempre según la familia concreta—, una recepción libanesa tiende a transcurrir alta y hasta tarde en torno a un zaffe en vivo, mientras que una celebración del Golfo puede mantenerse en un registro más sereno y formal, a veces con la celebración de las mujeres separada a petición de la familia.",
             "Preguntamos a cada familia por su propio protocolo en lugar de aplicar una plantilla regional.",
@@ -685,7 +955,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
   fr: {
     name: "Mariages Arabes",
     cardEyebrow: "Arabe",
-    cardBlurb: "Zaffe, henné, katb el-kitab. Protocole libanais, saoudien, égyptien.",
+    cardBlurb:
+      "Zaffe, henné, katb el-kitab. Protocole libanais, saoudien, égyptien.",
     cardMeta: "Découvrir",
     intro:
       "Cortèges zaffe, soirées de henné et katb el-kitab, tenus selon le protocole libanais, saoudien et égyptien.",
@@ -699,11 +970,31 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       captionRight: "Planche III",
     },
     factStrip: [
-      { label: "Durée du mariage", value: "1 – 3 jours", sub: "De la soirée de henné aux adieux" },
-      { label: "Nombre d'invités", value: "150 – 600", sub: "Davantage sur demande" },
-      { label: "Délai", value: "12 – 18 mois", sub: "Les musiciens se réservent tôt" },
-      { label: "Protocoles tenus", value: "Libanais · Saoudien", sub: "Égyptien · Marocain" },
-      { label: "Cuisine", value: "Halal · multirégionale", sub: "Levantine · du Golfe · égyptienne" },
+      {
+        label: "Durée du mariage",
+        value: "1 – 3 jours",
+        sub: "De la soirée de henné aux adieux",
+      },
+      {
+        label: "Nombre d'invités",
+        value: "150 – 600",
+        sub: "Davantage sur demande",
+      },
+      {
+        label: "Délai",
+        value: "12 – 18 mois",
+        sub: "Les musiciens se réservent tôt",
+      },
+      {
+        label: "Protocoles tenus",
+        value: "Libanais · Saoudien",
+        sub: "Égyptien · Marocain",
+      },
+      {
+        label: "Cuisine",
+        value: "Halal · multirégionale",
+        sub: "Levantine · du Golfe · égyptienne",
+      },
       { label: "Langues", value: "EN · arabe", sub: "Français sur demande" },
     ],
     overview: {
@@ -791,7 +1082,10 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           rows: [
             { label: "Kosha", value: "Drapé ivoire, cadre doré" },
             { label: "Fleurs", value: "Orchidée blanche · rose · bougies" },
-            { label: "Idéal pour", value: "Salle de bal · domaine · intérieur" },
+            {
+              label: "Idéal pour",
+              value: "Salle de bal · domaine · intérieur",
+            },
           ],
         },
         {
@@ -860,10 +1154,19 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Accueil et soirée de henné",
           body: "Les invités arrivent au fil de la journée ; l'atelier gère les transferts et les arrivées. Un accueil en soirée, puis la soirée de henné — traditionnellement la soirée des femmes —, avec des artistes de henné sur plusieurs postes, chant et dabke.",
           events: [
-            { time: "Matin", body: "Arrivées · transferts aéroport · enregistrement à l'hôtel" },
+            {
+              time: "Matin",
+              body: "Arrivées · transferts aéroport · enregistrement à l'hôtel",
+            },
             { time: "14:00", body: "Déjeuner d'accueil au resort" },
-            { time: "18:00", body: "Soirée de henné · femmes · postes de henné · 4 heures" },
-            { time: "21:00", body: "Dîner décontracté · buffet de mezze levantin" },
+            {
+              time: "18:00",
+              body: "Soirée de henné · femmes · postes de henné · 4 heures",
+            },
+            {
+              time: "21:00",
+              body: "Dîner décontracté · buffet de mezze levantin",
+            },
           ],
         },
         {
@@ -872,12 +1175,30 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Le mariage",
           body: "Si le katb el-kitab a lieu le même jour, il se place l'après-midi, en privé, avant la réception. Le zaffe annonce le couple en soirée ; la kosha, le banquet, les discours et la danse suivent. Les heures de prière sont tenues tout au long.",
           events: [
-            { time: "Après-midi", body: "Katb el-Kitab · en privé · s'il a lieu le même jour" },
-            { time: "18:30", body: "Invités placés · ouverture de la réception" },
-            { time: "19:30", body: "Zaffe · troupe en direct · entrée du couple · 20 minutes" },
-            { time: "19:50", body: "Kosha · haie d'honneur · premières photographies" },
-            { time: "20:30", body: "Dîner de banquet · halal multirégional · discours" },
-            { time: "22:00", body: "Zaghareet · gâteau · dabke · danse jusque tard" },
+            {
+              time: "Après-midi",
+              body: "Katb el-Kitab · en privé · s'il a lieu le même jour",
+            },
+            {
+              time: "18:30",
+              body: "Invités placés · ouverture de la réception",
+            },
+            {
+              time: "19:30",
+              body: "Zaffe · troupe en direct · entrée du couple · 20 minutes",
+            },
+            {
+              time: "19:50",
+              body: "Kosha · haie d'honneur · premières photographies",
+            },
+            {
+              time: "20:30",
+              body: "Dîner de banquet · halal multirégional · discours",
+            },
+            {
+              time: "22:00",
+              body: "Zaghareet · gâteau · dabke · danse jusque tard",
+            },
           ],
         },
         {
@@ -886,7 +1207,10 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Brunch d'adieu",
           body: "Un brunch le lendemain offert par le couple — en extérieur, plus détendu, centré sur les adieux. La clôture officieuse pour la plupart des invités ; la famille proche reste souvent un jour ou deux de plus.",
           events: [
-            { time: "11:00", body: "Brunch d'adieu · au bord de la piscine ou au jardin" },
+            {
+              time: "11:00",
+              body: "Brunch d'adieu · au bord de la piscine ou au jardin",
+            },
             { time: "Après-midi", body: "Départs · transferts aéroport" },
             { time: "Soir", body: "Dîner en famille proche · optionnel" },
           ],
@@ -899,14 +1223,54 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Voir toutes les destinations →",
       viewAllHref: staticPath("fr", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caraïbes · toute l'année", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Côte d'Azur", sub: "France · juin – septembre", destinationSlug: "cote-dazur" },
-        { rating: 5, name: "Côte amalfitaine", sub: "Italie · mai – octobre", destinationSlug: "amalfi" },
-        { rating: 4, name: "Lac de Côme", sub: "Italie · juin – septembre", destinationSlug: "lake-como" },
-        { rating: 4, name: "St-Barth", sub: "Caraïbes · novembre – avril", destinationSlug: "st-barths" },
-        { rating: 4, name: "Toscane", sub: "Italie · mai – octobre", destinationSlug: "tuscany" },
-        { rating: 4, name: "Paris et Île-de-France", sub: "France · toute l'année en intérieur", destinationSlug: "paris-ile-de-france" },
-        { rating: 3, name: "Provence", sub: "France · mai – septembre", destinationSlug: "provence" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caraïbes · toute l'année",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Côte d'Azur",
+          sub: "France · juin – septembre",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 5,
+          name: "Côte amalfitaine",
+          sub: "Italie · mai – octobre",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Lac de Côme",
+          sub: "Italie · juin – septembre",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "St-Barth",
+          sub: "Caraïbes · novembre – avril",
+          destinationSlug: "st-barths",
+        },
+        {
+          rating: 4,
+          name: "Toscane",
+          sub: "Italie · mai – octobre",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Paris et Île-de-France",
+          sub: "France · toute l'année en intérieur",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 3,
+          name: "Provence",
+          sub: "France · mai – septembre",
+          destinationSlug: "provence",
+        },
       ],
     },
     guest: {
@@ -914,23 +1278,66 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "Le soin *pratique* de 300 invités.",
       deck: "La couche logistique que la plupart des organisateurs sous-dotent. Nous commençons plus d'un an à l'avance.",
       cells: [
-        { title: "Protocole alimentaire halal", body: "Approvisionnement et préparation halal confirmés par écrit avec la cuisine du resort, séparation vérifiée, options pour allergènes et végétariennes à chaque repas. Un consultant la semaine de répétition lorsque la famille le souhaite." },
-        { title: "Espace et heures de prière", body: "Un espace de prière propre et calme réservé pour toute la durée, tapis et direction marqués, et les heures de prière inscrites au programme afin que la célébration s'interrompe nettement là où elles sont observées." },
-        { title: "Personnel attentif au genre", body: "Lorsque la famille le demande, le personnel et la photographie sont organisés pour respecter une célébration séparée : photographes et personnel de service féminins pour le côté des femmes, entrées et lignes de vue planifiées en conséquence." },
-        { title: "Aînés et mobilité", body: "Places dédiées près de la kosha, transport à part, chambres de plain-pied réservées aux aînés et un référent de l'atelier pour les aînés tout au long du week-end." },
-        { title: "Voyages et blocs de chambres", body: "Blocs de chambres par catégories, transferts coordonnés sur plusieurs jours d'arrivées et pochettes d'accueil dans chaque chambre avec le programme, le code vestimentaire par événement et les contacts." },
-        { title: "Communications", body: "Un groupe d'invités avant le voyage, un site de mariage avec le programme quotidien et les codes vestimentaires, et des guides imprimés en arabe aux côtés de l'anglais pour les invités qui les préfèrent." },
+        {
+          title: "Protocole alimentaire halal",
+          body: "Approvisionnement et préparation halal confirmés par écrit avec la cuisine du resort, séparation vérifiée, options pour allergènes et végétariennes à chaque repas. Un consultant la semaine de répétition lorsque la famille le souhaite.",
+        },
+        {
+          title: "Espace et heures de prière",
+          body: "Un espace de prière propre et calme réservé pour toute la durée, tapis et direction marqués, et les heures de prière inscrites au programme afin que la célébration s'interrompe nettement là où elles sont observées.",
+        },
+        {
+          title: "Personnel attentif au genre",
+          body: "Lorsque la famille le demande, le personnel et la photographie sont organisés pour respecter une célébration séparée : photographes et personnel de service féminins pour le côté des femmes, entrées et lignes de vue planifiées en conséquence.",
+        },
+        {
+          title: "Aînés et mobilité",
+          body: "Places dédiées près de la kosha, transport à part, chambres de plain-pied réservées aux aînés et un référent de l'atelier pour les aînés tout au long du week-end.",
+        },
+        {
+          title: "Voyages et blocs de chambres",
+          body: "Blocs de chambres par catégories, transferts coordonnés sur plusieurs jours d'arrivées et pochettes d'accueil dans chaque chambre avec le programme, le code vestimentaire par événement et les contacts.",
+        },
+        {
+          title: "Communications",
+          body: "Un groupe d'invités avant le voyage, un site de mariage avec le programme quotidien et les codes vestimentaires, et des guides imprimés en arabe aux côtés de l'anglais pour les invités qui les préfèrent.",
+        },
       ],
     },
     related: {
       eyebrow: "Poursuivre la lecture",
       headline: "Du *journal.*",
       articles: [
-        { category: "Mariages Arabes · Punta Cana", title: "Les meilleurs resorts des Caraïbes pour un mariage halal", body: "Un registre vivant des resorts qui tiennent une cuisine halal et un zaffe de 300 invités avec grâce.", imageKey: "culture-related-1" },
-        { category: "Tradition · Arabe", title: "Le zaffe, en détail", body: "Sur le cortège qui annonce le couple — et pourquoi il n'est jamais enregistré.", imageKey: "culture-related-2" },
-        { category: "Design · Arabe", title: "Guide des styles de kosha", body: "Blanc et or, cour de jasmin, damas moderne — et ce qui les distingue.", imageKey: "culture-related-3" },
-        { category: "Planification · Régionale", title: "Ce qui distingue les mariages libanais et saoudiens", body: "Deux protocoles, deux registres — et ce qui change dans l'organisation.", imageKey: "culture-related-4" },
-        { category: "Coût · Arabe", title: "Ce que coûte vraiment un mariage arabe de luxe", body: "Des budgets francs pour 2026 selon le nombre d'invités et la région.", imageKey: "culture-related-5" },
+        {
+          category: "Mariages Arabes · Punta Cana",
+          title: "Les meilleurs resorts des Caraïbes pour un mariage halal",
+          body: "Un registre vivant des resorts qui tiennent une cuisine halal et un zaffe de 300 invités avec grâce.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradition · Arabe",
+          title: "Le zaffe, en détail",
+          body: "Sur le cortège qui annonce le couple — et pourquoi il n'est jamais enregistré.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Design · Arabe",
+          title: "Guide des styles de kosha",
+          body: "Blanc et or, cour de jasmin, damas moderne — et ce qui les distingue.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Planification · Régionale",
+          title: "Ce qui distingue les mariages libanais et saoudiens",
+          body: "Deux protocoles, deux registres — et ce qui change dans l'organisation.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Coût · Arabe",
+          title: "Ce que coûte vraiment un mariage arabe de luxe",
+          body: "Des budgets francs pour 2026 selon le nombre d'invités et la région.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("fr", "punta-cana") },
@@ -945,10 +1352,19 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
         { label: "Grand-Hôtel du Cap-Ferrat" },
       ],
       sidebarCultures: [
-        { label: "Mariages indiens", href: culturePath("fr", "indian-weddings") },
+        {
+          label: "Mariages indiens",
+          href: culturePath("fr", "indian-weddings"),
+        },
         { label: "Mariages juifs", href: culturePath("fr", "jewish-weddings") },
-        { label: "Mariages interconfessionnels", href: culturePath("fr", "interfaith-weddings") },
-        { label: "Mariages européens", href: culturePath("fr", "european-weddings") },
+        {
+          label: "Mariages interconfessionnels",
+          href: culturePath("fr", "interfaith-weddings"),
+        },
+        {
+          label: "Mariages européens",
+          href: culturePath("fr", "european-weddings"),
+        },
       ],
     },
     faq: {
@@ -956,7 +1372,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "Questions *fréquentes.*",
       items: [
         {
-          question: "Pouvez-vous organiser un mariage entièrement halal dans un resort des Caraïbes ?",
+          question:
+            "Pouvez-vous organiser un mariage entièrement halal dans un resort des Caraïbes ?",
           answer: [
             "Oui. Nous arrêtons le protocole de cuisine halal avec le resort des mois à l'avance : approvisionnement, séparation et préparation confirmés par écrit et revérifiés la semaine de répétition.",
             "Lorsque la famille souhaite un second regard, nous amenons un consultant pour la semaine de répétition. L'agencement du bar, sans alcool ou discret, est planifié selon les souhaits de la famille.",
@@ -975,7 +1392,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Les musiciens du zaffe sont-ils locaux ou font-ils le voyage ?",
+          question:
+            "Les musiciens du zaffe sont-ils locaux ou font-ils le voyage ?",
           answer: [
             "Nous utilisons toujours une troupe de zaffe en direct : un zaffe enregistré n'est pas un zaffe. Là où la destination ne peut fournir des tambours et une ligne de dabke au niveau attendu, nous faisons venir la troupe en avion. Les musiciens se réservent tôt, c'est pourquoi nous fixons la date bien à l'avance.",
           ],
@@ -988,14 +1406,16 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "En quoi les mariages libanais et saoudiens diffèrent-ils dans l'organisation ?",
+          question:
+            "En quoi les mariages libanais et saoudiens diffèrent-ils dans l'organisation ?",
           answer: [
             "En gros — et toujours selon la famille concernée —, une réception libanaise tend à se dérouler forte et tard autour d'un zaffe en direct, tandis qu'une célébration du Golfe peut être tenue dans un registre plus calme et plus formel, parfois avec la célébration des femmes maintenue à part à la demande de la famille.",
             "Nous interrogeons chaque famille sur son propre protocole plutôt que d'appliquer un modèle régional.",
           ],
         },
         {
-          question: "Et les invités qui n'ont jamais assisté à un mariage arabe ?",
+          question:
+            "Et les invités qui n'ont jamais assisté à un mariage arabe ?",
           answer: [
             "Nous envoyons à chaque invité un guide préalable : programme, code vestimentaire par événement et notes sur le zaffe, la kosha et le zaghareet pour que la soirée se lise clairement. L'équipe de l'atelier est disponible tout le week-end.",
           ],
@@ -1014,7 +1434,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
   pt: {
     name: "Casamentos Árabes",
     cardEyebrow: "Árabe",
-    cardBlurb: "Zaffe, hena, katb el-kitab. Protocolo libanês, saudita, egípcio.",
+    cardBlurb:
+      "Zaffe, hena, katb el-kitab. Protocolo libanês, saudita, egípcio.",
     cardMeta: "Descobrir",
     intro:
       "Cortejos zaffe, noites de hena e katb el-kitab, realizados segundo o protocolo libanês, saudita e egípcio.",
@@ -1028,11 +1449,31 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       captionRight: "Estampa III",
     },
     factStrip: [
-      { label: "Duração do casamento", value: "1 – 3 dias", sub: "Da noite de hena à despedida" },
-      { label: "Número de convidados", value: "150 – 600", sub: "Mais, mediante pedido" },
-      { label: "Antecedência", value: "12 – 18 meses", sub: "Os músicos reservam-se cedo" },
-      { label: "Protocolos realizados", value: "Libanês · Saudita", sub: "Egípcio · Marroquino" },
-      { label: "Cozinha", value: "Halal · multirregional", sub: "Levantina · do Golfo · egípcia" },
+      {
+        label: "Duração do casamento",
+        value: "1 – 3 dias",
+        sub: "Da noite de hena à despedida",
+      },
+      {
+        label: "Número de convidados",
+        value: "150 – 600",
+        sub: "Mais, mediante pedido",
+      },
+      {
+        label: "Antecedência",
+        value: "12 – 18 meses",
+        sub: "Os músicos reservam-se cedo",
+      },
+      {
+        label: "Protocolos realizados",
+        value: "Libanês · Saudita",
+        sub: "Egípcio · Marroquino",
+      },
+      {
+        label: "Cozinha",
+        value: "Halal · multirregional",
+        sub: "Levantina · do Golfo · egípcia",
+      },
       { label: "Idiomas", value: "EN · árabe", sub: "Francês mediante pedido" },
     ],
     overview: {
@@ -1189,10 +1630,19 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Boas-vindas e noite de hena",
           body: "Os convidados chegam ao longo do dia; o ateliê gere as transferências e os check-ins. Uns acolhimentos ao fim da tarde e depois a noite de hena — tradicionalmente a noite das mulheres —, com artistas de hena em várias estações, canto e dabke.",
           events: [
-            { time: "Manhã", body: "Chegadas · transferências do aeroporto · check-in no hotel" },
+            {
+              time: "Manhã",
+              body: "Chegadas · transferências do aeroporto · check-in no hotel",
+            },
             { time: "14:00", body: "Almoço de boas-vindas no resort" },
-            { time: "18:00", body: "Noite de hena · mulheres · estações de hena · 4 horas" },
-            { time: "21:00", body: "Jantar informal · bufê de mezze levantino" },
+            {
+              time: "18:00",
+              body: "Noite de hena · mulheres · estações de hena · 4 horas",
+            },
+            {
+              time: "21:00",
+              body: "Jantar informal · bufê de mezze levantino",
+            },
           ],
         },
         {
@@ -1201,12 +1651,30 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "O casamento",
           body: "Se o katb el-kitab for realizado no mesmo dia, fica à tarde, em privado, antes da receção. O zaffe anuncia o casal ao anoitecer; seguem-se a kosha, o banquete, os discursos e a dança. Os horários de oração são mantidos ao longo do dia.",
           events: [
-            { time: "Tarde", body: "Katb el-Kitab · em privado · se realizado no mesmo dia" },
-            { time: "18:30", body: "Convidados sentados · abertura da receção" },
-            { time: "19:30", body: "Zaffe · troupe ao vivo · entrada do casal · 20 minutos" },
-            { time: "19:50", body: "Kosha · fila de cumprimentos · primeiras fotografias" },
-            { time: "20:30", body: "Jantar de banquete · halal multirregional · discursos" },
-            { time: "22:00", body: "Zaghareet · bolo · dabke · dança até tarde" },
+            {
+              time: "Tarde",
+              body: "Katb el-Kitab · em privado · se realizado no mesmo dia",
+            },
+            {
+              time: "18:30",
+              body: "Convidados sentados · abertura da receção",
+            },
+            {
+              time: "19:30",
+              body: "Zaffe · troupe ao vivo · entrada do casal · 20 minutos",
+            },
+            {
+              time: "19:50",
+              body: "Kosha · fila de cumprimentos · primeiras fotografias",
+            },
+            {
+              time: "20:30",
+              body: "Jantar de banquete · halal multirregional · discursos",
+            },
+            {
+              time: "22:00",
+              body: "Zaghareet · bolo · dabke · dança até tarde",
+            },
           ],
         },
         {
@@ -1215,8 +1683,14 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Brunch de despedida",
           body: "Um brunch na manhã seguinte oferecido pelo casal — ao ar livre, mais descontraído, focado nas despedidas. O encerramento extraoficial para a maioria dos convidados; a família próxima costuma ficar mais um dia ou dois.",
           events: [
-            { time: "11:00", body: "Brunch de despedida · junto à piscina ou no jardim" },
-            { time: "Tarde", body: "Partidas · transferências para o aeroporto" },
+            {
+              time: "11:00",
+              body: "Brunch de despedida · junto à piscina ou no jardim",
+            },
+            {
+              time: "Tarde",
+              body: "Partidas · transferências para o aeroporto",
+            },
             { time: "Noite", body: "Jantar da família próxima · opcional" },
           ],
         },
@@ -1228,14 +1702,54 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Ver todos os destinos →",
       viewAllHref: staticPath("pt", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caraíbas · todo o ano", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Costa Azul", sub: "França · junho – setembro", destinationSlug: "cote-dazur" },
-        { rating: 5, name: "Costa Amalfitana", sub: "Itália · maio – outubro", destinationSlug: "amalfi" },
-        { rating: 4, name: "Lago de Como", sub: "Itália · junho – setembro", destinationSlug: "lake-como" },
-        { rating: 4, name: "St. Barths", sub: "Caraíbas · novembro – abril", destinationSlug: "st-barths" },
-        { rating: 4, name: "Toscana", sub: "Itália · maio – outubro", destinationSlug: "tuscany" },
-        { rating: 4, name: "Paris e Île-de-France", sub: "França · todo o ano em interior", destinationSlug: "paris-ile-de-france" },
-        { rating: 3, name: "Provença", sub: "França · maio – setembro", destinationSlug: "provence" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caraíbas · todo o ano",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Costa Azul",
+          sub: "França · junho – setembro",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 5,
+          name: "Costa Amalfitana",
+          sub: "Itália · maio – outubro",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Lago de Como",
+          sub: "Itália · junho – setembro",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "St. Barths",
+          sub: "Caraíbas · novembro – abril",
+          destinationSlug: "st-barths",
+        },
+        {
+          rating: 4,
+          name: "Toscana",
+          sub: "Itália · maio – outubro",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Paris e Île-de-France",
+          sub: "França · todo o ano em interior",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 3,
+          name: "Provença",
+          sub: "França · maio – setembro",
+          destinationSlug: "provence",
+        },
       ],
     },
     guest: {
@@ -1243,23 +1757,66 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "O cuidado *prático* de 300 convidados.",
       deck: "A camada logística que a maioria dos planeadores subdota. Começamos mais de um ano antes.",
       cells: [
-        { title: "Protocolo dietético halal", body: "Origem e preparação halal confirmadas por escrito com a cozinha do resort, separação verificada, opções para alergénios e vegetarianas em cada refeição. Um consultor na semana do ensaio quando a família o deseja." },
-        { title: "Espaço e horários de oração", body: "Um espaço de oração limpo e sereno reservado durante toda a duração, com tapetes e direção marcados, e os horários de oração incorporados no programa para que a celebração faça uma pausa clara onde são observados." },
-        { title: "Pessoal atento ao género", body: "Quando a família o pede, o pessoal e a fotografia são organizados para respeitar uma celebração separada: fotógrafas e pessoal de serviço feminino para o lado das mulheres, com entradas e linhas de visão planeadas em conformidade." },
-        { title: "Idosos e mobilidade", body: "Lugares dedicados perto da kosha, transporte à parte, quartos no piso térreo reservados para os convidados mais velhos e um elo do ateliê para os mais velhos ao longo do fim de semana." },
-        { title: "Viagens e blocos de quartos", body: "Blocos de quartos por categorias, transferências coordenadas ao longo de vários dias de chegadas e pacotes de boas-vindas em cada quarto com o programa, o código de vestuário por evento e os contactos." },
-        { title: "Comunicações", body: "Um grupo de convidados antes da viagem, um site do casamento com o programa diário e os códigos de vestuário, e guias impressos em árabe a par do inglês para os convidados que os prefiram." },
+        {
+          title: "Protocolo dietético halal",
+          body: "Origem e preparação halal confirmadas por escrito com a cozinha do resort, separação verificada, opções para alergénios e vegetarianas em cada refeição. Um consultor na semana do ensaio quando a família o deseja.",
+        },
+        {
+          title: "Espaço e horários de oração",
+          body: "Um espaço de oração limpo e sereno reservado durante toda a duração, com tapetes e direção marcados, e os horários de oração incorporados no programa para que a celebração faça uma pausa clara onde são observados.",
+        },
+        {
+          title: "Pessoal atento ao género",
+          body: "Quando a família o pede, o pessoal e a fotografia são organizados para respeitar uma celebração separada: fotógrafas e pessoal de serviço feminino para o lado das mulheres, com entradas e linhas de visão planeadas em conformidade.",
+        },
+        {
+          title: "Idosos e mobilidade",
+          body: "Lugares dedicados perto da kosha, transporte à parte, quartos no piso térreo reservados para os convidados mais velhos e um elo do ateliê para os mais velhos ao longo do fim de semana.",
+        },
+        {
+          title: "Viagens e blocos de quartos",
+          body: "Blocos de quartos por categorias, transferências coordenadas ao longo de vários dias de chegadas e pacotes de boas-vindas em cada quarto com o programa, o código de vestuário por evento e os contactos.",
+        },
+        {
+          title: "Comunicações",
+          body: "Um grupo de convidados antes da viagem, um site do casamento com o programa diário e os códigos de vestuário, e guias impressos em árabe a par do inglês para os convidados que os prefiram.",
+        },
       ],
     },
     related: {
       eyebrow: "Continuar a ler",
       headline: "Do *diário.*",
       articles: [
-        { category: "Casamentos Árabes · Punta Cana", title: "Os melhores resorts das Caraíbas para um casamento halal", body: "Um registo vivo dos resorts que sustentam uma cozinha halal e um zaffe de 300 convidados com graça.", imageKey: "culture-related-1" },
-        { category: "Tradição · Árabe", title: "O zaffe, em detalhe", body: "Sobre o cortejo que anuncia o casal — e porque nunca é gravado.", imageKey: "culture-related-2" },
-        { category: "Design · Árabe", title: "Guia de estilos de kosha", body: "Branca e ouro, pátio de jasmim, damasco moderno — e em que diferem.", imageKey: "culture-related-3" },
-        { category: "Planeamento · Regional", title: "Em que diferem os casamentos libaneses e sauditas", body: "Dois protocolos, dois registos — e o que muda no planeamento.", imageKey: "culture-related-4" },
-        { category: "Custo · Árabe", title: "Quanto custa realmente um casamento árabe de luxo", body: "Orçamentos francos de 2026 por número de convidados e região.", imageKey: "culture-related-5" },
+        {
+          category: "Casamentos Árabes · Punta Cana",
+          title: "Os melhores resorts das Caraíbas para um casamento halal",
+          body: "Um registo vivo dos resorts que sustentam uma cozinha halal e um zaffe de 300 convidados com graça.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradição · Árabe",
+          title: "O zaffe, em detalhe",
+          body: "Sobre o cortejo que anuncia o casal — e porque nunca é gravado.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Design · Árabe",
+          title: "Guia de estilos de kosha",
+          body: "Branca e ouro, pátio de jasmim, damasco moderno — e em que diferem.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Planeamento · Regional",
+          title: "Em que diferem os casamentos libaneses e sauditas",
+          body: "Dois protocolos, dois registos — e o que muda no planeamento.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Custo · Árabe",
+          title: "Quanto custa realmente um casamento árabe de luxo",
+          body: "Orçamentos francos de 2026 por número de convidados e região.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("pt", "punta-cana") },
@@ -1274,10 +1831,22 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
         { label: "Grand-Hôtel du Cap-Ferrat" },
       ],
       sidebarCultures: [
-        { label: "Casamentos indianos", href: culturePath("pt", "indian-weddings") },
-        { label: "Casamentos judaicos", href: culturePath("pt", "jewish-weddings") },
-        { label: "Casamentos inter-religiosos", href: culturePath("pt", "interfaith-weddings") },
-        { label: "Casamentos europeus", href: culturePath("pt", "european-weddings") },
+        {
+          label: "Casamentos indianos",
+          href: culturePath("pt", "indian-weddings"),
+        },
+        {
+          label: "Casamentos judaicos",
+          href: culturePath("pt", "jewish-weddings"),
+        },
+        {
+          label: "Casamentos inter-religiosos",
+          href: culturePath("pt", "interfaith-weddings"),
+        },
+        {
+          label: "Casamentos europeus",
+          href: culturePath("pt", "european-weddings"),
+        },
       ],
     },
     faq: {
@@ -1285,7 +1854,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "Perguntas *frequentes.*",
       items: [
         {
-          question: "Podem realizar um casamento totalmente halal num resort das Caraíbas?",
+          question:
+            "Podem realizar um casamento totalmente halal num resort das Caraíbas?",
           answer: [
             "Sim. Acordamos o protocolo de cozinha halal com o resort com meses de antecedência: origem, separação e preparação confirmadas por escrito e novamente verificadas na semana do ensaio.",
             "Quando a família deseja um segundo olhar, trazemos um consultor para a semana do ensaio. A disposição do bar, sem álcool ou discreta, é planeada segundo os desejos da família.",
@@ -1317,14 +1887,16 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Em que diferem os casamentos libaneses e sauditas no planeamento?",
+          question:
+            "Em que diferem os casamentos libaneses e sauditas no planeamento?",
           answer: [
             "Em traços gerais — e sempre conforme a família concreta —, uma receção libanesa tende a decorrer alta e até tarde em torno de um zaffe ao vivo, ao passo que uma celebração do Golfo pode manter-se num registo mais sereno e formal, por vezes com a celebração das mulheres mantida à parte a pedido da família.",
             "Perguntamos a cada família pelo seu próprio protocolo em vez de aplicar um modelo regional.",
           ],
         },
         {
-          question: "E os convidados que nunca assistiram a um casamento árabe?",
+          question:
+            "E os convidados que nunca assistiram a um casamento árabe?",
           answer: [
             "Enviamos a cada convidado um guia prévio: programa, código de vestuário por evento e notas sobre o zaffe, a kosha e o zaghareet para que a noite se leia com clareza. A equipa do ateliê está disponível ao longo de todo o fim de semana.",
           ],
@@ -1343,7 +1915,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
   de: {
     name: "Arabische Hochzeiten",
     cardEyebrow: "Arabisch",
-    cardBlurb: "Zaffe, Henna, Katb el-Kitab. Libanesisches, saudisches, ägyptisches Protokoll.",
+    cardBlurb:
+      "Zaffe, Henna, Katb el-Kitab. Libanesisches, saudisches, ägyptisches Protokoll.",
     cardMeta: "Entdecken",
     intro:
       "Zaffe-Prozessionen, Henna-Nächte und Katb el-Kitab, gehalten nach libanesischem, saudischem und ägyptischem Protokoll.",
@@ -1357,12 +1930,32 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       captionRight: "Tafel III",
     },
     factStrip: [
-      { label: "Dauer der Hochzeit", value: "1 – 3 Tage", sub: "Von der Henna-Nacht zum Abschied" },
+      {
+        label: "Dauer der Hochzeit",
+        value: "1 – 3 Tage",
+        sub: "Von der Henna-Nacht zum Abschied",
+      },
       { label: "Gästezahl", value: "150 – 600", sub: "Mehr auf Wunsch" },
-      { label: "Vorlaufzeit", value: "12 – 18 Monate", sub: "Musiker buchen früh" },
-      { label: "Gehaltene Protokolle", value: "Libanesisch · Saudisch", sub: "Ägyptisch · Marokkanisch" },
-      { label: "Küche", value: "Halal · multiregional", sub: "Levantinisch · Golf · Ägyptisch" },
-      { label: "Sprachen", value: "EN · Arabisch", sub: "Französisch auf Wunsch" },
+      {
+        label: "Vorlaufzeit",
+        value: "12 – 18 Monate",
+        sub: "Musiker buchen früh",
+      },
+      {
+        label: "Gehaltene Protokolle",
+        value: "Libanesisch · Saudisch",
+        sub: "Ägyptisch · Marokkanisch",
+      },
+      {
+        label: "Küche",
+        value: "Halal · multiregional",
+        sub: "Levantinisch · Golf · Ägyptisch",
+      },
+      {
+        label: "Sprachen",
+        value: "EN · Arabisch",
+        sub: "Französisch auf Wunsch",
+      },
     ],
     overview: {
       sideEyebrow: "Die Tradition",
@@ -1448,7 +2041,10 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           imageKey: "concept-1",
           rows: [
             { label: "Kosha", value: "Elfenbein-Drapierung, goldener Rahmen" },
-            { label: "Floristik", value: "Weiße Orchidee · Rose · Kerzenlicht" },
+            {
+              label: "Floristik",
+              value: "Weiße Orchidee · Rose · Kerzenlicht",
+            },
             { label: "Am besten für", value: "Ballsaal · Anwesen · Innenraum" },
           ],
         },
@@ -1518,10 +2114,19 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Willkommen & Henna-Nacht",
           body: "Die Gäste reisen über den Tag verteilt an; Transfers und Check-ins übernimmt das Atelier. Ein abendlicher Empfang, dann die Henna-Nacht — traditionell der Abend der Frauen —, mit Henna-Künstlerinnen an mehreren Stationen, Gesang und Dabke.",
           events: [
-            { time: "Vormittag", body: "Ankünfte · Flughafentransfers · Hotel-Check-in" },
+            {
+              time: "Vormittag",
+              body: "Ankünfte · Flughafentransfers · Hotel-Check-in",
+            },
             { time: "14:00", body: "Willkommensessen im Resort" },
-            { time: "18:00", body: "Henna-Nacht · Frauen · Henna-Stationen · 4 Stunden" },
-            { time: "21:00", body: "Lockeres Abendessen · levantinisches Mezze-Buffet" },
+            {
+              time: "18:00",
+              body: "Henna-Nacht · Frauen · Henna-Stationen · 4 Stunden",
+            },
+            {
+              time: "21:00",
+              body: "Lockeres Abendessen · levantinisches Mezze-Buffet",
+            },
           ],
         },
         {
@@ -1530,12 +2135,24 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Die Hochzeit",
           body: "Wird das Katb el-Kitab am selben Tag gehalten, liegt es am Nachmittag, im privaten Rahmen, vor dem Empfang. Die Zaffe kündigt das Paar am Abend an; Kosha, Bankett, Reden und Tanz folgen. Die Gebetszeiten werden durchgehend gehalten.",
           events: [
-            { time: "Nachmittag", body: "Katb el-Kitab · privat · falls am selben Tag" },
+            {
+              time: "Nachmittag",
+              body: "Katb el-Kitab · privat · falls am selben Tag",
+            },
             { time: "18:30", body: "Gäste platziert · Empfang öffnet" },
-            { time: "19:30", body: "Zaffe · Live-Truppe · Einzug des Paares · 20 Minuten" },
+            {
+              time: "19:30",
+              body: "Zaffe · Live-Truppe · Einzug des Paares · 20 Minuten",
+            },
             { time: "19:50", body: "Kosha · Empfangsreihe · erste Aufnahmen" },
-            { time: "20:30", body: "Bankett-Dinner · multiregional halal · Reden" },
-            { time: "22:00", body: "Zaghareet · Torte · Dabke · Tanz bis spät" },
+            {
+              time: "20:30",
+              body: "Bankett-Dinner · multiregional halal · Reden",
+            },
+            {
+              time: "22:00",
+              body: "Zaghareet · Torte · Dabke · Tanz bis spät",
+            },
           ],
         },
         {
@@ -1546,7 +2163,10 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           events: [
             { time: "11:00", body: "Abschiedsbrunch · am Pool oder im Garten" },
             { time: "Nachmittag", body: "Abreisen · Flughafentransfers" },
-            { time: "Abend", body: "Dinner im engsten Familienkreis · optional" },
+            {
+              time: "Abend",
+              body: "Dinner im engsten Familienkreis · optional",
+            },
           ],
         },
       ],
@@ -1557,14 +2177,54 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Alle Reiseziele ansehen →",
       viewAllHref: staticPath("de", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Karibik · ganzjährig", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Côte d'Azur", sub: "Frankreich · Juni – September", destinationSlug: "cote-dazur" },
-        { rating: 5, name: "Amalfiküste", sub: "Italien · Mai – Oktober", destinationSlug: "amalfi" },
-        { rating: 4, name: "Comer See", sub: "Italien · Juni – September", destinationSlug: "lake-como" },
-        { rating: 4, name: "St. Barths", sub: "Karibik · November – April", destinationSlug: "st-barths" },
-        { rating: 4, name: "Toskana", sub: "Italien · Mai – Oktober", destinationSlug: "tuscany" },
-        { rating: 4, name: "Paris & Île-de-France", sub: "Frankreich · ganzjährig im Innenraum", destinationSlug: "paris-ile-de-france" },
-        { rating: 3, name: "Provence", sub: "Frankreich · Mai – September", destinationSlug: "provence" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Karibik · ganzjährig",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Côte d'Azur",
+          sub: "Frankreich · Juni – September",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 5,
+          name: "Amalfiküste",
+          sub: "Italien · Mai – Oktober",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Comer See",
+          sub: "Italien · Juni – September",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "St. Barths",
+          sub: "Karibik · November – April",
+          destinationSlug: "st-barths",
+        },
+        {
+          rating: 4,
+          name: "Toskana",
+          sub: "Italien · Mai – Oktober",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Paris & Île-de-France",
+          sub: "Frankreich · ganzjährig im Innenraum",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 3,
+          name: "Provence",
+          sub: "Frankreich · Mai – September",
+          destinationSlug: "provence",
+        },
       ],
     },
     guest: {
@@ -1572,23 +2232,66 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "Die *praktische* Fürsorge für 300 Gäste.",
       deck: "Die logistische Ebene, die die meisten Planer unterbesetzen. Wir beginnen mehr als ein Jahr im Voraus.",
       cells: [
-        { title: "Halal-Diätprotokoll", body: "Halal-Herkunft und -Zubereitung schriftlich mit der Resortküche bestätigt, Trennung geprüft, Allergen- und vegetarische Optionen bei jeder Mahlzeit. Ein Berater in der Probenwoche, wenn die Familie es wünscht." },
-        { title: "Gebetsraum & -zeiten", body: "Ein sauberer, ruhiger Gebetsraum für die gesamte Dauer reserviert, mit Matten und markierter Gebetsrichtung, und die Gebetszeiten in den Ablauf eingelesen, damit die Feier dort sauber pausiert, wo sie eingehalten werden." },
-        { title: "Geschlechtersensibles Personal", body: "Wo die Familie es wünscht, werden Personal und Fotografie so organisiert, dass eine getrennte Feier respektiert wird: Fotografinnen und weibliches Servicepersonal für die Frauenseite, Einzüge und Sichtachsen entsprechend geplant." },
-        { title: "Ältere & Mobilität", body: "Reservierte Plätze nahe der Kosha, gesonderter Transport, Erdgeschosszimmer für ältere Gäste und ein Atelier-Ansprechpartner für die Älteren über das gesamte Wochenende." },
-        { title: "Reise & Zimmerkontingente", body: "Zimmerkontingente über mehrere Kategorien, über mehrere Anreisetage koordinierte Transfers und Willkommenspakete in jedem Zimmer mit Programm, Dresscode pro Anlass und Kontakten." },
-        { title: "Kommunikation", body: "Eine Gästegruppe vor der Anreise, eine Hochzeitsseite mit Tagesprogramm und Dresscodes sowie gedruckte arabischsprachige Leitfäden neben dem Englischen für Gäste, die sie bevorzugen." },
+        {
+          title: "Halal-Diätprotokoll",
+          body: "Halal-Herkunft und -Zubereitung schriftlich mit der Resortküche bestätigt, Trennung geprüft, Allergen- und vegetarische Optionen bei jeder Mahlzeit. Ein Berater in der Probenwoche, wenn die Familie es wünscht.",
+        },
+        {
+          title: "Gebetsraum & -zeiten",
+          body: "Ein sauberer, ruhiger Gebetsraum für die gesamte Dauer reserviert, mit Matten und markierter Gebetsrichtung, und die Gebetszeiten in den Ablauf eingelesen, damit die Feier dort sauber pausiert, wo sie eingehalten werden.",
+        },
+        {
+          title: "Geschlechtersensibles Personal",
+          body: "Wo die Familie es wünscht, werden Personal und Fotografie so organisiert, dass eine getrennte Feier respektiert wird: Fotografinnen und weibliches Servicepersonal für die Frauenseite, Einzüge und Sichtachsen entsprechend geplant.",
+        },
+        {
+          title: "Ältere & Mobilität",
+          body: "Reservierte Plätze nahe der Kosha, gesonderter Transport, Erdgeschosszimmer für ältere Gäste und ein Atelier-Ansprechpartner für die Älteren über das gesamte Wochenende.",
+        },
+        {
+          title: "Reise & Zimmerkontingente",
+          body: "Zimmerkontingente über mehrere Kategorien, über mehrere Anreisetage koordinierte Transfers und Willkommenspakete in jedem Zimmer mit Programm, Dresscode pro Anlass und Kontakten.",
+        },
+        {
+          title: "Kommunikation",
+          body: "Eine Gästegruppe vor der Anreise, eine Hochzeitsseite mit Tagesprogramm und Dresscodes sowie gedruckte arabischsprachige Leitfäden neben dem Englischen für Gäste, die sie bevorzugen.",
+        },
       ],
     },
     related: {
       eyebrow: "Weiterlesen",
       headline: "Aus dem *Journal.*",
       articles: [
-        { category: "Arabische Hochzeiten · Punta Cana", title: "Die besten Karibik-Resorts für eine Halal-Hochzeit", body: "Ein lebendiges Register der Resorts, die eine Halal-Küche und eine Zaffe für 300 Gäste mit Anmut halten.", imageKey: "culture-related-1" },
-        { category: "Tradition · Arabisch", title: "Die Zaffe, im Detail", body: "Über die Prozession, die das Paar ankündigt — und warum sie nie aufgezeichnet wird.", imageKey: "culture-related-2" },
-        { category: "Design · Arabisch", title: "Ein Leitfaden zu Kosha-Stilen", body: "Weiß-und-Gold, Jasminhof, modernes Damast — und worin sie sich unterscheiden.", imageKey: "culture-related-3" },
-        { category: "Planung · Regional", title: "Wie sich libanesische und saudische Hochzeiten unterscheiden", body: "Zwei Protokolle, zwei Register — und was sich in der Planung ändert.", imageKey: "culture-related-4" },
-        { category: "Kosten · Arabisch", title: "Was eine luxuriöse arabische Hochzeit wirklich kostet", body: "Offene Budgets für 2026 nach Gästezahl und Region.", imageKey: "culture-related-5" },
+        {
+          category: "Arabische Hochzeiten · Punta Cana",
+          title: "Die besten Karibik-Resorts für eine Halal-Hochzeit",
+          body: "Ein lebendiges Register der Resorts, die eine Halal-Küche und eine Zaffe für 300 Gäste mit Anmut halten.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradition · Arabisch",
+          title: "Die Zaffe, im Detail",
+          body: "Über die Prozession, die das Paar ankündigt — und warum sie nie aufgezeichnet wird.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Design · Arabisch",
+          title: "Ein Leitfaden zu Kosha-Stilen",
+          body: "Weiß-und-Gold, Jasminhof, modernes Damast — und worin sie sich unterscheiden.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Planung · Regional",
+          title: "Wie sich libanesische und saudische Hochzeiten unterscheiden",
+          body: "Zwei Protokolle, zwei Register — und was sich in der Planung ändert.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Kosten · Arabisch",
+          title: "Was eine luxuriöse arabische Hochzeit wirklich kostet",
+          body: "Offene Budgets für 2026 nach Gästezahl und Region.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("de", "punta-cana") },
@@ -1603,10 +2306,22 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
         { label: "Grand-Hôtel du Cap-Ferrat" },
       ],
       sidebarCultures: [
-        { label: "Indische Hochzeiten", href: culturePath("de", "indian-weddings") },
-        { label: "Jüdische Hochzeiten", href: culturePath("de", "jewish-weddings") },
-        { label: "Interreligiöse Hochzeiten", href: culturePath("de", "interfaith-weddings") },
-        { label: "Europäische Hochzeiten", href: culturePath("de", "european-weddings") },
+        {
+          label: "Indische Hochzeiten",
+          href: culturePath("de", "indian-weddings"),
+        },
+        {
+          label: "Jüdische Hochzeiten",
+          href: culturePath("de", "jewish-weddings"),
+        },
+        {
+          label: "Interreligiöse Hochzeiten",
+          href: culturePath("de", "interfaith-weddings"),
+        },
+        {
+          label: "Europäische Hochzeiten",
+          href: culturePath("de", "european-weddings"),
+        },
       ],
     },
     faq: {
@@ -1614,20 +2329,23 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "Häufig *gefragt.*",
       items: [
         {
-          question: "Können Sie eine vollständig halal Hochzeit in einem Karibik-Resort ausrichten?",
+          question:
+            "Können Sie eine vollständig halal Hochzeit in einem Karibik-Resort ausrichten?",
           answer: [
             "Ja. Wir vereinbaren das Halal-Küchenprotokoll Monate im Voraus mit dem Resort: Herkunft, Trennung und Zubereitung schriftlich bestätigt und in der Probenwoche erneut geprüft.",
             "Wenn die Familie ein zweites Augenpaar wünscht, bringen wir einen Berater für die Probenwoche mit. Die Bar-Regelung, alkoholfrei oder diskret, wird nach den Wünschen der Familie geplant.",
           ],
         },
         {
-          question: "Richten Sie das Katb el-Kitab im Ausland oder in der Heimat aus?",
+          question:
+            "Richten Sie das Katb el-Kitab im Ausland oder in der Heimat aus?",
           answer: [
             "Beides — es ist Sache der Familie, es zu platzieren. Viele Familien halten das Katb el-Kitab Wochen im Voraus zu Hause, vor der Reise; andere binden es in den Hochzeitstag ein. Wir planen um die Wahl der Familie herum und stimmen den Geistlichen entsprechend ab.",
           ],
         },
         {
-          question: "Können Sie eine nach Geschlechtern getrennte Feier halten?",
+          question:
+            "Können Sie eine nach Geschlechtern getrennte Feier halten?",
           answer: [
             "Wo die Familie es wünscht, ja — und ordentlich gehalten. Personal, Fotografie, Einzüge und Zeiten werden so organisiert, dass die Trennung würdevoll statt improvisiert ist, mit Fotografinnen und weiblichem Servicepersonal für die Frauenseite, wo darum gebeten wird.",
           ],
@@ -1639,21 +2357,24 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Was kostet eine arabische Destinationshochzeit typischerweise?",
+          question:
+            "Was kostet eine arabische Destinationshochzeit typischerweise?",
           answer: [
             "Eine nützliche Spanne für 2026, für 150–400 Gäste über einen bis drei Tage, liegt bei 250.000 – 900.000 USD, all-in, je nach Region, Gästezahl und Umfang von Zaffe und Kosha.",
             "Wir teilen transparente, positionsgenaue Budgets in der ersten Beratung.",
           ],
         },
         {
-          question: "Wie unterscheiden sich libanesische und saudische Hochzeiten in der Planung?",
+          question:
+            "Wie unterscheiden sich libanesische und saudische Hochzeiten in der Planung?",
           answer: [
             "Grob — und stets abhängig von der einzelnen Familie — verläuft ein libanesischer Empfang eher laut und bis spät um eine Live-Zaffe herum, während eine Golf-Feier in einem ruhigeren, förmlicheren Register gehalten werden kann, mitunter mit der getrennt gehaltenen Frauenfeier auf Wunsch der Familie.",
             "Wir fragen jede Familie nach ihrem eigenen Protokoll, statt eine regionale Vorlage anzuwenden.",
           ],
         },
         {
-          question: "Was ist mit Gästen, die noch nie auf einer arabischen Hochzeit waren?",
+          question:
+            "Was ist mit Gästen, die noch nie auf einer arabischen Hochzeit waren?",
           answer: [
             "Wir senden jedem Gast einen Vorab-Leitfaden: Programm, Dresscode pro Anlass und Hinweise zu Zaffe, Kosha und Zaghareet, damit der Abend klar lesbar ist. Das Atelier-Team steht das gesamte Wochenende zur Verfügung.",
           ],
@@ -1672,7 +2393,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
   it: {
     name: "Matrimoni Arabi",
     cardEyebrow: "Arabo",
-    cardBlurb: "Zaffe, henné, katb el-kitab. Protocollo libanese, saudita, egiziano.",
+    cardBlurb:
+      "Zaffe, henné, katb el-kitab. Protocollo libanese, saudita, egiziano.",
     cardMeta: "Scopri",
     intro:
       "Cortei zaffe, notti di henné e katb el-kitab, tenuti secondo il protocollo libanese, saudita ed egiziano.",
@@ -1686,11 +2408,31 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       captionRight: "Tavola III",
     },
     factStrip: [
-      { label: "Durata del matrimonio", value: "1 – 3 giorni", sub: "Dalla notte di henné al commiato" },
-      { label: "Numero di invitati", value: "150 – 600", sub: "Di più su richiesta" },
-      { label: "Anticipo", value: "12 – 18 mesi", sub: "I musicisti si prenotano presto" },
-      { label: "Protocolli tenuti", value: "Libanese · Saudita", sub: "Egiziano · Marocchino" },
-      { label: "Cucina", value: "Halal · multiregionale", sub: "Levantina · del Golfo · egiziana" },
+      {
+        label: "Durata del matrimonio",
+        value: "1 – 3 giorni",
+        sub: "Dalla notte di henné al commiato",
+      },
+      {
+        label: "Numero di invitati",
+        value: "150 – 600",
+        sub: "Di più su richiesta",
+      },
+      {
+        label: "Anticipo",
+        value: "12 – 18 mesi",
+        sub: "I musicisti si prenotano presto",
+      },
+      {
+        label: "Protocolli tenuti",
+        value: "Libanese · Saudita",
+        sub: "Egiziano · Marocchino",
+      },
+      {
+        label: "Cucina",
+        value: "Halal · multiregionale",
+        sub: "Levantina · del Golfo · egiziana",
+      },
       { label: "Lingue", value: "EN · arabo", sub: "Francese su richiesta" },
     ],
     overview: {
@@ -1847,10 +2589,19 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Benvenuto e notte di henné",
           body: "Gli invitati arrivano nel corso della giornata; l'atelier gestisce transfer e check-in. Un benvenuto in serata, poi la notte di henné — tradizionalmente la serata delle donne —, con artiste di henné in più postazioni, canto e dabke.",
           events: [
-            { time: "Mattina", body: "Arrivi · transfer dall'aeroporto · check-in in hotel" },
+            {
+              time: "Mattina",
+              body: "Arrivi · transfer dall'aeroporto · check-in in hotel",
+            },
             { time: "14:00", body: "Pranzo di benvenuto al resort" },
-            { time: "18:00", body: "Notte di henné · donne · postazioni di henné · 4 ore" },
-            { time: "21:00", body: "Cena informale · buffet di mezze levantino" },
+            {
+              time: "18:00",
+              body: "Notte di henné · donne · postazioni di henné · 4 ore",
+            },
+            {
+              time: "21:00",
+              body: "Cena informale · buffet di mezze levantino",
+            },
           ],
         },
         {
@@ -1859,12 +2610,30 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Il matrimonio",
           body: "Se il katb el-kitab si tiene lo stesso giorno, si colloca nel pomeriggio, in privato, prima del ricevimento. Lo zaffe annuncia la coppia in serata; seguono la kosha, il banchetto, i discorsi e le danze. Gli orari di preghiera sono tenuti per tutta la durata.",
           events: [
-            { time: "Pomeriggio", body: "Katb el-Kitab · in privato · se tenuto lo stesso giorno" },
-            { time: "18:30", body: "Invitati seduti · apertura del ricevimento" },
-            { time: "19:30", body: "Zaffe · troupe dal vivo · ingresso della coppia · 20 minuti" },
-            { time: "19:50", body: "Kosha · fila dei saluti · prime fotografie" },
-            { time: "20:30", body: "Cena di banchetto · halal multiregionale · discorsi" },
-            { time: "22:00", body: "Zaghareet · torta · dabke · danze fino a tardi" },
+            {
+              time: "Pomeriggio",
+              body: "Katb el-Kitab · in privato · se tenuto lo stesso giorno",
+            },
+            {
+              time: "18:30",
+              body: "Invitati seduti · apertura del ricevimento",
+            },
+            {
+              time: "19:30",
+              body: "Zaffe · troupe dal vivo · ingresso della coppia · 20 minuti",
+            },
+            {
+              time: "19:50",
+              body: "Kosha · fila dei saluti · prime fotografie",
+            },
+            {
+              time: "20:30",
+              body: "Cena di banchetto · halal multiregionale · discorsi",
+            },
+            {
+              time: "22:00",
+              body: "Zaghareet · torta · dabke · danze fino a tardi",
+            },
           ],
         },
         {
@@ -1873,7 +2642,10 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           title: "Brunch di commiato",
           body: "Un brunch la mattina dopo offerto dalla coppia — all'aperto, più rilassato, incentrato sui saluti. La chiusura ufficiosa per la maggior parte degli invitati; i parenti stretti spesso restano un giorno o due in più.",
           events: [
-            { time: "11:00", body: "Brunch di commiato · a bordo piscina o in giardino" },
+            {
+              time: "11:00",
+              body: "Brunch di commiato · a bordo piscina o in giardino",
+            },
             { time: "Pomeriggio", body: "Partenze · transfer per l'aeroporto" },
             { time: "Sera", body: "Cena della famiglia stretta · facoltativa" },
           ],
@@ -1886,14 +2658,54 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       viewAllLabel: "Vedi tutte le destinazioni →",
       viewAllHref: staticPath("it", "/destinations"),
       cards: [
-        { rating: 5, name: "Punta Cana", sub: "Caraibi · tutto l'anno", destinationSlug: "punta-cana" },
-        { rating: 5, name: "Costa Azzurra", sub: "Francia · giugno – settembre", destinationSlug: "cote-dazur" },
-        { rating: 5, name: "Costiera Amalfitana", sub: "Italia · maggio – ottobre", destinationSlug: "amalfi" },
-        { rating: 4, name: "Lago di Como", sub: "Italia · giugno – settembre", destinationSlug: "lake-como" },
-        { rating: 4, name: "St. Barths", sub: "Caraibi · novembre – aprile", destinationSlug: "st-barths" },
-        { rating: 4, name: "Toscana", sub: "Italia · maggio – ottobre", destinationSlug: "tuscany" },
-        { rating: 4, name: "Parigi e Île-de-France", sub: "Francia · tutto l'anno al chiuso", destinationSlug: "paris-ile-de-france" },
-        { rating: 3, name: "Provenza", sub: "Francia · maggio – settembre", destinationSlug: "provence" },
+        {
+          rating: 5,
+          name: "Punta Cana",
+          sub: "Caraibi · tutto l'anno",
+          destinationSlug: "punta-cana",
+        },
+        {
+          rating: 5,
+          name: "Costa Azzurra",
+          sub: "Francia · giugno – settembre",
+          destinationSlug: "cote-dazur",
+        },
+        {
+          rating: 5,
+          name: "Costiera Amalfitana",
+          sub: "Italia · maggio – ottobre",
+          destinationSlug: "amalfi",
+        },
+        {
+          rating: 4,
+          name: "Lago di Como",
+          sub: "Italia · giugno – settembre",
+          destinationSlug: "lake-como",
+        },
+        {
+          rating: 4,
+          name: "St. Barths",
+          sub: "Caraibi · novembre – aprile",
+          destinationSlug: "st-barths",
+        },
+        {
+          rating: 4,
+          name: "Toscana",
+          sub: "Italia · maggio – ottobre",
+          destinationSlug: "tuscany",
+        },
+        {
+          rating: 4,
+          name: "Parigi e Île-de-France",
+          sub: "Francia · tutto l'anno al chiuso",
+          destinationSlug: "paris-ile-de-france",
+        },
+        {
+          rating: 3,
+          name: "Provenza",
+          sub: "Francia · maggio – settembre",
+          destinationSlug: "provence",
+        },
       ],
     },
     guest: {
@@ -1901,23 +2713,66 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "La cura *pratica* di 300 invitati.",
       deck: "Lo strato logistico che la maggior parte dei planner sottostima. Iniziamo più di un anno prima.",
       cells: [
-        { title: "Protocollo dietetico halal", body: "Provenienza e preparazione halal confermate per iscritto con la cucina del resort, separazione verificata, opzioni per allergeni e vegetariane a ogni pasto. Un consulente nella settimana delle prove quando la famiglia lo desidera." },
-        { title: "Spazio e orari di preghiera", body: "Uno spazio di preghiera pulito e pacato riservato per tutta la durata, con tappeti e direzione segnati, e gli orari di preghiera inseriti nel programma perché la celebrazione si interrompa con chiarezza dove vengono osservati." },
-        { title: "Personale attento al genere", body: "Dove la famiglia lo richiede, personale e fotografia sono organizzati per rispettare una celebrazione separata: fotografe e personale di servizio femminile per il lato delle donne, con ingressi e linee di vista pianificati di conseguenza." },
-        { title: "Anziani e mobilità", body: "Posti dedicati vicino alla kosha, trasporto a parte, camere al piano terra riservate agli invitati più anziani e un referente dell'atelier per gli anziani lungo tutto il fine settimana." },
-        { title: "Viaggi e blocchi di camere", body: "Blocchi di camere su più categorie, transfer coordinati lungo più giorni di arrivi e pacchi di benvenuto in ogni camera con il programma, il codice di abbigliamento per evento e i contatti." },
-        { title: "Comunicazioni", body: "Un gruppo invitati prima del viaggio, un sito del matrimonio con il programma giornaliero e i codici di abbigliamento, e guide stampate in arabo accanto all'inglese per gli invitati che le preferiscono." },
+        {
+          title: "Protocollo dietetico halal",
+          body: "Provenienza e preparazione halal confermate per iscritto con la cucina del resort, separazione verificata, opzioni per allergeni e vegetariane a ogni pasto. Un consulente nella settimana delle prove quando la famiglia lo desidera.",
+        },
+        {
+          title: "Spazio e orari di preghiera",
+          body: "Uno spazio di preghiera pulito e pacato riservato per tutta la durata, con tappeti e direzione segnati, e gli orari di preghiera inseriti nel programma perché la celebrazione si interrompa con chiarezza dove vengono osservati.",
+        },
+        {
+          title: "Personale attento al genere",
+          body: "Dove la famiglia lo richiede, personale e fotografia sono organizzati per rispettare una celebrazione separata: fotografe e personale di servizio femminile per il lato delle donne, con ingressi e linee di vista pianificati di conseguenza.",
+        },
+        {
+          title: "Anziani e mobilità",
+          body: "Posti dedicati vicino alla kosha, trasporto a parte, camere al piano terra riservate agli invitati più anziani e un referente dell'atelier per gli anziani lungo tutto il fine settimana.",
+        },
+        {
+          title: "Viaggi e blocchi di camere",
+          body: "Blocchi di camere su più categorie, transfer coordinati lungo più giorni di arrivi e pacchi di benvenuto in ogni camera con il programma, il codice di abbigliamento per evento e i contatti.",
+        },
+        {
+          title: "Comunicazioni",
+          body: "Un gruppo invitati prima del viaggio, un sito del matrimonio con il programma giornaliero e i codici di abbigliamento, e guide stampate in arabo accanto all'inglese per gli invitati che le preferiscono.",
+        },
       ],
     },
     related: {
       eyebrow: "Continua a leggere",
       headline: "Dal *diario.*",
       articles: [
-        { category: "Matrimoni Arabi · Punta Cana", title: "I migliori resort caraibici per un matrimonio halal", body: "Un registro vivo dei resort che tengono una cucina halal e uno zaffe da 300 invitati con grazia.", imageKey: "culture-related-1" },
-        { category: "Tradizione · Arabo", title: "Lo zaffe, in dettaglio", body: "Sul corteo che annuncia la coppia — e perché non viene mai registrato.", imageKey: "culture-related-2" },
-        { category: "Design · Arabo", title: "Guida agli stili di kosha", body: "Bianca e oro, corte di gelsomino, damasco moderno — e in cosa differiscono.", imageKey: "culture-related-3" },
-        { category: "Pianificazione · Regionale", title: "In cosa differiscono i matrimoni libanesi e sauditi", body: "Due protocolli, due registri — e cosa cambia nella pianificazione.", imageKey: "culture-related-4" },
-        { category: "Costo · Arabo", title: "Quanto costa davvero un matrimonio arabo di lusso", body: "Budget franchi per il 2026 per numero di invitati e regione.", imageKey: "culture-related-5" },
+        {
+          category: "Matrimoni Arabi · Punta Cana",
+          title: "I migliori resort caraibici per un matrimonio halal",
+          body: "Un registro vivo dei resort che tengono una cucina halal e uno zaffe da 300 invitati con grazia.",
+          imageKey: "culture-related-1",
+        },
+        {
+          category: "Tradizione · Arabo",
+          title: "Lo zaffe, in dettaglio",
+          body: "Sul corteo che annuncia la coppia — e perché non viene mai registrato.",
+          imageKey: "culture-related-2",
+        },
+        {
+          category: "Design · Arabo",
+          title: "Guida agli stili di kosha",
+          body: "Bianca e oro, corte di gelsomino, damasco moderno — e in cosa differiscono.",
+          imageKey: "culture-related-3",
+        },
+        {
+          category: "Pianificazione · Regionale",
+          title: "In cosa differiscono i matrimoni libanesi e sauditi",
+          body: "Due protocolli, due registri — e cosa cambia nella pianificazione.",
+          imageKey: "culture-related-4",
+        },
+        {
+          category: "Costo · Arabo",
+          title: "Quanto costa davvero un matrimonio arabo di lusso",
+          body: "Budget franchi per il 2026 per numero di invitati e regione.",
+          imageKey: "culture-related-5",
+        },
       ],
       sidebarDestinations: [
         { label: "Punta Cana", href: destinationPath("it", "punta-cana") },
@@ -1932,10 +2787,22 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
         { label: "Grand-Hôtel du Cap-Ferrat" },
       ],
       sidebarCultures: [
-        { label: "Matrimoni indiani", href: culturePath("it", "indian-weddings") },
-        { label: "Matrimoni ebraici", href: culturePath("it", "jewish-weddings") },
-        { label: "Matrimoni interreligiosi", href: culturePath("it", "interfaith-weddings") },
-        { label: "Matrimoni europei", href: culturePath("it", "european-weddings") },
+        {
+          label: "Matrimoni indiani",
+          href: culturePath("it", "indian-weddings"),
+        },
+        {
+          label: "Matrimoni ebraici",
+          href: culturePath("it", "jewish-weddings"),
+        },
+        {
+          label: "Matrimoni interreligiosi",
+          href: culturePath("it", "interfaith-weddings"),
+        },
+        {
+          label: "Matrimoni europei",
+          href: culturePath("it", "european-weddings"),
+        },
       ],
     },
     faq: {
@@ -1943,7 +2810,8 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
       headline: "Domande *frequenti.*",
       items: [
         {
-          question: "Potete organizzare un matrimonio interamente halal in un resort caraibico?",
+          question:
+            "Potete organizzare un matrimonio interamente halal in un resort caraibico?",
           answer: [
             "Sì. Concordiamo il protocollo di cucina halal con il resort con mesi di anticipo: provenienza, separazione e preparazione confermate per iscritto e ricontrollate nella settimana delle prove.",
             "Quando la famiglia desidera un secondo paio d'occhi, portiamo un consulente per la settimana delle prove. La disposizione del bar, analcolica o discreta, è pianificata secondo i desideri della famiglia.",
@@ -1968,21 +2836,24 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
           ],
         },
         {
-          question: "Qual è il costo tipico di un matrimonio arabo in destinazione?",
+          question:
+            "Qual è il costo tipico di un matrimonio arabo in destinazione?",
           answer: [
             "Un intervallo utile per il 2026, per 150–400 invitati nell'arco di uno-tre giorni, è di 250.000 – 900.000 USD, tutto compreso, a seconda della regione, del numero di invitati e della scala dello zaffe e della kosha.",
             "Condividiamo budget trasparenti e voce per voce alla prima consulenza.",
           ],
         },
         {
-          question: "In cosa differiscono i matrimoni libanesi e sauditi nella pianificazione?",
+          question:
+            "In cosa differiscono i matrimoni libanesi e sauditi nella pianificazione?",
           answer: [
             "A grandi linee — e sempre a seconda della singola famiglia — un ricevimento libanese tende a svolgersi alto e fino a tardi attorno a uno zaffe dal vivo, mentre una celebrazione del Golfo può tenersi in un registro più pacato e formale, talvolta con la celebrazione delle donne tenuta separata su richiesta della famiglia.",
             "Chiediamo a ogni famiglia il proprio protocollo invece di applicare un modello regionale.",
           ],
         },
         {
-          question: "E gli invitati che non hanno mai partecipato a un matrimonio arabo?",
+          question:
+            "E gli invitati che non hanno mai partecipato a un matrimonio arabo?",
           answer: [
             "Inviamo a ogni invitato una guida preliminare: programma, codice di abbigliamento per evento e note sullo zaffe, la kosha e lo zaghareet perché la serata si legga con chiarezza. La squadra dell'atelier è disponibile per tutto il fine settimana.",
           ],
