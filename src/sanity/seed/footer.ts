@@ -269,6 +269,41 @@ const COLUMNS: Record<ColumnKey, LinkSpec[]> = {
   ],
 };
 
+const LEGAL_LINKS: LinkSpec[] = [
+  {
+    key: "privacy",
+    href: "/privacy",
+    labels: {
+      en: "Privacy Policy",
+      es: "Privacidad",
+      fr: "Confidentialité",
+      pt: "Privacidade",
+      de: "Datenschutz",
+      it: "Privacy",
+    },
+  },
+  {
+    key: "terms",
+    href: "/terms",
+    labels: {
+      en: "Terms & Conditions",
+      es: "Términos y Condiciones",
+      fr: "Conditions générales",
+      pt: "Termos e Condições",
+      de: "AGB",
+      it: "Termini e Condizioni",
+    },
+  },
+];
+
+function buildLegalLinks(locale: Locale): FooterLink[] {
+  return LEGAL_LINKS.map((link) => ({
+    _key: link.key,
+    label: link.labels[locale],
+    href: link.href,
+  }));
+}
+
 function buildColumns(locale: Locale): FooterColumn[] {
   return COLUMN_KEYS.map((colKey) => ({
     _key: colKey,
@@ -294,6 +329,7 @@ async function run() {
       _type: "footer",
       language: locale,
       columns: buildColumns(locale),
+      legalLinks: buildLegalLinks(locale),
     });
   }
 

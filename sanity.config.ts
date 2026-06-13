@@ -21,6 +21,8 @@ const LOCALIZED_TYPES = [
   "destinationsPage",
   "aboutPage",
   "contactPage",
+  "termsPage",
+  "privacyPage",
   "multiculturalPage",
   "destination",
   "culture",

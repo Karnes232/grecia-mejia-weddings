@@ -121,5 +121,12 @@
       "submitting": "Enviando…",
       "errorMessage": "Algo salió mal. Inténtalo de nuevo o escríbenos directamente a hello@greciamejia.com."
     }
+  },
+  "legalPage": {
+    "onThisPage": "En esta página",
+    "lastUpdated": "Última actualización",
+    "effective": "Vigente",
+    "appliesTo": "Se aplica a",
+    "contactCta": "Contactar con el estudio →"
   }
 }

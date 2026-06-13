@@ -10,6 +10,12 @@ import {
 import { aboutPage, aboutPageMedia } from "./singletons/about";
 import { contactPage, contactPageMedia } from "./singletons/contact";
 import {
+  termsPage,
+  privacyPage,
+  legalCallout,
+  legalDefinitions,
+} from "./singletons/legal";
+import {
   multiculturalPage,
   multiculturalPageMedia,
 } from "./singletons/multicultural";
@@ -32,6 +38,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutPageMedia,
     contactPage,
     contactPageMedia,
+    termsPage,
+    privacyPage,
+    legalCallout,
+    legalDefinitions,
     multiculturalPage,
     multiculturalPageMedia,
     destination,

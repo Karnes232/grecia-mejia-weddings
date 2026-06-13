@@ -50,6 +50,27 @@ export const footer = defineType({
         },
       ],
     }),
+    defineField({
+      name: "legalLinks",
+      title: "Legal links",
+      description: "Shown in the footer bottom bar (e.g. Privacy, Terms).",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "label", type: "string", title: "Label" },
+            {
+              name: "href",
+              type: "string",
+              title: "Href",
+              description: "Locale-relative path or external URL",
+            },
+          ],
+          preview: { select: { title: "label", subtitle: "href" } },
+        },
+      ],
+    }),
   ],
   preview: {
     select: { language: "language" },

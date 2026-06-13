@@ -121,5 +121,12 @@
       "submitting": "Wird gesendet…",
       "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an hello@greciamejia.com."
     }
+  },
+  "legalPage": {
+    "onThisPage": "Auf dieser Seite",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "effective": "Gültig ab",
+    "appliesTo": "Gilt für",
+    "contactCta": "Das Studio kontaktieren →"
   }
 }

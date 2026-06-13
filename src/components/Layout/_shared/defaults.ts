@@ -18,7 +18,9 @@ export const DEFAULT_NAV: Required<Pick<NavigationData, "mainLinks" | "cta">> =
     cta: { label: "Private Consultation", href: "/contact" },
   };
 
-export const DEFAULT_FOOTER: Required<Pick<FooterData, "columns">> = {
+export const DEFAULT_FOOTER: Required<
+  Pick<FooterData, "columns" | "legalLinks">
+> = {
   columns: [
     {
       heading: "Atelier",
@@ -58,6 +60,10 @@ export const DEFAULT_FOOTER: Required<Pick<FooterData, "columns">> = {
         { label: "Instagram", href: "#" },
       ],
     },
+  ],
+  legalLinks: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms & Conditions", href: "/terms" },
   ],
 };
 

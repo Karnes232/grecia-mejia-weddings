@@ -121,5 +121,12 @@
       "submitting": "Sending…",
       "errorMessage": "Something went wrong. Please try again, or write to us directly at hello@greciamejia.com."
     }
+  },
+  "legalPage": {
+    "onThisPage": "On this page",
+    "lastUpdated": "Last updated",
+    "effective": "Effective",
+    "appliesTo": "Applies to",
+    "contactCta": "Contact the studio →"
   }
 }

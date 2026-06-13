@@ -27,7 +27,8 @@ export const footerQuery = groq`
     columns[]{
       heading,
       links[]{ label, href }
-    }
+    },
+    legalLinks[]{ label, href }
   }
 `;
 
@@ -66,6 +67,7 @@ export type FooterData = {
     heading?: string;
     links?: Array<{ label?: string; href?: string }>;
   }>;
+  legalLinks?: Array<{ label?: string; href?: string }>;
 };
 
 const FALLBACK_LOCALE = "en";

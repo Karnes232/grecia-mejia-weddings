@@ -51,6 +51,9 @@ export function Footer({ footer, settings, locale }: FooterProps) {
     "{year}",
     String(new Date().getFullYear()),
   );
+  const legalLinks = footer?.legalLinks?.length
+    ? footer.legalLinks
+    : DEFAULT_FOOTER.legalLinks;
 
   return (
     <footer className="bg-ink text-footer-text px-6 pt-20 pb-8 md:px-14">
@@ -112,6 +115,28 @@ export function Footer({ footer, settings, locale }: FooterProps) {
       </div>
       <div className="mx-auto flex max-w-[1400px] flex-col gap-4 border-t border-[rgba(212,186,140,0.2)] pt-8 text-[10px] uppercase tracking-eyebrow text-footer-muted md:flex-row md:items-center md:justify-between">
         <span>{copyright}</span>
+        {legalLinks?.length ? (
+          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            {legalLinks.map((link, i) => {
+              if (!link.label || !link.href) return null;
+              const cls =
+                "uppercase tracking-eyebrow text-footer-muted no-underline transition-colors hover:text-gold";
+              return isExternal(link.href) ? (
+                <a key={`${link.label}-${i}`} className={cls} href={link.href}>
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={`${link.label}-${i}`}
+                  className={cls}
+                  href={link.href as never}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+        ) : null}
         <LanguageSwitcher currentLocale={locale} variant="footer" />
       </div>
     </footer>
