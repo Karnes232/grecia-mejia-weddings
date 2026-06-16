@@ -90,17 +90,6 @@ export const MULTICULTURAL_RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
 );
 
 /**
- * Venues-hub typology slots. Shared between the localized `venuesPage`
- * typology cards (their `imageKey`) and the non-localized `venuesPageMedia`
- * typology images (their `key`), so both sides always pick from the identical
- * set and stay aligned.
- */
-export const VENUES_TYPOLOGY_KEY_OPTIONS: ImageKeyOption[] = Array.from(
-  { length: 8 },
-  (_, i) => ({ title: `Typology ${i + 1}`, value: `venues-typ-${i + 1}` }),
-);
-
-/**
  * Venue-region venue-card slots. Shared between a `venueRegion` doc's venue
  * cards (their `imageKey`) and that region's `venueRegionMedia` keyed images
  * (their `key`), so both sides always pick from the identical set and stay

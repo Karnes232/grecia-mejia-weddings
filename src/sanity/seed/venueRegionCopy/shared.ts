@@ -92,7 +92,7 @@ export const SLUGS: Record<RegionSlug, Record<Locale, string>> = {
 };
 
 // ── Copy shape ──────────────────────────────────────────────────────────────
-type Meta = { value: string; label: string };
+type Meta = { value?: string; label: string; useVenueCount?: boolean };
 type LabelHref = { label: string; href?: string };
 
 export type RegionCopy = {

@@ -1,7 +1,5 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
-import { VENUES_TYPOLOGY_KEY_OPTIONS } from "../../imageKeyOptions";
-
 export const venuesPage = defineType({
   name: "venuesPage",
   title: "Venues Page",
@@ -9,7 +7,6 @@ export const venuesPage = defineType({
   groups: [
     { name: "hero", title: "Hero" },
     { name: "intro", title: "Intro" },
-    { name: "typology", title: "Typology" },
     { name: "regions", title: "Regions" },
     { name: "cta", title: "Closing CTA" },
     { name: "seo", title: "SEO" },
@@ -115,61 +112,6 @@ export const venuesPage = defineType({
                 { name: "label", title: "Label", type: "string" },
               ],
               preview: { select: { title: "value", subtitle: "label" } },
-            }),
-          ],
-        }),
-      ],
-    }),
-
-    // ── Typology ──────────────────────────────────────────────────────────
-    defineField({
-      name: "typology",
-      title: "Typology",
-      type: "object",
-      group: "typology",
-      options: { collapsible: true, collapsed: true },
-      fields: [
-        { name: "eyebrow", title: "Eyebrow (small-caps)", type: "string" },
-        defineField({
-          name: "headline",
-          title: "Headline",
-          type: "string",
-          description:
-            "Use *word* for italic accents (e.g. The *kinds* of house.).",
-        }),
-        { name: "intro", title: "Intro paragraph", type: "text", rows: 3 },
-        defineField({
-          name: "items",
-          title: "Typology cards",
-          type: "array",
-          validation: (r) => r.max(8),
-          of: [
-            defineArrayMember({
-              type: "object",
-              fields: [
-                {
-                  name: "title",
-                  title: "Title",
-                  type: "string",
-                  validation: (r) => r.required(),
-                },
-                {
-                  name: "count",
-                  title: "Count line (e.g. '14 houses')",
-                  type: "string",
-                },
-                { name: "sub", title: "Sub-line", type: "string" },
-                defineField({
-                  name: "imageKey",
-                  title: "Image slot",
-                  type: "string",
-                  description:
-                    "Maps to the matching image in Venues Page Media (shared across languages).",
-                  options: { list: [...VENUES_TYPOLOGY_KEY_OPTIONS] },
-                  validation: (r) => r.required(),
-                }),
-              ],
-              preview: { select: { title: "title", subtitle: "count" } },
             }),
           ],
         }),

@@ -7,7 +7,6 @@ import {
   VenuesHero,
   VenuesIntro,
   VenuesRegions,
-  VenuesTypology,
 } from "@/components/VenuesPage";
 import { type Locale } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -65,13 +64,6 @@ export default async function VenuesPage({ params }: VenuesPageProps) {
 
       {page?.intro?.headline || page?.intro?.body?.length ? (
         <VenuesIntro intro={page.intro} />
-      ) : null}
-
-      {page?.typology?.items?.length ? (
-        <VenuesTypology
-          typology={page.typology}
-          images={media?.typology?.images}
-        />
       ) : null}
 
       {page?.regions?.items?.length ? (

@@ -123,10 +123,34 @@ export const venueRegion = defineType({
         defineArrayMember({
           type: "object",
           fields: [
-            { name: "value", title: "Value", type: "string" },
+            defineField({
+              name: "useVenueCount",
+              title: "Use live venue count",
+              type: "boolean",
+              initialValue: false,
+              description:
+                "When on, this stat shows the live number of venues referenced in the Venues group below; the typed value is ignored.",
+            }),
+            defineField({
+              name: "value",
+              title: "Value",
+              type: "string",
+              hidden: ({ parent }) =>
+                Boolean((parent as { useVenueCount?: boolean })?.useVenueCount),
+            }),
             { name: "label", title: "Label", type: "string" },
           ],
-          preview: { select: { title: "value", subtitle: "label" } },
+          preview: {
+            select: {
+              value: "value",
+              label: "label",
+              useVenueCount: "useVenueCount",
+            },
+            prepare: ({ value, label, useVenueCount }) => ({
+              title: useVenueCount ? "Live venue count" : (value as string),
+              subtitle: label as string,
+            }),
+          },
         }),
       ],
     }),

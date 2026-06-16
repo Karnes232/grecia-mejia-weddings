@@ -266,7 +266,7 @@ export const PUNTA_CANA: Record<Locale, RegionCopy> = Object.fromEntries(
       name: "Punta Cana",
       cardBlurb: rt.cardBlurb,
       cardMeta: [
-        { value: "14", label: lab.houses },
+        { label: lab.houses, useVenueCount: true },
         { value: lab.yearRound, label: lab.whenToWed },
         { value: "120+", label: lab.weddingsHere },
       ],

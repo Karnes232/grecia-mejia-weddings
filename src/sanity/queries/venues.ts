@@ -25,12 +25,6 @@ export const venuesPageQuery = groq`
       body,
       stats[]{ value, label }
     },
-    typology{
-      eyebrow,
-      headline,
-      intro,
-      items[]{ title, count, sub, imageKey }
-    },
     regions{
       eyebrow,
       headline,
@@ -39,7 +33,8 @@ export const venuesPageQuery = groq`
         "name": name,
         "slug": slug.current,
         cardBlurb,
-        cardMeta[]{ value, label },
+        cardMeta[]{ value, label, useVenueCount },
+        "venueCount": count(venues[defined(@->_id)]),
         "image": media->cardImage{ ..., alt }
       }
     },
@@ -55,8 +50,7 @@ export const venuesPageQuery = groq`
 
 export const venuesPageMediaQuery = groq`
   *[_id == "venuesPageMedia"][0]{
-    hero{ image{ ..., alt } },
-    typology{ images[]{ key, "image": { ..., alt } } }
+    hero{ image{ ..., alt } }
   }
 `;
 
@@ -64,7 +58,12 @@ export type VenueRegionCard = {
   name?: string;
   slug?: string;
   cardBlurb?: string;
-  cardMeta?: Array<{ value?: string; label?: string }>;
+  cardMeta?: Array<{
+    value?: string;
+    label?: string;
+    useVenueCount?: boolean;
+  }>;
+  venueCount?: number;
   image?: SanityImage;
 };
 
@@ -86,17 +85,6 @@ export type VenuesPage = {
     body?: PortableTextBlock[];
     stats?: Array<{ value?: string; label?: string }>;
   };
-  typology?: {
-    eyebrow?: string;
-    headline?: string;
-    intro?: string;
-    items?: Array<{
-      title?: string;
-      count?: string;
-      sub?: string;
-      imageKey?: string;
-    }>;
-  };
   regions?: {
     eyebrow?: string;
     headline?: string;
@@ -114,7 +102,6 @@ export type VenuesPage = {
 
 export type VenuesPageMedia = {
   hero?: { image?: SanityImage };
-  typology?: { images?: Array<{ key?: string; image?: SanityImage }> };
 };
 
 export function getVenuesPage(locale: string) {

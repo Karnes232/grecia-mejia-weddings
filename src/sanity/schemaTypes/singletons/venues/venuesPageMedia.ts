@@ -1,6 +1,4 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
-
-import { VENUES_TYPOLOGY_KEY_OPTIONS } from "../../imageKeyOptions";
+import { defineField, defineType } from "sanity";
 
 const altField = {
   name: "alt",
@@ -28,39 +26,6 @@ export const venuesPageMedia = defineType({
           type: "image",
           options: { hotspot: true },
           fields: [altField],
-        }),
-      ],
-    }),
-    defineField({
-      name: "typology",
-      title: "Typology images",
-      type: "object",
-      options: { collapsible: true, collapsed: false },
-      fields: [
-        defineField({
-          name: "images",
-          title: "Images",
-          type: "array",
-          options: { layout: "grid" },
-          of: [
-            defineArrayMember({
-              type: "image",
-              options: { hotspot: true },
-              fields: [
-                defineField({
-                  name: "key",
-                  title: "Typology slot",
-                  type: "string",
-                  description:
-                    "Maps to the matching typology card's image slot in the Venues Page.",
-                  options: { list: [...VENUES_TYPOLOGY_KEY_OPTIONS] },
-                  validation: (r) => r.required(),
-                }),
-                altField,
-              ],
-              preview: { select: { title: "key", media: "asset" } },
-            }),
-          ],
         }),
       ],
     }),

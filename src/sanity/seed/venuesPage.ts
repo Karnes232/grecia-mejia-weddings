@@ -44,19 +44,7 @@ const ptBlocks = (paragraphs: string[]) =>
   }));
 
 // ── Locale-invariant slots ──────────────────────────────────────────────────
-const TYPOLOGY_KEYS = [
-  "venues-typ-1",
-  "venues-typ-2",
-  "venues-typ-3",
-  "venues-typ-4",
-  "venues-typ-5",
-  "venues-typ-6",
-  "venues-typ-7",
-  "venues-typ-8",
-] as const;
-
 const STAT_VALUES = ["52", "12", "240+", "14"] as const;
-const TYPOLOGY_COUNTS = [14, 11, 9, 7, 6, 5, 3, 8] as const;
 
 // ── Per-locale copy ─────────────────────────────────────────────────────────
 type Copy = {
@@ -76,14 +64,6 @@ type Copy = {
     lede: string;
     body: string[];
     statLabels: string[];
-  };
-  typology: {
-    eyebrow: string;
-    headline: string;
-    intro: string;
-    housesWord: string;
-    titles: string[];
-    subs: string[];
   };
   regions: { eyebrow: string; headline: string; intro: string };
   cta: { eyebrow: string; headline: string; body: string; ctaLabel: string };
@@ -115,33 +95,6 @@ const COPY: Record<Locale, Copy> = {
         "Regions",
         "Weddings here",
         "Years working them",
-      ],
-    },
-    typology: {
-      eyebrow: "By typology",
-      headline: "The *kinds* of house.",
-      intro:
-        "Eight working categories. Use these as a filter for the kind of wedding you are imagining — the same house often crosses two.",
-      housesWord: "houses",
-      titles: [
-        "Beach pavilions",
-        "Private estates",
-        "Palazzi & villas",
-        "Beach clubs",
-        "Châteaux",
-        "Vineyards",
-        "Cathedrals & chapels",
-        "Garden hotels",
-      ],
-      subs: [
-        "Open-air, palm-thatched, sand under foot",
-        "Country homes, manor houses, private compounds",
-        "Italian, French, Spanish historical estates",
-        "White-sand banquet, multi-event capacity",
-        "Formal gardens, private chapels, multi-day weekends",
-        "Working wineries, harvest weddings",
-        "Religious ceremonies, Catholic and Orthodox",
-        "Smaller resort weddings, intimate scale",
       ],
     },
     regions: {
@@ -185,33 +138,6 @@ const COPY: Record<Locale, Copy> = {
         "Años trabajándolas",
       ],
     },
-    typology: {
-      eyebrow: "Por tipología",
-      headline: "Los *tipos* de casa.",
-      intro:
-        "Ocho categorías de trabajo. Úselas como filtro para el tipo de boda que imagina: la misma casa suele cruzar dos.",
-      housesWord: "casas",
-      titles: [
-        "Pabellones de playa",
-        "Fincas privadas",
-        "Palazzi y villas",
-        "Clubes de playa",
-        "Châteaux",
-        "Viñedos",
-        "Catedrales y capillas",
-        "Hoteles jardín",
-      ],
-      subs: [
-        "Al aire libre, techo de palma, arena bajo los pies",
-        "Casas de campo, casonas, recintos privados",
-        "Fincas históricas italianas, francesas y españolas",
-        "Banquete sobre arena blanca, capacidad para varios eventos",
-        "Jardines formales, capillas privadas, fines de semana de varios días",
-        "Bodegas en activo, bodas de vendimia",
-        "Ceremonias religiosas, católicas y ortodoxas",
-        "Bodas de resort más pequeñas, escala íntima",
-      ],
-    },
     regions: {
       eyebrow: "Por región",
       headline: "El *registro,* por lugar.",
@@ -251,33 +177,6 @@ const COPY: Record<Locale, Copy> = {
         "Régions",
         "Mariages ici",
         "Années à les travailler",
-      ],
-    },
-    typology: {
-      eyebrow: "Par typologie",
-      headline: "Les *genres* de maison.",
-      intro:
-        "Huit catégories de travail. Utilisez-les comme filtre pour le type de mariage que vous imaginez — une même maison en croise souvent deux.",
-      housesWord: "maisons",
-      titles: [
-        "Pavillons de plage",
-        "Domaines privés",
-        "Palazzi et villas",
-        "Beach clubs",
-        "Châteaux",
-        "Vignobles",
-        "Cathédrales et chapelles",
-        "Hôtels de jardin",
-      ],
-      subs: [
-        "En plein air, toit de palme, sable sous les pieds",
-        "Maisons de campagne, manoirs, propriétés privées",
-        "Domaines historiques italiens, français, espagnols",
-        "Banquet sur sable blanc, capacité multi-événements",
-        "Jardins à la française, chapelles privées, week-ends sur plusieurs jours",
-        "Domaines viticoles en activité, mariages de vendange",
-        "Cérémonies religieuses, catholiques et orthodoxes",
-        "Mariages de resort plus petits, échelle intime",
       ],
     },
     regions: {
@@ -321,33 +220,6 @@ const COPY: Record<Locale, Copy> = {
         "Anos a trabalhá-las",
       ],
     },
-    typology: {
-      eyebrow: "Por tipologia",
-      headline: "Os *tipos* de casa.",
-      intro:
-        "Oito categorias de trabalho. Use-as como filtro para o tipo de casamento que imagina — a mesma casa cruza muitas vezes duas.",
-      housesWord: "casas",
-      titles: [
-        "Pavilhões de praia",
-        "Propriedades privadas",
-        "Palazzi e villas",
-        "Clubes de praia",
-        "Châteaux",
-        "Vinhas",
-        "Catedrais e capelas",
-        "Hotéis-jardim",
-      ],
-      subs: [
-        "Ao ar livre, cobertura de palha, areia sob os pés",
-        "Casas de campo, solares, recintos privados",
-        "Propriedades históricas italianas, francesas e espanholas",
-        "Banquete sobre areia branca, capacidade para vários eventos",
-        "Jardins formais, capelas privadas, fins de semana de vários dias",
-        "Adegas em atividade, casamentos de vindima",
-        "Cerimónias religiosas, católicas e ortodoxas",
-        "Casamentos de resort mais pequenos, escala íntima",
-      ],
-    },
     regions: {
       eyebrow: "Por região",
       headline: "O *registo,* por lugar.",
@@ -387,33 +259,6 @@ const COPY: Record<Locale, Copy> = {
         "Regionen",
         "Hochzeiten hier",
         "Jahre der Arbeit daran",
-      ],
-    },
-    typology: {
-      eyebrow: "Nach Typologie",
-      headline: "Die *Arten* von Haus.",
-      intro:
-        "Acht Arbeitskategorien. Nutzen Sie sie als Filter für die Hochzeit, die Sie sich vorstellen — dasselbe Haus überschneidet oft zwei.",
-      housesWord: "Häuser",
-      titles: [
-        "Strandpavillons",
-        "Privatanwesen",
-        "Palazzi & Villen",
-        "Beach Clubs",
-        "Schlösser",
-        "Weingüter",
-        "Kathedralen & Kapellen",
-        "Gartenhotels",
-      ],
-      subs: [
-        "Open-Air, palmgedeckt, Sand unter den Füßen",
-        "Landhäuser, Herrenhäuser, private Anwesen",
-        "Italienische, französische, spanische historische Anwesen",
-        "Bankett auf weißem Sand, Kapazität für mehrere Veranstaltungen",
-        "Formale Gärten, private Kapellen, mehrtägige Wochenenden",
-        "Aktive Weingüter, Hochzeiten zur Lese",
-        "Religiöse Zeremonien, katholisch und orthodox",
-        "Kleinere Resort-Hochzeiten, intimer Maßstab",
       ],
     },
     regions: {
@@ -457,33 +302,6 @@ const COPY: Record<Locale, Copy> = {
         "Anni a lavorarle",
       ],
     },
-    typology: {
-      eyebrow: "Per tipologia",
-      headline: "I *tipi* di casa.",
-      intro:
-        "Otto categorie di lavoro. Usatele come filtro per il tipo di matrimonio che immaginate — la stessa casa ne attraversa spesso due.",
-      housesWord: "case",
-      titles: [
-        "Padiglioni sulla spiaggia",
-        "Tenute private",
-        "Palazzi e ville",
-        "Beach club",
-        "Châteaux",
-        "Vigneti",
-        "Cattedrali e cappelle",
-        "Hotel giardino",
-      ],
-      subs: [
-        "All'aperto, tetto di palma, sabbia sotto i piedi",
-        "Case di campagna, manieri, residenze private",
-        "Tenute storiche italiane, francesi, spagnole",
-        "Banchetto sulla sabbia bianca, capacità per più eventi",
-        "Giardini formali, cappelle private, weekend di più giorni",
-        "Cantine in attività, matrimoni di vendemmia",
-        "Cerimonie religiose, cattoliche e ortodosse",
-        "Matrimoni di resort più piccoli, scala intima",
-      ],
-    },
     regions: {
       eyebrow: "Per regione",
       headline: "Il *registro,* per luogo.",
@@ -512,19 +330,6 @@ function buildDoc(locale: Locale) {
       body: ptBlocks(c.intro.body),
       stats: STAT_VALUES.map((value, i) =>
         keyed({ value, label: c.intro.statLabels[i] }),
-      ),
-    },
-    typology: {
-      eyebrow: c.typology.eyebrow,
-      headline: c.typology.headline,
-      intro: c.typology.intro,
-      items: c.typology.titles.map((title, i) =>
-        keyed({
-          title,
-          count: `${TYPOLOGY_COUNTS[i]} ${c.typology.housesWord}`,
-          sub: c.typology.subs[i],
-          imageKey: TYPOLOGY_KEYS[i],
-        }),
       ),
     },
     regions: {
@@ -574,11 +379,6 @@ async function run() {
     _id: "venuesPageMedia",
     _type: "venuesPageMedia",
     hero: { image: { _type: "image", alt: "A selected wedding house" } },
-    typology: {
-      images: TYPOLOGY_KEYS.map((key) =>
-        keyed({ _type: "image", key, alt: "Venue typology" }),
-      ),
-    },
   });
 
   await tx.commit();

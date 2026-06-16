@@ -50,20 +50,25 @@ export function RegionCard({ card, regionLabel, ctaLabel }: RegionCardProps) {
         ) : null}
         {meta.length ? (
           <div className="flex flex-wrap gap-x-8 gap-y-4 border-t border-rule py-[18px]">
-            {meta.map((m, i) => (
-              <div key={i}>
-                {m.value ? (
-                  <span className="block font-serif text-[22px] italic leading-none text-ink">
-                    {m.value}
-                  </span>
-                ) : null}
-                {m.label ? (
-                  <span className="mt-1.5 block text-[9px] uppercase tracking-[0.32em] text-muted">
-                    {m.label}
-                  </span>
-                ) : null}
-              </div>
-            ))}
+            {meta.map((m, i) => {
+              const value = m.useVenueCount
+                ? String(card.venueCount ?? 0)
+                : m.value;
+              return (
+                <div key={i}>
+                  {value ? (
+                    <span className="block font-serif text-[22px] italic leading-none text-ink">
+                      {value}
+                    </span>
+                  ) : null}
+                  {m.label ? (
+                    <span className="mt-1.5 block text-[9px] uppercase tracking-[0.32em] text-muted">
+                      {m.label}
+                    </span>
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
         ) : null}
         <span className="mt-6 inline-block self-start border-b border-gold pb-1 text-[11px] uppercase tracking-[0.32em] text-olive">

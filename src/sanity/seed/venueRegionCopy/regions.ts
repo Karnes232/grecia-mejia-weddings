@@ -12,14 +12,14 @@ type StubSlug = Exclude<RegionSlug, "punta-cana">;
 // ── Locale-invariant facts ──────────────────────────────────────────────────
 const FACTS: Record<
   StubSlug,
-  { houses: string; weddings: string; season: string | null }
+  { weddings: string; season: string | null }
 > = {
-  italy: { houses: "11", weddings: "38", season: "May – Oct" },
-  france: { houses: "8", weddings: "22", season: "May – Sep" },
-  spain: { houses: "7", weddings: "18", season: "May – Oct" },
-  "caribbean-islands": { houses: "6", weddings: "16", season: "Nov – Apr" },
-  "united-states": { houses: "4", weddings: "12", season: null }, // "Variable"
-  greece: { houses: "2", weddings: "8", season: "May – Oct" },
+  italy: { weddings: "38", season: "May – Oct" },
+  france: { weddings: "22", season: "May – Sep" },
+  spain: { weddings: "18", season: "May – Oct" },
+  "caribbean-islands": { weddings: "16", season: "Nov – Apr" },
+  "united-states": { weddings: "12", season: null }, // "Variable"
+  greece: { weddings: "8", season: "May – Oct" },
 };
 
 // ── Per-locale display names ─────────────────────────────────────────────────
@@ -289,7 +289,7 @@ function buildStub(slug: StubSlug, locale: Locale): RegionCopy {
     name,
     cardBlurb: blurb,
     cardMeta: [
-      { value: facts.houses, label: s.houses },
+      { label: s.houses, useVenueCount: true },
       { value: facts.season ?? s.variable, label: s.whenToWed },
       { value: facts.weddings, label: s.weddingsHere },
     ],
