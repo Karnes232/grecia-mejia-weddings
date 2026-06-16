@@ -33,7 +33,16 @@ export const destinationQuery = groq`
     },
     venues{
       eyebrow, headline, viewAllLabel, viewAllHref,
-      cards[]{ name, tag, meta, capacity, body, bestFor, imageKey }
+      cards[]->{
+        name,
+        tag,
+        "meta": location,
+        "body": cardBlurb,
+        "rows": cardMeta[]{ label, value },
+        "slug": slug.current,
+        "region": region->slug.current,
+        "image": media->cardImage{ ..., alt }
+      }
     },
     weddingTypes{
       eyebrow, headline, deck,
@@ -74,7 +83,6 @@ export const destinationMediaQuery = groq`
     heroImage{ ..., alt },
     storyPortrait{ ..., alt },
     styles[]{ key, image{ ..., alt } },
-    venueCards[]{ key, image{ ..., alt } },
     guestCards[]{ key, image{ ..., alt } },
     relatedArticles[]{ key, image{ ..., alt } }
   }
@@ -135,10 +143,11 @@ export type Destination = {
       name?: string;
       tag?: string;
       meta?: string;
-      capacity?: string;
       body?: string;
-      bestFor?: string;
-      imageKey?: string;
+      rows?: Array<{ label?: string; value?: string }>;
+      slug?: string;
+      region?: string;
+      image?: SanityImage;
     }>;
   };
   weddingTypes?: {
@@ -215,7 +224,6 @@ export type DestinationMedia = {
   heroImage?: SanityImage;
   storyPortrait?: SanityImage;
   styles?: Array<{ key?: string; image?: SanityImage }>;
-  venueCards?: Array<{ key?: string; image?: SanityImage }>;
   guestCards?: Array<{ key?: string; image?: SanityImage }>;
   relatedArticles?: Array<{ key?: string; image?: SanityImage }>;
 };

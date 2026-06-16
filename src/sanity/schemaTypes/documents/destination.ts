@@ -6,7 +6,6 @@ import {
   type ImageKeyOption,
   RELATED_KEY_OPTIONS,
   STYLE_KEY_OPTIONS,
-  VENUE_KEY_OPTIONS,
 } from "../imageKeyOptions";
 
 // `imageKey` is a dropdown of fixed image slots shared with the destination's
@@ -287,19 +286,22 @@ export const destination = defineType({
           name: "cards",
           title: "Venue cards",
           type: "array",
+          description:
+            "Reference the venues to feature here (same language). Card content + image come from each venue doc.",
           of: [
             defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "name", title: "Name", type: "string" },
-                { name: "tag", title: "Tag", type: "string" },
-                { name: "meta", title: "Meta line", type: "string" },
-                { name: "capacity", title: "Capacity", type: "string" },
-                { name: "body", title: "Body", type: "text", rows: 3 },
-                { name: "bestFor", title: "Best for", type: "string" },
-                imageKeyField(VENUE_KEY_OPTIONS),
-              ],
-              preview: { select: { title: "name", subtitle: "tag" } },
+              type: "reference",
+              to: [{ type: "venue" }],
+              options: {
+                disableNew: true,
+                filter: ({ document }) =>
+                  document?.language
+                    ? {
+                        filter: "language == $language",
+                        params: { language: document.language },
+                      }
+                    : { filter: "true" },
+              },
             }),
           ],
         }),

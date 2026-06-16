@@ -568,17 +568,9 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
       headline: p.venues.headline,
       viewAllLabel: p.venues.viewAll(fact),
       viewAllHref: `/venues/${fact.slug}`,
-      cards: Array.from({ length: 3 }, (_, i) =>
-        k({
-          name: `${fact.name} Venue ${i + 1}`,
-          tag: ["Beach pavilion", "Estate", "Hidden venue"][i],
-          meta: `${fact.country} · Selected`,
-          capacity: fact.guestRange + " guests",
-          body: `One of the houses we work with most in ${fact.name}.`,
-          bestFor: "Ceremony + reception",
-          imageKey: `venue-${i + 1}`,
-        }),
-      ),
+      // Venue cards are references to `venue` docs; this destination has none yet
+      // (only Punta Cana does), so the section stays empty until venues exist.
+      cards: [],
     },
     weddingTypes: {
       eyebrow: p.weddingTypes.eyebrow,

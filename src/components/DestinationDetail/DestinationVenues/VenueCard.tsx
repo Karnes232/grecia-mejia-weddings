@@ -1,39 +1,23 @@
 import Image from "next/image";
 
+import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
-import type { DestinationMedia } from "@/sanity/queries/destination";
+import type { Destination } from "@/sanity/queries/destination";
 
-type VenueImage = NonNullable<DestinationMedia["venueCards"]>[number]["image"];
+type Card = NonNullable<NonNullable<Destination["venues"]>["cards"]>[number];
 
 type VenueCardProps = {
-  name?: string;
-  tag?: string;
-  meta?: string;
-  body?: string;
-  capacity?: string;
-  bestFor?: string;
-  image?: VenueImage;
-  capacityLabel: string;
-  bestForLabel: string;
+  card: Card;
 };
 
-export function VenueCard({
-  name,
-  tag,
-  meta,
-  body,
-  capacity,
-  bestFor,
-  image,
-  capacityLabel,
-  bestForLabel,
-}: VenueCardProps) {
+export function VenueCard({ card }: VenueCardProps) {
+  const { name, tag, meta, body, rows, slug, region, image } = card;
   const imageUrl = image?.asset
     ? urlFor(image).width(900).height(700).fit("crop").auto("format").url()
     : null;
 
-  return (
-    <article className="group block">
+  const inner = (
+    <>
       <div className="relative aspect-[4/3] overflow-hidden bg-sand">
         {tag ? (
           <span className="absolute right-[14px] top-[14px] z-[1] whitespace-nowrap bg-ivory/95 px-2.5 py-[5px] text-[9px] uppercase tracking-[0.28em] text-olive">
@@ -63,35 +47,39 @@ export function VenueCard({
           </div>
         ) : null}
         {body ? (
-          <p className="mb-4 text-[14px] leading-[1.6] text-[#3d3a30]">
-            {body}
-          </p>
+          <p className="mb-4 text-[14px] leading-[1.6] text-[#3d3a30]">{body}</p>
         ) : null}
-        {capacity || bestFor ? (
+        {rows?.length ? (
           <dl className="grid grid-cols-[auto_1fr] gap-x-3.5 gap-y-1.5 text-[12px]">
-            {capacity ? (
-              <>
+            {rows.map((row, i) => (
+              <div key={i} className="contents">
                 <dt className="text-[9px] uppercase tracking-[0.28em] text-muted">
-                  {capacityLabel}
+                  {row.label}
                 </dt>
                 <dd className="m-0 font-serif text-[14px] italic text-ink">
-                  {capacity}
+                  {row.value}
                 </dd>
-              </>
-            ) : null}
-            {bestFor ? (
-              <>
-                <dt className="text-[9px] uppercase tracking-[0.28em] text-muted">
-                  {bestForLabel}
-                </dt>
-                <dd className="m-0 font-serif text-[14px] italic text-ink">
-                  {bestFor}
-                </dd>
-              </>
-            ) : null}
+              </div>
+            ))}
           </dl>
         ) : null}
       </div>
-    </article>
+    </>
   );
+
+  if (slug && region) {
+    return (
+      <Link
+        href={{
+          pathname: "/venues/[region]/[venue]",
+          params: { region, venue: slug },
+        }}
+        className="group block no-underline"
+      >
+        {inner}
+      </Link>
+    );
+  }
+
+  return <article className="group block">{inner}</article>;
 }

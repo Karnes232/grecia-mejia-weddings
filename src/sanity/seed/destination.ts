@@ -87,9 +87,6 @@ async function run() {
       _type: "destinationMedia",
       slug: fact.slug,
       styles: Array.from({ length: 6 }, (_, i) => k({ key: `style-${i + 1}` })),
-      venueCards: Array.from({ length: 3 }, (_, i) =>
-        k({ key: `venue-${i + 1}` }),
-      ),
       guestCards: [
         "guest-stay",
         "guest-taste",

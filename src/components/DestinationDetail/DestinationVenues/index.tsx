@@ -1,33 +1,15 @@
-import { getTranslations } from "next-intl/server";
-
 import { CTAButton } from "@/components/_shared/CTAButton";
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import type {
-  Destination,
-  DestinationMedia,
-} from "@/sanity/queries/destination";
-
-import { keyedImageMap } from "@/components/_shared/keyedImageMap";
+import type { Destination } from "@/sanity/queries/destination";
 
 import { VenueCard } from "./VenueCard";
 
 type DestinationVenuesProps = {
   venues: NonNullable<Destination["venues"]>;
-  images: DestinationMedia["venueCards"];
-  locale: string;
 };
 
-export async function DestinationVenues({
-  venues,
-  images,
-  locale,
-}: DestinationVenuesProps) {
-  const t = await getTranslations({
-    locale,
-    namespace: "destinationDetail.venues",
-  });
-  const imageByKey = keyedImageMap(images);
+export function DestinationVenues({ venues }: DestinationVenuesProps) {
   const cards = venues.cards ?? [];
 
   return (
@@ -57,18 +39,7 @@ export async function DestinationVenues({
 
       <RevealOnScroll className="mx-auto grid max-w-[1400px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {cards.map((card, i) => (
-          <VenueCard
-            key={i}
-            name={card.name}
-            tag={card.tag}
-            meta={card.meta}
-            body={card.body}
-            capacity={card.capacity}
-            bestFor={card.bestFor}
-            image={imageByKey.get(card.imageKey ?? "")}
-            capacityLabel={t("capacity")}
-            bestForLabel={t("bestFor")}
-          />
+          <VenueCard key={i} card={card} />
         ))}
       </RevealOnScroll>
     </section>

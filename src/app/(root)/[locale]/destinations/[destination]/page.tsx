@@ -98,11 +98,7 @@ export default async function DestinationPage({
       ) : null}
 
       {doc.venues?.cards?.length ? (
-        <DestinationVenues
-          venues={doc.venues}
-          images={media?.venueCards}
-          locale={locale}
-        />
+        <DestinationVenues venues={doc.venues} />
       ) : null}
 
       {doc.weddingTypes?.items?.length ? (

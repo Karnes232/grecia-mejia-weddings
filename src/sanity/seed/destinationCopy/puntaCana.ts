@@ -16,6 +16,15 @@ import type { Locale } from "../../../i18n/routing";
 
 const k = <T extends object>(obj: T) => ({ _key: randomUUID(), ...obj });
 
+// Venue cards are references to `venue` docs (same locale). These three are the
+// featured Punta Cana venues; the inline `venues.cards` copy below is retained
+// only for reference and is no longer seeded.
+const PC_FEATURED_VENUES = [
+  "jellyfish-restaurant",
+  "caleton-beach-club",
+  "chez-bisutti",
+] as const;
+
 const ptBlock = (text: string) => [
   {
     _type: "block",
@@ -616,7 +625,9 @@ export function buildPuntaCanaDoc(locale: Locale) {
       headline: c.venues.headline,
       viewAllLabel: c.venues.viewAllLabel,
       viewAllHref: c.venues.viewAllHref,
-      cards: c.venues.cards.map((v) => k(v)),
+      cards: PC_FEATURED_VENUES.map((slug) =>
+        k({ _type: "reference", _ref: `venue-${slug}-${locale}` }),
+      ),
     },
     weddingTypes: {
       eyebrow: c.weddingTypes.eyebrow,

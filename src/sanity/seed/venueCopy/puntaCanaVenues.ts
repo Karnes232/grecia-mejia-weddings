@@ -39,74 +39,49 @@ type VBase = {
   capacity: string;
 };
 
+// Seed scaffolding: the three venues kept for Punta Cana. Jellyfish stays at
+// index 0 (it carries the full detail copy); Caleton + Chez seed as stubs.
 export const VENUE_BASE: VBase[] = [
   { slug: "jellyfish-restaurant", name: "Jellyfish Restaurant", number: "01", tagKey: "pavilion", place: "Bávaro", capacity: "40 – 220" },
-  { slug: "kukua-beach-club", name: "Kukua Beach Club", number: "02", tagKey: "club", place: "Cap Cana", capacity: "80 – 400" },
+  { slug: "caleton-beach-club", name: "Caleton Beach Club", number: "02", tagKey: "club", place: "Cap Cana", capacity: "120 – 500" },
   { slug: "chez-bisutti", name: "Chez Bisutti", number: "03", tagKey: "estate", place: "Bávaro", capacity: "60 – 180" },
-  { slug: "eden-roc-cap-cana", name: "Eden Roc Cap Cana", number: "04", tagKey: "resort", place: "Cap Cana", capacity: "60 – 300" },
-  { slug: "tortuga-bay", name: "Tortuga Bay", number: "05", tagKey: "pavilion", place: "Punta Cana", capacity: "40 – 160" },
-  { slug: "caleton-beach-club", name: "Caleton Beach Club", number: "06", tagKey: "club", place: "Cap Cana", capacity: "120 – 500" },
-  { slug: "iglesia-nuestra-senora", name: "Iglesia Nuestra Señora", number: "07", tagKey: "cathedral", place: "Higüey", capacity: "120 – 800" },
 ];
 
 export const PUNTA_CANA_VENUE_ORDER = VENUE_BASE.map((v) => v.slug);
 
 type VText = { locDesc: string; blurb: string; bestFor: string; traditions: string };
 
+// Order matches VENUE_BASE: [Jellyfish, Caleton, Chez Bisutti].
 const VTEXT: Record<Locale, VText[]> = {
   en: [
     { locDesc: "Open-air", blurb: "Palm-thatched two-level pavilion directly on the beach, oriented for sunset and lit by candle and string light through the evening. Intimate by Punta Cana standards.", bestFor: "Sunset ceremony · cocktail dinner", traditions: "Indian, Jewish, Catholic" },
-    { locDesc: "Open-air", blurb: "White-sand banquet with three-event capacity — the studio's most-used venue for multi-day Indian and Jewish weddings.", bestFor: "Multi-day weddings", traditions: "All eight traditions" },
-    { locDesc: "Hidden cove", blurb: "A hidden cove flanked by century-old palms, with terraced gardens — the quietest of the Bávaro register.", bestFor: "Catholic mass · Latin reception", traditions: "Catholic · Civil · Interfaith" },
-    { locDesc: "Resort", blurb: "Relais & Châteaux property with a private beach and the most accommodating kitchen in the region for kosher, halal, and Jain.", bestFor: "Multi-religion dietary", traditions: "Jewish · Muslim · Indian" },
-    { locDesc: "Beachfront", blurb: "Oscar de la Renta-designed villa enclave, with a beachfront ceremony pavilion and a register of intimate, private dinners.", bestFor: "Intimate weddings", traditions: "Christian · Civil · Interfaith" },
     { locDesc: "Beach", blurb: "Generous capacity with a Mediterranean kitchen, terraced beach access, and the most flexible all-weather contingency among the beach clubs.", bestFor: "Multi-event weekends", traditions: "All eight traditions" },
-    { locDesc: "Catholic", blurb: "Modernist Catholic basilica fifteen minutes from Cap Cana. Multilingual masses and Latin-rite ceremonies, often paired with a coastline reception.", bestFor: "Catholic mass", traditions: "Catholic only" },
+    { locDesc: "Hidden cove", blurb: "A hidden cove flanked by century-old palms, with terraced gardens — the quietest of the Bávaro register.", bestFor: "Catholic mass · Latin reception", traditions: "Catholic · Civil · Interfaith" },
   ],
   es: [
     { locDesc: "Al aire libre", blurb: "Pabellón de dos niveles con techo de palma sobre la playa, orientado al atardecer e iluminado con velas. Íntimo para los estándares de Punta Cana.", bestFor: "Ceremonia al atardecer · cena cóctel", traditions: "India, judía, católica" },
-    { locDesc: "Al aire libre", blurb: "Banquete sobre arena blanca con capacidad para tres eventos: la sede más utilizada del atelier para bodas indias y judías de varios días.", bestFor: "Bodas de varios días", traditions: "Las ocho tradiciones" },
-    { locDesc: "Cala escondida", blurb: "Una cala escondida flanqueada por palmeras centenarias, con jardines aterrazados: la más tranquila del registro de Bávaro.", bestFor: "Misa católica · recepción latina", traditions: "Católica · Civil · Interreligiosa" },
-    { locDesc: "Resort", blurb: "Propiedad Relais & Châteaux con playa privada y la cocina más flexible de la región para kosher, halal y jainista.", bestFor: "Dietas multirreligiosas", traditions: "Judía · Musulmana · India" },
-    { locDesc: "Frente a la playa", blurb: "Enclave de villas de Oscar de la Renta, con un pabellón de ceremonia frente al mar y un registro de cenas íntimas y privadas.", bestFor: "Bodas íntimas", traditions: "Cristiana · Civil · Interreligiosa" },
     { locDesc: "Playa", blurb: "Capacidad generosa con cocina mediterránea, acceso aterrazado a la playa y el plan para cualquier clima más flexible entre los clubes de playa.", bestFor: "Fines de semana de varios eventos", traditions: "Las ocho tradiciones" },
-    { locDesc: "Católica", blurb: "Basílica católica modernista a quince minutos de Cap Cana. Misas multilingües y ceremonias de rito latino, a menudo con recepción en la costa.", bestFor: "Misa católica", traditions: "Solo católica" },
+    { locDesc: "Cala escondida", blurb: "Una cala escondida flanqueada por palmeras centenarias, con jardines aterrazados: la más tranquila del registro de Bávaro.", bestFor: "Misa católica · recepción latina", traditions: "Católica · Civil · Interreligiosa" },
   ],
   fr: [
     { locDesc: "En plein air", blurb: "Pavillon à deux niveaux au toit de palme sur la plage, orienté au coucher du soleil et éclairé à la bougie. Intime selon les standards de Punta Cana.", bestFor: "Cérémonie au coucher du soleil · dîner cocktail", traditions: "Indien, juif, catholique" },
-    { locDesc: "En plein air", blurb: "Banquet sur sable blanc d'une capacité de trois événements — le lieu le plus utilisé de l'atelier pour les mariages indiens et juifs.", bestFor: "Mariages sur plusieurs jours", traditions: "Les huit traditions" },
-    { locDesc: "Crique cachée", blurb: "Une crique cachée bordée de palmiers centenaires, avec des jardins en terrasses — le plus calme du registre de Bávaro.", bestFor: "Messe catholique · réception latine", traditions: "Catholique · Civil · Interconfessionnel" },
-    { locDesc: "Resort", blurb: "Propriété Relais & Châteaux avec plage privée et la cuisine la plus accommodante de la région pour casher, halal et jaïn.", bestFor: "Régimes multi-religieux", traditions: "Juif · Musulman · Indien" },
-    { locDesc: "Front de mer", blurb: "Enclave de villas signée Oscar de la Renta, avec un pavillon de cérémonie en bord de mer et un registre de dîners intimes.", bestFor: "Mariages intimes", traditions: "Chrétien · Civil · Interconfessionnel" },
     { locDesc: "Plage", blurb: "Grande capacité avec cuisine méditerranéenne, accès à la plage en terrasses et le plan tous-temps le plus souple parmi les beach clubs.", bestFor: "Week-ends à plusieurs événements", traditions: "Les huit traditions" },
-    { locDesc: "Catholique", blurb: "Basilique catholique moderniste à quinze minutes de Cap Cana. Messes multilingues et cérémonies de rite latin, souvent avec réception en bord de mer.", bestFor: "Messe catholique", traditions: "Catholique uniquement" },
+    { locDesc: "Crique cachée", blurb: "Une crique cachée bordée de palmiers centenaires, avec des jardins en terrasses — le plus calme du registre de Bávaro.", bestFor: "Messe catholique · réception latine", traditions: "Catholique · Civil · Interconfessionnel" },
   ],
   pt: [
     { locDesc: "Ao ar livre", blurb: "Pavilhão de dois níveis com cobertura de palha na praia, orientado para o pôr do sol e iluminado por velas. Íntimo para os padrões de Punta Cana.", bestFor: "Cerimónia ao pôr do sol · jantar cocktail", traditions: "Indiano, judaico, católico" },
-    { locDesc: "Ao ar livre", blurb: "Banquete sobre areia branca com capacidade para três eventos — o local mais utilizado do ateliê para casamentos indianos e judaicos.", bestFor: "Casamentos de vários dias", traditions: "As oito tradições" },
-    { locDesc: "Enseada escondida", blurb: "Uma enseada escondida ladeada por palmeiras centenárias, com jardins em socalcos — a mais tranquila do registo de Bávaro.", bestFor: "Missa católica · receção latina", traditions: "Católica · Civil · Inter-religiosa" },
-    { locDesc: "Resort", blurb: "Propriedade Relais & Châteaux com praia privada e a cozinha mais flexível da região para kosher, halal e jainista.", bestFor: "Dietas multirreligiosas", traditions: "Judaico · Muçulmano · Indiano" },
-    { locDesc: "Frente ao mar", blurb: "Enclave de villas de Oscar de la Renta, com um pavilhão de cerimónia à beira-mar e um registo de jantares íntimos.", bestFor: "Casamentos íntimos", traditions: "Cristão · Civil · Inter-religioso" },
     { locDesc: "Praia", blurb: "Capacidade generosa com cozinha mediterrânica, acesso à praia em socalcos e o plano para todas as condições mais flexível entre os clubes de praia.", bestFor: "Fins de semana de vários eventos", traditions: "As oito tradições" },
-    { locDesc: "Católica", blurb: "Basílica católica modernista a quinze minutos de Cap Cana. Missas multilingues e cerimónias de rito latino, frequentemente com receção na costa.", bestFor: "Missa católica", traditions: "Apenas católica" },
+    { locDesc: "Enseada escondida", blurb: "Uma enseada escondida ladeada por palmeiras centenárias, com jardins em socalcos — a mais tranquila do registo de Bávaro.", bestFor: "Missa católica · receção latina", traditions: "Católica · Civil · Inter-religiosa" },
   ],
   de: [
     { locDesc: "Open-Air", blurb: "Zweistöckiger, palmgedeckter Pavillon am Strand, auf den Sonnenuntergang ausgerichtet und mit Kerzen beleuchtet. Intim nach Punta-Cana-Maßstäben.", bestFor: "Zeremonie zum Sonnenuntergang · Cocktail-Dinner", traditions: "Indisch, jüdisch, katholisch" },
-    { locDesc: "Open-Air", blurb: "Bankett auf weißem Sand mit Kapazität für drei Veranstaltungen — der meistgenutzte Ort des Ateliers für indische und jüdische Hochzeiten.", bestFor: "Mehrtägige Hochzeiten", traditions: "Alle acht Traditionen" },
-    { locDesc: "Versteckte Bucht", blurb: "Eine versteckte Bucht mit jahrhundertealten Palmen und terrassierten Gärten — der ruhigste Ort im Bávaro-Verzeichnis.", bestFor: "Katholische Messe · lateinamerikanischer Empfang", traditions: "Katholisch · Standesamtlich · Interreligiös" },
-    { locDesc: "Resort", blurb: "Relais-&-Châteaux-Anwesen mit privatem Strand und der anpassungsfähigsten Küche der Region für koscher, halal und Jain.", bestFor: "Multireligiöse Verpflegung", traditions: "Jüdisch · Muslimisch · Indisch" },
-    { locDesc: "Strandlage", blurb: "Von Oscar de la Renta gestaltete Villen-Enklave mit Zeremonienpavillon am Strand und einem Register intimer Dinner.", bestFor: "Intime Hochzeiten", traditions: "Christlich · Standesamtlich · Interreligiös" },
     { locDesc: "Strand", blurb: "Großzügige Kapazität mit mediterraner Küche, terrassiertem Strandzugang und dem flexibelsten Allwetterplan unter den Beach Clubs.", bestFor: "Wochenenden mit mehreren Veranstaltungen", traditions: "Alle acht Traditionen" },
-    { locDesc: "Katholisch", blurb: "Modernistische katholische Basilika fünfzehn Minuten von Cap Cana. Mehrsprachige Messen und Zeremonien im lateinischen Ritus, oft mit Empfang an der Küste.", bestFor: "Katholische Messe", traditions: "Nur katholisch" },
+    { locDesc: "Versteckte Bucht", blurb: "Eine versteckte Bucht mit jahrhundertealten Palmen und terrassierten Gärten — der ruhigste Ort im Bávaro-Verzeichnis.", bestFor: "Katholische Messe · lateinamerikanischer Empfang", traditions: "Katholisch · Standesamtlich · Interreligiös" },
   ],
   it: [
     { locDesc: "All'aperto", blurb: "Padiglione a due livelli con tetto di palma sulla spiaggia, orientato al tramonto e illuminato da candele. Intimo per gli standard di Punta Cana.", bestFor: "Cerimonia al tramonto · cena cocktail", traditions: "Indiano, ebraico, cattolico" },
-    { locDesc: "All'aperto", blurb: "Banchetto sulla sabbia bianca con capacità per tre eventi — la sede più usata dell'atelier per i matrimoni indiani ed ebraici.", bestFor: "Matrimoni di più giorni", traditions: "Tutte e otto le tradizioni" },
-    { locDesc: "Cala nascosta", blurb: "Una cala nascosta fiancheggiata da palme secolari, con giardini terrazzati — la più tranquilla del registro di Bávaro.", bestFor: "Messa cattolica · ricevimento latino", traditions: "Cattolico · Civile · Interreligioso" },
-    { locDesc: "Resort", blurb: "Proprietà Relais & Châteaux con spiaggia privata e la cucina più accomodante della regione per kosher, halal e jain.", bestFor: "Esigenze multireligiose", traditions: "Ebraico · Musulmano · Indiano" },
-    { locDesc: "Fronte mare", blurb: "Enclave di ville disegnata da Oscar de la Renta, con un padiglione per la cerimonia fronte mare e un registro di cene intime.", bestFor: "Matrimoni intimi", traditions: "Cristiano · Civile · Interreligioso" },
     { locDesc: "Spiaggia", blurb: "Capienza generosa con cucina mediterranea, accesso alla spiaggia su terrazze e il piano per ogni meteo più flessibile tra i beach club.", bestFor: "Weekend con più eventi", traditions: "Tutte e otto le tradizioni" },
-    { locDesc: "Cattolica", blurb: "Basilica cattolica modernista a quindici minuti da Cap Cana. Messe multilingue e cerimonie di rito latino, spesso con ricevimento sulla costa.", bestFor: "Messa cattolica", traditions: "Solo cattolico" },
+    { locDesc: "Cala nascosta", blurb: "Una cala nascosta fiancheggiata da palme secolari, con giardini terrazzati — la più tranquilla del registro di Bávaro.", bestFor: "Messa cattolica · ricevimento latino", traditions: "Cattolico · Civile · Interreligioso" },
   ],
 };
 

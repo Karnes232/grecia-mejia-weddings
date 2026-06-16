@@ -6,7 +6,6 @@ import {
   type ImageKeyOption,
   RELATED_KEY_OPTIONS,
   STYLE_KEY_OPTIONS,
-  VENUE_KEY_OPTIONS,
 } from "../imageKeyOptions";
 
 const altField = {
@@ -109,12 +108,6 @@ export const destinationMedia = defineType({
       "Wedding style images",
       STYLE_KEY_OPTIONS,
       "One per style card.",
-    ),
-    keyedImageArray(
-      "venueCards",
-      "Venue card images",
-      VENUE_KEY_OPTIONS,
-      "One per venue card.",
     ),
     keyedImageArray(
       "guestCards",
