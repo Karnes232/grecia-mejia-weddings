@@ -33,7 +33,7 @@ export const destinationQuery = groq`
     },
     venues{
       eyebrow, headline, viewAllLabel, viewAllHref,
-      cards[]->{
+      cards[defined(@->_id)]->{
         name,
         tag,
         "meta": location,

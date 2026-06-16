@@ -193,6 +193,7 @@ export const multiculturalPage = defineType({
             defineArrayMember({
               type: "reference",
               to: [{ type: "culture" }],
+              weak: true,
             }),
           ],
         }),

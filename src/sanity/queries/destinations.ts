@@ -28,7 +28,7 @@ export const destinationsPageQuery = groq`
       name,
       intro,
       slug,
-      destinations[]{
+      destinations[defined(destination->_id)]{
         number,
         tile,
         "country": destination->country,

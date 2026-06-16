@@ -323,7 +323,7 @@ export function buildCultureBody(
   return {
     name: copy.name,
     slug: { _type: "slug", current: SLUGS[canonicalSlug][locale] },
-    media: { _type: "reference", _ref: mediaId(canonicalSlug) },
+    media: { _type: "reference", _weak: true, _ref: mediaId(canonicalSlug) },
     number: meta.number,
     tile: meta.tile,
     cardEyebrow: copy.cardEyebrow,
@@ -373,6 +373,7 @@ export function buildCultureBody(
           ...rest,
           destination: {
             _type: "reference",
+            _weak: true,
             _ref: `destination-${destinationSlug}-${locale}`,
           },
         }),

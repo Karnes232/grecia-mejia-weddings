@@ -85,17 +85,6 @@ const VTEXT: Record<Locale, VText[]> = {
   ],
 };
 
-/** Region filter chips (typology + count) derived from the seeded venue tags. */
-export function puntaCanaFilterTypologies(locale: Locale) {
-  const lab = L[locale];
-  const order: TagKey[] = ["pavilion", "club", "estate", "resort", "cathedral"];
-  const counts = new Map<TagKey, number>();
-  for (const v of VENUE_BASE) counts.set(v.tagKey, (counts.get(v.tagKey) ?? 0) + 1);
-  return order
-    .filter((key) => (counts.get(key) ?? 0) > 0)
-    .map((key) => ({ label: lab.tag[key], count: counts.get(key) ?? 0 }));
-}
-
 function cardFields(i: number, locale: Locale) {
   const v = VENUE_BASE[i];
   const lab = L[locale];

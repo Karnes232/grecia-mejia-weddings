@@ -35,7 +35,7 @@ export const venuesPageQuery = groq`
       eyebrow,
       headline,
       intro,
-      items[]->{
+      items[defined(@->_id)]->{
         "name": name,
         "slug": slug.current,
         cardBlurb,

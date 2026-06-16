@@ -292,6 +292,7 @@ export const destination = defineType({
             defineArrayMember({
               type: "reference",
               to: [{ type: "venue" }],
+              weak: true,
               options: {
                 disableNew: true,
                 filter: ({ document }) =>

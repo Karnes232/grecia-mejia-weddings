@@ -26,7 +26,7 @@ export const homePageQuery = groq`
       intro,
       viewAllLabel,
       viewAllHref,
-      destinations[]{
+      destinations[defined(destination->_id)]{
         tagline,
         "name": destination->name,
         "subLocations": destination->subLocations,

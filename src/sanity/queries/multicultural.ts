@@ -35,7 +35,7 @@ export const multiculturalPageQuery = groq`
       eyebrow,
       headline,
       deck,
-      cultures[]->{
+      cultures[defined(@->_id)]->{
         number,
         tile,
         "name": name,

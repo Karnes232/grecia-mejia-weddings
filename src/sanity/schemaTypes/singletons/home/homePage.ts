@@ -173,6 +173,7 @@ export const homePage = defineType({
                   title: "Destination",
                   type: "reference",
                   to: [{ type: "destination" }],
+                  weak: true,
                   options: {
                     disableNew: true,
                     filter: ({ document }) =>

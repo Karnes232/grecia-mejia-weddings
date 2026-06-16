@@ -187,6 +187,7 @@ export const destinationsPage = defineType({
                       title: "Destination",
                       type: "reference",
                       to: [{ type: "destination" }],
+                      weak: true,
                       options: {
                         disableNew: true,
                         filter: ({ document }) =>
@@ -295,6 +296,7 @@ export const destinationsPage = defineType({
           title: "Featured destination",
           type: "reference",
           to: [{ type: "destination" }],
+          weak: true,
           options: {
             disableNew: true,
             filter: ({ document }) =>

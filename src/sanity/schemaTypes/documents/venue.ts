@@ -136,6 +136,7 @@ export const venue = defineType({
       title: "Region",
       type: "reference",
       to: [{ type: "venueRegion" }],
+      weak: true,
       group: "identity",
       description: "The region this venue belongs to (same language).",
       options: {
@@ -155,6 +156,7 @@ export const venue = defineType({
       title: "Media document",
       type: "reference",
       to: [{ type: "venueMedia" }],
+      weak: true,
       group: "identity",
       description:
         "This venue's shared, locale-agnostic imagery. Every language version points to the same media doc.",
@@ -174,7 +176,7 @@ export const venue = defineType({
       type: "string",
       group: "card",
       description:
-        'Typology — must match a region filter chip (e.g. "Beach pavilion").',
+        'Typology — drives the region\'s filter chips (e.g. "Beach pavilion").',
     }),
     defineField({
       name: "location",

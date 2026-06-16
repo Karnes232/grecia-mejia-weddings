@@ -532,7 +532,7 @@ function buildDoc(locale: Locale) {
       headline: c.regions.headline,
       intro: c.regions.intro,
       items: REGION_ORDER.map((slug) =>
-        keyed({ _type: "reference", _ref: regionDocId(slug, locale) }),
+        keyed({ _type: "reference", _weak: true, _ref: regionDocId(slug, locale) }),
       ),
     },
     cta: {

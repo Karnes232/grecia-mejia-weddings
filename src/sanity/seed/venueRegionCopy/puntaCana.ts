@@ -1,9 +1,6 @@
 import { type Locale } from "../../../i18n/routing";
 
-import {
-  PUNTA_CANA_VENUE_ORDER,
-  puntaCanaFilterTypologies,
-} from "../venueCopy/puntaCanaVenues";
+import { PUNTA_CANA_VENUE_ORDER } from "../venueCopy/puntaCanaVenues";
 import { type RegionCopy } from "./shared";
 
 // ── Region-card stat labels (per locale) ────────────────────────────────────
@@ -280,15 +277,6 @@ export const PUNTA_CANA: Record<Locale, RegionCopy> = Object.fromEntries(
         bodyParagraphs: rt.guide.bodyParagraphs,
         subRegions: rt.guide.subRegions.map((label) => ({ label })),
         related: rt.guide.related,
-      },
-      filter: {
-        typologies: puntaCanaFilterTypologies(locale),
-        guestBands: [
-          { label: "40 – 120" },
-          { label: "120 – 300" },
-          { label: "300 – 600" },
-          { label: "600+" },
-        ],
       },
       venuesHeadline: rt.venuesHeadline,
       venues: PUNTA_CANA_VENUE_ORDER,

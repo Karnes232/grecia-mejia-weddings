@@ -38,7 +38,6 @@ export const venueRegion = defineType({
     { name: "card", title: "Hub card" },
     { name: "hero", title: "Hero" },
     { name: "guide", title: "Region guide" },
-    { name: "filter", title: "Filter" },
     { name: "venues", title: "Venues" },
     { name: "cta", title: "CTA" },
     { name: "seo", title: "SEO" },
@@ -98,6 +97,7 @@ export const venueRegion = defineType({
       title: "Media document",
       type: "reference",
       to: [{ type: "venueRegionMedia" }],
+      weak: true,
       group: "identity",
       description:
         "This region's shared, locale-agnostic imagery. Every language version points to the same media doc.",
@@ -197,50 +197,6 @@ export const venueRegion = defineType({
       ],
     }),
 
-    // ── Filter ───────────────────────────────────────────────────────────
-    defineField({
-      name: "filter",
-      title: "Filter",
-      type: "object",
-      group: "filter",
-      options: { collapsible: true, collapsed: true },
-      description:
-        "Filter chips for the venue list. The 'type' chips match venue cards' `tag`; guest bands are display-only.",
-      fields: [
-        defineField({
-          name: "typologies",
-          title: "Type chips",
-          type: "array",
-          of: [
-            defineArrayMember({
-              type: "object",
-              fields: [
-                {
-                  name: "label",
-                  title: "Label (matches venue tag)",
-                  type: "string",
-                },
-                { name: "count", title: "Count", type: "number" },
-              ],
-              preview: { select: { title: "label", subtitle: "count" } },
-            }),
-          ],
-        }),
-        defineField({
-          name: "guestBands",
-          title: "Guest-count chips",
-          type: "array",
-          of: [
-            defineArrayMember({
-              type: "object",
-              fields: [{ name: "label", title: "Label", type: "string" }],
-              preview: { select: { title: "label" } },
-            }),
-          ],
-        }),
-      ],
-    }),
-
     // ── Venues ───────────────────────────────────────────────────────────
     defineField({
       name: "venuesHeadline",
@@ -269,6 +225,7 @@ export const venueRegion = defineType({
         defineArrayMember({
           type: "reference",
           to: [{ type: "venue" }],
+          weak: true,
           options: {
             disableNew: true,
             filter: ({ document }) =>

@@ -1291,7 +1291,7 @@ function buildDoc(locale: Locale) {
     atlas: {
       ...ATLAS[locale],
       cultures: CULTURE_ORDER.map((slug) =>
-        keyed({ _type: "reference", _ref: cultureId(slug, locale) }),
+        keyed({ _type: "reference", _weak: true, _ref: cultureId(slug, locale) }),
       ),
     },
     pairings: {

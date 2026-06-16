@@ -626,7 +626,7 @@ export function buildPuntaCanaDoc(locale: Locale) {
       viewAllLabel: c.venues.viewAllLabel,
       viewAllHref: c.venues.viewAllHref,
       cards: PC_FEATURED_VENUES.map((slug) =>
-        k({ _type: "reference", _ref: `venue-${slug}-${locale}` }),
+        k({ _type: "reference", _weak: true, _ref: `venue-${slug}-${locale}` }),
       ),
     },
     weddingTypes: {

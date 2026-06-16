@@ -27,12 +27,8 @@ export const venueRegionQuery = groq`
       subRegions[]{ label, href },
       related[]{ label, href }
     },
-    filter{
-      typologies[]{ label, count },
-      guestBands[]{ label }
-    },
     venuesHeadline{ eyebrow, headline },
-    venues[]->{
+    venues[defined(@->_id)]->{
       number,
       name,
       tag,
@@ -81,10 +77,6 @@ export type VenueRegion = {
     body?: PortableTextBlock[];
     subRegions?: LabelHref[];
     related?: LabelHref[];
-  };
-  filter?: {
-    typologies?: Array<{ label?: string; count?: number }>;
-    guestBands?: Array<{ label?: string }>;
   };
   venuesHeadline?: { eyebrow?: string; headline?: string };
   venues?: Array<{

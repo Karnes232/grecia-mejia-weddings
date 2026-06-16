@@ -12,7 +12,6 @@ import { VenueItem } from "./VenueItem";
 
 type RegionFilterVenuesProps = {
   regionSlug: string;
-  filter?: VenueRegion["filter"];
   venuesHeadline?: VenueRegion["venuesHeadline"];
   venues: NonNullable<VenueRegion["venues"]>;
 };
@@ -21,15 +20,21 @@ const ALL = "all";
 
 export function RegionFilterVenues({
   regionSlug,
-  filter,
   venuesHeadline,
   venues,
 }: RegionFilterVenuesProps) {
   const t = useTranslations("venuesPage");
   const [active, setActive] = useState<string>(ALL);
 
-  const typologies = filter?.typologies ?? [];
-  const guestBands = filter?.guestBands ?? [];
+  // Filter chips are derived from the venues' own `tag` values (distinct, in
+  // venue order) so they always match what's actually in the region.
+  const typologies = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const v of venues) {
+      if (v.tag) counts.set(v.tag, (counts.get(v.tag) ?? 0) + 1);
+    }
+    return [...counts].map(([label, count]) => ({ label, count }));
+  }, [venues]);
 
   const filtered = useMemo(
     () => (active === ALL ? venues : venues.filter((v) => v.tag === active)),
@@ -49,34 +54,15 @@ export function RegionFilterVenues({
             count={venues.length}
             onClick={() => setActive(ALL)}
           />
-          {typologies.map((c, i) =>
-            c.label ? (
-              <Chip
-                key={i}
-                isActive={active === c.label}
-                label={c.label}
-                count={c.count}
-                onClick={() => setActive(c.label as string)}
-              />
-            ) : null,
-          )}
-          {guestBands.length ? (
-            <span className="ml-auto hidden items-center gap-2 md:flex md:gap-3.5">
-              {guestBands.map((g, i) =>
-                g.label ? (
-                  <span
-                    key={i}
-                    className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap border border-olive/40 px-[18px] py-2.5 text-[11px] uppercase tracking-[0.3em] text-olive/70"
-                  >
-                    {g.label}
-                    <span className="font-serif text-[14px] italic normal-case tracking-normal opacity-70">
-                      {t("guests")}
-                    </span>
-                  </span>
-                ) : null,
-              )}
-            </span>
-          ) : null}
+          {typologies.map((c, i) => (
+            <Chip
+              key={i}
+              isActive={active === c.label}
+              label={c.label}
+              count={c.count}
+              onClick={() => setActive(c.label)}
+            />
+          ))}
         </div>
       </div>
 

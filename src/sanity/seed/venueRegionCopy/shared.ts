@@ -115,10 +115,6 @@ export type RegionCopy = {
     subRegions: LabelHref[];
     related: LabelHref[];
   };
-  filter: {
-    typologies: Array<{ label: string; count: number }>;
-    guestBands: Array<{ label: string }>;
-  };
   venuesHeadline: { eyebrow: string; headline: string };
   /** Canonical venue slugs held in this region (referenced from `venue` docs). */
   venues: string[];
@@ -153,7 +149,7 @@ export function buildRegionBody(
   return {
     name: copy.name,
     slug: { _type: "slug", current: SLUGS[canonicalSlug][locale] },
-    media: { _type: "reference", _ref: mediaId(canonicalSlug) },
+    media: { _type: "reference", _weak: true, _ref: mediaId(canonicalSlug) },
     cardBlurb: copy.cardBlurb,
     cardMeta: copy.cardMeta.map((m) => k(m)),
     hero: copy.hero,
@@ -164,13 +160,9 @@ export function buildRegionBody(
       subRegions: copy.guide.subRegions.map((l) => k(l)),
       related: copy.guide.related.map((l) => k(l)),
     },
-    filter: {
-      typologies: copy.filter.typologies.map((t) => k(t)),
-      guestBands: copy.filter.guestBands.map((g) => k(g)),
-    },
     venuesHeadline: copy.venuesHeadline,
     venues: copy.venues.map((slug) =>
-      k({ _type: "reference", _ref: `venue-${slug}-${locale}` }),
+      k({ _type: "reference", _weak: true, _ref: `venue-${slug}-${locale}` }),
     ),
     cta: copy.cta,
   };

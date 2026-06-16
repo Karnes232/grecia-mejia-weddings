@@ -309,7 +309,6 @@ function buildStub(slug: StubSlug, locale: Locale): RegionCopy {
       subRegions: [],
       related: [],
     },
-    filter: { typologies: [], guestBands: [] },
     venuesHeadline: { eyebrow: s.venuesEyebrow, headline: s.venuesHeadline },
     venues: [],
     cta: {

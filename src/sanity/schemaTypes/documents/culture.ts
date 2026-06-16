@@ -135,6 +135,7 @@ export const culture = defineType({
       title: "Media document",
       type: "reference",
       to: [{ type: "cultureMedia" }],
+      weak: true,
       group: "identity",
       description:
         "This culture's shared, locale-agnostic imagery. Every language version points to the same media doc.",
@@ -522,6 +523,7 @@ export const culture = defineType({
                   title: "Destination",
                   type: "reference",
                   to: [{ type: "destination" }],
+                  weak: true,
                   description:
                     "Card image and link come from this destination.",
                   options: {

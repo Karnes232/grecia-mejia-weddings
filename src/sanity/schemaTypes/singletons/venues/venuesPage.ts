@@ -203,6 +203,7 @@ export const venuesPage = defineType({
             defineArrayMember({
               type: "reference",
               to: [{ type: "venueRegion" }],
+              weak: true,
               options: {
                 disableNew: true,
                 filter: ({ document }) =>

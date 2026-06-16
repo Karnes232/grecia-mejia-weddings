@@ -114,7 +114,6 @@ export default async function VenueRegionPage({
       {doc.venues?.length ? (
         <RegionFilterVenues
           regionSlug={region}
-          filter={doc.filter}
           venuesHeadline={doc.venuesHeadline}
           venues={doc.venues}
         />

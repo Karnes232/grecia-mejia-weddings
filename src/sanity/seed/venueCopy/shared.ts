@@ -143,8 +143,8 @@ export function buildVenueBody(slug: string, locale: Locale, copy: VenueCopy) {
   return {
     name: copy.name,
     slug: { _type: "slug", current: slug },
-    region: { _type: "reference", _ref: regionDocId(copy.region, locale) },
-    media: { _type: "reference", _ref: venueMediaId(slug) },
+    region: { _type: "reference", _weak: true, _ref: regionDocId(copy.region, locale) },
+    media: { _type: "reference", _weak: true, _ref: venueMediaId(slug) },
     number: copy.number,
     tag: copy.tag,
     location: copy.location,
