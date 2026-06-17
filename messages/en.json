@@ -54,13 +54,22 @@
   "contactPage": {
     "form": {
       "fields": {
-        "fullName": { "label": "Full name", "placeholder": "Your name" },
+        "fullName": {
+          "label": "Full name",
+          "placeholder": "Your name"
+        },
         "country": {
           "label": "Country of residence",
           "placeholder": "Where you live"
         },
-        "email": { "label": "Email", "placeholder": "you@email.com" },
-        "whatsapp": { "label": "WhatsApp", "placeholder": "With country code" },
+        "email": {
+          "label": "Email",
+          "placeholder": "you@email.com"
+        },
+        "whatsapp": {
+          "label": "WhatsApp",
+          "placeholder": "With country code"
+        },
         "date": {
           "label": "Estimated date",
           "placeholder": "Month & year, or a season"
@@ -151,5 +160,55 @@
     "otherVenues": "Other venues",
     "compatibleTraditions": "Compatible traditions",
     "relatedDestinations": "Related destinations"
+  },
+  "journalPage": {
+    "browse": "Browse",
+    "all": "All",
+    "articles": "articles",
+    "loadMore": "Load more articles",
+    "remaining": "{count} remaining",
+    "readArticle": "Read the article",
+    "minRead": "{min} min read",
+    "by": "By",
+    "showing": "Showing {shown} of {total}",
+    "emailPlaceholder": "Your email address",
+    "subscribe": "Subscribe",
+    "emailLabel": "Email address"
+  },
+  "journalDetail": {
+    "home": "Home",
+    "journal": "Journal",
+    "by": "By",
+    "minRead": "{min} minute read",
+    "updated": "Updated {date}",
+    "writtenBy": "Written by",
+    "share": "Share",
+    "inThisArticle": "In this article",
+    "planningQuestion": "Planning your destination wedding?",
+    "requestConsultation": "Request a consultation",
+    "continueJourney": "Continue the journey",
+    "relatedExperiences": "Related *experiences.*",
+    "destination": "Destination",
+    "venue": "Venue",
+    "tradition": "Tradition",
+    "exploreDestination": "Explore the destination",
+    "readVenueBrief": "Read the venue brief",
+    "exploreTradition": "Explore the tradition",
+    "keepReading": "Keep reading",
+    "relatedWriting": "Related *writing.*",
+    "relatedDestinations": "Related destinations",
+    "relatedVenues": "Related venues",
+    "relatedTraditions": "Related traditions",
+    "relatedServices": "Related services",
+    "allDestinations": "All destinations",
+    "allVenues": "All venues",
+    "allTraditions": "All traditions",
+    "destinationPlanning": "Destination planning",
+    "weddingWeekendDesign": "Wedding weekend design",
+    "filedUnder": "Filed under",
+    "faqTitle": "Frequently *asked* questions",
+    "fromTheJournal": "From the journal",
+    "fromJournalHeadline": "From the *journal.*",
+    "allArticles": "All articles"
   }
 }

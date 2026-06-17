@@ -20,6 +20,7 @@ import { SEO_PROJECTION, type SeoFields } from "./seo";
  */
 export const cultureQuery = groq`
   *[_type == "culture" && language == $locale && slug.current == $slug][0]{
+    "id": _id,
     name,
     "slug": slug.current,
     number,
@@ -96,6 +97,7 @@ type Fact = { label?: string; value?: string; sub?: string };
 type LabelHref = { label?: string; href?: string };
 
 export type Culture = {
+  id?: string;
   name?: string;
   slug?: string;
   number?: string;

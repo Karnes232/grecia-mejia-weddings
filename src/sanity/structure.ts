@@ -26,6 +26,8 @@ const SINGLETON_TYPES = new Set([
   "pressPageMedia",
   "venuesPage",
   "venuesPageMedia",
+  "journalPage",
+  "journalPageMedia",
   "destination",
   "destinationMedia",
   "culture",
@@ -34,6 +36,9 @@ const SINGLETON_TYPES = new Set([
   "venueRegionMedia",
   "venue",
   "venueMedia",
+  "article",
+  "articleCategory",
+  "author",
 ]);
 
 export const structure: StructureResolver = (S) =>
@@ -261,6 +266,65 @@ export const structure: StructureResolver = (S) =>
                     .filter('_type == "venueMedia"'),
                 ),
             ]),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Journal Page")
+        .icon(() => "📔")
+        .schemaType("journalPage")
+        .child(
+          S.documentTypeList("journalPage")
+            .title("Journal Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "journalPage"'),
+        ),
+      S.listItem()
+        .title("Journal Page Media")
+        .id("journalPageMedia")
+        .icon(() => "🖼️")
+        .schemaType("journalPageMedia")
+        .child(
+          S.document()
+            .schemaType("journalPageMedia")
+            .documentId("journalPageMedia"),
+        ),
+      S.listItem()
+        .title("Articles")
+        .icon(() => "📝")
+        .schemaType("article")
+        .child(
+          S.documentTypeList("article")
+            .title("Articles")
+            .apiVersion(apiVersion)
+            .filter('_type == "article"')
+            .defaultOrdering([
+              { field: "publishedAt", direction: "desc" },
+              { field: "language", direction: "asc" },
+            ]),
+        ),
+      S.listItem()
+        .title("Journal Categories")
+        .icon(() => "🏷️")
+        .schemaType("articleCategory")
+        .child(
+          S.documentTypeList("articleCategory")
+            .title("Journal Categories")
+            .apiVersion(apiVersion)
+            .filter('_type == "articleCategory"')
+            .defaultOrdering([
+              { field: "order", direction: "asc" },
+              { field: "language", direction: "asc" },
+            ]),
+        ),
+      S.listItem()
+        .title("Authors")
+        .icon(() => "✍️")
+        .schemaType("author")
+        .child(
+          S.documentTypeList("author")
+            .title("Authors")
+            .apiVersion(apiVersion)
+            .filter('_type == "author"'),
         ),
       S.divider(),
       S.listItem()

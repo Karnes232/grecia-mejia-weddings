@@ -26,10 +26,14 @@ const LOCALIZED_TYPES = [
   "pressPage",
   "multiculturalPage",
   "venuesPage",
+  "journalPage",
   "destination",
   "culture",
   "venueRegion",
   "venue",
+  "article",
+  "articleCategory",
+  "author",
 ];
 
 export default defineConfig({

@@ -9,6 +9,11 @@ import {
 } from "@/lib/seo/hreflang";
 import { type CultureParams, getCultureParams } from "@/sanity/queries/culture";
 import { getDestinationSlugs } from "@/sanity/queries/destination";
+import {
+  type SitemapParams,
+  getArticleSitemapParams,
+  getCategoryParams,
+} from "@/sanity/queries/journal";
 
 type ChangeFrequency = MetadataRoute.Sitemap[number]["changeFrequency"];
 
@@ -67,10 +72,65 @@ function cultureClusters(rows: CultureParams[]): MetadataRoute.Sitemap {
   });
 }
 
+/** Group translated-slug rows into one hreflang cluster per document. */
+function slugClusters(
+  rows: SitemapParams[],
+  build: (slug: string, localizedParams: LocalizedParams, locales: Locale[]) => MetadataRoute.Sitemap,
+): MetadataRoute.Sitemap {
+  const groups = new Map<string, SitemapParams[]>();
+  for (const row of rows) {
+    const key = row.metadataId ?? `solo:${row.language}:${row.slug}`;
+    const group = groups.get(key) ?? [];
+    group.push(row);
+    groups.set(key, group);
+  }
+  return [...groups.values()].flatMap((group) => {
+    const localizedParams: LocalizedParams = {};
+    for (const row of group) localizedParams[row.language] = { slug: row.slug };
+    const locales = group.map((row) => row.language);
+    const canonicalSlug =
+      localizedParams[routing.defaultLocale]?.slug ?? group[0].slug;
+    return build(canonicalSlug, localizedParams, locales);
+  });
+}
+
+function articleClusters(rows: SitemapParams[]): MetadataRoute.Sitemap {
+  return slugClusters(rows, (slug, localizedParams, locales) =>
+    entriesFor(
+      { pathname: "/journal/[slug]", params: { slug } },
+      { priority: 0.7, changeFrequency: "monthly", localizedParams, locales },
+    ),
+  );
+}
+
+function categoryClusters(rows: SitemapParams[]): MetadataRoute.Sitemap {
+  // The category param uses a different name; remap from the generic `slug`.
+  const groups = new Map<string, SitemapParams[]>();
+  for (const row of rows) {
+    const key = row.metadataId ?? `solo:${row.language}:${row.slug}`;
+    const group = groups.get(key) ?? [];
+    group.push(row);
+    groups.set(key, group);
+  }
+  return [...groups.values()].flatMap((group) => {
+    const localizedParams: LocalizedParams = {};
+    for (const row of group) localizedParams[row.language] = { category: row.slug };
+    const locales = group.map((row) => row.language);
+    const canonicalSlug =
+      localizedParams[routing.defaultLocale]?.category ?? group[0].slug;
+    return entriesFor(
+      { pathname: "/journal/category/[category]", params: { category: canonicalSlug } },
+      { priority: 0.5, localizedParams, locales },
+    );
+  });
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [slugs, cultureRows] = await Promise.all([
+  const [slugs, cultureRows, articleRows, categoryRows] = await Promise.all([
     getDestinationSlugs(),
     getCultureParams(),
+    getArticleSitemapParams(),
+    getCategoryParams(),
   ]);
 
   return [
@@ -94,5 +154,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ),
     ),
     ...cultureClusters(cultureRows),
+    ...entriesFor("/journal", { changeFrequency: "weekly", priority: 0.8 }),
+    ...articleClusters(articleRows),
+    ...categoryClusters(categoryRows),
   ];
 }

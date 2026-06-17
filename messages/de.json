@@ -58,9 +58,18 @@
           "label": "Vollständiger Name",
           "placeholder": "Ihr Name"
         },
-        "country": { "label": "Wohnsitzland", "placeholder": "Wo Sie leben" },
-        "email": { "label": "E-Mail", "placeholder": "sie@email.com" },
-        "whatsapp": { "label": "WhatsApp", "placeholder": "Mit Ländervorwahl" },
+        "country": {
+          "label": "Wohnsitzland",
+          "placeholder": "Wo Sie leben"
+        },
+        "email": {
+          "label": "E-Mail",
+          "placeholder": "sie@email.com"
+        },
+        "whatsapp": {
+          "label": "WhatsApp",
+          "placeholder": "Mit Ländervorwahl"
+        },
         "date": {
           "label": "Voraussichtliches Datum",
           "placeholder": "Monat und Jahr, oder eine Jahreszeit"
@@ -151,5 +160,55 @@
     "otherVenues": "Weitere Locations",
     "compatibleTraditions": "Kompatible Traditionen",
     "relatedDestinations": "Verwandte Reiseziele"
+  },
+  "journalPage": {
+    "browse": "Durchsuchen",
+    "all": "Alle",
+    "articles": "Artikel",
+    "loadMore": "Mehr Artikel laden",
+    "remaining": "noch {count}",
+    "readArticle": "Artikel lesen",
+    "minRead": "{min} Min. Lesezeit",
+    "by": "Von",
+    "showing": "{shown} von {total}",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "subscribe": "Abonnieren",
+    "emailLabel": "E-Mail-Adresse"
+  },
+  "journalDetail": {
+    "home": "Startseite",
+    "journal": "Journal",
+    "by": "Von",
+    "minRead": "{min} Min. Lesezeit",
+    "updated": "Aktualisiert {date}",
+    "writtenBy": "Geschrieben von",
+    "share": "Teilen",
+    "inThisArticle": "In diesem Artikel",
+    "planningQuestion": "Planen Sie Ihre Destination-Hochzeit?",
+    "requestConsultation": "Eine Beratung anfragen",
+    "continueJourney": "Die Reise fortsetzen",
+    "relatedExperiences": "Verwandte *Erlebnisse.*",
+    "destination": "Reiseziel",
+    "venue": "Location",
+    "tradition": "Tradition",
+    "exploreDestination": "Reiseziel entdecken",
+    "readVenueBrief": "Location-Profil lesen",
+    "exploreTradition": "Tradition entdecken",
+    "keepReading": "Weiterlesen",
+    "relatedWriting": "Verwandte *Beiträge.*",
+    "relatedDestinations": "Verwandte Reiseziele",
+    "relatedVenues": "Verwandte Locations",
+    "relatedTraditions": "Verwandte Traditionen",
+    "relatedServices": "Verwandte Leistungen",
+    "allDestinations": "Alle Reiseziele",
+    "allVenues": "Alle Locations",
+    "allTraditions": "Alle Traditionen",
+    "destinationPlanning": "Destination-Planung",
+    "weddingWeekendDesign": "Hochzeitswochenend-Design",
+    "filedUnder": "Abgelegt unter",
+    "faqTitle": "Häufige *Fragen.*",
+    "fromTheJournal": "Aus dem Journal",
+    "fromJournalHeadline": "Aus dem *Journal.*",
+    "allArticles": "Alle Artikel"
   }
 }

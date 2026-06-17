@@ -54,7 +54,10 @@
   "contactPage": {
     "form": {
       "fields": {
-        "fullName": { "label": "Nombre completo", "placeholder": "Tu nombre" },
+        "fullName": {
+          "label": "Nombre completo",
+          "placeholder": "Tu nombre"
+        },
         "country": {
           "label": "País de residencia",
           "placeholder": "Dónde vives"
@@ -157,5 +160,55 @@
     "otherVenues": "Otras sedes",
     "compatibleTraditions": "Tradiciones compatibles",
     "relatedDestinations": "Destinos relacionados"
+  },
+  "journalPage": {
+    "browse": "Explorar",
+    "all": "Todos",
+    "articles": "artículos",
+    "loadMore": "Cargar más artículos",
+    "remaining": "{count} restantes",
+    "readArticle": "Leer el artículo",
+    "minRead": "{min} min de lectura",
+    "by": "Por",
+    "showing": "Mostrando {shown} de {total}",
+    "emailPlaceholder": "Tu correo electrónico",
+    "subscribe": "Suscribirse",
+    "emailLabel": "Correo electrónico"
+  },
+  "journalDetail": {
+    "home": "Inicio",
+    "journal": "Diario",
+    "by": "Por",
+    "minRead": "{min} min de lectura",
+    "updated": "Actualizado {date}",
+    "writtenBy": "Escrito por",
+    "share": "Compartir",
+    "inThisArticle": "En este artículo",
+    "planningQuestion": "¿Planeando su boda de destino?",
+    "requestConsultation": "Solicitar una consulta",
+    "continueJourney": "Continúe el viaje",
+    "relatedExperiences": "Experiencias *relacionadas.*",
+    "destination": "Destino",
+    "venue": "Sede",
+    "tradition": "Tradición",
+    "exploreDestination": "Explorar el destino",
+    "readVenueBrief": "Leer la ficha de la sede",
+    "exploreTradition": "Explorar la tradición",
+    "keepReading": "Seguir leyendo",
+    "relatedWriting": "Lecturas *relacionadas.*",
+    "relatedDestinations": "Destinos relacionados",
+    "relatedVenues": "Sedes relacionadas",
+    "relatedTraditions": "Tradiciones relacionadas",
+    "relatedServices": "Servicios relacionados",
+    "allDestinations": "Todos los destinos",
+    "allVenues": "Todas las sedes",
+    "allTraditions": "Todas las tradiciones",
+    "destinationPlanning": "Planificación de destino",
+    "weddingWeekendDesign": "Diseño del fin de semana",
+    "filedUnder": "Archivado en",
+    "faqTitle": "Preguntas *frecuentes.*",
+    "fromTheJournal": "Desde el diario",
+    "fromJournalHeadline": "Desde el *diario.*",
+    "allArticles": "Todos los artículos"
   }
 }

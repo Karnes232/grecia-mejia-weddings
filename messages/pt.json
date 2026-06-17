@@ -54,12 +54,18 @@
   "contactPage": {
     "form": {
       "fields": {
-        "fullName": { "label": "Nome completo", "placeholder": "O seu nome" },
+        "fullName": {
+          "label": "Nome completo",
+          "placeholder": "O seu nome"
+        },
         "country": {
           "label": "País de residência",
           "placeholder": "Onde vive"
         },
-        "email": { "label": "E-mail", "placeholder": "voce@email.com" },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "voce@email.com"
+        },
         "whatsapp": {
           "label": "WhatsApp",
           "placeholder": "Com o código do país"
@@ -154,5 +160,55 @@
     "otherVenues": "Outros locais",
     "compatibleTraditions": "Tradições compatíveis",
     "relatedDestinations": "Destinos relacionados"
+  },
+  "journalPage": {
+    "browse": "Explorar",
+    "all": "Todos",
+    "articles": "artigos",
+    "loadMore": "Carregar mais artigos",
+    "remaining": "{count} restantes",
+    "readArticle": "Ler o artigo",
+    "minRead": "{min} min de leitura",
+    "by": "Por",
+    "showing": "A mostrar {shown} de {total}",
+    "emailPlaceholder": "O seu e-mail",
+    "subscribe": "Subscrever",
+    "emailLabel": "Endereço de e-mail"
+  },
+  "journalDetail": {
+    "home": "Início",
+    "journal": "Diário",
+    "by": "Por",
+    "minRead": "{min} min de leitura",
+    "updated": "Atualizado {date}",
+    "writtenBy": "Escrito por",
+    "share": "Partilhar",
+    "inThisArticle": "Neste artigo",
+    "planningQuestion": "A planear o seu casamento de destino?",
+    "requestConsultation": "Solicitar uma consulta",
+    "continueJourney": "Continue a viagem",
+    "relatedExperiences": "Experiências *relacionadas.*",
+    "destination": "Destino",
+    "venue": "Local",
+    "tradition": "Tradição",
+    "exploreDestination": "Explorar o destino",
+    "readVenueBrief": "Ler a ficha do local",
+    "exploreTradition": "Explorar a tradição",
+    "keepReading": "Continuar a ler",
+    "relatedWriting": "Leituras *relacionadas.*",
+    "relatedDestinations": "Destinos relacionados",
+    "relatedVenues": "Locais relacionados",
+    "relatedTraditions": "Tradições relacionadas",
+    "relatedServices": "Serviços relacionados",
+    "allDestinations": "Todos os destinos",
+    "allVenues": "Todos os locais",
+    "allTraditions": "Todas as tradições",
+    "destinationPlanning": "Planeamento de destino",
+    "weddingWeekendDesign": "Design do fim de semana",
+    "filedUnder": "Arquivado em",
+    "faqTitle": "Perguntas *frequentes.*",
+    "fromTheJournal": "Do diário",
+    "fromJournalHeadline": "Do *diário.*",
+    "allArticles": "Todos os artigos"
   }
 }

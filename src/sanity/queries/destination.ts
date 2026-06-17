@@ -14,6 +14,7 @@ type SanityImage = {
 
 export const destinationQuery = groq`
   *[_type == "destination" && language == $locale && slug.current == $slug][0]{
+    "id": _id,
     name,
     "slug": slug.current,
     region,
@@ -96,6 +97,7 @@ type Fact = { label?: string; value?: string; sub?: string };
 type LabelHref = { label?: string; href?: string };
 
 export type Destination = {
+  id?: string;
   name?: string;
   slug?: string;
   region?: string;

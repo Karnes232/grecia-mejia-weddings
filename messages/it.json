@@ -54,12 +54,18 @@
   "contactPage": {
     "form": {
       "fields": {
-        "fullName": { "label": "Nome completo", "placeholder": "Il tuo nome" },
+        "fullName": {
+          "label": "Nome completo",
+          "placeholder": "Il tuo nome"
+        },
         "country": {
           "label": "Paese di residenza",
           "placeholder": "Dove vivi"
         },
-        "email": { "label": "E-mail", "placeholder": "tu@email.com" },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "tu@email.com"
+        },
         "whatsapp": {
           "label": "WhatsApp",
           "placeholder": "Con prefisso internazionale"
@@ -154,5 +160,55 @@
     "otherVenues": "Altre sedi",
     "compatibleTraditions": "Tradizioni compatibili",
     "relatedDestinations": "Destinazioni correlate"
+  },
+  "journalPage": {
+    "browse": "Esplora",
+    "all": "Tutti",
+    "articles": "articoli",
+    "loadMore": "Carica altri articoli",
+    "remaining": "{count} rimanenti",
+    "readArticle": "Leggi l’articolo",
+    "minRead": "{min} min di lettura",
+    "by": "Di",
+    "showing": "Visualizzati {shown} di {total}",
+    "emailPlaceholder": "Il tuo indirizzo email",
+    "subscribe": "Iscriviti",
+    "emailLabel": "Indirizzo email"
+  },
+  "journalDetail": {
+    "home": "Home",
+    "journal": "Giornale",
+    "by": "Di",
+    "minRead": "{min} min di lettura",
+    "updated": "Aggiornato {date}",
+    "writtenBy": "Scritto da",
+    "share": "Condividi",
+    "inThisArticle": "In questo articolo",
+    "planningQuestion": "Stai organizzando il tuo matrimonio di destinazione?",
+    "requestConsultation": "Richiedere una consulenza",
+    "continueJourney": "Continua il viaggio",
+    "relatedExperiences": "Esperienze *correlate.*",
+    "destination": "Destinazione",
+    "venue": "Sede",
+    "tradition": "Tradizione",
+    "exploreDestination": "Esplora la destinazione",
+    "readVenueBrief": "Leggi la scheda della sede",
+    "exploreTradition": "Esplora la tradizione",
+    "keepReading": "Continua a leggere",
+    "relatedWriting": "Letture *correlate.*",
+    "relatedDestinations": "Destinazioni correlate",
+    "relatedVenues": "Sedi correlate",
+    "relatedTraditions": "Tradizioni correlate",
+    "relatedServices": "Servizi correlati",
+    "allDestinations": "Tutte le destinazioni",
+    "allVenues": "Tutte le sedi",
+    "allTraditions": "Tutte le tradizioni",
+    "destinationPlanning": "Pianificazione della destinazione",
+    "weddingWeekendDesign": "Design del weekend",
+    "filedUnder": "Archiviato in",
+    "faqTitle": "Domande *frequenti.*",
+    "fromTheJournal": "Dal giornale",
+    "fromJournalHeadline": "Dal *giornale.*",
+    "allArticles": "Tutti gli articoli"
   }
 }

@@ -22,6 +22,7 @@ export const venueQuery = groq`
     && language == $locale
     && slug.current == $venue
     && region->slug.current == $region][0]{
+    "id": _id,
     name,
     "slug": slug.current,
     "regionName": region->name,
@@ -107,6 +108,7 @@ type LabelHref = { label?: string; href?: string };
 type KeyedImage = { key?: string; image?: SanityImage };
 
 export type Venue = {
+  id?: string;
   name?: string;
   slug?: string;
   regionName?: string;

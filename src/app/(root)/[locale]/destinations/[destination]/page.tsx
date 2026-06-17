@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
+import { FromJournal } from "@/components/_shared/FromJournal";
 import { JourneyCta } from "@/components/_shared/JourneyCta";
 import {
   DestinationFacts,
@@ -27,6 +28,7 @@ import {
   getDestinationMedia,
   getDestinationSlugs,
 } from "@/sanity/queries/destination";
+import { getArticlesReferencing } from "@/sanity/queries/journal";
 
 type DestinationPageProps = {
   params: Promise<{ locale: string; destination: string }>;
@@ -80,6 +82,9 @@ export default async function DestinationPage({
 
   if (!doc) notFound();
 
+  const journalArticles = doc.id
+    ? await getArticlesReferencing(locale, doc.id)
+    : [];
   const ld = parseStructuredData(doc.seo?.structuredData);
 
   return (
@@ -126,6 +131,8 @@ export default async function DestinationPage({
       ) : null}
 
       {doc.faq?.items?.length ? <DestinationFaq faq={doc.faq} /> : null}
+
+      <FromJournal articles={journalArticles} />
 
       {doc.cta?.headline ? (
         <JourneyCta

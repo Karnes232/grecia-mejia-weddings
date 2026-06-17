@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
+import { FromJournal } from "@/components/_shared/FromJournal";
 import { JourneyCta } from "@/components/_shared/JourneyCta";
 import { stripAccentTokens } from "@/components/_shared/stripAccentTokens";
 import {
@@ -31,6 +32,7 @@ import {
   getCulture,
   getCultureParams,
 } from "@/sanity/queries/culture";
+import { getArticlesReferencing } from "@/sanity/queries/journal";
 
 type CulturePageProps = {
   params: Promise<{ locale: string; culture: string }>;
@@ -101,6 +103,9 @@ export default async function CulturePage({ params }: CulturePageProps) {
   if (!doc) notFound();
 
   const media = doc.media;
+  const journalArticles = doc.id
+    ? await getArticlesReferencing(locale, doc.id)
+    : [];
   const ld = parseStructuredData(doc.seo?.structuredData);
   const localizedParams = localizedParamsFrom(doc.translations);
 
@@ -157,6 +162,8 @@ export default async function CulturePage({ params }: CulturePageProps) {
       ) : null}
 
       {doc.faq?.items?.length ? <CultureFaq faq={doc.faq} /> : null}
+
+      <FromJournal articles={journalArticles} tone="ivory" />
 
       {doc.cta?.headline ? (
         <JourneyCta

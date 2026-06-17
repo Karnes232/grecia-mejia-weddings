@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
+import { FromJournal } from "@/components/_shared/FromJournal";
 import { JourneyCta } from "@/components/_shared/JourneyCta";
 import { stripAccentTokens } from "@/components/_shared/stripAccentTokens";
 import {
@@ -27,6 +28,7 @@ import { type Locale } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { parseStructuredData } from "@/lib/seo/structuredData";
 import { urlFor } from "@/sanity/lib/image";
+import { getArticlesReferencing } from "@/sanity/queries/journal";
 import { getVenue, getVenueParams, type Venue } from "@/sanity/queries/venue";
 
 type VenuePageProps = {
@@ -100,6 +102,9 @@ export default async function VenuePage({ params }: VenuePageProps) {
   if (!doc) notFound();
 
   const media = doc.media;
+  const journalArticles = doc.id
+    ? await getArticlesReferencing(locale, doc.id)
+    : [];
   const ld = parseStructuredData(doc.seo?.structuredData);
   const localizedParams = localizedParamsFrom(doc.translations);
 
@@ -151,6 +156,8 @@ export default async function VenuePage({ params }: VenuePageProps) {
       ) : null}
 
       {doc.faq?.items?.length ? <VenueFaq faq={doc.faq} /> : null}
+
+      <FromJournal articles={journalArticles} />
 
       {doc.cta?.headline ? (
         <JourneyCta

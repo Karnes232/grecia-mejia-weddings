@@ -54,12 +54,18 @@
   "contactPage": {
     "form": {
       "fields": {
-        "fullName": { "label": "Nom complet", "placeholder": "Votre nom" },
+        "fullName": {
+          "label": "Nom complet",
+          "placeholder": "Votre nom"
+        },
         "country": {
           "label": "Pays de résidence",
           "placeholder": "Où vous vivez"
         },
-        "email": { "label": "E-mail", "placeholder": "vous@email.com" },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "vous@email.com"
+        },
         "whatsapp": {
           "label": "WhatsApp",
           "placeholder": "Avec l'indicatif du pays"
@@ -154,5 +160,55 @@
     "otherVenues": "Autres lieux",
     "compatibleTraditions": "Traditions compatibles",
     "relatedDestinations": "Destinations associées"
+  },
+  "journalPage": {
+    "browse": "Parcourir",
+    "all": "Tous",
+    "articles": "articles",
+    "loadMore": "Charger plus d’articles",
+    "remaining": "{count} restants",
+    "readArticle": "Lire l’article",
+    "minRead": "{min} min de lecture",
+    "by": "Par",
+    "showing": "Affichage de {shown} sur {total}",
+    "emailPlaceholder": "Votre adresse e-mail",
+    "subscribe": "S’abonner",
+    "emailLabel": "Adresse e-mail"
+  },
+  "journalDetail": {
+    "home": "Accueil",
+    "journal": "Journal",
+    "by": "Par",
+    "minRead": "{min} min de lecture",
+    "updated": "Mis à jour {date}",
+    "writtenBy": "Écrit par",
+    "share": "Partager",
+    "inThisArticle": "Dans cet article",
+    "planningQuestion": "Vous planifiez votre mariage de destination ?",
+    "requestConsultation": "Demander une consultation",
+    "continueJourney": "Continuer le voyage",
+    "relatedExperiences": "Expériences *associées.*",
+    "destination": "Destination",
+    "venue": "Lieu",
+    "tradition": "Tradition",
+    "exploreDestination": "Explorer la destination",
+    "readVenueBrief": "Lire la fiche du lieu",
+    "exploreTradition": "Explorer la tradition",
+    "keepReading": "Continuer la lecture",
+    "relatedWriting": "Lectures *associées.*",
+    "relatedDestinations": "Destinations associées",
+    "relatedVenues": "Lieux associés",
+    "relatedTraditions": "Traditions associées",
+    "relatedServices": "Services associés",
+    "allDestinations": "Toutes les destinations",
+    "allVenues": "Tous les lieux",
+    "allTraditions": "Toutes les traditions",
+    "destinationPlanning": "Organisation de destination",
+    "weddingWeekendDesign": "Conception du week-end",
+    "filedUnder": "Classé sous",
+    "faqTitle": "Questions *fréquentes.*",
+    "fromTheJournal": "Depuis le journal",
+    "fromJournalHeadline": "Depuis le *journal.*",
+    "allArticles": "Tous les articles"
   }
 }
