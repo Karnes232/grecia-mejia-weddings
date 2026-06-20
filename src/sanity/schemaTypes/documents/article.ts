@@ -110,7 +110,7 @@ export const article = defineType({
       to: [{ type: "articleCategory" }],
       weak: true,
       group: "content",
-      options: { disableNew: false, filter: sameLanguageFilter },
+      options: { disableNew: true },
       validation: (r) => r.required(),
     }),
     defineField({
@@ -120,7 +120,7 @@ export const article = defineType({
       to: [{ type: "author" }],
       weak: true,
       group: "content",
-      options: { filter: sameLanguageFilter },
+      options: { disableNew: true },
     }),
     defineField({
       name: "publishedAt",

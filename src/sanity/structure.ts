@@ -123,7 +123,11 @@ export const structure: StructureResolver = (S) =>
           S.documentTypeList("destination")
             .title("Destinations")
             .apiVersion(apiVersion)
-            .filter('_type == "destination"'),
+            .filter('_type == "destination" && language == $lang')
+            .params({ lang: BASE_LANGUAGE })
+            .initialValueTemplates([
+              S.initialValueTemplateItem("destination-en"),
+            ]),
         ),
       S.listItem()
         .title("Destination media")
@@ -165,7 +169,11 @@ export const structure: StructureResolver = (S) =>
           S.documentTypeList("culture")
             .title("Cultures")
             .apiVersion(apiVersion)
-            .filter('_type == "culture"'),
+            .filter('_type == "culture" && language == $lang')
+            .params({ lang: BASE_LANGUAGE })
+            .initialValueTemplates([
+              S.initialValueTemplateItem("culture-en"),
+            ]),
         ),
       S.listItem()
         .title("Culture media")
@@ -215,21 +223,26 @@ export const structure: StructureResolver = (S) =>
                     .apiVersion(apiVersion)
                     .filter('_type == "venueRegion" && language == $lang')
                     .params({ lang: BASE_LANGUAGE })
+                    .initialValueTemplates([
+                      S.initialValueTemplateItem("venueRegion-en"),
+                    ])
                     .child((regionId) =>
                       S.documentList()
                         .title("Venues")
                         .schemaType("venue")
                         .apiVersion(apiVersion)
-                        // Match all locale versions of every venue in this region:
-                        // each region locale shares one `venueRegionMedia`, and each
-                        // venue references its own-locale region → group by that media.
+                        // English only (others via the translations banner). The
+                        // region media-match still scopes to this region; the new
+                        // venue template pre-sets language + this region.
                         .filter(
-                          '_type == "venue" && region->media._ref == *[_id == $regionId][0].media._ref',
+                          '_type == "venue" && language == $lang && region->media._ref == *[_id == $regionId][0].media._ref',
                         )
-                        .params({ regionId })
-                        .defaultOrdering([
-                          { field: "name", direction: "asc" },
-                          { field: "language", direction: "asc" },
+                        .params({ regionId, lang: BASE_LANGUAGE })
+                        .defaultOrdering([{ field: "name", direction: "asc" }])
+                        .initialValueTemplates([
+                          S.initialValueTemplateItem("venue-en-in-region", {
+                            regionId,
+                          }),
                         ]),
                     ),
                 ),
@@ -240,10 +253,11 @@ export const structure: StructureResolver = (S) =>
                   S.documentTypeList("venueRegion")
                     .title("Regions")
                     .apiVersion(apiVersion)
-                    .filter('_type == "venueRegion"')
-                    .defaultOrdering([
-                      { field: "name", direction: "asc" },
-                      { field: "language", direction: "asc" },
+                    .filter('_type == "venueRegion" && language == $lang')
+                    .params({ lang: BASE_LANGUAGE })
+                    .defaultOrdering([{ field: "name", direction: "asc" }])
+                    .initialValueTemplates([
+                      S.initialValueTemplateItem("venueRegion-en"),
                     ]),
                 ),
               S.divider(),
@@ -296,10 +310,11 @@ export const structure: StructureResolver = (S) =>
           S.documentTypeList("article")
             .title("Articles")
             .apiVersion(apiVersion)
-            .filter('_type == "article"')
-            .defaultOrdering([
-              { field: "publishedAt", direction: "desc" },
-              { field: "language", direction: "asc" },
+            .filter('_type == "article" && language == $lang')
+            .params({ lang: BASE_LANGUAGE })
+            .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
+            .initialValueTemplates([
+              S.initialValueTemplateItem("article-en"),
             ]),
         ),
       S.listItem()
@@ -311,10 +326,7 @@ export const structure: StructureResolver = (S) =>
             .title("Journal Categories")
             .apiVersion(apiVersion)
             .filter('_type == "articleCategory"')
-            .defaultOrdering([
-              { field: "order", direction: "asc" },
-              { field: "language", direction: "asc" },
-            ]),
+            .defaultOrdering([{ field: "order", direction: "asc" }]),
         ),
       S.listItem()
         .title("Authors")

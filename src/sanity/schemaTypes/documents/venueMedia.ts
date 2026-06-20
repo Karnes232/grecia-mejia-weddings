@@ -64,12 +64,13 @@ export const venueMedia = defineType({
     "Per-venue imagery, shared across every language. Venue docs link here via their media reference.",
   fields: [
     defineField({
+      // Internal name kept as `slug` for seed/data compatibility; shown as "Label".
       name: "slug",
-      title: "Venue (label)",
+      title: "Label",
       type: "string",
-      readOnly: true,
       description:
-        "Human-readable handle set by the seed (the venue's canonical English slug).",
+        'Name to identify this venue’s media in lists and the venue’s Media reference (e.g. the venue’s English slug, "jellyfish-restaurant"). Set automatically for seeded venues; type one when creating media for a new venue.',
+      validation: (r) => r.required(),
     }),
     defineField({
       name: "cardImage",

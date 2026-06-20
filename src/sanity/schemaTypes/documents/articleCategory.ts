@@ -1,14 +1,21 @@
 import { defineField, defineType } from "sanity";
 
-import { apiVersion } from "../../env";
+const LOCALES = [
+  { name: "en", title: "English" },
+  { name: "es", title: "Español" },
+  { name: "fr", title: "Français" },
+  { name: "pt", title: "Português" },
+  { name: "de", title: "Deutsch" },
+  { name: "it", title: "Italiano" },
+] as const;
 
 /**
  * A Journal category (Indian Weddings, Wedding Costs, Planning Guides…).
  *
- * Localized — one doc per locale, linked via `translation.metadata`. Slugs are
- * translated per locale so the category archive URLs localize. Referenced by
- * `article.category`; drives the hub filter chips (with live counts) and the
- * `/journal/category/[category]` archive pages. Mirrors the `culture` pattern.
+ * Single document — `title`, `slug`, and `blurb` use field-level localization
+ * (one subfield per locale). `order` and `seo` are shared across locales.
+ * Referenced by `article.category`; drives the hub filter chips and the
+ * `/journal/category/[category]` archive pages.
  */
 export const articleCategory = defineType({
   name: "articleCategory",
@@ -19,61 +26,56 @@ export const articleCategory = defineType({
     { name: "seo", title: "SEO" },
   ],
   fields: [
-    defineField({
-      name: "language",
-      type: "string",
-      readOnly: true,
-      hidden: true,
-    }),
     defineField({ name: "seo", title: "SEO", type: "seo", group: "seo" }),
 
     defineField({
       name: "title",
       title: "Title",
-      type: "string",
+      description: 'Translated per locale — e.g. "Indian Weddings" / "Bodas Indias".',
+      type: "object",
       group: "content",
-      description: 'Canonical category name — e.g. "Indian Weddings".',
-      validation: (r) => r.required(),
+      options: { collapsible: true, collapsed: false },
+      fields: LOCALES.map(({ name, title }) =>
+        defineField({ name, title, type: "string" }),
+      ),
+      validation: (r) =>
+        r.custom((v: Record<string, string | undefined> | undefined) => {
+          if (!v?.en?.trim()) return "English title is required.";
+          return true;
+        }),
     }),
     defineField({
       name: "slug",
       title: "Slug",
-      type: "slug",
-      group: "content",
       description:
         "Translated per locale — e.g. en `indian-weddings`, es `bodas-indias`.",
-      options: {
-        source: "title",
-        maxLength: 96,
-        isUnique: async (slug, context) => {
-          const { document, getClient } = context;
-          const client = getClient({ apiVersion });
-          const id = document?._id?.replace(/^drafts\./, "");
-          const language = (document as { language?: string } | null)?.language;
-          const params = {
-            draft: `drafts.${id}`,
-            published: id,
-            slug,
-            language,
-          };
-          const query = `!defined(*[
-            _type == "articleCategory" &&
-            !(_id in [$draft, $published]) &&
-            slug.current == $slug &&
-            language == $language
-          ][0]._id)`;
-          return client.fetch<boolean>(query, params);
-        },
-      },
-      validation: (r) => r.required(),
+      type: "object",
+      group: "content",
+      options: { collapsible: true, collapsed: false },
+      fields: LOCALES.map(({ name, title }) =>
+        defineField({
+          name,
+          title,
+          type: "slug",
+          options: { source: `title.${name}`, maxLength: 96 },
+        }),
+      ),
+      validation: (r) =>
+        r.custom((v: Record<string, { current?: string } | undefined> | undefined) => {
+          if (!v?.en?.current?.trim()) return "English slug is required.";
+          return true;
+        }),
     }),
     defineField({
       name: "blurb",
       title: "Blurb",
-      type: "text",
-      rows: 2,
+      description: "Short description shown on the category archive page — translated per locale.",
+      type: "object",
       group: "content",
-      description: "Short description shown on the category archive page.",
+      options: { collapsible: true, collapsed: true },
+      fields: LOCALES.map(({ name, title }) =>
+        defineField({ name, title, type: "text", rows: 2 }),
+      ),
     }),
     defineField({
       name: "order",
@@ -92,15 +94,10 @@ export const articleCategory = defineType({
     },
   ],
   preview: {
-    select: { title: "title", language: "language", order: "order" },
-    prepare: ({ title, language, order }) => ({
-      title: (title as string) ?? "Category",
-      subtitle: [
-        order != null ? `#${order}` : null,
-        language ? (language as string).toUpperCase() : null,
-      ]
-        .filter(Boolean)
-        .join(" · "),
+    select: { title: "title.en", order: "order" },
+    prepare: ({ title, order }) => ({
+      title: (title as string | undefined) ?? "Category",
+      subtitle: order != null ? `#${order as number}` : undefined,
       media: "🏷️",
     }),
   },

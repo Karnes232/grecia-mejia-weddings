@@ -1,7 +1,7 @@
 /**
- * Seed the 13 Journal categories across all six locales + per-category
- * `translation.metadata`. Titles + slugs translate per locale; document ids stay
- * keyed by the canonical English slug.
+ * Seed the 13 Journal categories as single documents with field-level
+ * localization. Titles + slugs are embedded as locale-keyed objects; no
+ * per-locale doc or translation.metadata records.
  *
  * Requires a write-scoped token in the env: `SANITY_API_WRITE_TOKEN`.
  * Run with:  npm run seed:article-categories
@@ -15,7 +15,7 @@ import { apiVersion, dataset, projectId } from "../env";
 import { locales } from "../../i18n/routing";
 
 import { CATEGORIES } from "./journalCopy/categories";
-import { categoryDocId, categoryMetadataId } from "./journalCopy/shared";
+import { categoryDocId } from "./journalCopy/shared";
 
 const token = process.env.SANITY_API_WRITE_TOKEN;
 if (!token) {
@@ -37,38 +37,21 @@ async function run() {
   const tx = client.transaction();
 
   for (const category of CATEGORIES) {
-    for (const locale of locales) {
-      const copy = category.byLocale[locale];
-      tx.createOrReplace({
-        _id: categoryDocId(category.canonicalSlug, locale),
-        _type: "articleCategory",
-        language: locale,
-        title: copy.title,
-        slug: { _type: "slug", current: copy.slug },
-        order: category.order,
-      });
-    }
-
     tx.createOrReplace({
-      _id: categoryMetadataId(category.canonicalSlug),
-      _type: "translation.metadata",
-      schemaTypes: ["articleCategory"],
-      translations: locales.map((locale) => ({
-        _key: locale,
-        language: locale,
-        value: {
-          _type: "reference",
-          _ref: categoryDocId(category.canonicalSlug, locale),
-          _weak: true,
-        },
-      })),
+      _id: categoryDocId(category.canonicalSlug),
+      _type: "articleCategory",
+      order: category.order,
+      title: Object.fromEntries(
+        locales.map((l) => [l, category.byLocale[l].title]),
+      ),
+      slug: Object.fromEntries(
+        locales.map((l) => [l, { _type: "slug", current: category.byLocale[l].slug }]),
+      ),
     });
   }
 
   await tx.commit();
-  console.log(
-    `✓ Seeded ${CATEGORIES.length * locales.length} category docs + ${CATEGORIES.length} translation-metadata records.`,
-  );
+  console.log(`✓ Seeded ${CATEGORIES.length} category documents.`);
 }
 
 run().catch((err) => {

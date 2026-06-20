@@ -19,7 +19,7 @@ const ARTICLE_CARD_PROJECTION = `
   readMinutes,
   publishedAt,
   featured,
-  "category": category->{ "title": title, "slug": slug.current },
+  "category": category->{ "title": title[$locale], "slug": slug[$locale].current },
   "author": author->name,
   "image": heroImage{ ..., alt }
 `;
@@ -67,24 +67,24 @@ export const journalFeaturedFallbackQuery = groq`
 export const journalArticlesQuery = groq`
   *[_type == "article" && language == $locale
     && _id != $excludeId
-    && ($category == null || category->slug.current == $category)]
+    && ($category == null || category->slug[$locale].current == $category)]
     | order(publishedAt desc)[0...$end]{ ${ARTICLE_CARD_PROJECTION} }
 `;
 
 export const journalArticlesCountQuery = groq`
   count(*[_type == "article" && language == $locale
     && _id != $excludeId
-    && ($category == null || category->slug.current == $category)])
+    && ($category == null || category->slug[$locale].current == $category)])
 `;
 
 // Filter chips: each category with its live article count, plus the grand total
 // for the "All" chip.
 export const journalCategoriesQuery = groq`
   {
-    "categories": *[_type == "articleCategory" && language == $locale]
+    "categories": *[_type == "articleCategory"]
       | order(order asc){
-        title,
-        "slug": slug.current,
+        "title": title[$locale],
+        "slug": slug[$locale].current,
         "count": count(*[_type == "article" && language == $locale && references(^._id)])
       },
     "total": count(*[_type == "article" && language == $locale])
@@ -204,9 +204,12 @@ export const articleQuery = groq`
     "updatedAt": _updatedAt,
     readMinutes,
     featured,
-    "category": category->{ title, "slug": slug.current },
+    "category": category->{ "title": title[$locale], "slug": slug[$locale].current },
     "author": author->{
-      name, role, bio, "portrait": portrait{ ..., alt }
+      name,
+      "role": role[$locale],
+      "bio": bio[$locale],
+      "portrait": portrait{ ..., alt }
     },
     "heroImage": heroImage{ ..., alt },
     body[]{
@@ -336,22 +339,42 @@ export function getArticleParams() {
 
 // ── Category archive (/journal/category/[category]) ──────────────────────────
 export const categoryQuery = groq`
-  *[_type == "articleCategory" && language == $locale && slug.current == $slug][0]{
-    title,
-    "slug": slug.current,
-    blurb,
-    "translations": *[_type == "translation.metadata" && references(^._id)][0]
-      .translations[].value->{ language, "slug": slug.current },
+  *[_type == "articleCategory" && slug[$locale].current == $slug][0]{
+    "title": title[$locale],
+    "slug": slug[$locale].current,
+    "blurb": blurb[$locale],
+    "translations": [
+      { "language": "en", "slug": slug.en.current },
+      { "language": "es", "slug": slug.es.current },
+      { "language": "fr", "slug": slug.fr.current },
+      { "language": "pt", "slug": slug.pt.current },
+      { "language": "de", "slug": slug.de.current },
+      { "language": "it", "slug": slug.it.current },
+    ],
     ${SEO_PROJECTION}
   }
 `;
 
+type CategoryParamsRaw = {
+  _id: string;
+  en?: string;
+  es?: string;
+  fr?: string;
+  pt?: string;
+  de?: string;
+  it?: string;
+};
+
 /** `{language, slug, metadataId}` of every category — static params + sitemap. */
 export const categoryParamsQuery = groq`
-  *[_type == "articleCategory" && defined(slug.current) && defined(language)]{
-    language,
-    "slug": slug.current,
-    "metadataId": *[_type == "translation.metadata" && references(^._id)][0]._id
+  *[_type == "articleCategory" && defined(slug.en.current)]{
+    "_id": _id,
+    "en": slug.en.current,
+    "es": slug.es.current,
+    "fr": slug.fr.current,
+    "pt": slug.pt.current,
+    "de": slug.de.current,
+    "it": slug.it.current,
   }
 `;
 
@@ -389,8 +412,17 @@ export function getCategory(locale: string, slug: string) {
   return client.fetch<ArticleCategoryDoc | null>(categoryQuery, { locale, slug });
 }
 
-export function getCategoryParams() {
-  return client.fetch<SitemapParams[]>(categoryParamsQuery);
+const LOCALE_LIST = ["en", "es", "fr", "pt", "de", "it"] as const;
+
+export async function getCategoryParams(): Promise<SitemapParams[]> {
+  const docs = await client.fetch<CategoryParamsRaw[]>(categoryParamsQuery);
+  return docs.flatMap((doc) =>
+    LOCALE_LIST.filter((l) => doc[l]).map((l) => ({
+      language: l as Locale,
+      slug: doc[l]!,
+      metadataId: doc._id,
+    })),
+  );
 }
 
 export function getArticleSitemapParams() {

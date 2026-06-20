@@ -22,14 +22,10 @@ export const articleDocId = (canonicalSlug: string, locale: Locale) =>
 export const articleMetadataId = (canonicalSlug: string) =>
   `article-${canonicalSlug}-metadata`;
 
-export const categoryDocId = (canonicalSlug: string, locale: Locale) =>
-  `articleCategory-${canonicalSlug}-${locale}`;
-export const categoryMetadataId = (canonicalSlug: string) =>
-  `articleCategory-${canonicalSlug}-metadata`;
+export const categoryDocId = (canonicalSlug: string) =>
+  `articleCategory-${canonicalSlug}`;
 
-const AUTHOR_ID_BASE = "author-grecia";
-export const authorDocId = (locale: Locale) => `${AUTHOR_ID_BASE}-${locale}`;
-export const authorMetadataId = () => `${AUTHOR_ID_BASE}-metadata`;
+export const AUTHOR_ID = "author-grecia";
 
 // ── Builders (copied from cultureCopy/shared.ts) ────────────────────────────
 export const k = <T extends object>(obj: T) => ({ _key: randomUUID(), ...obj });

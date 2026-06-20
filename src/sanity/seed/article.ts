@@ -4,7 +4,7 @@
  *
  * Cross-collection references follow the established deterministic ids:
  *   category    →  articleCategory-<categorySlug>-<locale>
- *   author      →  author-grecia-<locale>
+ *   author      →  author-grecia  (single document, field-level i18n)
  *   destination →  destination-<slug>-<locale>
  *   culture     →  culture-<slug>-<locale>
  *   venue       →  venue-<slug>-<locale>
@@ -26,7 +26,7 @@ import { ARTICLES } from "./journalCopy/articles";
 import {
   articleDocId,
   articleMetadataId,
-  authorDocId,
+  AUTHOR_ID,
   categoryDocId,
   k,
   ptBlocks,
@@ -64,8 +64,8 @@ async function run() {
         title: copy.title,
         slug: { _type: "slug", current: article.canonicalSlug },
         excerpt: copy.excerpt,
-        category: weakRef(categoryDocId(article.categorySlug, locale)),
-        author: weakRef(authorDocId(locale)),
+        category: weakRef(categoryDocId(article.categorySlug)),
+        author: weakRef(AUTHOR_ID),
         publishedAt: article.publishedAt,
         readMinutes: article.readMinutes,
         featured: article.featured,

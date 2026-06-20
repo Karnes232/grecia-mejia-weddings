@@ -7,10 +7,12 @@
 
 import { visionTool } from "@sanity/vision";
 import { documentInternationalization } from "@sanity/document-internationalization";
-import { defineConfig } from "sanity";
+import { defineConfig, type Template } from "sanity";
 import { structureTool } from "sanity/structure";
 
 import { apiVersion, dataset, projectId } from "./src/sanity/env";
+import { deleteTranslationSet } from "./src/sanity/actions/deleteTranslationSet";
+import { TranslationStatusButton } from "./src/sanity/components/TranslationStatusButton";
 import { schema } from "./src/sanity/schemaTypes";
 import { structure } from "./src/sanity/structure";
 import { media } from "sanity-plugin-media";
@@ -32,15 +34,36 @@ const LOCALIZED_TYPES = [
   "venueRegion",
   "venue",
   "article",
-  "articleCategory",
-  "author",
 ];
 
 export default defineConfig({
   basePath: "/studio",
   projectId,
   dataset,
-  schema,
+  schema: {
+    types: schema.types,
+    templates: (prev) => [
+      ...prev,
+      {
+        id: "venue-en-in-region",
+        title: "Venue (English)",
+        schemaType: "venue",
+        parameters: [{ name: "regionId", type: "string" }],
+        value: (params: { regionId?: string }) => ({
+          language: "en",
+          ...(params?.regionId
+            ? {
+                region: {
+                  _type: "reference",
+                  _ref: params.regionId,
+                  _weak: true,
+                },
+              }
+            : {}),
+        }),
+      } as Template,
+    ],
+  },
   plugins: [
     structureTool({ structure }),
     media(),
@@ -57,4 +80,24 @@ export default defineConfig({
     }),
     visionTool({ defaultApiVersion: apiVersion }),
   ],
+  document: {
+    actions: (prev, { schemaType }) =>
+      ["article", "venue", "venueRegion", "destination", "culture"].includes(
+        schemaType,
+      )
+        ? [...prev, deleteTranslationSet]
+        : prev,
+    unstable_languageFilter: (prev, ctx) =>
+      LOCALIZED_TYPES.includes(ctx.schemaType) && ctx.documentId
+        ? [
+            ...prev,
+            (filterProps) =>
+              TranslationStatusButton({
+                ...filterProps,
+                documentId: ctx.documentId as string,
+                schemaType: ctx.schemaType,
+              }),
+          ]
+        : prev,
+  },
 });
