@@ -123,16 +123,12 @@ export default async function DestinationPage({
       ) : null}
 
       {doc.related?.headline ? (
-        <DestinationRelated
-          related={doc.related}
-          images={media?.relatedArticles}
-          locale={locale}
-        />
+        <DestinationRelated related={doc.related} locale={locale} />
       ) : null}
 
       {doc.faq?.items?.length ? <DestinationFaq faq={doc.faq} /> : null}
 
-      <FromJournal articles={journalArticles} />
+      {/* <FromJournal articles={journalArticles} /> */}
 
       {doc.cta?.headline ? (
         <JourneyCta

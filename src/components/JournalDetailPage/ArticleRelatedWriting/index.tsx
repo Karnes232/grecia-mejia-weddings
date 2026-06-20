@@ -2,7 +2,10 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import { renderHeadline } from "@/components/_shared/renderHeadline";
+import {
+  plainHeadline,
+  renderHeadline,
+} from "@/components/_shared/renderHeadline";
 import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
 import type {
@@ -74,7 +77,7 @@ export function ArticleRelatedWriting({
                     </span>
                   ) : null}
                   <h4 className="m-0 mb-1.5 font-serif text-[19px] italic leading-[1.15] text-ink transition-colors group-hover:text-olive">
-                    {a.title?.replace(/[*~]/g, "")}
+                    {plainHeadline(a.title)}
                   </h4>
                   {a.excerpt ? (
                     <p className="m-0 line-clamp-2 text-[13px] leading-[1.55] text-muted">

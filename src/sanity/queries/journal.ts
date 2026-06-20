@@ -10,7 +10,7 @@ import { SEO_PROJECTION, type SeoFields } from "./seo";
 
 // Shared card projection — used by the featured lead, the grid, and the
 // featured fallback. `^.` is not needed; this runs inside an `article` scope.
-const ARTICLE_CARD_PROJECTION = `
+export const ARTICLE_CARD_PROJECTION = `
   "id": _id,
   title,
   "slug": slug.current,

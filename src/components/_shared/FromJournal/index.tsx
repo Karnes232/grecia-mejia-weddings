@@ -2,7 +2,10 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import { renderHeadline } from "@/components/_shared/renderHeadline";
+import {
+  plainHeadline,
+  renderHeadline,
+} from "@/components/_shared/renderHeadline";
 import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
 import type { JournalArticleCard } from "@/sanity/queries/journal";
@@ -79,7 +82,7 @@ export function FromJournal({
                 </span>
               ) : null}
               <h3 className="m-0 mb-3 font-serif text-[26px] font-normal italic leading-[1.12] text-ink transition-colors group-hover:text-olive">
-                {a.title?.replace(/[*~]/g, "")}
+                {plainHeadline(a.title)}
               </h3>
               {a.excerpt ? (
                 <p className="m-0 line-clamp-2 text-sm leading-[1.65] text-muted">

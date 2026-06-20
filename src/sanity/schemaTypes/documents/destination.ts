@@ -4,7 +4,6 @@ import { apiVersion } from "../../env";
 import {
   GUEST_KEY_OPTIONS,
   type ImageKeyOption,
-  RELATED_KEY_OPTIONS,
   STYLE_KEY_OPTIONS,
 } from "../imageKeyOptions";
 
@@ -511,17 +510,23 @@ export const destination = defineType({
           name: "articles",
           title: "Related articles",
           type: "array",
+          description:
+            "Reference the journal articles to feature here (same language). Card content + image come from each article doc.",
           of: [
             defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "category", title: "Category", type: "string" },
-                { name: "title", title: "Title", type: "string" },
-                { name: "body", title: "Body", type: "text", rows: 2 },
-                imageKeyField(RELATED_KEY_OPTIONS),
-                { name: "href", title: "Link href", type: "string" },
-              ],
-              preview: { select: { title: "title", subtitle: "category" } },
+              type: "reference",
+              to: [{ type: "article" }],
+              weak: true,
+              options: {
+                disableNew: true,
+                filter: ({ document }) =>
+                  document?.language
+                    ? {
+                        filter: "language == $language",
+                        params: { language: document.language },
+                      }
+                    : { filter: "true" },
+              },
             }),
           ],
         }),

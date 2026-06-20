@@ -2,32 +2,24 @@ import { getTranslations } from "next-intl/server";
 
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import type {
-  Destination,
-  DestinationMedia,
-} from "@/sanity/queries/destination";
-
-import { keyedImageMap } from "@/components/_shared/keyedImageMap";
+import type { Destination } from "@/sanity/queries/destination";
 
 import { ArticleCard } from "./ArticleCard";
 import { RelatedSidebar } from "./RelatedSidebar";
 
 type DestinationRelatedProps = {
   related: NonNullable<Destination["related"]>;
-  images: DestinationMedia["relatedArticles"];
   locale: string;
 };
 
 export async function DestinationRelated({
   related,
-  images,
   locale,
 }: DestinationRelatedProps) {
   const t = await getTranslations({
     locale,
     namespace: "destinationDetail.related",
   });
-  const imageByKey = keyedImageMap(images);
   const articles = related.articles ?? [];
 
   const groups = [
@@ -55,12 +47,12 @@ export async function DestinationRelated({
         <div>
           {articles.map((article, i) => (
             <ArticleCard
-              key={i}
-              category={article.category}
+              key={article.id ?? i}
+              category={article.category?.title}
               title={article.title}
-              body={article.body}
-              href={article.href}
-              image={imageByKey.get(article.imageKey ?? "")}
+              excerpt={article.excerpt}
+              slug={article.slug}
+              image={article.image}
             />
           ))}
         </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
+import { plainHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
 import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
@@ -62,10 +63,10 @@ export function JournalFeatured({ article, locale }: JournalFeaturedProps) {
             <h2 className="m-0 mb-6 font-serif text-[clamp(40px,5vw,64px)] font-light leading-[1.0] tracking-[-0.01em] text-ink">
               {href ? (
                 <Link href={href} className="text-inherit no-underline transition-colors hover:text-olive">
-                  {article.title.replace(/\*/g, "")}
+                  {plainHeadline(article.title)}
                 </Link>
               ) : (
-                article.title.replace(/\*/g, "")
+                plainHeadline(article.title)
               )}
             </h2>
           ) : null}

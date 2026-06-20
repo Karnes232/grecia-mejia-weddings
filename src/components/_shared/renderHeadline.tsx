@@ -10,6 +10,11 @@ const SCRIPT_CLASS =
 
 const TOKEN_RE = /(\*[^*]+\*|~[^~]+~)/g;
 
+/** Plain card title — drop the *italic* / ~script~ accent markers. */
+export function plainHeadline(text?: string) {
+  return (text ?? "").replace(/[*~]/g, "");
+}
+
 export function renderHeadline(text: string, tone: Tone = "gold") {
   const parts = text.split(TOKEN_RE);
   const emClass = TONE_CLASS[tone];

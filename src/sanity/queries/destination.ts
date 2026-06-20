@@ -2,6 +2,10 @@ import type { PortableTextBlock } from "@portabletext/types";
 import { groq } from "next-sanity";
 
 import { client } from "../lib/client";
+import {
+  ARTICLE_CARD_PROJECTION,
+  type JournalArticleCard,
+} from "./journal";
 import { fetchWithFallback } from "./layout";
 import { SEO_PROJECTION, type SeoFields } from "./seo";
 
@@ -64,7 +68,7 @@ export const destinationQuery = groq`
     },
     related{
       eyebrow, headline,
-      articles[]{ category, title, body, imageKey, href },
+      "articles": articles[defined(@->_id)]->{ ${ARTICLE_CARD_PROJECTION} },
       sidebarVenues[]{ label, href },
       sidebarCultures[]{ label, href },
       sidebarServices[]{ label, href }
@@ -84,8 +88,7 @@ export const destinationMediaQuery = groq`
     heroImage{ ..., alt },
     storyPortrait{ ..., alt },
     styles[]{ key, image{ ..., alt } },
-    guestCards[]{ key, image{ ..., alt } },
-    relatedArticles[]{ key, image{ ..., alt } }
+    guestCards[]{ key, image{ ..., alt } }
   }
 `;
 
@@ -195,13 +198,7 @@ export type Destination = {
   related?: {
     eyebrow?: string;
     headline?: string;
-    articles?: Array<{
-      category?: string;
-      title?: string;
-      body?: string;
-      imageKey?: string;
-      href?: string;
-    }>;
+    articles?: JournalArticleCard[];
     sidebarVenues?: LabelHref[];
     sidebarCultures?: LabelHref[];
     sidebarServices?: LabelHref[];
@@ -227,7 +224,6 @@ export type DestinationMedia = {
   storyPortrait?: SanityImage;
   styles?: Array<{ key?: string; image?: SanityImage }>;
   guestCards?: Array<{ key?: string; image?: SanityImage }>;
-  relatedArticles?: Array<{ key?: string; image?: SanityImage }>;
 };
 
 export function getDestination(locale: string, slug: string) {
