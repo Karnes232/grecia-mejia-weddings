@@ -152,7 +152,7 @@ export default async function VenuePage({ params }: VenuePageProps) {
       doc.related?.sidebarVenues?.length ||
       doc.related?.sidebarCultures?.length ||
       doc.related?.sidebarDestinations?.length ? (
-        <VenueRelated related={doc.related} images={media?.relatedArticles} />
+        <VenueRelated related={doc.related} />
       ) : null}
 
       {doc.faq?.items?.length ? <VenueFaq faq={doc.faq} /> : null}

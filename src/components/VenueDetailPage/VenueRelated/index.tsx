@@ -1,21 +1,18 @@
 import { getTranslations } from "next-intl/server";
 
-import { keyedImageMap } from "@/components/_shared/keyedImageMap";
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import type { Venue, VenueMedia } from "@/sanity/queries/venue";
+import type { Venue } from "@/sanity/queries/venue";
 
 import { ArticleCard } from "./ArticleCard";
 import { RelatedSidebar } from "./RelatedSidebar";
 
 type VenueRelatedProps = {
   related: NonNullable<Venue["related"]>;
-  images: VenueMedia["relatedArticles"];
 };
 
-export async function VenueRelated({ related, images }: VenueRelatedProps) {
+export async function VenueRelated({ related }: VenueRelatedProps) {
   const t = await getTranslations("venuesPage");
-  const map = keyedImageMap(images);
   const articles = related.articles ?? [];
 
   const groups = [
@@ -51,12 +48,12 @@ export async function VenueRelated({ related, images }: VenueRelatedProps) {
         <div>
           {articles.map((article, i) => (
             <ArticleCard
-              key={i}
-              category={article.category}
+              key={article.id ?? i}
+              category={article.category?.title}
               title={article.title}
-              body={article.body}
-              href={article.href}
-              image={article.imageKey ? map.get(article.imageKey) : undefined}
+              excerpt={article.excerpt}
+              slug={article.slug}
+              image={article.image}
             />
           ))}
         </div>

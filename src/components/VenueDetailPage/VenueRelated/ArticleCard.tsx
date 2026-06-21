@@ -1,21 +1,23 @@
 import Image from "next/image";
 
+import { plainHeadline } from "@/components/_shared/renderHeadline";
+import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
-import type { SanityImage } from "@/sanity/queries/destinations";
+import type { JournalArticleCard } from "@/sanity/queries/journal";
 
 type ArticleCardProps = {
   category?: string;
   title?: string;
-  body?: string;
-  href?: string;
-  image?: SanityImage;
+  excerpt?: string;
+  slug?: string;
+  image?: JournalArticleCard["image"];
 };
 
 export function ArticleCard({
   category,
   title,
-  body,
-  href,
+  excerpt,
+  slug,
   image,
 }: ArticleCardProps) {
   const url = image?.asset
@@ -28,7 +30,7 @@ export function ArticleCard({
         {url ? (
           <Image
             src={url}
-            alt={image?.alt ?? ""}
+            alt={image?.alt ?? title ?? ""}
             fill
             sizes="(min-width:640px) 200px, 100vw"
             className="object-cover transition-transform duration-[1200ms] ease-silk group-hover:scale-[1.04]"
@@ -43,11 +45,11 @@ export function ArticleCard({
         ) : null}
         {title ? (
           <h4 className="m-0 mb-2 font-serif text-[24px] font-normal italic leading-[1.1] text-ink">
-            {title}
+            {plainHeadline(title)}
           </h4>
         ) : null}
-        {body ? (
-          <p className="m-0 text-[14px] leading-[1.6] text-muted">{body}</p>
+        {excerpt ? (
+          <p className="m-0 text-[14px] leading-[1.6] text-muted">{excerpt}</p>
         ) : null}
       </div>
     </>
@@ -56,15 +58,13 @@ export function ArticleCard({
   const cls =
     "group grid grid-cols-1 gap-5 border-b border-rule py-7 first:pt-0 sm:grid-cols-[200px_1fr] sm:items-center";
 
-  return href ? (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+  return slug ? (
+    <Link
+      href={{ pathname: "/journal/[slug]", params: { slug } }}
       className={`${cls} no-underline`}
     >
       {inner}
-    </a>
+    </Link>
   ) : (
     <div className={cls}>{inner}</div>
   );

@@ -5,6 +5,10 @@ import type { Locale } from "@/i18n/routing";
 
 import { client } from "../lib/client";
 import type { SanityImage } from "./destinations";
+import {
+  ARTICLE_CARD_PROJECTION,
+  type JournalArticleCard,
+} from "./journal";
 import { SEO_PROJECTION, type SeoFields } from "./seo";
 
 /**
@@ -64,7 +68,7 @@ export const venueQuery = groq`
     },
     related{
       eyebrow, headline,
-      articles[]{ category, title, body, imageKey, href },
+      "articles": articles[defined(@->_id)]->{ ${ARTICLE_CARD_PROJECTION} },
       sidebarVenues[]{ label, href },
       sidebarCultures[]{ label, href },
       sidebarDestinations[]{ label, href }
@@ -78,8 +82,7 @@ export const venueQuery = groq`
       cardImage{ ..., alt },
       mosaic[]{ key, image{ ..., alt } },
       photography[]{ key, image{ ..., alt } },
-      portfolio[]{ key, image{ ..., alt } },
-      relatedArticles[]{ key, image{ ..., alt } }
+      portfolio[]{ key, image{ ..., alt } }
     },
     "translations": *[_type == "translation.metadata" && references(^._id)][0]
       .translations[].value->{
@@ -191,13 +194,7 @@ export type Venue = {
   related?: {
     eyebrow?: string;
     headline?: string;
-    articles?: Array<{
-      category?: string;
-      title?: string;
-      body?: string;
-      imageKey?: string;
-      href?: string;
-    }>;
+    articles?: JournalArticleCard[];
     sidebarVenues?: LabelHref[];
     sidebarCultures?: LabelHref[];
     sidebarDestinations?: LabelHref[];
@@ -224,7 +221,6 @@ export type VenueMedia = {
   mosaic?: KeyedImage[];
   photography?: KeyedImage[];
   portfolio?: KeyedImage[];
-  relatedArticles?: KeyedImage[];
 };
 
 export type VenueParams = {
