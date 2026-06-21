@@ -22,6 +22,7 @@ import {
 import { pressPage, pressPageMedia } from "./singletons/press";
 import { venuesPage, venuesPageMedia } from "./singletons/venues";
 import { journalPage, journalPageMedia } from "./singletons/journal";
+import { portfolioPage, portfolioPageMedia } from "./singletons/portfolio";
 import { destination } from "./documents/destination";
 import { destinationMedia } from "./documents/destinationMedia";
 import { culture } from "./documents/culture";
@@ -33,6 +34,8 @@ import { venueMedia } from "./documents/venueMedia";
 import { article } from "./documents/article";
 import { articleCategory } from "./documents/articleCategory";
 import { author } from "./documents/author";
+import { portfolio } from "./documents/portfolio";
+import { portfolioMedia } from "./documents/portfolioMedia";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -60,6 +63,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     venuesPageMedia,
     journalPage,
     journalPageMedia,
+    portfolioPage,
+    portfolioPageMedia,
     destination,
     destinationMedia,
     culture,
@@ -71,5 +76,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     article,
     articleCategory,
     author,
+    portfolio,
+    portfolioMedia,
   ],
 };

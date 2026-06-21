@@ -28,6 +28,10 @@ const SINGLETON_TYPES = new Set([
   "venuesPageMedia",
   "journalPage",
   "journalPageMedia",
+  "portfolioPage",
+  "portfolioPageMedia",
+  "portfolio",
+  "portfolioMedia",
   "destination",
   "destinationMedia",
   "culture",
@@ -337,6 +341,55 @@ export const structure: StructureResolver = (S) =>
             .title("Authors")
             .apiVersion(apiVersion)
             .filter('_type == "author"'),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Portfolio Page")
+        .icon(() => "💍")
+        .schemaType("portfolioPage")
+        .child(
+          S.documentTypeList("portfolioPage")
+            .title("Portfolio Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "portfolioPage" && language == $lang')
+            .params({ lang: BASE_LANGUAGE })
+            .initialValueTemplates([
+              S.initialValueTemplateItem("portfolioPage-en"),
+            ]),
+        ),
+      S.listItem()
+        .title("Portfolio Page Media")
+        .id("portfolioPageMedia")
+        .icon(() => "🖼️")
+        .schemaType("portfolioPageMedia")
+        .child(
+          S.document()
+            .schemaType("portfolioPageMedia")
+            .documentId("portfolioPageMedia"),
+        ),
+      S.listItem()
+        .title("Case Studies")
+        .icon(() => "💍")
+        .schemaType("portfolio")
+        .child(
+          S.documentTypeList("portfolio")
+            .title("Case Studies")
+            .apiVersion(apiVersion)
+            .filter('_type == "portfolio" && language == $lang')
+            .params({ lang: BASE_LANGUAGE })
+            .initialValueTemplates([
+              S.initialValueTemplateItem("portfolio-en"),
+            ]),
+        ),
+      S.listItem()
+        .title("Portfolio media")
+        .icon(() => "🖼️")
+        .schemaType("portfolioMedia")
+        .child(
+          S.documentTypeList("portfolioMedia")
+            .title("Portfolio media")
+            .apiVersion(apiVersion)
+            .filter('_type == "portfolioMedia"'),
         ),
       S.divider(),
       S.listItem()

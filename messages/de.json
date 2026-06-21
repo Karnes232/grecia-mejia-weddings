@@ -210,5 +210,14 @@
     "fromTheJournal": "Aus dem Journal",
     "fromJournalHeadline": "Aus dem *Journal.*",
     "allArticles": "Alle Artikel"
+  },
+  "portfolioHub": {
+    "browse": "Browse",
+    "all": "All"
+  },
+  "portfolioDetail": {
+    "thisWedding": "This wedding",
+    "moreCaseStudies": "More case studies",
+    "nextCaseStudy": "Next case study"
   }
 }

@@ -29,11 +29,13 @@ const LOCALIZED_TYPES = [
   "multiculturalPage",
   "venuesPage",
   "journalPage",
+  "portfolioPage",
   "destination",
   "culture",
   "venueRegion",
   "venue",
   "article",
+  "portfolio",
 ];
 
 export default defineConfig({
@@ -82,9 +84,14 @@ export default defineConfig({
   ],
   document: {
     actions: (prev, { schemaType }) =>
-      ["article", "venue", "venueRegion", "destination", "culture"].includes(
-        schemaType,
-      )
+      [
+        "article",
+        "venue",
+        "venueRegion",
+        "destination",
+        "culture",
+        "portfolio",
+      ].includes(schemaType)
         ? [...prev, deleteTranslationSet]
         : prev,
     unstable_languageFilter: (prev, ctx) =>
