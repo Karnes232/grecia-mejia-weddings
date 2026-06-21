@@ -25,7 +25,10 @@ const CASE_CARD_PROJECTION = `
   "image": media->cardImage{ ..., alt }
 `;
 
-const GALLERY_PROJECTION = `{ "image": image{ ..., alt }, span }`;
+const GALLERY_PROJECTION = `{
+  ...,
+  "dimensions": asset->metadata.dimensions{ width, height, aspectRatio }
+}`;
 
 /**
  * Case-study detail page (`/portfolio/[slug]`).
@@ -148,9 +151,8 @@ type CreditRef = {
   image?: SanityImage;
 };
 
-type GalleryItem = {
-  image?: SanityImage;
-  span?: "wide" | "tall" | "square";
+type GalleryItem = SanityImage & {
+  dimensions?: { width?: number; height?: number; aspectRatio?: number };
 };
 
 export type Portfolio = {

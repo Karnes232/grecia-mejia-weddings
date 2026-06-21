@@ -7,13 +7,9 @@ const altField = {
   description: "Used for accessibility and SEO. Reused across all languages.",
 };
 
-const SPAN_OPTIONS = [
-  { title: "Wide (landscape)", value: "wide" },
-  { title: "Tall (portrait)", value: "tall" },
-  { title: "Square", value: "square" },
-] as const;
-
-// A gallery mosaic — an ordered list of images, each with a tile span.
+// A gallery mosaic — an ordered list of images. The detail page lays them out
+// automatically (react-photo-album) from each image's real dimensions, so there
+// is no per-image shape to choose; just add images and drag to reorder.
 const galleryArray = (name: string, title: string, description: string) =>
   defineField({
     name,
@@ -23,24 +19,10 @@ const galleryArray = (name: string, title: string, description: string) =>
     options: { layout: "grid" },
     of: [
       defineArrayMember({
-        type: "object",
-        fields: [
-          defineField({
-            name: "image",
-            title: "Image",
-            type: "image",
-            options: { hotspot: true },
-            fields: [altField],
-          }),
-          defineField({
-            name: "span",
-            title: "Tile span",
-            type: "string",
-            options: { list: [...SPAN_OPTIONS] },
-            initialValue: "square",
-          }),
-        ],
-        preview: { select: { media: "image", subtitle: "span" } },
+        type: "image",
+        options: { hotspot: true },
+        fields: [altField],
+        preview: { select: { media: "asset", title: "alt" } },
       }),
     ],
   });

@@ -1,14 +1,5 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
-const TILE_OPTIONS = [
-  { title: "Featured (x7, panoramic)", value: "featured" },
-  { title: "Tall · large (x5)", value: "tall-lg" },
-  { title: "Tall (x4)", value: "tall" },
-  { title: "Wide (x6)", value: "wide" },
-  { title: "Square (x4)", value: "square" },
-  { title: "Square · small (x3)", value: "square-sm" },
-] as const;
-
 const CALENDAR_VALUES = [
   { title: "Peak", value: "peak" },
   { title: "Shoulder · good", value: "good" },
@@ -175,13 +166,6 @@ export const destinationsPage = defineType({
                       type: "string",
                       description: 'e.g. "01", "02"…',
                     },
-                    defineField({
-                      name: "tile",
-                      title: "Tile layout",
-                      type: "string",
-                      options: { list: [...TILE_OPTIONS] },
-                      validation: (r) => r.required(),
-                    }),
                     defineField({
                       name: "destination",
                       title: "Destination",

@@ -29,13 +29,11 @@ export const destinationsPageQuery = groq`
       intro,
       slug,
       destinations[defined(destination->_id)]{
-        number,
-        tile,
         "country": destination->country,
         "name": destination->name,
         "subLocations": destination->subLocations,
         "slug": destination->slug.current,
-        "image": *[_type == "destinationMedia" && slug == ^.destination->slug.current][0].cardImage{ ..., alt }
+        "image": *[_type == "destinationMedia" && slug == ^.destination->slug.current][0].cardImage{ ..., alt, "dimensions": asset->metadata.dimensions{ width, height } }
       }
     },
     calendar{
@@ -81,22 +79,13 @@ export type SanityImage = {
   crop?: { top: number; bottom: number; left: number; right: number };
 };
 
-export type DestinationTile =
-  | "featured"
-  | "tall-lg"
-  | "tall"
-  | "wide"
-  | "square"
-  | "square-sm";
-
 export type DestinationCardData = {
   number?: string;
   country?: string;
   name?: string;
   subLocations?: string;
   slug?: string;
-  tile?: DestinationTile;
-  image?: SanityImage;
+  image?: SanityImage & { dimensions?: { width?: number; height?: number } };
 };
 
 export type Region = {

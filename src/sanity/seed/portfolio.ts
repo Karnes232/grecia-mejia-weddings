@@ -42,8 +42,6 @@ const ptBlock = (text: string) => ({
 const ptBlocks = (paras: string[]) => paras.map(ptBlock);
 const weakRef = (ref: string) => ({ _type: "reference", _weak: true, _ref: ref });
 const img = (alt: string) => ({ _type: "image" as const, alt });
-const galleryItem = (alt: string, span: "wide" | "tall" | "square") =>
-  k({ image: img(alt), span });
 
 const SLUG = "luxury-indian-wedding-punta-cana";
 const DOC_ID = `portfolio-${SLUG}-en`;
@@ -62,18 +60,10 @@ async function run() {
     heroImage: img("Saira & Adam's mandap at golden hour, Cap Cana"),
     designImage: img("The Ivory & Marigold design concept"),
     quoteImage: img("Saira & Adam's reception"),
-    galleryTop: [
-      galleryItem("The mandap on the sand", "wide"),
-      galleryItem("Bridal mehndi detail", "tall"),
-      galleryItem("Wedding rings and jewellery", "tall"),
-      galleryItem("Marigold florals", "square"),
-      galleryItem("Sangeet performance", "square"),
-      galleryItem("The reception", "square"),
-    ],
-    galleryBottom: [
-      galleryItem("The baraat procession", "wide"),
-      galleryItem("The couple at golden hour", "tall"),
-    ],
+    // Gallery images are uploaded in Studio (no per-image shape to choose —
+    // the detail page lays them out automatically from their real dimensions).
+    galleryTop: [],
+    galleryBottom: [],
   });
 
   // ── Case study (English) ────────────────────────────────────────────────

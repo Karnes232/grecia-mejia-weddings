@@ -1,14 +1,41 @@
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
+import { urlFor } from "@/sanity/lib/image";
 import type { Region } from "@/sanity/queries/destinations";
 
-import { DestinationCard } from "./DestinationCard";
+import { type CardPhoto, RegionMasonry } from "./RegionMasonry";
 import { RegionHead } from "./RegionHead";
 
 type RegionGridProps = {
   region: Region;
 };
 
+/** Build react-photo-album photos from the region's destination cards. */
+function toPhotos(region: Region): CardPhoto[] {
+  return (region.destinations ?? []).map((card) => {
+    const width = card.image?.dimensions?.width ?? 1000;
+    const height = card.image?.dimensions?.height ?? 1000;
+    const src = card.image?.asset
+      ? urlFor(card.image).width(Math.min(width, 1200)).auto("format").url()
+      : "";
+    return {
+      src,
+      width,
+      height,
+      alt: card.image?.alt ?? card.name ?? "",
+      number: card.number,
+      name: card.name,
+      country: card.country,
+      subLocations: card.subLocations,
+      slug: card.slug,
+      // Trigger the album's link rendering (overridden in render.link).
+      href: card.slug ? "#" : undefined,
+    };
+  });
+}
+
 export function RegionGrid({ region }: RegionGridProps) {
+  const photos = toPhotos(region);
+
   return (
     <div
       id={region.slug}
@@ -22,17 +49,11 @@ export function RegionGrid({ region }: RegionGridProps) {
         />
       </RevealOnScroll>
 
-      <RevealOnScroll>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-6 lg:grid-cols-12">
-          {region.destinations?.map((card, i) => (
-            <DestinationCard
-              key={card.slug ?? `${region.slug}-${i}`}
-              card={card}
-              image={card.image}
-            />
-          ))}
-        </div>
-      </RevealOnScroll>
+      {photos.length ? (
+        <RevealOnScroll>
+          <RegionMasonry photos={photos} />
+        </RevealOnScroll>
+      ) : null}
     </div>
   );
 }
