@@ -154,16 +154,12 @@ export default async function CulturePage({ params }: CulturePageProps) {
       {doc.guest?.cells?.length ? <CultureGuest guest={doc.guest} /> : null}
 
       {doc.related?.headline ? (
-        <CultureRelated
-          related={doc.related}
-          images={media?.relatedArticles}
-          locale={locale}
-        />
+        <CultureRelated related={doc.related} locale={locale} />
       ) : null}
 
       {doc.faq?.items?.length ? <CultureFaq faq={doc.faq} /> : null}
 
-      <FromJournal articles={journalArticles} tone="ivory" />
+      {/* <FromJournal articles={journalArticles} tone="ivory" /> */}
 
       {doc.cta?.headline ? (
         <JourneyCta

@@ -1,32 +1,25 @@
 import { getTranslations } from "next-intl/server";
 
-import { keyedImageMap } from "@/components/_shared/keyedImageMap";
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import type {
-  MulticulturalPage,
-  MulticulturalPageMedia,
-} from "@/sanity/queries/multicultural";
+import type { MulticulturalPage } from "@/sanity/queries/multicultural";
 
 import { ArticleCard } from "./ArticleCard";
 import { RelatedSidebar } from "./RelatedSidebar";
 
 type MulticulturalRelatedProps = {
   related: NonNullable<MulticulturalPage["related"]>;
-  images: MulticulturalPageMedia["relatedArticles"];
   locale: string;
 };
 
 export async function MulticulturalRelated({
   related,
-  images,
   locale,
 }: MulticulturalRelatedProps) {
   const t = await getTranslations({
     locale,
     namespace: "multiculturalHub.related",
   });
-  const imageByKey = keyedImageMap(images);
   const articles = related.articles ?? [];
 
   const groups = [
@@ -54,12 +47,12 @@ export async function MulticulturalRelated({
         <div>
           {articles.map((article, i) => (
             <ArticleCard
-              key={i}
-              category={article.category}
+              key={article.id ?? i}
+              category={article.category?.title}
               title={article.title}
-              body={article.body}
-              href={article.href}
-              image={imageByKey.get(article.imageKey ?? "")}
+              excerpt={article.excerpt}
+              slug={article.slug}
+              image={article.image}
             />
           ))}
         </div>

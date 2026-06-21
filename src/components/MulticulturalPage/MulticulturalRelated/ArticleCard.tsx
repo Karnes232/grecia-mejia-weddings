@@ -1,20 +1,17 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
+import { plainHeadline } from "@/components/_shared/renderHeadline";
 import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
-import type { MulticulturalPageMedia } from "@/sanity/queries/multicultural";
-
-type ArticleImage = NonNullable<
-  MulticulturalPageMedia["relatedArticles"]
->[number]["image"];
+import type { JournalArticleCard } from "@/sanity/queries/journal";
 
 type ArticleCardProps = {
   category?: string;
   title?: string;
-  body?: string;
-  href?: string;
-  image?: ArticleImage;
+  excerpt?: string;
+  slug?: string;
+  image?: JournalArticleCard["image"];
 };
 
 const WRAPPER = "block border-b border-rule py-6 text-inherit no-underline";
@@ -22,8 +19,8 @@ const WRAPPER = "block border-b border-rule py-6 text-inherit no-underline";
 export function ArticleCard({
   category,
   title,
-  body,
-  href,
+  excerpt,
+  slug,
   image,
 }: ArticleCardProps) {
   const imageUrl = image?.asset
@@ -51,19 +48,22 @@ export function ArticleCard({
         ) : null}
         {title ? (
           <h4 className="m-0 mb-2 font-serif text-[26px] font-normal italic leading-[1.15] text-ink">
-            {title}
+            {plainHeadline(title)}
           </h4>
         ) : null}
-        {body ? (
-          <p className="m-0 text-[13px] leading-[1.5] text-muted">{body}</p>
+        {excerpt ? (
+          <p className="m-0 text-[13px] leading-[1.5] text-muted">{excerpt}</p>
         ) : null}
       </div>
     </div>
   );
 
-  if (href) {
+  if (slug) {
     return (
-      <Link href={href as never} className={WRAPPER}>
+      <Link
+        href={{ pathname: "/journal/[slug]", params: { slug } }}
+        className={WRAPPER}
+      >
         {inner}
       </Link>
     );

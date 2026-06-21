@@ -2,7 +2,6 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { apiVersion } from "../../env";
 import {
-  CULTURE_RELATED_KEY_OPTIONS,
   DESIGN_CONCEPT_KEY_OPTIONS,
   type ImageKeyOption,
 } from "../imageKeyOptions";
@@ -599,18 +598,24 @@ export const culture = defineType({
           name: "articles",
           title: "Related articles",
           type: "array",
+          description:
+            "Reference the journal articles to feature here (same language). Card content + image come from each article doc.",
           validation: (r) => r.max(5),
           of: [
             defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "category", title: "Category", type: "string" },
-                { name: "title", title: "Title", type: "string" },
-                { name: "body", title: "Body", type: "text", rows: 2 },
-                imageKeyField(CULTURE_RELATED_KEY_OPTIONS),
-                { name: "href", title: "Link href", type: "string" },
-              ],
-              preview: { select: { title: "title", subtitle: "category" } },
+              type: "reference",
+              to: [{ type: "article" }],
+              weak: true,
+              options: {
+                disableNew: true,
+                filter: ({ document }) =>
+                  document?.language
+                    ? {
+                        filter: "language == $language",
+                        params: { language: document.language },
+                      }
+                    : { filter: "true" },
+              },
             }),
           ],
         }),

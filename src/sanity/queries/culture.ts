@@ -5,6 +5,10 @@ import type { Locale } from "@/i18n/routing";
 
 import { client } from "../lib/client";
 import type { SanityImage } from "./destinations";
+import {
+  ARTICLE_CARD_PROJECTION,
+  type JournalArticleCard,
+} from "./journal";
 import { SEO_PROJECTION, type SeoFields } from "./seo";
 
 /**
@@ -62,7 +66,7 @@ export const cultureQuery = groq`
     },
     related{
       eyebrow, headline,
-      articles[]{ category, title, body, imageKey, href },
+      "articles": articles[defined(@->_id)]->{ ${ARTICLE_CARD_PROJECTION} },
       sidebarDestinations[]{ label, href },
       sidebarVenues[]{ label, href },
       sidebarCultures[]{ label, href }
@@ -75,8 +79,7 @@ export const cultureQuery = groq`
     "media": media->{
       cardImage{ ..., alt },
       heroImage{ ..., alt },
-      designConcepts[]{ key, image{ ..., alt } },
-      relatedArticles[]{ key, image{ ..., alt } }
+      designConcepts[]{ key, image{ ..., alt } }
     },
     "translations": *[_type == "translation.metadata" && references(^._id)][0]
       .translations[].value->{ language, "slug": slug.current },
@@ -187,13 +190,7 @@ export type Culture = {
   related?: {
     eyebrow?: string;
     headline?: string;
-    articles?: Array<{
-      category?: string;
-      title?: string;
-      body?: string;
-      imageKey?: string;
-      href?: string;
-    }>;
+    articles?: JournalArticleCard[];
     sidebarDestinations?: LabelHref[];
     sidebarVenues?: LabelHref[];
     sidebarCultures?: LabelHref[];
@@ -219,7 +216,6 @@ export type CultureMedia = {
   cardImage?: SanityImage;
   heroImage?: SanityImage;
   designConcepts?: Array<{ key?: string; image?: SanityImage }>;
-  relatedArticles?: Array<{ key?: string; image?: SanityImage }>;
 };
 
 export type CultureParams = {

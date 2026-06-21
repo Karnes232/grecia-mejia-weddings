@@ -34,7 +34,8 @@
     "migrate:weaken-references": "tsx --env-file=.env.local src/sanity/migrations/weakenReferences.ts",
     "migrate:venue-count-stat": "tsx --env-file=.env.local src/sanity/migrations/venueCountStat.ts",
     "migrate:cleanup-article-categories": "tsx --env-file=.env.local src/sanity/migrations/cleanupArticleCategories.ts",
-    "migrate:sync-destination-related-articles": "tsx --env-file=.env.local src/sanity/migrations/syncDestinationRelatedArticles.ts"
+    "migrate:sync-destination-related-articles": "tsx --env-file=.env.local src/sanity/migrations/syncDestinationRelatedArticles.ts",
+    "migrate:sync-multicultural-related-articles": "tsx --env-file=.env.local src/sanity/migrations/syncMulticulturalRelatedArticles.ts"
   },
   "dependencies": {
     "@portabletext/react": "^6.2.0",

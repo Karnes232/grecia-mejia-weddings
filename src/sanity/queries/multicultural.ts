@@ -3,6 +3,10 @@ import { groq } from "next-sanity";
 
 import { client } from "../lib/client";
 import type { SanityImage } from "./destinations";
+import {
+  ARTICLE_CARD_PROJECTION,
+  type JournalArticleCard,
+} from "./journal";
 import { fetchWithFallback } from "./layout";
 import { SEO_PROJECTION, type SeoFields } from "./seo";
 
@@ -61,7 +65,7 @@ export const multiculturalPageQuery = groq`
     related{
       eyebrow,
       headline,
-      articles[]{ category, title, body, imageKey, href },
+      "articles": articles[defined(@->_id)]->{ ${ARTICLE_CARD_PROJECTION} },
       sidebarDestinations[]{ label, href },
       sidebarServices[]{ label, href },
       sidebarWeddings[]{ label, href }
@@ -80,8 +84,7 @@ export const multiculturalPageMediaQuery = groq`
   *[_id == "multiculturalPageMedia"][0]{
     hero{
       image{ ..., alt }
-    },
-    relatedArticles[]{ key, image{ ..., alt } }
+    }
   }
 `;
 
@@ -130,13 +133,7 @@ export type MulticulturalPage = {
   related?: {
     eyebrow?: string;
     headline?: string;
-    articles?: Array<{
-      category?: string;
-      title?: string;
-      body?: string;
-      imageKey?: string;
-      href?: string;
-    }>;
+    articles?: JournalArticleCard[];
     sidebarDestinations?: Array<{ label?: string; href?: string }>;
     sidebarServices?: Array<{ label?: string; href?: string }>;
     sidebarWeddings?: Array<{ label?: string; href?: string }>;
@@ -165,7 +162,6 @@ export type CultureCardData = {
 
 export type MulticulturalPageMedia = {
   hero?: { image?: SanityImage };
-  relatedArticles?: Array<{ key?: string; image?: SanityImage }>;
 };
 
 export function getMulticulturalPage(locale: string) {

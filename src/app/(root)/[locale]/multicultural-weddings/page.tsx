@@ -93,11 +93,7 @@ export default async function MulticulturalWeddingsPage({
       ) : null}
 
       {page?.related?.headline ? (
-        <MulticulturalRelated
-          related={page.related}
-          images={media?.relatedArticles}
-          locale={locale}
-        />
+        <MulticulturalRelated related={page.related} locale={locale} />
       ) : null}
 
       {page?.cta?.headline ? <JourneyCta data={page.cta} /> : null}

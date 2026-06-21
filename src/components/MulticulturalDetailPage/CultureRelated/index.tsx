@@ -2,28 +2,24 @@ import { getTranslations } from "next-intl/server";
 
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import { keyedImageMap } from "@/components/_shared/keyedImageMap";
-import type { Culture, CultureMedia } from "@/sanity/queries/culture";
+import type { Culture } from "@/sanity/queries/culture";
 
 import { ArticleCard } from "./ArticleCard";
 import { RelatedSidebar } from "./RelatedSidebar";
 
 type CultureRelatedProps = {
   related: NonNullable<Culture["related"]>;
-  images: CultureMedia["relatedArticles"];
   locale: string;
 };
 
 export async function CultureRelated({
   related,
-  images,
   locale,
 }: CultureRelatedProps) {
   const t = await getTranslations({
     locale,
     namespace: "multiculturalDetail.related",
   });
-  const imageByKey = keyedImageMap(images);
   const articles = related.articles ?? [];
 
   const groups = [
@@ -51,12 +47,12 @@ export async function CultureRelated({
         <div>
           {articles.map((article, i) => (
             <ArticleCard
-              key={i}
-              category={article.category}
+              key={article.id ?? i}
+              category={article.category?.title}
               title={article.title}
-              body={article.body}
-              href={article.href}
-              image={imageByKey.get(article.imageKey ?? "")}
+              excerpt={article.excerpt}
+              slug={article.slug}
+              image={article.image}
             />
           ))}
         </div>
