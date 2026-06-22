@@ -219,5 +219,21 @@
     "thisWedding": "This wedding",
     "moreCaseStudies": "More case studies",
     "nextCaseStudy": "Next case study"
+  },
+  "servicesHub": {
+    "explore": "Explore",
+    "theWork": "The work",
+    "portfolio": "Portfolio",
+    "venues": "Venues",
+    "destinations": "Destinations",
+    "journal": "Journal"
+  },
+  "serviceDetail": {
+    "relatedServices": "Often paired with",
+    "allServices": "All services",
+    "continueReading": "Continue reading",
+    "ecosystemHeadline": "Across the *ecosystem.*",
+    "relatedDestinations": "Related destinations",
+    "relatedCultures": "Related cultures"
   }
 }

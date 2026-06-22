@@ -120,7 +120,7 @@ export function NavbarShell({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.6, ease: [0.2, 0.7, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-ivory lg:hidden"
+            className="fixed inset-0 z-40 bg-ivory xl:hidden"
             role="dialog"
             aria-modal="true"
           >

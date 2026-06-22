@@ -15,6 +15,7 @@ import {
   getCategoryParams,
 } from "@/sanity/queries/journal";
 import { getPortfolioParams } from "@/sanity/queries/portfolio";
+import { getServiceParams } from "@/sanity/queries/service";
 
 type ChangeFrequency = MetadataRoute.Sitemap[number]["changeFrequency"];
 
@@ -113,6 +114,28 @@ function portfolioClusters(rows: SitemapParams[]): MetadataRoute.Sitemap {
   );
 }
 
+function serviceClusters(rows: SitemapParams[]): MetadataRoute.Sitemap {
+  // The service param uses a different name; remap from the generic `slug`.
+  const groups = new Map<string, SitemapParams[]>();
+  for (const row of rows) {
+    const key = row.metadataId ?? `solo:${row.language}:${row.slug}`;
+    const group = groups.get(key) ?? [];
+    group.push(row);
+    groups.set(key, group);
+  }
+  return [...groups.values()].flatMap((group) => {
+    const localizedParams: LocalizedParams = {};
+    for (const row of group) localizedParams[row.language] = { service: row.slug };
+    const locales = group.map((row) => row.language);
+    const canonicalSlug =
+      localizedParams[routing.defaultLocale]?.service ?? group[0].slug;
+    return entriesFor(
+      { pathname: "/services/[service]", params: { service: canonicalSlug } },
+      { priority: 0.8, localizedParams, locales },
+    );
+  });
+}
+
 function categoryClusters(rows: SitemapParams[]): MetadataRoute.Sitemap {
   // The category param uses a different name; remap from the generic `slug`.
   const groups = new Map<string, SitemapParams[]>();
@@ -136,14 +159,21 @@ function categoryClusters(rows: SitemapParams[]): MetadataRoute.Sitemap {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [slugs, cultureRows, articleRows, categoryRows, portfolioRows] =
-    await Promise.all([
-      getDestinationSlugs(),
-      getCultureParams(),
-      getArticleSitemapParams(),
-      getCategoryParams(),
-      getPortfolioParams(),
-    ]);
+  const [
+    slugs,
+    cultureRows,
+    articleRows,
+    categoryRows,
+    portfolioRows,
+    serviceRows,
+  ] = await Promise.all([
+    getDestinationSlugs(),
+    getCultureParams(),
+    getArticleSitemapParams(),
+    getCategoryParams(),
+    getPortfolioParams(),
+    getServiceParams(),
+  ]);
 
   return [
     ...entriesFor("/", { changeFrequency: "weekly", priority: 1 }),
@@ -168,6 +198,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...cultureClusters(cultureRows),
     ...entriesFor("/portfolio", { changeFrequency: "weekly", priority: 0.9 }),
     ...portfolioClusters(portfolioRows),
+    ...entriesFor("/services", { changeFrequency: "weekly", priority: 0.9 }),
+    ...serviceClusters(serviceRows),
     ...entriesFor("/journal", { changeFrequency: "weekly", priority: 0.8 }),
     ...articleClusters(articleRows),
     ...categoryClusters(categoryRows),

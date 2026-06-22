@@ -32,6 +32,10 @@ const SINGLETON_TYPES = new Set([
   "portfolioPageMedia",
   "portfolio",
   "portfolioMedia",
+  "servicePage",
+  "servicePageMedia",
+  "service",
+  "serviceMedia",
   "destination",
   "destinationMedia",
   "culture",
@@ -390,6 +394,56 @@ export const structure: StructureResolver = (S) =>
             .title("Portfolio media")
             .apiVersion(apiVersion)
             .filter('_type == "portfolioMedia"'),
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Services Page")
+        .icon(() => "✦")
+        .schemaType("servicePage")
+        .child(
+          S.documentTypeList("servicePage")
+            .title("Services Page")
+            .apiVersion(apiVersion)
+            .filter('_type == "servicePage" && language == $lang')
+            .params({ lang: BASE_LANGUAGE })
+            .initialValueTemplates([
+              S.initialValueTemplateItem("servicePage-en"),
+            ]),
+        ),
+      S.listItem()
+        .title("Services Page Media")
+        .id("servicePageMedia")
+        .icon(() => "🖼️")
+        .schemaType("servicePageMedia")
+        .child(
+          S.document()
+            .schemaType("servicePageMedia")
+            .documentId("servicePageMedia"),
+        ),
+      S.listItem()
+        .title("Services")
+        .icon(() => "✦")
+        .schemaType("service")
+        .child(
+          S.documentTypeList("service")
+            .title("Services")
+            .apiVersion(apiVersion)
+            .filter('_type == "service" && language == $lang')
+            .params({ lang: BASE_LANGUAGE })
+            .defaultOrdering([{ field: "number", direction: "asc" }])
+            .initialValueTemplates([
+              S.initialValueTemplateItem("service-en"),
+            ]),
+        ),
+      S.listItem()
+        .title("Service media")
+        .icon(() => "🖼️")
+        .schemaType("serviceMedia")
+        .child(
+          S.documentTypeList("serviceMedia")
+            .title("Service media")
+            .apiVersion(apiVersion)
+            .filter('_type == "serviceMedia"'),
         ),
       S.divider(),
       S.listItem()

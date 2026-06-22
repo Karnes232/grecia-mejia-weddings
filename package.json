@@ -30,6 +30,7 @@
     "seed:articles": "tsx --env-file=.env.local src/sanity/seed/article.ts",
     "seed:journal": "tsx --env-file=.env.local src/sanity/seed/journalPage.ts",
     "seed:portfolio": "tsx --env-file=.env.local src/sanity/seed/portfolio.ts",
+    "seed:services": "tsx --env-file=.env.local src/sanity/seed/service.ts",
     "migrate:cleanup-site-settings": "tsx --env-file=.env.local src/sanity/migrations/cleanupSiteSettings.ts",
     "migrate:dedot-destination-ids": "tsx --env-file=.env.local src/sanity/migrations/dedotDestinationIds.ts",
     "migrate:weaken-references": "tsx --env-file=.env.local src/sanity/migrations/weakenReferences.ts",

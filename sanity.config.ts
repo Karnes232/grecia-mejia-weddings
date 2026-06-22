@@ -30,12 +30,14 @@ const LOCALIZED_TYPES = [
   "venuesPage",
   "journalPage",
   "portfolioPage",
+  "servicePage",
   "destination",
   "culture",
   "venueRegion",
   "venue",
   "article",
   "portfolio",
+  "service",
 ];
 
 export default defineConfig({
@@ -91,6 +93,7 @@ export default defineConfig({
         "destination",
         "culture",
         "portfolio",
+        "service",
       ].includes(schemaType)
         ? [...prev, deleteTranslationSet]
         : prev,
