@@ -16,11 +16,16 @@ import { randomUUID } from "node:crypto";
 import { apiVersion, dataset, projectId } from "../env";
 import { locales } from "../../i18n/routing";
 import {
+  FEATURED_VENUE_ORDER,
+  FEATURED_VENUES,
+} from "./venueCopy/featuredVenues";
+import {
   PUNTA_CANA_VENUE_ORDER,
   PUNTA_CANA_VENUES,
 } from "./venueCopy/puntaCanaVenues";
 import {
   buildVenueBody,
+  type VenueCopy,
   venueDocId,
   venueMediaId,
   venueMetadataId,
@@ -55,52 +60,60 @@ async function run() {
 
   const tx = client.transaction();
 
-  for (const slug of PUNTA_CANA_VENUE_ORDER) {
-    for (const locale of locales) {
-      const copy = PUNTA_CANA_VENUES[locale][slug];
+  const seedSet = (
+    order: readonly string[],
+    venues: Record<string, Record<string, VenueCopy>>,
+  ) => {
+    for (const slug of order) {
+      for (const locale of locales) {
+        tx.createOrReplace({
+          _id: venueDocId(slug, locale),
+          _type: "venue",
+          language: locale,
+          ...buildVenueBody(slug, locale, venues[locale][slug]),
+        });
+      }
+
       tx.createOrReplace({
-        _id: venueDocId(slug, locale),
-        _type: "venue",
-        language: locale,
-        ...buildVenueBody(slug, locale, copy),
+        _id: venueMetadataId(slug),
+        _type: "translation.metadata",
+        schemaTypes: ["venue"],
+        translations: locales.map((locale) => ({
+          _key: locale,
+          language: locale,
+          value: { _type: "reference", _ref: venueDocId(slug, locale), _weak: true },
+        })),
+      });
+
+      const name = venues.en[slug].name;
+      tx.createIfNotExists({
+        _id: venueMediaId(slug),
+        _type: "venueMedia",
+        slug,
+        cardImage: { _type: "image", alt: `${name} wedding venue` },
+        mosaic: MOSAIC_KEYS.map((key) =>
+          keyed({ _type: "image", key, alt: `${name} gallery` }),
+        ),
+        photography: PHOTO_KEYS.map((key) =>
+          keyed({ _type: "image", key, alt: `${name} photography moment` }),
+        ),
+        portfolio: PORTFOLIO_KEYS.map((key) =>
+          keyed({ _type: "image", key, alt: `${name} wedding` }),
+        ),
+        relatedArticles: RELATED_KEYS.map((key) =>
+          keyed({ _type: "image", key, alt: `${name} related article` }),
+        ),
       });
     }
+  };
 
-    tx.createOrReplace({
-      _id: venueMetadataId(slug),
-      _type: "translation.metadata",
-      schemaTypes: ["venue"],
-      translations: locales.map((locale) => ({
-        _key: locale,
-        language: locale,
-        value: { _type: "reference", _ref: venueDocId(slug, locale), _weak: true },
-      })),
-    });
+  seedSet(PUNTA_CANA_VENUE_ORDER, PUNTA_CANA_VENUES);
+  seedSet(FEATURED_VENUE_ORDER, FEATURED_VENUES);
 
-    const name = PUNTA_CANA_VENUES.en[slug].name;
-    tx.createIfNotExists({
-      _id: venueMediaId(slug),
-      _type: "venueMedia",
-      slug,
-      cardImage: { _type: "image", alt: `${name} wedding venue` },
-      mosaic: MOSAIC_KEYS.map((key) =>
-        keyed({ _type: "image", key, alt: `${name} gallery` }),
-      ),
-      photography: PHOTO_KEYS.map((key) =>
-        keyed({ _type: "image", key, alt: `${name} photography moment` }),
-      ),
-      portfolio: PORTFOLIO_KEYS.map((key) =>
-        keyed({ _type: "image", key, alt: `${name} wedding` }),
-      ),
-      relatedArticles: RELATED_KEYS.map((key) =>
-        keyed({ _type: "image", key, alt: `${name} related article` }),
-      ),
-    });
-  }
-
+  const total = PUNTA_CANA_VENUE_ORDER.length + FEATURED_VENUE_ORDER.length;
   await tx.commit();
   console.log(
-    `✓ Seeded ${PUNTA_CANA_VENUE_ORDER.length} venues × ${locales.length} locales + media + translation metadata.`,
+    `✓ Seeded ${total} venues × ${locales.length} locales + media + translation metadata.`,
   );
 }
 

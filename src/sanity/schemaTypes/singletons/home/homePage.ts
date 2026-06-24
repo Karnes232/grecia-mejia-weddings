@@ -279,21 +279,41 @@ export const homePage = defineType({
             defineArrayMember({
               type: "object",
               fields: [
-                { name: "name", title: "Name", type: "string" },
+                {
+                  name: "name",
+                  title: "Name",
+                  type: "string",
+                  description:
+                    "Card heading (use *word* for gold accents). The link comes from the referenced culture.",
+                },
                 {
                   name: "description",
                   title: "Description",
                   type: "text",
                   rows: 3,
                 },
-                {
-                  name: "slug",
-                  title: "Slug (future culture doc)",
-                  type: "string",
-                },
+                defineField({
+                  name: "culture",
+                  title: "Culture",
+                  type: "reference",
+                  to: [{ type: "culture" }],
+                  weak: true,
+                  description:
+                    "The card's link comes from this culture (its translated, per-locale slug).",
+                  options: {
+                    disableNew: true,
+                    filter: ({ document }) =>
+                      document?.language
+                        ? {
+                            filter: "language == $language",
+                            params: { language: document.language },
+                          }
+                        : { filter: "true" },
+                  },
+                }),
               ],
               preview: {
-                select: { title: "name", subtitle: "description" },
+                select: { title: "name", subtitle: "culture.name" },
               },
             }),
           ],
@@ -325,7 +345,13 @@ export const homePage = defineType({
             defineArrayMember({
               type: "object",
               fields: [
-                { name: "name", title: "Name", type: "string" },
+                {
+                  name: "name",
+                  title: "Name",
+                  type: "string",
+                  description:
+                    "Row heading. The link comes from the referenced venue.",
+                },
                 {
                   name: "description",
                   title: "Description",
@@ -333,11 +359,25 @@ export const homePage = defineType({
                   rows: 2,
                 },
                 { name: "region", title: "Region tag", type: "string" },
-                {
-                  name: "slug",
-                  title: "Slug (future venue doc)",
-                  type: "string",
-                },
+                defineField({
+                  name: "venue",
+                  title: "Venue",
+                  type: "reference",
+                  to: [{ type: "venue" }],
+                  weak: true,
+                  description:
+                    "The row's link comes from this venue (its region + translated, per-locale slug).",
+                  options: {
+                    disableNew: true,
+                    filter: ({ document }) =>
+                      document?.language
+                        ? {
+                            filter: "language == $language",
+                            params: { language: document.language },
+                          }
+                        : { filter: "true" },
+                  },
+                }),
               ],
               preview: {
                 select: { title: "name", subtitle: "region" },

@@ -39,7 +39,12 @@ export function CultureCell({ culture, discoverLabel }: CultureCellProps) {
   if (culture.slug) {
     return (
       <Link
-        href={`/multicultural/${culture.slug}` as never}
+        // Object-form href so next-intl localizes the path segment — a concrete
+        // string would keep the EN segment and resolve via a 307 redirect.
+        href={{
+          pathname: "/multicultural-weddings/[culture]",
+          params: { culture: culture.slug },
+        }}
         className={CELL_CLASS}
       >
         {inner}

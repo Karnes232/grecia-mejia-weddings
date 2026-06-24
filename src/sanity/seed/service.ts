@@ -113,6 +113,14 @@ async function run() {
     })),
   });
 
+  // Shared hub hero image — created only if absent so re-runs never clobber an
+  // uploaded image. Non-localized (one doc, shared across every locale).
+  tx.createIfNotExists({
+    _id: "servicePageMedia",
+    _type: "servicePageMedia",
+    hero: { image: img("The studio, Cap Cana") },
+  });
+
   await tx.commit();
   console.log(
     `✓ Seeded ${SERVICE_META.length * locales.length} service docs + ${locales.length} hub docs + media stubs + translation metadata.`,

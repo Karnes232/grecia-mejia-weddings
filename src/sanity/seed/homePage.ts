@@ -1018,7 +1018,12 @@ function buildDoc(locale: Locale) {
         keyed({
           name: CULTURES[locale][slug].name,
           description: CULTURES[locale][slug].description,
-          slug,
+          // Link comes from the referenced culture (same-locale doc).
+          culture: {
+            _type: "reference",
+            _ref: `culture-${slug}-${locale}`,
+            _weak: true,
+          },
         }),
       ),
     },
@@ -1030,8 +1035,14 @@ function buildDoc(locale: Locale) {
         keyed({
           name: v.name,
           region: v.region,
-          slug: v.slug,
           description: VENUE_DESCRIPTIONS[locale][v.slug],
+          // Link comes from the referenced venue (same-locale doc). Refs for
+          // not-yet-authored venues dangle harmlessly (weak).
+          venue: {
+            _type: "reference",
+            _ref: `venue-${v.slug}-${locale}`,
+            _weak: true,
+          },
         }),
       ),
     },

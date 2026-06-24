@@ -47,9 +47,17 @@ export function VenueRow({ venue }: VenueRowProps) {
     </>
   );
 
-  if (venue.slug) {
+  if (venue.slug && venue.regionSlug) {
     return (
-      <Link href={`/venues/${venue.slug}` as never} className={ROW_CLASS}>
+      <Link
+        // Object-form href so next-intl localizes both segments of the nested
+        // venue route — a concrete string would keep EN segments (307 redirect).
+        href={{
+          pathname: "/venues/[region]/[venue]",
+          params: { region: venue.regionSlug, venue: venue.slug },
+        }}
+        className={ROW_CLASS}
+      >
         {inner}
       </Link>
     );

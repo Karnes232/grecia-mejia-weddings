@@ -51,7 +51,7 @@ export const homePageQuery = groq`
       cultures[]{
         name,
         description,
-        slug
+        "slug": culture->slug.current
       }
     },
     venuesConsidered{
@@ -62,7 +62,8 @@ export const homePageQuery = groq`
         name,
         description,
         region,
-        slug
+        "slug": venue->slug.current,
+        "regionSlug": venue->region->slug.current
       }
     },
     recentWeddings{
@@ -163,6 +164,7 @@ export type HomePage = {
       description?: string;
       region?: string;
       slug?: string;
+      regionSlug?: string;
     }>;
   };
   recentWeddings?: {
