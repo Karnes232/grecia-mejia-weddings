@@ -5,6 +5,7 @@ import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
 import type { PortfolioPage } from "@/sanity/queries/portfolio";
 
 import { CaseStudyCard } from "../CaseStudyCard";
+import { FilterableGrid } from "./FilterableGrid";
 
 type PortfolioGridProps = {
   grid: NonNullable<PortfolioPage["grid"]>;
@@ -25,6 +26,11 @@ export async function PortfolioGrid({ grid }: PortfolioGridProps) {
   const t = await getTranslations("portfolioHub");
   const cards = grid.caseStudies ?? [];
   const facets = facetsOf(cards);
+  const items = cards.map((card, i) => ({
+    key: card.id ?? card.slug ?? String(i),
+    tags: card.filterTags ?? [],
+    node: <CaseStudyCard card={card} />,
+  }));
 
   return (
     <section className="bg-cream px-6 py-[120px] md:px-14">
@@ -44,30 +50,13 @@ export async function PortfolioGrid({ grid }: PortfolioGridProps) {
           </RevealOnScroll>
         ) : null}
 
-        {facets.length ? (
-          <div className="mb-12 flex flex-wrap items-center gap-3">
-            <span className="text-[10px] uppercase tracking-wide-eyebrow text-muted">
-              {grid.filterLabel ?? t("browse")}
-            </span>
-            <span className="rounded-full border border-olive bg-olive px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ivory">
-              {t("all")} <span className="ml-1 opacity-70">{cards.length}</span>
-            </span>
-            {facets.map(({ tag, count }) => (
-              <span
-                key={tag}
-                className="rounded-full border border-rule px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink"
-              >
-                {tag} <span className="ml-1 text-muted">{count}</span>
-              </span>
-            ))}
-          </div>
-        ) : null}
-
-        <RevealOnScroll className="grid grid-cols-1 gap-6 md:grid-cols-6 lg:grid-cols-12">
-          {cards.map((card, i) => (
-            <CaseStudyCard key={card.id ?? card.slug ?? i} card={card} />
-          ))}
-        </RevealOnScroll>
+        <FilterableGrid
+          items={items}
+          facets={facets}
+          filterLabel={grid.filterLabel ?? t("browse")}
+          allLabel={t("all")}
+          total={cards.length}
+        />
       </div>
     </section>
   );
