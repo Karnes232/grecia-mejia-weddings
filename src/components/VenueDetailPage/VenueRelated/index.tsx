@@ -16,10 +16,43 @@ export async function VenueRelated({ related }: VenueRelatedProps) {
   const articles = related.articles ?? [];
 
   const groups = [
-    { heading: t("otherVenues"), items: related.sidebarVenues },
-    { heading: t("compatibleTraditions"), items: related.sidebarCultures },
-    { heading: t("relatedDestinations"), items: related.sidebarDestinations },
-  ].filter((g) => g.items?.length);
+    {
+      heading: t("otherVenues"),
+      items: (related.sidebarVenues ?? [])
+        .filter((v) => v.slug && v.regionSlug)
+        .map((v) => ({
+          label: v.label,
+          href: {
+            pathname: "/venues/[region]/[venue]" as const,
+            params: { region: v.regionSlug!, venue: v.slug! },
+          },
+        })),
+    },
+    {
+      heading: t("compatibleTraditions"),
+      items: (related.sidebarCultures ?? [])
+        .filter((c) => c.slug)
+        .map((c) => ({
+          label: c.label,
+          href: {
+            pathname: "/multicultural-weddings/[culture]" as const,
+            params: { culture: c.slug! },
+          },
+        })),
+    },
+    {
+      heading: t("relatedDestinations"),
+      items: (related.sidebarDestinations ?? [])
+        .filter((d) => d.slug)
+        .map((d) => ({
+          label: d.label,
+          href: {
+            pathname: "/destinations/[destination]" as const,
+            params: { destination: d.slug! },
+          },
+        })),
+    },
+  ].filter((g) => g.items.length);
 
   if (!articles.length && !groups.length) return null;
 

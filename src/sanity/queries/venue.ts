@@ -64,14 +64,23 @@ export const venueQuery = groq`
     },
     portfolio{
       eyebrow, headline, viewAllLabel, viewAllHref,
-      items[]{ title, meta, imageKey }
+      "items": items[defined(@->_id)]->{
+        "title": name, "meta": cardMeta, "slug": slug.current,
+        "image": media->cardImage{ ..., alt }
+      }
     },
     related{
       eyebrow, headline,
       "articles": articles[defined(@->_id)]->{ ${ARTICLE_CARD_PROJECTION} },
-      sidebarVenues[]{ label, href },
-      sidebarCultures[]{ label, href },
-      sidebarDestinations[]{ label, href }
+      "sidebarVenues": sidebarVenues[defined(@->_id)]->{
+        "label": name, "slug": slug.current, "regionSlug": region->slug.current
+      },
+      "sidebarCultures": sidebarCultures[defined(@->_id)]->{
+        "label": name, "slug": slug.current
+      },
+      "sidebarDestinations": sidebarDestinations[defined(@->_id)]->{
+        "label": name, "slug": slug.current
+      }
     },
     faq{
       eyebrow, headline,
@@ -107,7 +116,8 @@ export const venueParamsQuery = groq`
 `;
 
 type LabelValue = { label?: string; value?: string };
-type LabelHref = { label?: string; href?: string };
+type VenueLink = { label?: string; slug?: string; regionSlug?: string };
+type DocLink = { label?: string; slug?: string };
 type KeyedImage = { key?: string; image?: SanityImage };
 
 export type Venue = {
@@ -189,15 +199,20 @@ export type Venue = {
     headline?: string;
     viewAllLabel?: string;
     viewAllHref?: string;
-    items?: Array<{ title?: string; meta?: string; imageKey?: string }>;
+    items?: Array<{
+      title?: string;
+      meta?: string;
+      slug?: string;
+      image?: SanityImage;
+    }>;
   };
   related?: {
     eyebrow?: string;
     headline?: string;
     articles?: JournalArticleCard[];
-    sidebarVenues?: LabelHref[];
-    sidebarCultures?: LabelHref[];
-    sidebarDestinations?: LabelHref[];
+    sidebarVenues?: VenueLink[];
+    sidebarCultures?: DocLink[];
+    sidebarDestinations?: DocLink[];
   };
   faq?: {
     eyebrow?: string;

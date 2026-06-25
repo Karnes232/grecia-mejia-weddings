@@ -20,7 +20,6 @@ const regionDocId = (regionSlug: string, locale: Locale) =>
 
 // ── Copy shape ──────────────────────────────────────────────────────────────
 type Meta = { label: string; value: string };
-type LabelHref = { label: string; href?: string };
 
 export type VenueCopy = {
   name: string;
@@ -95,21 +94,16 @@ export type VenueCopy = {
     eyebrow: string;
     headline: string;
     viewAllLabel?: string;
-    items: Array<{ title: string; meta: string; imageKey: string }>;
+    items: string[]; // portfolio canonical slugs — resolved to same-locale refs
   };
   related?: {
     eyebrow: string;
     headline: string;
-    articles: Array<{
-      category: string;
-      title: string;
-      body: string;
-      imageKey: string;
-      href?: string;
-    }>;
-    sidebarVenues: LabelHref[];
-    sidebarCultures: LabelHref[];
-    sidebarDestinations: LabelHref[];
+    // Canonical slugs — resolved to same-locale references at build.
+    articles: string[];
+    sidebarVenues: string[];
+    sidebarCultures: string[];
+    sidebarDestinations: string[];
   };
   faq?: {
     eyebrow: string;
@@ -221,17 +215,31 @@ export function buildVenueBody(slug: string, locale: Locale, copy: VenueCopy) {
           eyebrow: copy.portfolio.eyebrow,
           headline: copy.portfolio.headline,
           viewAllLabel: copy.portfolio.viewAllLabel,
-          items: copy.portfolio.items.map((i) => k(i)),
+          items: copy.portfolio.items.map((s) =>
+            k({ _type: "reference", _weak: true, _ref: `portfolio-${s}-${locale}` }),
+          ),
         }
       : undefined,
     related: copy.related
       ? {
           eyebrow: copy.related.eyebrow,
           headline: copy.related.headline,
-          articles: copy.related.articles.map((a) => k(a)),
-          sidebarVenues: copy.related.sidebarVenues.map((l) => k(l)),
-          sidebarCultures: copy.related.sidebarCultures.map((l) => k(l)),
-          sidebarDestinations: copy.related.sidebarDestinations.map((l) => k(l)),
+          articles: copy.related.articles.map((s) =>
+            k({ _type: "reference", _weak: true, _ref: `article-${s}-${locale}` }),
+          ),
+          sidebarVenues: copy.related.sidebarVenues.map((s) =>
+            k({ _type: "reference", _weak: true, _ref: venueDocId(s, locale) }),
+          ),
+          sidebarCultures: copy.related.sidebarCultures.map((s) =>
+            k({ _type: "reference", _weak: true, _ref: `culture-${s}-${locale}` }),
+          ),
+          sidebarDestinations: copy.related.sidebarDestinations.map((s) =>
+            k({
+              _type: "reference",
+              _weak: true,
+              _ref: `destination-${s}-${locale}`,
+            }),
+          ),
         }
       : undefined,
     faq: copy.faq

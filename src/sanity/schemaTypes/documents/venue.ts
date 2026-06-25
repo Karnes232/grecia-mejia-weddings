@@ -1,11 +1,7 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { apiVersion } from "../../env";
-import {
-  VENUE_PHOTO_KEY_OPTIONS,
-  VENUE_PORTFOLIO_KEY_OPTIONS,
-  type ImageKeyOption,
-} from "../imageKeyOptions";
+import { VENUE_PHOTO_KEY_OPTIONS, type ImageKeyOption } from "../imageKeyOptions";
 
 const imageKeyField = (list: ImageKeyOption[]) =>
   defineField({
@@ -16,19 +12,34 @@ const imageKeyField = (list: ImageKeyOption[]) =>
     description: "Pick the matching image slot from this venue's media doc.",
   });
 
-const sidebarLinkArray = (name: string, title: string) =>
+// Reference filter — same-language docs only (mirrors `region`/`articles`).
+const sameLanguageFilter = (context: { document?: unknown }) => {
+  const language = (context.document as { language?: string } | undefined)
+    ?.language;
+  return language
+    ? { filter: "language == $language", params: { language } }
+    : { filter: "true" };
+};
+
+// A sidebar list of references to another doc type (same language). Label +
+// link come from each referenced doc.
+const sidebarRefArray = (
+  name: string,
+  title: string,
+  type: string,
+  description: string,
+) =>
   defineField({
     name,
     title,
     type: "array",
+    description,
     of: [
       defineArrayMember({
-        type: "object",
-        fields: [
-          { name: "label", title: "Label", type: "string" },
-          { name: "href", title: "Href", type: "string" },
-        ],
-        preview: { select: { title: "label" } },
+        type: "reference",
+        to: [{ type }],
+        weak: true,
+        options: { disableNew: true, filter: sameLanguageFilter },
       }),
     ],
   });
@@ -553,16 +564,15 @@ export const venue = defineType({
           name: "items",
           title: "Case studies",
           type: "array",
+          description:
+            "Reference portfolio case studies (same language). Card content + image come from each case study.",
           validation: (r) => r.max(3),
           of: [
             defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "title", title: "Title", type: "string" },
-                { name: "meta", title: "Meta line", type: "string" },
-                imageKeyField(VENUE_PORTFOLIO_KEY_OPTIONS),
-              ],
-              preview: { select: { title: "title", subtitle: "meta" } },
+              type: "reference",
+              to: [{ type: "portfolio" }],
+              weak: true,
+              options: { disableNew: true, filter: sameLanguageFilter },
             }),
           ],
         }),
@@ -609,9 +619,24 @@ export const venue = defineType({
             }),
           ],
         }),
-        sidebarLinkArray("sidebarVenues", "Sidebar · other venues"),
-        sidebarLinkArray("sidebarCultures", "Sidebar · compatible traditions"),
-        sidebarLinkArray("sidebarDestinations", "Sidebar · related destinations"),
+        sidebarRefArray(
+          "sidebarVenues",
+          "Sidebar · other venues",
+          "venue",
+          "Reference other venues (same language). Label + link come from each venue.",
+        ),
+        sidebarRefArray(
+          "sidebarCultures",
+          "Sidebar · compatible traditions",
+          "culture",
+          "Reference compatible traditions (same language). Label + link come from each culture.",
+        ),
+        sidebarRefArray(
+          "sidebarDestinations",
+          "Sidebar · related destinations",
+          "destination",
+          "Reference related destinations (same language). Label + link come from each destination.",
+        ),
       ],
     }),
 

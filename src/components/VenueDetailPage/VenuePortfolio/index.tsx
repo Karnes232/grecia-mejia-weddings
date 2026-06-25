@@ -1,23 +1,25 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 
-import { keyedImageMap } from "@/components/_shared/keyedImageMap";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
+import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/sanity/lib/image";
-import type { Venue, VenueMedia } from "@/sanity/queries/venue";
+import type { Venue } from "@/sanity/queries/venue";
 
 import { SectionDeck, SectionHead } from "../_shared/SectionHead";
 
 type VenuePortfolioProps = {
   portfolio: NonNullable<Venue["portfolio"]>;
-  images: VenueMedia["portfolio"];
 };
 
-export async function VenuePortfolio({ portfolio, images }: VenuePortfolioProps) {
+const CARD_CLASS = "group block no-underline text-inherit";
+
+export async function VenuePortfolio({ portfolio }: VenuePortfolioProps) {
   const items = portfolio.items ?? [];
   if (items.length === 0) return null;
   const t = await getTranslations("venuesPage");
-  const map = keyedImageMap(images);
+  const caseStudyLabel = t("caseStudy");
 
   return (
     <section className="bg-cream px-6 py-[120px] md:px-14">
@@ -45,17 +47,22 @@ export async function VenuePortfolio({ portfolio, images }: VenuePortfolioProps)
         className="mx-auto grid max-w-[1400px] grid-cols-1 gap-8 sm:grid-cols-3"
       >
         {items.map((item, i) => {
-          const image = item.imageKey ? map.get(item.imageKey) : undefined;
-          const url = image?.asset
-            ? urlFor(image).width(800).height(1000).fit("crop").auto("format").url()
+          const url = item.image?.asset
+            ? urlFor(item.image)
+                .width(800)
+                .height(1000)
+                .fit("crop")
+                .auto("format")
+                .url()
             : null;
-          return (
-            <div key={i} className="group">
+
+          const inner: ReactNode = (
+            <>
               <div className="relative aspect-[4/5] overflow-hidden bg-sand">
                 {url ? (
                   <Image
                     src={url}
-                    alt={image?.alt ?? ""}
+                    alt={item.image?.alt ?? item.title ?? ""}
                     fill
                     sizes="(min-width:640px) 31vw, 90vw"
                     className="object-cover transition-transform duration-[1200ms] ease-silk group-hover:scale-[1.04]"
@@ -64,10 +71,10 @@ export async function VenuePortfolio({ portfolio, images }: VenuePortfolioProps)
               </div>
               <div className="pt-[18px]">
                 <span className="mb-1.5 block text-[10px] uppercase tracking-wide-eyebrow text-gold">
-                  {t("caseStudy")}
+                  {caseStudyLabel}
                 </span>
                 {item.title ? (
-                  <h4 className="m-0 mb-2 font-serif text-[26px] font-normal italic leading-none text-ink">
+                  <h4 className="m-0 mb-2 font-serif text-[26px] font-normal italic leading-none text-ink transition-colors group-hover:text-olive">
                     {item.title}
                   </h4>
                 ) : null}
@@ -77,6 +84,20 @@ export async function VenuePortfolio({ portfolio, images }: VenuePortfolioProps)
                   </p>
                 ) : null}
               </div>
+            </>
+          );
+
+          return item.slug ? (
+            <Link
+              key={item.slug ?? i}
+              href={{ pathname: "/portfolio/[slug]", params: { slug: item.slug } }}
+              className={CARD_CLASS}
+            >
+              {inner}
+            </Link>
+          ) : (
+            <div key={i} className="group">
+              {inner}
             </div>
           );
         })}

@@ -1,6 +1,8 @@
+import type { ComponentProps } from "react";
+
 import { Link } from "@/i18n/navigation";
 
-type LinkItem = { label?: string; href?: string };
+type LinkItem = { label?: string; href?: ComponentProps<typeof Link>["href"] };
 
 type RelatedSidebarProps = {
   groups: Array<{ heading: string; items?: LinkItem[] }>;
@@ -21,7 +23,7 @@ export function RelatedSidebar({ groups }: RelatedSidebarProps) {
             {(group.items ?? []).map((item, i) => (
               <li key={i}>
                 {item.href ? (
-                  <Link href={item.href as never} className={LINK_CLASS}>
+                  <Link href={item.href} className={LINK_CLASS}>
                     {item.label}
                     <span aria-hidden className="text-[14px] text-gold">
                       →

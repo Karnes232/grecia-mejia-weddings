@@ -102,9 +102,9 @@ export default async function VenuePage({ params }: VenuePageProps) {
   if (!doc) notFound();
 
   const media = doc.media;
-  const journalArticles = doc.id
-    ? await getArticlesReferencing(locale, doc.id)
-    : [];
+  // const journalArticles = doc.id
+  //   ? await getArticlesReferencing(locale, doc.id)
+  //   : [];
   const ld = parseStructuredData(doc.seo?.structuredData);
   const localizedParams = localizedParamsFrom(doc.translations);
 
@@ -145,7 +145,7 @@ export default async function VenuePage({ params }: VenuePageProps) {
       {doc.hotels?.items?.length ? <VenueHotels hotels={doc.hotels} /> : null}
 
       {doc.portfolio?.items?.length ? (
-        <VenuePortfolio portfolio={doc.portfolio} images={media?.portfolio} />
+        <VenuePortfolio portfolio={doc.portfolio} />
       ) : null}
 
       {doc.related?.articles?.length ||
@@ -157,7 +157,7 @@ export default async function VenuePage({ params }: VenuePageProps) {
 
       {doc.faq?.items?.length ? <VenueFaq faq={doc.faq} /> : null}
 
-      <FromJournal articles={journalArticles} />
+      {/* <FromJournal articles={journalArticles} /> */}
 
       {doc.cta?.headline ? (
         <JourneyCta
