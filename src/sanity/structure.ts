@@ -66,33 +66,24 @@ export const structure: StructureResolver = (S) =>
         .title("Navigation")
         .icon(() => "🧭")
         .schemaType("navigation")
+        // Open the English doc directly; other locales via the translation banner.
         .child(
-          S.documentTypeList("navigation")
-            .title("Navigation")
-            .apiVersion(apiVersion)
-            .filter('_type == "navigation"'),
+          S.document().schemaType("navigation").documentId("navigation-en"),
         ),
       S.listItem()
         .title("Footer")
         .icon(() => "🦶")
         .schemaType("footer")
-        .child(
-          S.documentTypeList("footer")
-            .title("Footer")
-            .apiVersion(apiVersion)
-            .filter('_type == "footer"'),
-        ),
+        // Open the English doc directly; other locales via the translation banner.
+        .child(S.document().schemaType("footer").documentId("footer-en")),
       S.divider(),
       S.listItem()
         .title("Home Page")
         .icon(() => "🏠")
         .schemaType("homePage")
-        .child(
-          S.documentTypeList("homePage")
-            .title("Home Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "homePage"'),
-        ),
+        // Open the English doc directly; other locales via the translation
+        // banner on the document.
+        .child(S.document().schemaType("homePage").documentId("homePage-en")),
       S.listItem()
         .title("Home Page Media")
         .id("homePageMedia")
@@ -106,11 +97,11 @@ export const structure: StructureResolver = (S) =>
         .title("Destinations Page")
         .icon(() => "🗺️")
         .schemaType("destinationsPage")
+        // Open the English doc directly; other locales via the translation banner.
         .child(
-          S.documentTypeList("destinationsPage")
-            .title("Destinations Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "destinationsPage"'),
+          S.document()
+            .schemaType("destinationsPage")
+            .documentId("destinationsPage-en"),
         ),
       S.listItem()
         .title("Destinations Page Media")
@@ -152,11 +143,11 @@ export const structure: StructureResolver = (S) =>
         .title("Multicultural Weddings Page")
         .icon(() => "🪔")
         .schemaType("multiculturalPage")
+        // Open the English doc directly; other locales via the translation banner.
         .child(
-          S.documentTypeList("multiculturalPage")
-            .title("Multicultural Weddings Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "multiculturalPage"'),
+          S.document()
+            .schemaType("multiculturalPage")
+            .documentId("multiculturalPage-en"),
         ),
       S.listItem()
         .title("Multicultural Page Media")
@@ -198,11 +189,9 @@ export const structure: StructureResolver = (S) =>
         .title("Venues Page")
         .icon(() => "🏛️")
         .schemaType("venuesPage")
+        // Open the English doc directly; other locales via the translation banner.
         .child(
-          S.documentTypeList("venuesPage")
-            .title("Venues Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "venuesPage"'),
+          S.document().schemaType("venuesPage").documentId("venuesPage-en"),
         ),
       S.listItem()
         .title("Venues Page Media")
@@ -294,11 +283,9 @@ export const structure: StructureResolver = (S) =>
         .title("Journal Page")
         .icon(() => "📔")
         .schemaType("journalPage")
+        // Open the English doc directly; other locales via the translation banner.
         .child(
-          S.documentTypeList("journalPage")
-            .title("Journal Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "journalPage"'),
+          S.document().schemaType("journalPage").documentId("journalPage-en"),
         ),
       S.listItem()
         .title("Journal Page Media")
@@ -351,15 +338,11 @@ export const structure: StructureResolver = (S) =>
         .title("Portfolio Page")
         .icon(() => "💍")
         .schemaType("portfolioPage")
+        // Open the English doc directly; other locales via the translation banner.
         .child(
-          S.documentTypeList("portfolioPage")
-            .title("Portfolio Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "portfolioPage" && language == $lang')
-            .params({ lang: BASE_LANGUAGE })
-            .initialValueTemplates([
-              S.initialValueTemplateItem("portfolioPage-en"),
-            ]),
+          S.document()
+            .schemaType("portfolioPage")
+            .documentId("portfolioPage-en"),
         ),
       S.listItem()
         .title("Portfolio Page Media")
@@ -400,15 +383,9 @@ export const structure: StructureResolver = (S) =>
         .title("Services Page")
         .icon(() => "✦")
         .schemaType("servicePage")
+        // Open the English doc directly; other locales via the translation banner.
         .child(
-          S.documentTypeList("servicePage")
-            .title("Services Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "servicePage" && language == $lang')
-            .params({ lang: BASE_LANGUAGE })
-            .initialValueTemplates([
-              S.initialValueTemplateItem("servicePage-en"),
-            ]),
+          S.document().schemaType("servicePage").documentId("servicePage-en"),
         ),
       S.listItem()
         .title("Services Page Media")
@@ -450,12 +427,8 @@ export const structure: StructureResolver = (S) =>
         .title("About Page")
         .icon(() => "🏛️")
         .schemaType("aboutPage")
-        .child(
-          S.documentTypeList("aboutPage")
-            .title("About Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "aboutPage"'),
-        ),
+        // Open the English doc directly; other locales via the translation banner.
+        .child(S.document().schemaType("aboutPage").documentId("aboutPage-en")),
       S.listItem()
         .title("About Page Media")
         .id("aboutPageMedia")
@@ -471,12 +444,8 @@ export const structure: StructureResolver = (S) =>
         .title("Press Page")
         .icon(() => "📰")
         .schemaType("pressPage")
-        .child(
-          S.documentTypeList("pressPage")
-            .title("Press Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "pressPage"'),
-        ),
+        // Open the English doc directly; other locales via the translation banner.
+        .child(S.document().schemaType("pressPage").documentId("pressPage-en")),
       S.listItem()
         .title("Press Page Media")
         .id("pressPageMedia")
@@ -492,11 +461,9 @@ export const structure: StructureResolver = (S) =>
         .title("Contact Page")
         .icon(() => "✉️")
         .schemaType("contactPage")
+        // Open the English doc directly; other locales via the translation banner.
         .child(
-          S.documentTypeList("contactPage")
-            .title("Contact Page")
-            .apiVersion(apiVersion)
-            .filter('_type == "contactPage"'),
+          S.document().schemaType("contactPage").documentId("contactPage-en"),
         ),
       S.listItem()
         .title("Contact Page Media")
@@ -513,21 +480,15 @@ export const structure: StructureResolver = (S) =>
         .title("Terms & Conditions")
         .icon(() => "📋")
         .schemaType("termsPage")
-        .child(
-          S.documentTypeList("termsPage")
-            .title("Terms & Conditions")
-            .apiVersion(apiVersion)
-            .filter('_type == "termsPage"'),
-        ),
+        // Open the English doc directly; other locales via the translation banner.
+        .child(S.document().schemaType("termsPage").documentId("termsPage-en")),
       S.listItem()
         .title("Privacy Policy")
         .icon(() => "🔒")
         .schemaType("privacyPage")
+        // Open the English doc directly; other locales via the translation banner.
         .child(
-          S.documentTypeList("privacyPage")
-            .title("Privacy Policy")
-            .apiVersion(apiVersion)
-            .filter('_type == "privacyPage"'),
+          S.document().schemaType("privacyPage").documentId("privacyPage-en"),
         ),
 
       S.divider(),

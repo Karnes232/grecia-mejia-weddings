@@ -130,27 +130,6 @@ export const siteSettings = defineType({
       ],
     }),
     defineField({
-      name: "studios",
-      title: "Studios",
-      type: "array",
-      group: "contact",
-      of: [
-        {
-          type: "object",
-          fields: [
-            { name: "label", type: "string", title: "Label" },
-            { name: "year", type: "string", title: "Year (optional)" },
-          ],
-          preview: {
-            select: { label: "label", year: "year" },
-            prepare: ({ label, year }) => ({
-              title: year ? `${label} · ${year}` : label,
-            }),
-          },
-        },
-      ],
-    }),
-    defineField({
       name: "defaultOgImage",
       title: "Default OG image",
       type: "image",
