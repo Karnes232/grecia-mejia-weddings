@@ -130,6 +130,19 @@ export type RegionCopy = {
 // ── Builders ────────────────────────────────────────────────────────────────
 const k = <T extends object>(obj: T) => ({ _key: randomUUID(), ...obj });
 
+// The region-guide sidebars reference real docs (same locale); label + link
+// come from each referenced doc. Shared curated cross-link set.
+const RELATED_SERVICE_SLUGS = [
+  "venue-sourcing",
+  "destination-wedding-planning",
+  "wedding-design",
+];
+const RELATED_ARTICLE_SLUGS = [
+  "best-indian-wedding-venues-punta-cana",
+  "luxury-punta-cana-wedding-cost",
+  "kosher-jewish-wedding-caribbean",
+];
+
 const ptBlock = (text: string) => ({
   _type: "block",
   _key: randomUUID(),
@@ -157,8 +170,12 @@ export function buildRegionBody(
       sideLabel: copy.guide.sideLabel,
       headline: copy.guide.headline,
       body: ptBlocks(copy.guide.bodyParagraphs),
-      subRegions: copy.guide.subRegions.map((l) => k(l)),
-      related: copy.guide.related.map((l) => k(l)),
+      relatedServices: RELATED_SERVICE_SLUGS.map((slug) =>
+        k({ _type: "reference", _weak: true, _ref: `service-${slug}-${locale}` }),
+      ),
+      relatedArticles: RELATED_ARTICLE_SLUGS.map((slug) =>
+        k({ _type: "reference", _weak: true, _ref: `article-${slug}-${locale}` }),
+      ),
     },
     venuesHeadline: copy.venuesHeadline,
     venues: copy.venues.map((slug) =>

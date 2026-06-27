@@ -108,10 +108,45 @@ export const venuesPage = defineType({
             defineArrayMember({
               type: "object",
               fields: [
-                { name: "value", title: "Value (e.g. '52')", type: "string" },
+                defineField({
+                  name: "source",
+                  title: "Value source",
+                  type: "string",
+                  options: {
+                    list: [
+                      { title: "Typed value", value: "manual" },
+                      { title: "Live venue count", value: "venues" },
+                      { title: "Live region count", value: "regions" },
+                    ],
+                    layout: "radio",
+                  },
+                  initialValue: "manual",
+                  description:
+                    "Pull the number live from the venue / region documents, or type it below.",
+                }),
+                defineField({
+                  name: "value",
+                  title: "Value (e.g. '52')",
+                  type: "string",
+                  hidden: ({ parent }) =>
+                    ["venues", "regions"].includes(
+                      (parent as { source?: string })?.source ?? "",
+                    ),
+                }),
                 { name: "label", title: "Label", type: "string" },
               ],
-              preview: { select: { title: "value", subtitle: "label" } },
+              preview: {
+                select: { value: "value", label: "label", source: "source" },
+                prepare: ({ value, label, source }) => ({
+                  title:
+                    source === "venues"
+                      ? "Live venue count"
+                      : source === "regions"
+                        ? "Live region count"
+                        : ((value as string) ?? "—"),
+                  subtitle: label as string,
+                }),
+              },
             }),
           ],
         }),

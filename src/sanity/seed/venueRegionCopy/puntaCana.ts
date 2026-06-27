@@ -12,12 +12,12 @@ type RegionLabels = {
 };
 
 const L: Record<Locale, RegionLabels> = {
-  en: { houses: "Selected houses", whenToWed: "When to wed", weddingsHere: "Weddings here", yearRound: "Year-round" },
-  es: { houses: "Casas seleccionadas", whenToWed: "Cuándo casarse", weddingsHere: "Bodas aquí", yearRound: "Todo el año" },
-  fr: { houses: "Maisons sélectionnées", whenToWed: "Quand se marier", weddingsHere: "Mariages ici", yearRound: "Toute l'année" },
-  pt: { houses: "Casas selecionadas", whenToWed: "Quando casar", weddingsHere: "Casamentos aqui", yearRound: "O ano todo" },
-  de: { houses: "Ausgewählte Häuser", whenToWed: "Wann heiraten", weddingsHere: "Hochzeiten hier", yearRound: "Ganzjährig" },
-  it: { houses: "Case selezionate", whenToWed: "Quando sposarsi", weddingsHere: "Matrimoni qui", yearRound: "Tutto l'anno" },
+  en: { houses: "Selected venues", whenToWed: "When to wed", weddingsHere: "Weddings here", yearRound: "Year-round" },
+  es: { houses: "Lugares seleccionados", whenToWed: "Cuándo casarse", weddingsHere: "Bodas aquí", yearRound: "Todo el año" },
+  fr: { houses: "Lieux sélectionnés", whenToWed: "Quand se marier", weddingsHere: "Mariages ici", yearRound: "Toute l'année" },
+  pt: { houses: "Locais selecionados", whenToWed: "Quando casar", weddingsHere: "Casamentos aqui", yearRound: "O ano todo" },
+  de: { houses: "Ausgewählte Locations", whenToWed: "Wann heiraten", weddingsHere: "Hochzeiten hier", yearRound: "Ganzjährig" },
+  it: { houses: "Location selezionate", whenToWed: "Quando sposarsi", weddingsHere: "Matrimoni qui", yearRound: "Tutto l'anno" },
 };
 
 // ── Region-level copy ───────────────────────────────────────────────────────

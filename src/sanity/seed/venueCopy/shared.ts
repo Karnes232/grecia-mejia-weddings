@@ -149,9 +149,7 @@ export function buildVenueBody(slug: string, locale: Locale, copy: VenueCopy) {
       headline: copy.header.headline,
       location: copy.header.location,
       deck: copy.header.deck,
-      gallery: copy.header.galleryLabel
-        ? { label: copy.header.galleryLabel }
-        : undefined,
+      // The "view full gallery" label is now a UI string in messages/.
       cta: { label: copy.header.ctaLabel, href: copy.header.ctaHref },
     },
     facts: copy.facts.map((f) => k(f)),

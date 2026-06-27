@@ -230,16 +230,6 @@ export const venue = defineType({
         { name: "location", title: "Location line", type: "string" },
         { name: "deck", title: "Deck", type: "text", rows: 3 },
         defineField({
-          name: "gallery",
-          title: "Gallery link",
-          type: "object",
-          description: "Optional 'View full gallery' overlay on the mosaic.",
-          fields: [
-            { name: "label", title: "Label", type: "string" },
-            { name: "href", title: "Href", type: "string" },
-          ],
-        }),
-        defineField({
           name: "cta",
           title: "Primary CTA",
           type: "object",

@@ -32,7 +32,6 @@ export const venueQuery = groq`
     "regionName": region->name,
     header{
       eyebrow, headline, location, deck,
-      gallery{ label, href },
       cta{ label, href }
     },
     facts[]{ label, value, sub },
@@ -130,7 +129,6 @@ export type Venue = {
     headline?: string;
     location?: string;
     deck?: string;
-    gallery?: { label?: string; href?: string };
     cta?: { label?: string; href?: string };
   };
   facts?: Array<{ label?: string; value?: string; sub?: string }>;

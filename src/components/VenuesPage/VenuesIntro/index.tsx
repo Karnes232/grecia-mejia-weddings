@@ -22,6 +22,13 @@ const bodyComponents: PortableTextComponents = {
 export function VenuesIntro({ intro }: VenuesIntroProps) {
   const stats = intro.stats ?? [];
 
+  // A stat can pull its number live from the venue / region documents.
+  const statValue = (stat: (typeof stats)[number]): string | undefined => {
+    if (stat.source === "venues") return intro.venueCount?.toString();
+    if (stat.source === "regions") return intro.regionCount?.toString();
+    return stat.value;
+  };
+
   return (
     <section className="bg-ivory px-6 py-[120px] md:px-14">
       <div className="mx-auto grid max-w-[1300px] grid-cols-1 items-start gap-12 lg:grid-cols-[280px_1fr] lg:gap-20">
@@ -56,11 +63,13 @@ export function VenuesIntro({ intro }: VenuesIntroProps) {
 
           {stats.length ? (
             <div className="mt-12 flex flex-wrap gap-x-16 gap-y-8 border-t border-rule pt-9">
-              {stats.map((stat, i) => (
+              {stats.map((stat, i) => {
+                const value = statValue(stat);
+                return (
                 <div key={i}>
-                  {stat.value ? (
+                  {value ? (
                     <span className="block font-serif font-light italic text-[54px] leading-none text-olive">
-                      {stat.value}
+                      {value}
                     </span>
                   ) : null}
                   {stat.label ? (
@@ -69,7 +78,8 @@ export function VenuesIntro({ intro }: VenuesIntroProps) {
                     </span>
                   ) : null}
                 </div>
-              ))}
+                );
+              })}
             </div>
           ) : null}
         </RevealOnScroll>

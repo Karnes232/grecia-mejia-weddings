@@ -23,7 +23,9 @@ export const venuesPageQuery = groq`
       headline,
       lede,
       body,
-      stats[]{ value, label }
+      stats[]{ source, value, label },
+      "venueCount": count(*[_type == "venue" && language == $locale && defined(slug.current)]),
+      "regionCount": count(*[_type == "venueRegion" && language == $locale && defined(slug.current)])
     },
     regions{
       eyebrow,
@@ -83,7 +85,9 @@ export type VenuesPage = {
     headline?: string;
     lede?: string;
     body?: PortableTextBlock[];
-    stats?: Array<{ value?: string; label?: string }>;
+    stats?: Array<{ source?: string; value?: string; label?: string }>;
+    venueCount?: number;
+    regionCount?: number;
   };
   regions?: {
     eyebrow?: string;

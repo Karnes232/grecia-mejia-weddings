@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
+import { stripAccentTokens } from "@/components/_shared/stripAccentTokens";
 import { Link } from "@/i18n/navigation";
 import type { VenueRegion } from "@/sanity/queries/venueRegion";
 
@@ -27,9 +28,31 @@ export async function RegionGuide({ guide }: RegionGuideProps) {
   const t = await getTranslations("venuesPage");
 
   const groups = [
-    { heading: t("subRegions"), items: guide.subRegions },
-    { heading: t("related"), items: guide.related },
-  ].filter((g) => g.items?.length);
+    {
+      heading: t("relatedServices"),
+      items: (guide.relatedServices ?? [])
+        .filter((s) => s.slug)
+        .map((s) => ({
+          label: s.label,
+          href: {
+            pathname: "/services/[service]" as const,
+            params: { service: s.slug! },
+          },
+        })),
+    },
+    {
+      heading: t("relatedArticles"),
+      items: (guide.relatedArticles ?? [])
+        .filter((a) => a.slug)
+        .map((a) => ({
+          label: stripAccentTokens(a.label ?? ""),
+          href: {
+            pathname: "/journal/[slug]" as const,
+            params: { slug: a.slug! },
+          },
+        })),
+    },
+  ].filter((g) => g.items.length);
 
   return (
     <section className="bg-ivory px-6 py-[120px] md:px-14">

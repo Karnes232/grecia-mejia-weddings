@@ -63,6 +63,13 @@ export const VENUE_MOSAIC_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   (_, i) => ({ title: `Gallery ${i + 1}`, value: `venue-mosaic-${i + 1}` }),
 );
 
+// Extra mosaic slots — stored on venueMedia but NOT rendered by the hero gallery
+// (which only uses venue-mosaic-1..5). For overflow / future galleries.
+export const VENUE_MOSAIC_EXTRA_KEY_OPTIONS: ImageKeyOption[] = Array.from(
+  { length: 10 },
+  (_, i) => ({ title: `Extra ${i + 1}`, value: `venue-mosaic-extra-${i + 1}` }),
+);
+
 export const VENUE_PHOTO_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   { length: 4 },
   (_, i) => ({ title: `Moment ${i + 1}`, value: `venue-photo-${i + 1}` }),

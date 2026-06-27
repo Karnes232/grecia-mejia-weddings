@@ -161,12 +161,13 @@
     "all": "Todas",
     "guests": "invitados",
     "readBrief": "Leer la ficha",
-    "subRegions": "Subregiones",
-    "related": "Relacionado",
     "caseStudy": "Caso",
     "otherVenues": "Otras sedes",
     "compatibleTraditions": "Tradiciones compatibles",
-    "relatedDestinations": "Destinos relacionados"
+    "relatedDestinations": "Destinos relacionados",
+    "relatedServices": "Servicios relacionados",
+    "relatedArticles": "Artículos relacionados",
+    "viewFullGallery": "Ver la galería completa"
   },
   "journalPage": {
     "browse": "Explorar",

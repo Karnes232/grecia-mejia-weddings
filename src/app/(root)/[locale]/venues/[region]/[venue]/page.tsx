@@ -113,7 +113,7 @@ export default async function VenuePage({ params }: VenuePageProps) {
       <SetRouteParamsTranslations map={localizedParams} />
       {ld ? <JsonLd data={ld} /> : null}
 
-      <VenueGallery gallery={doc.header?.gallery} images={media?.mosaic} />
+      <VenueGallery images={media?.mosaic} />
 
       {doc.header?.headline ? <VenueHeader header={doc.header} /> : null}
 

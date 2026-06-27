@@ -161,12 +161,13 @@
     "all": "Alle",
     "guests": "Gäste",
     "readBrief": "Das Briefing lesen",
-    "subRegions": "Teilregionen",
-    "related": "Verwandtes",
     "caseStudy": "Fallstudie",
     "otherVenues": "Weitere Locations",
     "compatibleTraditions": "Kompatible Traditionen",
-    "relatedDestinations": "Verwandte Reiseziele"
+    "relatedDestinations": "Verwandte Reiseziele",
+    "relatedServices": "Verwandte Leistungen",
+    "relatedArticles": "Verwandte Artikel",
+    "viewFullGallery": "Galerie ansehen"
   },
   "journalPage": {
     "browse": "Durchsuchen",

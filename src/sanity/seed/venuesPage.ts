@@ -45,6 +45,9 @@ const ptBlocks = (paragraphs: string[]) =>
 
 // ── Locale-invariant slots ──────────────────────────────────────────────────
 const STAT_VALUES = ["52", "12", "240+", "14"] as const;
+// Parallel to STAT_VALUES: the first two stats pull live counts from the
+// venue / venueRegion docs; the rest keep their typed value.
+const STAT_SOURCES = ["venues", "regions", "manual", "manual"] as const;
 
 // ── Per-locale copy ─────────────────────────────────────────────────────────
 type Copy = {
@@ -91,7 +94,7 @@ const COPY: Record<Locale, Copy> = {
         "The register is grouped two ways: by typology (private estate, beach club, palazzo, vineyard…) and by region. Click any region below to see the venues we hold there.",
       ],
       statLabels: [
-        "Selected houses",
+        "Selected venues",
         "Regions",
         "Weddings here",
         "Years working them",
@@ -132,7 +135,7 @@ const COPY: Record<Locale, Copy> = {
         "El registro se agrupa de dos formas: por tipología (finca privada, club de playa, palazzo, viñedo…) y por región. Haga clic en cualquier región para ver las sedes que tenemos allí.",
       ],
       statLabels: [
-        "Casas seleccionadas",
+        "Lugares seleccionados",
         "Regiones",
         "Bodas aquí",
         "Años trabajándolas",
@@ -173,7 +176,7 @@ const COPY: Record<Locale, Copy> = {
         "Le registre est classé de deux façons : par typologie (domaine privé, beach club, palazzo, vignoble…) et par région. Cliquez sur une région ci-dessous pour voir les lieux que nous y tenons.",
       ],
       statLabels: [
-        "Maisons sélectionnées",
+        "Lieux sélectionnés",
         "Régions",
         "Mariages ici",
         "Années à les travailler",
@@ -214,7 +217,7 @@ const COPY: Record<Locale, Copy> = {
         "O registo está agrupado de duas formas: por tipologia (propriedade privada, clube de praia, palazzo, vinha…) e por região. Clique em qualquer região abaixo para ver os locais que temos ali.",
       ],
       statLabels: [
-        "Casas selecionadas",
+        "Locais selecionados",
         "Regiões",
         "Casamentos aqui",
         "Anos a trabalhá-las",
@@ -255,7 +258,7 @@ const COPY: Record<Locale, Copy> = {
         "Das Register ist auf zwei Arten gegliedert: nach Typologie (Privatanwesen, Beach Club, Palazzo, Weingut…) und nach Region. Klicken Sie auf eine Region, um die Orte zu sehen, die wir dort führen.",
       ],
       statLabels: [
-        "Ausgewählte Häuser",
+        "Ausgewählte Locations",
         "Regionen",
         "Hochzeiten hier",
         "Jahre der Arbeit daran",
@@ -296,7 +299,7 @@ const COPY: Record<Locale, Copy> = {
         "Il registro è raggruppato in due modi: per tipologia (tenuta privata, beach club, palazzo, vigneto…) e per regione. Clicca su una regione qui sotto per vedere le sedi che vi teniamo.",
       ],
       statLabels: [
-        "Case selezionate",
+        "Location selezionate",
         "Regioni",
         "Matrimoni qui",
         "Anni a lavorarle",
@@ -328,9 +331,14 @@ function buildDoc(locale: Locale) {
       headline: c.intro.headline,
       lede: c.intro.lede,
       body: ptBlocks(c.intro.body),
-      stats: STAT_VALUES.map((value, i) =>
-        keyed({ value, label: c.intro.statLabels[i] }),
-      ),
+      stats: STAT_VALUES.map((value, i) => {
+        const source = STAT_SOURCES[i];
+        return keyed({
+          source,
+          ...(source === "manual" ? { value } : {}),
+          label: c.intro.statLabels[i],
+        });
+      }),
     },
     regions: {
       eyebrow: c.regions.eyebrow,

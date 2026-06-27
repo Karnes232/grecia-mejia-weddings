@@ -2,20 +2,34 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { apiVersion } from "../../env";
 
-// A `{label, href}` sidebar-link array (region-guide sidebar lists).
-const sidebarLinkArray = (name: string, title: string) =>
+// Reference filter — same-language docs only (mirrors service/venue).
+const sameLanguageFilter = (context: { document?: unknown }) => {
+  const language = (context.document as { language?: string } | undefined)
+    ?.language;
+  return language
+    ? { filter: "language == $language", params: { language } }
+    : { filter: "true" };
+};
+
+// A sidebar list of references to another doc type (same language). Label +
+// link come from each referenced doc.
+const refArray = (
+  name: string,
+  title: string,
+  type: string,
+  description: string,
+) =>
   defineField({
     name,
     title,
     type: "array",
+    description,
     of: [
       defineArrayMember({
-        type: "object",
-        fields: [
-          { name: "label", title: "Label", type: "string" },
-          { name: "href", title: "Href", type: "string" },
-        ],
-        preview: { select: { title: "label" } },
+        type: "reference",
+        to: [{ type }],
+        weak: true,
+        options: { disableNew: true, filter: sameLanguageFilter },
       }),
     ],
   });
@@ -216,8 +230,18 @@ export const venueRegion = defineType({
             }),
           ],
         }),
-        sidebarLinkArray("subRegions", "Sidebar · sub-regions"),
-        sidebarLinkArray("related", "Sidebar · related links"),
+        refArray(
+          "relatedServices",
+          "Sidebar · related services",
+          "service",
+          "Reference services (same language). Label + link come from each service.",
+        ),
+        refArray(
+          "relatedArticles",
+          "Sidebar · related articles",
+          "article",
+          "Reference journal articles (same language). Label + link come from each article.",
+        ),
       ],
     }),
 

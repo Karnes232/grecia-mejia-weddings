@@ -24,8 +24,8 @@ export const venueRegionQuery = groq`
     hero,
     guide{
       sideLabel, headline, body,
-      subRegions[]{ label, href },
-      related[]{ label, href }
+      "relatedServices": relatedServices[defined(@->_id)]->{ "label": name, "slug": slug.current },
+      "relatedArticles": relatedArticles[defined(@->_id)]->{ "label": title, "slug": slug.current }
     },
     venuesHeadline{ eyebrow, headline },
     venues[defined(@->_id)]->{
@@ -57,8 +57,6 @@ export const venueRegionParamsQuery = groq`
   }
 `;
 
-type LabelHref = { label?: string; href?: string };
-
 export type VenueRegion = {
   name?: string;
   slug?: string;
@@ -75,8 +73,8 @@ export type VenueRegion = {
     sideLabel?: string;
     headline?: string;
     body?: PortableTextBlock[];
-    subRegions?: LabelHref[];
-    related?: LabelHref[];
+    relatedServices?: Array<{ label?: string; slug?: string }>;
+    relatedArticles?: Array<{ label?: string; slug?: string }>;
   };
   venuesHeadline?: { eyebrow?: string; headline?: string };
   venues?: Array<{

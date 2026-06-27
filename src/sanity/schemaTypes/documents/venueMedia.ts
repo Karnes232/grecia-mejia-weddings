@@ -2,6 +2,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 import {
   VENUE_DETAIL_RELATED_KEY_OPTIONS,
+  VENUE_MOSAIC_EXTRA_KEY_OPTIONS,
   VENUE_MOSAIC_KEY_OPTIONS,
   VENUE_PHOTO_KEY_OPTIONS,
   VENUE_PORTFOLIO_KEY_OPTIONS,
@@ -84,8 +85,8 @@ export const venueMedia = defineType({
     keyedImageArray(
       "mosaic",
       "Gallery mosaic images",
-      VENUE_MOSAIC_KEY_OPTIONS,
-      "Up to five images for the gallery-mosaic hero.",
+      [...VENUE_MOSAIC_KEY_OPTIONS, ...VENUE_MOSAIC_EXTRA_KEY_OPTIONS],
+      "Gallery 1–5 show on the hero mosaic; Extra images are stored on the venue only (not displayed).",
     ),
     keyedImageArray(
       "photography",
@@ -93,18 +94,18 @@ export const venueMedia = defineType({
       VENUE_PHOTO_KEY_OPTIONS,
       "One per photography moment.",
     ),
-    keyedImageArray(
-      "portfolio",
-      "Portfolio images",
-      VENUE_PORTFOLIO_KEY_OPTIONS,
-      "One per portfolio case-study card.",
-    ),
-    keyedImageArray(
-      "relatedArticles",
-      "Related-article images",
-      VENUE_DETAIL_RELATED_KEY_OPTIONS,
-      "One per related article.",
-    ),
+    // keyedImageArray(
+    //   "portfolio",
+    //   "Portfolio images",
+    //   VENUE_PORTFOLIO_KEY_OPTIONS,
+    //   "One per portfolio case-study card.",
+    // ),
+    // keyedImageArray(
+    //   "relatedArticles",
+    //   "Related-article images",
+    //   VENUE_DETAIL_RELATED_KEY_OPTIONS,
+    //   "One per related article.",
+    // ),
   ],
   preview: {
     select: { title: "slug", media: "cardImage" },
