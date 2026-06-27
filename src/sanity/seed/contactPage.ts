@@ -45,19 +45,6 @@ const keyed = <T extends object>(value: T) => ({
 // ── Locale-invariant constants ───────────────────────────────────────────
 const STEP_NUMBERS = ["01", "02", "03", "04"] as const;
 
-const CONTACT = {
-  email: {
-    value: "hello@greciamejia.com",
-    href: "mailto:hello@greciamejia.com",
-  },
-  telephone: { value: "+1 829 000 0000", href: "tel:+18290000000" },
-  whatsapp: { value: "+1 829 000 0000", href: "https://wa.me/18290000000" },
-  instagram: {
-    value: "@greciamejiaweddings",
-    href: "https://instagram.com/greciamejiaweddings",
-  },
-} as const;
-
 const STUDIOS = {
   inResidence: "Cap Cana · Punta Cana\nDominican Republic",
   mediterranean: "Brera · Milan, Italy",
@@ -742,27 +729,12 @@ function buildDoc(locale: Locale) {
         keyed({
           variant: "rows",
           heading: c.rail.reachHeading,
+          // Values + links come from Site Settings → Contact (via row `key`).
           rows: [
-            keyed({
-              label: c.rail.reachLabels.email,
-              value: CONTACT.email.value,
-              href: CONTACT.email.href,
-            }),
-            keyed({
-              label: c.rail.reachLabels.telephone,
-              value: CONTACT.telephone.value,
-              href: CONTACT.telephone.href,
-            }),
-            keyed({
-              label: c.rail.reachLabels.whatsapp,
-              value: CONTACT.whatsapp.value,
-              href: CONTACT.whatsapp.href,
-            }),
-            keyed({
-              label: c.rail.reachLabels.instagram,
-              value: CONTACT.instagram.value,
-              href: CONTACT.instagram.href,
-            }),
+            keyed({ label: c.rail.reachLabels.email, key: "email" }),
+            keyed({ label: c.rail.reachLabels.telephone, key: "phone" }),
+            keyed({ label: c.rail.reachLabels.whatsapp, key: "whatsapp" }),
+            keyed({ label: c.rail.reachLabels.instagram, key: "instagram" }),
           ],
         }),
         keyed({

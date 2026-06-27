@@ -29,7 +29,7 @@ export const contactPageQuery = groq`
         script,
         heading,
         body,
-        rows[]{ label, value, href }
+        rows[]{ key, label, value, href }
       }
     },
     process{
@@ -67,7 +67,12 @@ export type ContactRailCard = {
   script?: string;
   heading?: string;
   body?: string;
-  rows?: Array<{ label?: string; value?: string; href?: string }>;
+  rows?: Array<{
+    key?: string;
+    label?: string;
+    value?: string;
+    href?: string;
+  }>;
 };
 
 export type ContactPage = {

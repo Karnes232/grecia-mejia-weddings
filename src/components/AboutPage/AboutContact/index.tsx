@@ -1,4 +1,8 @@
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
+import {
+  type SiteContactKey,
+  siteContactRow,
+} from "@/lib/siteContact";
 import type { AboutPage } from "@/sanity/queries/about";
 import type { SiteSettings } from "@/sanity/queries/layout";
 
@@ -17,39 +21,10 @@ function buildRows(
   labels: NonNullable<AboutPage["contact"]>["labels"],
   contact: SiteSettings["contact"],
 ): Row[] {
-  if (!contact) return [];
-  const rows: Row[] = [];
-
-  if (contact.email) {
-    rows.push({
-      label: labels?.email,
-      value: contact.email,
-      href: `mailto:${contact.email}`,
-    });
-  }
-  if (contact.phone) {
-    rows.push({
-      label: labels?.phone,
-      value: contact.phone,
-      href: `tel:${contact.phone.replace(/[^+\d]/g, "")}`,
-    });
-  }
-  if (contact.whatsappUrl) {
-    rows.push({
-      label: labels?.whatsapp,
-      value: contact.phone,
-      href: contact.whatsappUrl,
-    });
-  }
-  if (contact.instagramUrl) {
-    const handle = contact.instagramUrl.replace(/\/+$/, "").split("/").pop();
-    rows.push({
-      label: labels?.instagram,
-      value: handle ? `@${handle}` : undefined,
-      href: contact.instagramUrl,
-    });
-  }
-  return rows;
+  const keys: SiteContactKey[] = ["email", "phone", "whatsapp", "instagram"];
+  return keys
+    .map((key) => ({ label: labels?.[key], ...siteContactRow(key, contact) }))
+    .filter((row) => row.value);
 }
 
 export function AboutContact({ contact, siteContact }: AboutContactProps) {

@@ -183,19 +183,26 @@ export const contactPage = defineType({
                           validation: (r) => r.required(),
                         },
                         {
+                          name: "key",
+                          title: "Site-Settings field (optional)",
+                          type: "string",
+                          description:
+                            "Set to pull this row's value + link from Site Settings → Contact. Leave blank to type a value below.",
+                          options: {
+                            list: [
+                              { title: "Email", value: "email" },
+                              { title: "Phone", value: "phone" },
+                              { title: "WhatsApp", value: "whatsapp" },
+                              { title: "Instagram", value: "instagram" },
+                            ],
+                          },
+                        },
+                        {
                           name: "value",
                           title: "Value",
                           type: "string",
                           description:
-                            "Use a line break with Shift+Enter for two lines.",
-                          validation: (r) => r.required(),
-                        },
-                        {
-                          name: "href",
-                          title: "Href (optional)",
-                          type: "string",
-                          description:
-                            "e.g. mailto:… or tel:… — leave empty for plain text.",
+                            "Used when no Site-Settings field is chosen. Shift+Enter for two lines.",
                         },
                       ],
                       preview: {

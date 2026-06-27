@@ -13,6 +13,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { parseStructuredData } from "@/lib/seo/structuredData";
 import { urlFor } from "@/sanity/lib/image";
 import { getContactPage, getContactPageMedia } from "@/sanity/queries/contact";
+import { getSiteSettings } from "@/sanity/queries/layout";
 
 type ContactPageProps = {
   params: Promise<{ locale: string }>;
@@ -64,9 +65,10 @@ export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [page, media] = await Promise.all([
+  const [page, media, siteSettings] = await Promise.all([
     getContactPage(locale),
     getContactPageMedia(),
+    getSiteSettings(locale),
   ]);
 
   const ld = parseStructuredData(page?.seo?.structuredData);
@@ -81,7 +83,11 @@ export default async function ContactPage({ params }: ContactPageProps) {
         <ContactHero hero={page.hero} image={media?.hero?.image} />
       ) : null}
 
-      <ContactMain form={page?.form} rail={page?.rail} />
+      <ContactMain
+        form={page?.form}
+        rail={page?.rail}
+        siteContact={siteSettings?.contact}
+      />
 
       {page?.process?.headline || page?.process?.steps?.length ? (
         <ContactProcess process={page.process} />
