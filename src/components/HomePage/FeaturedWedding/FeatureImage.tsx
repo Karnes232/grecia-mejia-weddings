@@ -1,10 +1,12 @@
 import Image from "next/image";
 
 import { urlFor } from "@/sanity/lib/image";
-import type { HomePageMedia } from "@/sanity/queries/home";
+import type { HomePage } from "@/sanity/queries/home";
 
 type FeatureImageProps = {
-  image: NonNullable<HomePageMedia["featuredWedding"]>["image"];
+  image: NonNullable<
+    NonNullable<HomePage["featuredWedding"]>["caseStudy"]
+  >["image"];
   subjectCaption?: string;
   metaCaption?: string;
   alt?: string;

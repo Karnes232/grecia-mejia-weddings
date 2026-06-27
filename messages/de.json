@@ -11,6 +11,13 @@
   "homePage": {
     "traditions": {
       "discover": "Entdecken →"
+    },
+    "featuredWedding": {
+      "eyebrow": "Ausgewählte Hochzeit",
+      "guests": "Gäste",
+      "duration": "Dauer",
+      "season": "Saison",
+      "readCaseStudy": "Fallstudie lesen"
     }
   },
   "destinationsPage": {

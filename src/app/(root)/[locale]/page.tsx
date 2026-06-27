@@ -92,11 +92,8 @@ export default async function HomePage({ params }: HomePageProps) {
         <WhereWeWork data={home.whereWeWork} />
       ) : null}
 
-      {home?.featuredWedding?.headline ? (
-        <FeaturedWedding
-          data={home.featuredWedding}
-          image={media?.featuredWedding}
-        />
+      {home?.featuredWedding?.caseStudy ? (
+        <FeaturedWedding data={home.featuredWedding} />
       ) : null}
 
       {home?.traditions?.headline ? (

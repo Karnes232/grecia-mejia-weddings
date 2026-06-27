@@ -1,10 +1,12 @@
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 import { Link } from "@/i18n/navigation";
 
 type CTAButtonProps = {
-  href: string;
+  // Accept a free-text string (editor-authored hrefs) or an object-form,
+  // locale-aware Href (typed routes).
+  href: string | ComponentProps<typeof Link>["href"];
   children: ReactNode;
   variant?: "ghost" | "primary";
   tone?: "olive" | "ivory";
@@ -25,6 +27,8 @@ export function CTAButton({
 }: CTAButtonProps) {
   return (
     <Link
+      // Cast covers the string branch (typed routes don't accept arbitrary
+      // strings); object-form hrefs pass through localized.
       href={href as never}
       className={clsx(
         "inline-block border px-7 py-3.5 text-[10px] uppercase tracking-wide-eyebrow no-underline transition-colors duration-300",

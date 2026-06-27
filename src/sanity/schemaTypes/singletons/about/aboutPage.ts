@@ -480,11 +480,24 @@ export const aboutPage = defineType({
           ],
         }),
         defineField({
+          name: "labels",
+          title: "Contact-row labels",
+          type: "object",
+          description:
+            "Labels for the Email / Phone / WhatsApp / Instagram rows — their values + links come from Site Settings → Contact.",
+          fields: [
+            { name: "email", title: "Email label", type: "string" },
+            { name: "phone", title: "Phone label", type: "string" },
+            { name: "whatsapp", title: "WhatsApp label", type: "string" },
+            { name: "instagram", title: "Instagram label", type: "string" },
+          ],
+        }),
+        defineField({
           name: "details",
-          title: "Contact details",
+          title: "Extra contact rows",
           type: "array",
           description:
-            "Label / value rows (Email, Phone, WhatsApp, Instagram…).",
+            "Additional editorial rows shown after the Site-Settings contact rows (e.g. Studios, Calendar).",
           of: [
             defineArrayMember({
               type: "object",
@@ -505,8 +518,6 @@ export const aboutPage = defineType({
                   name: "href",
                   title: "Href (optional)",
                   type: "string",
-                  description:
-                    "e.g. mailto:… or tel:… — leave empty for plain text.",
                 },
               ],
               preview: { select: { title: "label", subtitle: "value" } },

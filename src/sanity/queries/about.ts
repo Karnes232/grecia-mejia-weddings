@@ -62,6 +62,7 @@ export const aboutPageQuery = groq`
       headline,
       body,
       cta{ label, href },
+      labels{ email, phone, whatsapp, instagram },
       details[]{ label, value, href }
     },
     ${SEO_PROJECTION}
@@ -160,6 +161,12 @@ export type AboutPage = {
     headline?: string;
     body?: string;
     cta?: { label?: string; href?: string };
+    labels?: {
+      email?: string;
+      phone?: string;
+      whatsapp?: string;
+      instagram?: string;
+    };
     details?: Array<{ label?: string; value?: string; href?: string }>;
   };
   seo?: SeoFields;

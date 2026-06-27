@@ -197,7 +197,8 @@ export const homePage = defineType({
     }),
 
     // ── Featured wedding ──────────────────────────────────────────────────
-    // Image is shared across locales — see `homePageMedia.featuredWedding.image`.
+    // The whole section comes from the referenced case study (couple, captions,
+    // body, facts, quote, image and link).
     defineField({
       name: "featuredWedding",
       title: "Featured wedding",
@@ -205,51 +206,32 @@ export const homePage = defineType({
       group: "featuredWedding",
       options: { collapsible: true, collapsed: true },
       fields: [
-        defineField({
-          name: "headline",
-          title: "Headline",
+        {
+          name: "eyebrow",
+          title: "Section eyebrow (optional)",
           type: "string",
           description:
-            "Use *word* for italic-color accents, ~word~ for Pinyon Script accents (e.g. ~Sara~ & Adam.).",
-        }),
-        {
-          name: "subjectCaption",
-          title: "Subject caption (under image · left)",
-          type: "string",
-          description: 'e.g. "Sara & Adam · Cap Cana".',
-        },
-        {
-          name: "metaCaption",
-          title: "Meta caption (under image · right)",
-          type: "string",
-          description: 'e.g. "Three days · 312 guests".',
+            'Small-caps label above the headline. Leave blank for the default ("Featured wedding").',
         },
         defineField({
-          name: "body",
-          title: "Body",
-          type: "array",
-          of: [defineArrayMember({ type: "block" })],
+          name: "caseStudy",
+          title: "Case study",
+          type: "reference",
+          to: [{ type: "portfolio" }],
+          weak: true,
+          description:
+            "The section's content, image and link all come from this case study (same language).",
+          options: {
+            disableNew: true,
+            filter: ({ document }) =>
+              document?.language
+                ? {
+                    filter: "language == $language",
+                    params: { language: document.language },
+                  }
+                : { filter: "true" },
+          },
         }),
-        defineField({
-          name: "facts",
-          title: "Facts table",
-          type: "array",
-          of: [
-            defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "label", title: "Label", type: "string" },
-                { name: "value", title: "Value", type: "string" },
-              ],
-              preview: {
-                select: { title: "label", subtitle: "value" },
-              },
-            }),
-          ],
-        }),
-        { name: "quote", title: "Pull quote", type: "text", rows: 3 },
-        { name: "linkLabel", title: "Link label", type: "string" },
-        { name: "linkHref", title: "Link href", type: "string" },
       ],
     }),
 

@@ -11,6 +11,13 @@
   "homePage": {
     "traditions": {
       "discover": "Découvrir →"
+    },
+    "featuredWedding": {
+      "eyebrow": "Mariage à l'honneur",
+      "guests": "Invités",
+      "duration": "Durée",
+      "season": "Saison",
+      "readCaseStudy": "Lire l'étude de cas"
     }
   },
   "destinationsPage": {

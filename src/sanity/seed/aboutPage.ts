@@ -96,19 +96,6 @@ const AWARD_META = [
   { year: "2018", publication: "Vogue Weddings Italy" },
 ] as const;
 
-const CONTACT_VALUES = {
-  email: {
-    value: "hello@greciamejia.com",
-    href: "mailto:hello@greciamejia.com",
-  },
-  phone: { value: "+1 829 000 0000", href: "tel:+18290000000" },
-  whatsapp: { value: "+1 829 000 0000", href: "https://wa.me/18290000000" },
-  instagram: {
-    value: "@greciamejiaweddings",
-    href: "https://instagram.com/greciamejiaweddings",
-  },
-} as const;
-
 // ── Hero ───────────────────────────────────────────────────────────────
 type HeroCopy = {
   eyebrow: string;
@@ -1615,27 +1602,16 @@ function buildDoc(locale: Locale) {
       headline: contact.headline,
       body: contact.body,
       cta: { label: contact.cta, href: "/contact" },
+      // Email / Phone / WhatsApp / Instagram values now come from Site Settings;
+      // the About page only holds their (localized) labels.
+      labels: {
+        email: contact.labels.email,
+        phone: contact.labels.phone,
+        whatsapp: contact.labels.whatsapp,
+        instagram: contact.labels.instagram,
+      },
+      // Editorial rows beyond the global contact info.
       details: [
-        keyed({
-          label: contact.labels.email,
-          value: CONTACT_VALUES.email.value,
-          href: CONTACT_VALUES.email.href,
-        }),
-        keyed({
-          label: contact.labels.phone,
-          value: CONTACT_VALUES.phone.value,
-          href: CONTACT_VALUES.phone.href,
-        }),
-        keyed({
-          label: contact.labels.whatsapp,
-          value: CONTACT_VALUES.whatsapp.value,
-          href: CONTACT_VALUES.whatsapp.href,
-        }),
-        keyed({
-          label: contact.labels.instagram,
-          value: CONTACT_VALUES.instagram.value,
-          href: CONTACT_VALUES.instagram.href,
-        }),
         keyed({ label: contact.labels.studios, value: contact.studios }),
         keyed({ label: contact.labels.calendar, value: contact.calendar }),
       ],

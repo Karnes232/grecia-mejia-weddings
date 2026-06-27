@@ -17,6 +17,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { parseStructuredData } from "@/lib/seo/structuredData";
 import { urlFor } from "@/sanity/lib/image";
 import { getAboutPage, getAboutPageMedia } from "@/sanity/queries/about";
+import { getSiteSettings } from "@/sanity/queries/layout";
 
 type AboutPageProps = {
   params: Promise<{ locale: string }>;
@@ -51,9 +52,10 @@ export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [page, media] = await Promise.all([
+  const [page, media, siteSettings] = await Promise.all([
     getAboutPage(locale),
     getAboutPageMedia(),
+    getSiteSettings(locale),
   ]);
 
   const hero = page?.hero;
@@ -91,7 +93,12 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
       {page?.press?.headline ? <AboutPress press={page.press} /> : null}
 
-      {page?.contact?.headline ? <AboutContact contact={page.contact} /> : null}
+      {page?.contact?.headline ? (
+        <AboutContact
+          contact={page.contact}
+          siteContact={siteSettings?.contact}
+        />
+      ) : null}
     </>
   );
 }

@@ -1,7 +1,5 @@
-import type { AboutPage } from "@/sanity/queries/about";
-
 type ContactDetailsProps = {
-  details?: NonNullable<AboutPage["contact"]>["details"];
+  details?: Array<{ label?: string; value?: string; href?: string }>;
 };
 
 export function ContactDetails({ details }: ContactDetailsProps) {

@@ -35,14 +35,20 @@ export const homePageQuery = groq`
       }
     },
     featuredWedding{
-      headline,
-      subjectCaption,
-      metaCaption,
-      body,
-      facts[]{ label, value },
-      quote,
-      linkLabel,
-      linkHref
+      eyebrow,
+      "caseStudy": caseStudy->{
+        "name": name,
+        "slug": slug.current,
+        cardMeta,
+        cardBlurb,
+        "quote": quote.quote,
+        "cite": quote.cite,
+        guests,
+        duration,
+        season,
+        "destination": destination->name,
+        "image": media->heroImage{ ..., alt }
+      }
     },
     traditions{
       eyebrow,
@@ -136,14 +142,20 @@ export type HomePage = {
     }>;
   };
   featuredWedding?: {
-    headline?: string;
-    subjectCaption?: string;
-    metaCaption?: string;
-    body?: PortableTextBlock[];
-    facts?: Array<{ label?: string; value?: string }>;
-    quote?: string;
-    linkLabel?: string;
-    linkHref?: string;
+    eyebrow?: string;
+    caseStudy?: {
+      name?: string;
+      slug?: string;
+      cardMeta?: string;
+      cardBlurb?: string;
+      quote?: string;
+      cite?: string;
+      guests?: string;
+      duration?: string;
+      season?: string;
+      destination?: string;
+      image?: SanityImage;
+    } | null;
   };
   traditions?: {
     eyebrow?: string;

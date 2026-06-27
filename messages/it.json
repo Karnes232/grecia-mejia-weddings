@@ -11,6 +11,13 @@
   "homePage": {
     "traditions": {
       "discover": "Scoprire →"
+    },
+    "featuredWedding": {
+      "eyebrow": "Matrimonio in evidenza",
+      "guests": "Invitati",
+      "duration": "Durata",
+      "season": "Stagione",
+      "readCaseStudy": "Leggi il caso studio"
     }
   },
   "destinationsPage": {

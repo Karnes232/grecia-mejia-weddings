@@ -272,130 +272,6 @@ const DESTINATION_TAGLINES: Record<Locale, Record<DestinationSlug, string>> = {
   },
 };
 
-const FEATURED: Record<
-  Locale,
-  {
-    headline: string;
-    subjectCaption: string;
-    metaCaption: string;
-    paragraphs: string[];
-    quote: string;
-    linkLabel: string;
-  }
-> = {
-  en: {
-    headline: "~Sara~ & Adam.",
-    subjectCaption: "Sara & Adam · Cap Cana",
-    metaCaption: "Three days · 312 guests",
-    paragraphs: [
-      "A three-day Hindu-Christian celebration on the Dominican coast — four ceremonies, two cultures, one steady thread.",
-      "I had booked a year and four months, three languages held in the morning fire, the bride’s grandfather two paces behind the mandap. The groom’s mother served her own moros to the people who held it impossible.",
-    ],
-    quote:
-      "We held a wedding in three languages and made it feel like one prayer.",
-    linkLabel: "View the story",
-  },
-  es: {
-    headline: "~Sara~ y Adam.",
-    subjectCaption: "Sara y Adam · Cap Cana",
-    metaCaption: "Tres días · 312 invitados",
-    paragraphs: [
-      "Una celebración hindú-cristiana de tres días en la costa dominicana — cuatro ceremonias, dos culturas, un mismo hilo sostenido.",
-      "Reservada con un año y cuatro meses de anticipación, tres idiomas sostenidos junto al fuego de la mañana; el abuelo de la novia dos pasos detrás del mandap. La madre del novio sirvió su propio moros a quienes lo creían imposible.",
-    ],
-    quote:
-      "Sostuvimos una boda en tres idiomas y se sintió como una sola oración.",
-    linkLabel: "Ver la historia",
-  },
-  fr: {
-    headline: "~Sara~ & Adam.",
-    subjectCaption: "Sara & Adam · Cap Cana",
-    metaCaption: "Trois jours · 312 invités",
-    paragraphs: [
-      "Une célébration hindoue-chrétienne de trois jours sur la côte dominicaine — quatre cérémonies, deux cultures, un même fil tenu.",
-      "Réservée un an et quatre mois à l’avance, trois langues portées dans le feu du matin ; le grand-père de la mariée à deux pas derrière le mandap. La mère du marié a servi son propre moros à ceux qui le pensaient impossible.",
-    ],
-    quote:
-      "Nous avons tenu un mariage en trois langues et il a sonné comme une seule prière.",
-    linkLabel: "Voir l’histoire",
-  },
-  pt: {
-    headline: "~Sara~ e Adam.",
-    subjectCaption: "Sara e Adam · Cap Cana",
-    metaCaption: "Três dias · 312 convidados",
-    paragraphs: [
-      "Uma celebração hindu-cristã de três dias na costa dominicana — quatro cerimônias, duas culturas, um mesmo fio.",
-      "Reservada com um ano e quatro meses de antecedência, três línguas sustentadas no fogo da manhã; o avô da noiva dois passos atrás do mandap. A mãe do noivo serviu seu próprio moros a quem o julgava impossível.",
-    ],
-    quote:
-      "Sustentamos um casamento em três línguas e ele soou como uma única oração.",
-    linkLabel: "Ver a história",
-  },
-  de: {
-    headline: "~Sara~ & Adam.",
-    subjectCaption: "Sara & Adam · Cap Cana",
-    metaCaption: "Drei Tage · 312 Gäste",
-    paragraphs: [
-      "Eine dreitägige hindu-christliche Feier an der dominikanischen Küste — vier Zeremonien, zwei Kulturen, ein zusammenhaltender Faden.",
-      "Ein Jahr und vier Monate im Voraus gebucht, drei Sprachen im Morgenfeuer getragen; der Großvater der Braut zwei Schritte hinter dem Mandap. Die Mutter des Bräutigams servierte ihren eigenen Moros denen, die es für unmöglich hielten.",
-    ],
-    quote:
-      "Wir hielten eine Hochzeit in drei Sprachen und sie klang wie ein einziges Gebet.",
-    linkLabel: "Die Geschichte ansehen",
-  },
-  it: {
-    headline: "~Sara~ e Adam.",
-    subjectCaption: "Sara e Adam · Cap Cana",
-    metaCaption: "Tre giorni · 312 ospiti",
-    paragraphs: [
-      "Una celebrazione indù-cristiana di tre giorni sulla costa dominicana — quattro cerimonie, due culture, un solo filo tenuto.",
-      "Prenotata con un anno e quattro mesi di anticipo, tre lingue sostenute nel fuoco del mattino; il nonno della sposa due passi dietro il mandap. La madre dello sposo ha servito il proprio moros a chi lo riteneva impossibile.",
-    ],
-    quote:
-      "Abbiamo tenuto un matrimonio in tre lingue e ha avuto il suono di una sola preghiera.",
-    linkLabel: "Vedi la storia",
-  },
-};
-
-const FACTS: Record<Locale, Array<{ label: string; value: string }>> = {
-  en: [
-    { label: "Location", value: "Cap Cana, Dominican Republic" },
-    { label: "Heritage", value: "Dominican · Mexican" },
-    { label: "Ceremonies", value: "Four · Sangeet to vow" },
-    { label: "Languages", value: "Three · EN · ES · HI" },
-  ],
-  es: [
-    { label: "Ubicación", value: "Cap Cana, República Dominicana" },
-    { label: "Herencia", value: "Dominicana · Mexicana" },
-    { label: "Ceremonias", value: "Cuatro · de Sangeet a votos" },
-    { label: "Idiomas", value: "Tres · EN · ES · HI" },
-  ],
-  fr: [
-    { label: "Lieu", value: "Cap Cana, République dominicaine" },
-    { label: "Héritage", value: "Dominicain · Mexicain" },
-    { label: "Cérémonies", value: "Quatre · du Sangeet aux vœux" },
-    { label: "Langues", value: "Trois · EN · ES · HI" },
-  ],
-  pt: [
-    { label: "Local", value: "Cap Cana, República Dominicana" },
-    { label: "Herança", value: "Dominicana · Mexicana" },
-    { label: "Cerimônias", value: "Quatro · do Sangeet aos votos" },
-    { label: "Idiomas", value: "Três · EN · ES · HI" },
-  ],
-  de: [
-    { label: "Ort", value: "Cap Cana, Dominikanische Republik" },
-    { label: "Erbe", value: "Dominikanisch · Mexikanisch" },
-    { label: "Zeremonien", value: "Vier · vom Sangeet zum Gelübde" },
-    { label: "Sprachen", value: "Drei · EN · ES · HI" },
-  ],
-  it: [
-    { label: "Luogo", value: "Cap Cana, Repubblica Dominicana" },
-    { label: "Eredità", value: "Dominicana · Messicana" },
-    { label: "Cerimonie", value: "Quattro · dal Sangeet ai voti" },
-    { label: "Lingue", value: "Tre · EN · ES · HI" },
-  ],
-};
-
 const TRADITIONS_HEADLINE: Record<
   Locale,
   { eyebrow: string; headline: string; quote: string }
@@ -963,7 +839,6 @@ function buildDoc(locale: Locale) {
   const hero = HERO[locale];
   const atelier = ATELIER[locale];
   const where = WHERE_WE_WORK[locale];
-  const featured = FEATURED[locale];
   const traditionsCopy = TRADITIONS_HEADLINE[locale];
   const venuesCopy = VENUES_HEADLINE[locale];
   const recent = RECENT[locale];
@@ -1001,14 +876,12 @@ function buildDoc(locale: Locale) {
       ),
     },
     featuredWedding: {
-      headline: featured.headline,
-      subjectCaption: featured.subjectCaption,
-      metaCaption: featured.metaCaption,
-      body: featured.paragraphs.map((p) => block(p)),
-      facts: FACTS[locale].map((f) => keyed(f)),
-      quote: featured.quote,
-      linkLabel: featured.linkLabel,
-      linkHref: "/portfolio/sara-and-adam",
+      // The whole section comes from the referenced case study (same-locale doc).
+      caseStudy: {
+        _type: "reference",
+        _weak: true,
+        _ref: `portfolio-luxury-indian-wedding-punta-cana-${locale}`,
+      },
     },
     traditions: {
       eyebrow: traditionsCopy.eyebrow,
