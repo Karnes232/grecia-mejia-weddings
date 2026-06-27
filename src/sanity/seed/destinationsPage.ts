@@ -811,7 +811,6 @@ function buildDoc(locale: Locale) {
         intro: regionsCopy[slug].intro,
         destinations: DESTINATIONS_BY_REGION[slug as Region].map((d) =>
           keyed({
-            number: d.number,
             destination: {
               _type: "reference",
               _ref: `destination-${d.slug}-${locale}`,

@@ -603,7 +603,6 @@ export function buildPuntaCanaDoc(locale: Locale) {
   return {
     name: "Punta Cana",
     slug: { _type: "slug", current: "punta-cana" },
-    region: "caribbean",
     country: "Dominican Republic",
     subLocations: "Cap Cana · Casa de Campo · Bávaro",
     number: "01",

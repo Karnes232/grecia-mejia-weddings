@@ -14,7 +14,6 @@ import "react-photo-album/masonry.css";
 import { Link } from "@/i18n/navigation";
 
 export type CardPhoto = Photo & {
-  number?: string;
   name?: string;
   country?: string;
   subLocations?: string;
@@ -55,10 +54,8 @@ function renderExtras(_: unknown, { photo }: RenderImageContext<CardPhoto>) {
         className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-transparent from-45% to-[rgba(28,28,24,0.7)]"
       />
       <div className="pointer-events-none absolute inset-x-6 bottom-6 z-[2] text-ivory">
-        {photo.number || photo.country ? (
+        {photo.country ? (
           <span className="mb-1.5 block text-[10px] uppercase tracking-wide-eyebrow text-cine-sage">
-            {photo.number ? `№ ${photo.number}` : null}
-            {photo.number && photo.country ? " · " : null}
             {photo.country}
           </span>
         ) : null}

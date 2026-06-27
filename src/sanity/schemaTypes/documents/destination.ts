@@ -28,13 +28,6 @@ const TILE_OPTIONS = [
   { title: "Square · small (x3)", value: "square-sm" },
 ] as const;
 
-const REGION_OPTIONS = [
-  { title: "Caribbean", value: "caribbean" },
-  { title: "Mediterranean", value: "mediterranean" },
-  { title: "Western Europe", value: "western-europe" },
-  { title: "The Americas", value: "americas" },
-] as const;
-
 const SEASON_OPTIONS = [
   { title: "Peak", value: "peak" },
   { title: "Good (shoulder)", value: "good" },
@@ -107,14 +100,6 @@ export const destination = defineType({
           return client.fetch<boolean>(query, params);
         },
       },
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "region",
-      title: "Region",
-      type: "string",
-      group: "identity",
-      options: { list: [...REGION_OPTIONS] },
       validation: (r) => r.required(),
     }),
     defineField({

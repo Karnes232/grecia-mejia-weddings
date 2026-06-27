@@ -503,7 +503,6 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
     },
     name: fact.name,
     slug: { _type: "slug", current: fact.slug },
-    region: fact.region,
     country: fact.country,
     subLocations: fact.subLocations,
     number: fact.number,

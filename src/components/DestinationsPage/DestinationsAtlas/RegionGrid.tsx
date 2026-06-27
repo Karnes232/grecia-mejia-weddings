@@ -22,7 +22,6 @@ function toPhotos(region: Region): CardPhoto[] {
       width,
       height,
       alt: card.image?.alt ?? card.name ?? "",
-      number: card.number,
       name: card.name,
       country: card.country,
       subLocations: card.subLocations,

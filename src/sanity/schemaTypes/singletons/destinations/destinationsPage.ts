@@ -160,12 +160,6 @@ export const destinationsPage = defineType({
                 defineArrayMember({
                   type: "object",
                   fields: [
-                    {
-                      name: "number",
-                      title: "Number (display)",
-                      type: "string",
-                      description: 'e.g. "01", "02"…',
-                    },
                     defineField({
                       name: "destination",
                       title: "Destination",
@@ -189,12 +183,7 @@ export const destinationsPage = defineType({
                     select: {
                       title: "destination.country",
                       subtitle: "destination.subLocations",
-                      n: "number",
                     },
-                    prepare: ({ title, subtitle, n }) => ({
-                      title: `${n ?? ""} · ${title ?? "—"}`,
-                      subtitle: subtitle ?? "",
-                    }),
                   },
                 }),
               ],

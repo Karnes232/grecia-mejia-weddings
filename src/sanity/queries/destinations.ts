@@ -80,7 +80,6 @@ export type SanityImage = {
 };
 
 export type DestinationCardData = {
-  number?: string;
   country?: string;
   name?: string;
   subLocations?: string;

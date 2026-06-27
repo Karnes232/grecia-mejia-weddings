@@ -21,7 +21,6 @@ export const destinationQuery = groq`
     "id": _id,
     name,
     "slug": slug.current,
-    region,
     country,
     subLocations,
     number,
@@ -103,7 +102,6 @@ export type Destination = {
   id?: string;
   name?: string;
   slug?: string;
-  region?: string;
   country?: string;
   subLocations?: string;
   number?: string;

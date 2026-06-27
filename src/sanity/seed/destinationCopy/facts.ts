@@ -274,6 +274,25 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
       climateCue: "cool, dry, alpine clarity",
       hurricaneRisk: false,
     },
+    {
+      slug: "orlando",
+      region: "americas",
+      number: "23",
+      tile: "square",
+      name: "Orlando",
+      country: "United States",
+      subLocations: "Lake Nona · Bella Collina · Reunion Resort",
+      peakWindow: "October – April",
+      offWindow: "June – September",
+      guestRange: "40 – 400",
+      flightTime: "2 – 3 hrs from major hubs",
+      languages: "EN · ES",
+      currency: "USD",
+      signature:
+        "Central Florida's lakeside estates and grand resorts — a destination wedding carried with the ease of a major international hub.",
+      climateCue: "balmy, dry winters; warm, humid summers",
+      hurricaneRisk: true,
+    },
   ],
 };
 
