@@ -14,6 +14,8 @@ import { randomUUID } from "node:crypto";
 
 import type { Locale } from "../../../i18n/routing";
 
+import { WEDDING_TYPE_CULTURE_SLUGS } from "./template";
+
 const k = <T extends object>(obj: T) => ({ _key: randomUUID(), ...obj });
 
 // Venue cards are references to `venue` docs (same locale). These three are the
@@ -24,6 +26,36 @@ const PC_FEATURED_VENUES = [
   "caleton-beach-club",
   "chez-bisutti",
 ] as const;
+
+// `related.articles` references real journal articles (same locale), keyed
+// `article-<slug>-<locale>`. These are the Punta-Cana / Caribbean-relevant ones.
+const PC_RELATED_ARTICLES = [
+  "best-indian-wedding-venues-punta-cana",
+  "luxury-punta-cana-wedding-cost",
+  "the-sangeet-night-before",
+  "kosher-jewish-wedding-caribbean",
+] as const;
+
+// Real docs referenced by the trends "read more" + related sidebars.
+const PC_TRENDS_READ_MORE_SLUG = "luxury-punta-cana-wedding-cost";
+const PC_SIDEBAR_VENUE_SLUGS = [
+  "jellyfish-restaurant",
+  "kukua-beach-club",
+  "caleton-beach-club",
+  "chez-bisutti",
+];
+const PC_SIDEBAR_CULTURE_SLUGS = [
+  "indian-weddings",
+  "jewish-weddings",
+  "interfaith-weddings",
+  "latin-weddings",
+];
+const PC_SIDEBAR_SERVICE_SLUGS = [
+  "destination-wedding-planning",
+  "wedding-design",
+  "guest-experience",
+  "multicultural-wedding-planning",
+];
 
 const ptBlock = (text: string) => [
   {
@@ -41,7 +73,7 @@ const ptBlocks = (paragraphs: string[]) =>
 // ── English (design-verbatim) ───────────────────────────────────────────
 const en = {
   hero: {
-    eyebrow: "The Caribbean · No. 01",
+    eyebrow: "The Caribbean",
     scriptOverline: "A wedding in",
     headline: "Punta *Cana.*",
     deck: "The home atelier. Year-round flying weather, powder-sand coastlines, and the cultural fluency to host any tradition.",
@@ -159,42 +191,34 @@ const en = {
       {
         name: "Indian *weddings*",
         body: "Mehndi · Sangeet · Baraat · Pheras. Resorts here absorb 300-guest baraats with grace.",
-        href: "/multicultural/indian",
       },
       {
         name: "Jewish *weddings*",
         body: "Chuppah ceremonies on the sand, kosher catering with the resort kitchen.",
-        href: "/multicultural/jewish",
       },
       {
         name: "Christian *weddings*",
         body: "Catholic and Protestant ceremonies in estate chapels or cathedral-mass formats.",
-        href: "/multicultural/christian",
       },
       {
         name: "Arab *weddings*",
         body: "Zaffe processions, henna nights, multilingual officiant — fully supported.",
-        href: "/multicultural/arab",
       },
       {
         name: "Interfaith *weddings*",
         body: "Two clergy. Two languages. One cohesive arc — our specialty here.",
-        href: "/multicultural/interfaith",
       },
       {
         name: "Latin *weddings*",
         body: "Arras, lazo, padrinos. Bilingual receptions with mariachi or bachata.",
-        href: "/multicultural/latin",
       },
       {
         name: "Hindu *weddings*",
         body: "Pheras at sunset, three-day weddings, our most-repeated arc in this destination.",
-        href: "/multicultural/hindu",
       },
       {
         name: "Civil *weddings*",
         body: "Symbolic ceremonies for couples who marry legally at home — flexible, simple.",
-        href: "/multicultural/civil",
       },
     ],
   },
@@ -347,43 +371,7 @@ const en = {
   related: {
     eyebrow: "Continue reading",
     headline: "From the *journal.*",
-    articles: [
-      {
-        category: "Indian Weddings · Punta Cana",
-        title: "Best Indian Wedding Venues in Punta Cana",
-        body: "A working register of the resorts that hold a 300-guest baraat with grace.",
-        imageKey: "related-1",
-        href: "/journal/best-indian-wedding-venues-punta-cana",
-      },
-      {
-        category: "Logistics · Caribbean",
-        title: "When to Wed in Punta Cana: A Month-by-Month Guide",
-        body: "Climate, light, hurricane risk, and the cadence of our calendar.",
-        imageKey: "related-2",
-        href: "/journal/when-to-wed-punta-cana",
-      },
-      {
-        category: "Cost · Punta Cana",
-        title: "What a Luxury Punta Cana Wedding Actually Costs",
-        body: "A frank breakdown of 2026 budgets by guest count, with line-item ranges.",
-        imageKey: "related-3",
-        href: "/journal/punta-cana-wedding-cost-2026",
-      },
-      {
-        category: "Interfaith",
-        title: "Two Clergy, One Ceremony: Interfaith on the Coast",
-        body: "How we structure interfaith ritual arcs in Punta Cana — without compromise.",
-        imageKey: "related-4",
-        href: "/journal/interfaith-coast",
-      },
-      {
-        category: "Guest experience",
-        title: "The Welcome Party: Your Wedding's Second Star",
-        body: "Why the night-before reception has become the most-photographed event.",
-        imageKey: "related-5",
-        href: "/journal/welcome-party",
-      },
-    ],
+    // articles are seeded as references (see PC_RELATED_ARTICLES).
     sidebarVenues: [
       { label: "Jellyfish Restaurant", href: "/venues/jellyfish" },
       { label: "Kukua Beach Club", href: "/venues/kukua" },
@@ -472,7 +460,7 @@ const es: typeof en = {
   ...en,
   hero: {
     ...en.hero,
-    eyebrow: "El Caribe · N.º 01",
+    eyebrow: "El Caribe",
     scriptOverline: "Una boda en",
     deck: "El atelier de casa. Clima de vuelo todo el año, costas de arena polvo y la fluidez cultural para acoger cualquier tradición.",
     captionCenter: "Fotografiado en enero 2026",
@@ -495,7 +483,7 @@ const fr: typeof en = {
   ...en,
   hero: {
     ...en.hero,
-    eyebrow: "Les Caraïbes · No 01",
+    eyebrow: "Les Caraïbes",
     scriptOverline: "Un mariage à",
     deck: "L'atelier d'origine. Météo de vol toute l'année, côtes de sable poudré, et la maîtrise culturelle pour accueillir toute tradition.",
     captionCenter: "Photographié en janvier 2026",
@@ -518,7 +506,7 @@ const pt: typeof en = {
   ...en,
   hero: {
     ...en.hero,
-    eyebrow: "O Caribe · N.º 01",
+    eyebrow: "O Caribe",
     scriptOverline: "Um casamento em",
     deck: "O ateliê de casa. Clima de voo o ano inteiro, costas de areia de pó e a fluência cultural para acolher qualquer tradição.",
     captionCenter: "Fotografado em janeiro de 2026",
@@ -545,7 +533,7 @@ const de: typeof en = {
   ...en,
   hero: {
     ...en.hero,
-    eyebrow: "Die Karibik · Nr. 01",
+    eyebrow: "Die Karibik",
     scriptOverline: "Eine Hochzeit in",
     deck: "Das Heim-Atelier. Ganzjähriges Flugwetter, puderweiße Küsten und die kulturelle Versiertheit, jede Tradition zu beherbergen.",
     captionCenter: "Fotografiert im Januar 2026",
@@ -572,7 +560,7 @@ const it: typeof en = {
   ...en,
   hero: {
     ...en.hero,
-    eyebrow: "I Caraibi · N. 01",
+    eyebrow: "I Caraibi",
     scriptOverline: "Un matrimonio a",
     deck: "L'atelier di casa. Meteo di volo tutto l'anno, coste di sabbia polverosa, e la fluidità culturale per accogliere ogni tradizione.",
     captionCenter: "Fotografato a gennaio 2026",
@@ -605,8 +593,6 @@ export function buildPuntaCanaDoc(locale: Locale) {
     slug: { _type: "slug", current: "punta-cana" },
     country: "Dominican Republic",
     subLocations: "Cap Cana · Casa de Campo · Bávaro",
-    number: "01",
-    tile: "featured",
     hero: c.hero,
     facts: c.facts.map((f) => k(f)),
     story: (() => {
@@ -632,7 +618,22 @@ export function buildPuntaCanaDoc(locale: Locale) {
       eyebrow: c.weddingTypes.eyebrow,
       headline: c.weddingTypes.headline,
       deck: c.weddingTypes.deck,
-      items: c.weddingTypes.items.map((w) => k(w)),
+      items: c.weddingTypes.items.map((w, i) => {
+        const slug = WEDDING_TYPE_CULTURE_SLUGS[i];
+        return k({
+          name: w.name,
+          body: w.body,
+          ...(slug
+            ? {
+                culture: {
+                  _type: "reference",
+                  _ref: `culture-${slug}-${locale}`,
+                  _weak: true,
+                },
+              }
+            : {}),
+        });
+      }),
     },
     logistics: {
       eyebrow: c.logistics.eyebrow,
@@ -652,24 +653,48 @@ export function buildPuntaCanaDoc(locale: Locale) {
     guest: {
       eyebrow: c.guest.eyebrow,
       headline: c.guest.headline,
-      viewAllLabel: c.guest.viewAllLabel,
-      viewAllHref: c.guest.viewAllHref,
+      // viewAllLabel / viewAllHref intentionally left blank.
       cards: c.guest.cards.map((card) => k(card)),
     },
     trends: {
       eyebrow: c.trends.eyebrow,
       headline: c.trends.headline,
       readMoreLabel: c.trends.readMoreLabel,
-      readMoreHref: c.trends.readMoreHref,
+      readMoreArticle: {
+        _type: "reference",
+        _ref: `article-${PC_TRENDS_READ_MORE_SLUG}-${locale}`,
+        _weak: true,
+      },
       items: c.trends.items.map((t) => k(t)),
     },
     related: {
       eyebrow: c.related.eyebrow,
       headline: c.related.headline,
-      articles: c.related.articles.map((a) => k(a)),
-      sidebarVenues: c.related.sidebarVenues.map((v) => k(v)),
-      sidebarCultures: c.related.sidebarCultures.map((v) => k(v)),
-      sidebarServices: c.related.sidebarServices.map((v) => k(v)),
+      articles: PC_RELATED_ARTICLES.map((slug) =>
+        k({
+          _type: "reference",
+          _ref: `article-${slug}-${locale}`,
+          _weak: true,
+        }),
+      ),
+      // Reference real docs (same locale). Label + link come from each doc.
+      sidebarVenues: PC_SIDEBAR_VENUE_SLUGS.map((slug) =>
+        k({ _type: "reference", _ref: `venue-${slug}-${locale}`, _weak: true }),
+      ),
+      sidebarCultures: PC_SIDEBAR_CULTURE_SLUGS.map((slug) =>
+        k({
+          _type: "reference",
+          _ref: `culture-${slug}-${locale}`,
+          _weak: true,
+        }),
+      ),
+      sidebarServices: PC_SIDEBAR_SERVICE_SLUGS.map((slug) =>
+        k({
+          _type: "reference",
+          _ref: `service-${slug}-${locale}`,
+          _weak: true,
+        }),
+      ),
     },
     faq: {
       eyebrow: c.faq.eyebrow,

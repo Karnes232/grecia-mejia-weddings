@@ -23,10 +23,43 @@ export async function CultureRelated({
   const articles = related.articles ?? [];
 
   const groups = [
-    { heading: t("destinations"), items: related.sidebarDestinations },
-    { heading: t("venues"), items: related.sidebarVenues },
-    { heading: t("cultures"), items: related.sidebarCultures },
-  ].filter((g) => g.items?.length);
+    {
+      heading: t("destinations"),
+      items: (related.sidebarDestinations ?? [])
+        .filter((d) => d.slug)
+        .map((d) => ({
+          label: d.label,
+          href: {
+            pathname: "/destinations/[destination]" as const,
+            params: { destination: d.slug! },
+          },
+        })),
+    },
+    {
+      heading: t("venues"),
+      items: (related.sidebarVenues ?? [])
+        .filter((v) => v.slug && v.regionSlug)
+        .map((v) => ({
+          label: v.label,
+          href: {
+            pathname: "/venues/[region]/[venue]" as const,
+            params: { region: v.regionSlug!, venue: v.slug! },
+          },
+        })),
+    },
+    {
+      heading: t("cultures"),
+      items: (related.sidebarCultures ?? [])
+        .filter((c) => c.slug)
+        .map((c) => ({
+          label: c.label,
+          href: {
+            pathname: "/multicultural-weddings/[culture]" as const,
+            params: { culture: c.slug! },
+          },
+        })),
+    },
+  ].filter((g) => g.items.length);
 
   return (
     <section className="bg-cream px-6 py-[120px] md:px-14">

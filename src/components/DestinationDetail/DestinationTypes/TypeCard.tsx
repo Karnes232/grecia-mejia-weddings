@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { Link } from "@/i18n/navigation";
@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 type TypeCardProps = {
   name?: string;
   body?: string;
-  href?: string;
+  href?: ComponentProps<typeof Link>["href"];
   discoverLabel: string;
 };
 
@@ -26,15 +26,18 @@ export function TypeCard({ name, body, href, discoverLabel }: TypeCardProps) {
           {body}
         </p>
       ) : null}
-      <span className="text-[9px] uppercase tracking-wide-eyebrow text-cine-gold">
-        {discoverLabel}
-      </span>
+      {/* The "Discover" affordance only makes sense when the card links out. */}
+      {href ? (
+        <span className="text-[9px] uppercase tracking-wide-eyebrow text-cine-gold">
+          {discoverLabel}
+        </span>
+      ) : null}
     </>
   );
 
   if (href) {
     return (
-      <Link href={href as never} className={CELL}>
+      <Link href={href} className={CELL}>
         {inner}
       </Link>
     );

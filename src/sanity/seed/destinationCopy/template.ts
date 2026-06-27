@@ -17,6 +17,49 @@ import type { Fact } from "./facts";
 
 const k = <T extends object>(obj: T) => ({ _key: randomUUID(), ...obj });
 
+// The journal articles that currently exist (in every locale). Each
+// destination's `related.articles` references these by `article-<slug>-<locale>`.
+const RELATED_ARTICLE_SLUGS = [
+  "best-indian-wedding-venues-punta-cana",
+  "kosher-jewish-wedding-caribbean",
+  "luxury-punta-cana-wedding-cost",
+  "the-sangeet-night-before",
+  "when-to-wed-amalfi-coast",
+] as const;
+
+// Index-aligned with `weddingTypeNames` (Indian, Jewish, Christian, Arab,
+// Interfaith, Latin, Hindu, Civil). Each card links to this culture's detail
+// page via `culture-<slug>-<locale>`. Civil has no culture doc → no link.
+export const WEDDING_TYPE_CULTURE_SLUGS: (string | null)[] = [
+  "indian-weddings",
+  "jewish-weddings",
+  "christian-weddings",
+  "arab-weddings",
+  "interfaith-weddings",
+  "latin-weddings",
+  "south-asian-weddings",
+  null,
+];
+
+// Real docs referenced by the trends "read more" + the related sidebars
+// (curated cross-link set; the only real docs that exist to point at).
+const TRENDS_READ_MORE_SLUG = "luxury-punta-cana-wedding-cost";
+const SIDEBAR_VENUE_SLUGS = [
+  "jellyfish-restaurant",
+  "castello-di-velasco",
+  "chateau-de-la-croix",
+];
+const SIDEBAR_CULTURE_SLUGS = [
+  "indian-weddings",
+  "jewish-weddings",
+  "interfaith-weddings",
+];
+const SIDEBAR_SERVICE_SLUGS = [
+  "destination-wedding-planning",
+  "wedding-design",
+  "guest-experience",
+];
+
 const ptBlock = (text: string) => [
   {
     _type: "block",
@@ -327,10 +370,6 @@ const en: Phrases = {
   monthLabels: monthLabels("en"),
 };
 
-// Helper: derive a region-localized eyebrow ("The Caribbean · No. 01").
-const heroEyebrow = (regionTitle: string, n: string) =>
-  `${regionTitle} · No. ${n}`;
-
 const regionTitles: Record<Locale, Record<Fact["region"], string>> = {
   en: {
     caribbean: "The Caribbean",
@@ -493,7 +532,7 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
 
   return {
     hero: {
-      eyebrow: heroEyebrow(regionTitle, fact.number),
+      eyebrow: regionTitle,
       scriptOverline: p.hero.scriptOverline,
       headline: `${fact.name.split(" ")[0]} *${fact.name.split(" ").slice(1).join(" ") || fact.name.split(" ")[0]}.*`,
       deck: p.hero.deck(fact),
@@ -505,8 +544,6 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
     slug: { _type: "slug", current: fact.slug },
     country: fact.country,
     subLocations: fact.subLocations,
-    number: fact.number,
-    tile: fact.tile,
     facts: [
       k({
         label: p.facts.bestMonths,
@@ -575,13 +612,22 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
       eyebrow: p.weddingTypes.eyebrow,
       headline: p.weddingTypes.headline,
       deck: p.weddingTypes.deck,
-      items: p.weddingTypeNames.map((name, i) =>
-        k({
+      items: p.weddingTypeNames.map((name, i) => {
+        const slug = WEDDING_TYPE_CULTURE_SLUGS[i];
+        return k({
           name: `${name} *weddings*`,
           body: p.weddingTypeBodies(fact)[i],
-          href: `/multicultural/${name.toLowerCase()}`,
-        }),
-      ),
+          ...(slug
+            ? {
+                culture: {
+                  _type: "reference",
+                  _ref: `culture-${slug}-${locale}`,
+                  _weak: true,
+                },
+              }
+            : {}),
+        });
+      }),
     },
     logistics: {
       eyebrow: p.logistics.eyebrow,
@@ -626,8 +672,7 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
     guest: {
       eyebrow: p.guest.eyebrow,
       headline: p.guest.headline,
-      viewAllLabel: p.guest.viewAll,
-      viewAllHref: "/guest-itineraries",
+      // viewAllLabel / viewAllHref intentionally left blank.
       cards: [
         k({
           label: p.guest.stay.label,
@@ -660,7 +705,11 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
       eyebrow: p.trends.eyebrow,
       headline: p.trends.headline(fact),
       readMoreLabel: p.trends.readMore,
-      readMoreHref: `/journal/${fact.slug}-trends`,
+      readMoreArticle: {
+        _type: "reference",
+        _ref: `article-${TRENDS_READ_MORE_SLUG}-${locale}`,
+        _weak: true,
+      },
       items: p.trends.items.map((item) =>
         k({ title: item.title, body: item.body(fact) }),
       ),
@@ -668,36 +717,31 @@ export function buildDestinationDoc(fact: Fact, locale: Locale) {
     related: {
       eyebrow: p.related.eyebrow,
       headline: p.related.headline,
-      articles: Array.from({ length: 5 }, (_, i) =>
+      // References to real journal articles (same locale). Card content +
+      // image are pulled from each article doc by the query.
+      articles: RELATED_ARTICLE_SLUGS.map((slug) =>
         k({
-          category: `${fact.name} · Journal`,
-          title: `${fact.name} weddings · Story ${i + 1}`,
-          body: `One of the recurring patterns we see in ${fact.name} weddings.`,
-          imageKey: `related-${i + 1}`,
-          href: `/journal/${fact.slug}-${i + 1}`,
+          _type: "reference",
+          _ref: `article-${slug}-${locale}`,
+          _weak: true,
         }),
       ),
-      sidebarVenues: Array.from({ length: 4 }, (_, i) =>
+      // Reference real docs (same locale). Label + link come from each doc.
+      sidebarVenues: SIDEBAR_VENUE_SLUGS.map((slug) =>
+        k({ _type: "reference", _ref: `venue-${slug}-${locale}`, _weak: true }),
+      ),
+      sidebarCultures: SIDEBAR_CULTURE_SLUGS.map((slug) =>
         k({
-          label: `${fact.name} Venue ${i + 1}`,
-          href: `/venues/${fact.slug}-venue-${i + 1}`,
+          _type: "reference",
+          _ref: `culture-${slug}-${locale}`,
+          _weak: true,
         }),
       ),
-      sidebarCultures: ["Indian", "Jewish", "Interfaith", "Latin"].map((name) =>
+      sidebarServices: SIDEBAR_SERVICE_SLUGS.map((slug) =>
         k({
-          label: `${name} weddings`,
-          href: `/multicultural/${name.toLowerCase()}`,
-        }),
-      ),
-      sidebarServices: [
-        "Destination Planning",
-        "Wedding Weekend Design",
-        "Guest Experience",
-        "Legal & Logistics",
-      ].map((name) =>
-        k({
-          label: name,
-          href: `/services/${name.toLowerCase().replaceAll(" & ", "-").replaceAll(" ", "-")}`,
+          _type: "reference",
+          _ref: `service-${slug}-${locale}`,
+          _weak: true,
         }),
       ),
     },

@@ -31,7 +31,7 @@ export const latinWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Arras, lazo and padrinos, with bilingual receptions carried by mariachi or bachata.",
     hero: {
-      eyebrow: "The Traditions · No. 07",
+      eyebrow: "The Traditions",
       scriptOverline: "A wedding of",
       headline: "Latin *tradition.*",
       deck: "This is the studio's own. Grecia is Dominican; the home atelier sits in Punta Cana. A Latin wedding is a Catholic ceremony and a long, loud, generous party — held in two languages, for the whole family.",
@@ -513,7 +513,7 @@ export const latinWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Arras, lazo y padrinos, con recepciones bilingües al ritmo del mariachi o la bachata.",
     hero: {
-      eyebrow: "Las Tradiciones · N.º 07",
+      eyebrow: "Las Tradiciones",
       scriptOverline: "Una boda de",
       headline: "tradición *latina.*",
       deck: "Esta es la nuestra. Grecia es dominicana; el atelier está en Punta Cana. Una boda latina es una ceremonia católica y una fiesta larga, generosa y a todo volumen — celebrada en dos idiomas, para toda la familia.",
@@ -997,7 +997,7 @@ export const latinWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Arras, lazo et padrinos, avec des réceptions bilingues portées par le mariachi ou la bachata.",
     hero: {
-      eyebrow: "Les Traditions · No 07",
+      eyebrow: "Les Traditions",
       scriptOverline: "Un mariage de",
       headline: "tradition *latine.*",
       deck: "C'est la nôtre. Grecia est dominicaine ; l'atelier se trouve à Punta Cana. Un mariage latin, c'est une cérémonie catholique et une fête longue, généreuse, à plein volume — tenue en deux langues, pour toute la famille.",
@@ -1487,7 +1487,7 @@ export const latinWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Arras, lazo e padrinhos, com receções bilingues conduzidas por mariachi ou bachata.",
     hero: {
-      eyebrow: "As Tradições · N.º 07",
+      eyebrow: "As Tradições",
       scriptOverline: "Um casamento de",
       headline: "tradição *latina.*",
       deck: "Este é o nosso. Grecia é dominicana; o ateliê fica em Punta Cana. Um casamento latino é uma cerimónia católica e uma festa longa, generosa e em alto volume — realizada em duas línguas, para toda a família.",
@@ -1972,7 +1972,7 @@ export const latinWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Arras, Lazo und Padrinos, mit zweisprachigen Empfängen, getragen von Mariachi oder Bachata.",
     hero: {
-      eyebrow: "Die Traditionen · Nr. 07",
+      eyebrow: "Die Traditionen",
       scriptOverline: "Eine Hochzeit der",
       headline: "lateinamerikanischen *Tradition.*",
       deck: "Das ist unsere eigene. Grecia ist Dominikanerin; das Atelier liegt in Punta Cana. Eine lateinamerikanische Hochzeit ist eine katholische Zeremonie und ein langes, lautes, großzügiges Fest — gehalten in zwei Sprachen, für die ganze Familie.",
@@ -2458,7 +2458,7 @@ export const latinWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Arras, lazo e padrinos, con ricevimenti bilingui retti da mariachi o bachata.",
     hero: {
-      eyebrow: "Le Tradizioni · N. 07",
+      eyebrow: "Le Tradizioni",
       scriptOverline: "Un matrimonio di",
       headline: "tradizione *latina.*",
       deck: "Questa è la nostra. Grecia è dominicana; l'atelier è a Punta Cana. Un matrimonio latino è una cerimonia cattolica e una festa lunga, generosa e ad alto volume — celebrata in due lingue, per tutta la famiglia.",

@@ -29,7 +29,7 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Catholic, Orthodox and Protestant ceremonies — from a cathedral mass to a garden blessing.",
     hero: {
-      eyebrow: "The Traditions · No. 05",
+      eyebrow: "The Traditions",
       scriptOverline: "A wedding of",
       headline: "Christian *sacrament.*",
       deck: "From a full nuptial mass beneath a cathedral nave to a garden blessing after a quiet church wedding at home. We coordinate with the couple's own parish and clergy, wherever in the world the day is held.",
@@ -491,7 +491,7 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Ceremonias católicas, ortodoxas y protestantes, desde una misa en catedral hasta una bendición en el jardín.",
     hero: {
-      eyebrow: "Las Tradiciones · N.º 05",
+      eyebrow: "Las Tradiciones",
       scriptOverline: "Una boda de",
       headline: "*sacramento* cristiano.",
       deck: "Desde una misa nupcial completa bajo la nave de una catedral hasta una bendición en el jardín tras una boda discreta por la iglesia en casa. Coordinamos con la parroquia y el clero de la propia pareja, en cualquier lugar del mundo donde se celebre el día.",
@@ -950,7 +950,7 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cérémonies catholiques, orthodoxes et protestantes — d'une messe en cathédrale à une bénédiction au jardin.",
     hero: {
-      eyebrow: "Les Traditions · No 05",
+      eyebrow: "Les Traditions",
       scriptOverline: "Un mariage de",
       headline: "*sacrement* chrétien.",
       deck: "D'une messe nuptiale complète sous la nef d'une cathédrale à une bénédiction au jardin après un mariage discret à l'église, chez soi. Nous coordonnons avec la paroisse et le clergé du couple, où que se tienne le jour dans le monde.",
@@ -1422,7 +1422,7 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cerimónias católicas, ortodoxas e protestantes — de uma missa em catedral a uma bênção no jardim.",
     hero: {
-      eyebrow: "As Tradições · N.º 05",
+      eyebrow: "As Tradições",
       scriptOverline: "Um casamento de",
       headline: "*sacramento* cristão.",
       deck: "De uma missa nupcial completa sob a nave de uma catedral a uma bênção no jardim depois de um casamento discreto pela igreja em casa. Coordenamos com a paróquia e o clero do próprio casal, em qualquer parte do mundo onde o dia se celebre.",
@@ -1892,7 +1892,7 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Katholische, orthodoxe und protestantische Zeremonien — von einer Messe in der Kathedrale bis zu einer Segnung im Garten.",
     hero: {
-      eyebrow: "Die Traditionen · Nr. 05",
+      eyebrow: "Die Traditionen",
       scriptOverline: "Eine Hochzeit von",
       headline: "christlichem *Sakrament.*",
       deck: "Von einer vollständigen Brautmesse unter dem Mittelschiff einer Kathedrale bis zu einer Segnung im Garten nach einer stillen kirchlichen Trauung daheim. Wir koordinieren mit der eigenen Pfarrei und Geistlichkeit des Paares, wo immer auf der Welt der Tag begangen wird.",
@@ -2360,7 +2360,7 @@ export const christianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cerimonie cattoliche, ortodosse e protestanti — da una messa in cattedrale a una benedizione in giardino.",
     hero: {
-      eyebrow: "Le Tradizioni · N. 05",
+      eyebrow: "Le Tradizioni",
       scriptOverline: "Un matrimonio di",
       headline: "*sacramento* cristiano.",
       deck: "Da una messa nuziale completa sotto la navata di una cattedrale a una benedizione in giardino dopo un matrimonio in chiesa, discreto, a casa. Coordiniamo con la parrocchia e il clero della coppia, ovunque nel mondo si celebri il giorno.",

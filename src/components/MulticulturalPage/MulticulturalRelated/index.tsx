@@ -23,10 +23,43 @@ export async function MulticulturalRelated({
   const articles = related.articles ?? [];
 
   const groups = [
-    { heading: t("destinations"), items: related.sidebarDestinations },
-    { heading: t("services"), items: related.sidebarServices },
-    { heading: t("weddings"), items: related.sidebarWeddings },
-  ].filter((g) => g.items?.length);
+    {
+      heading: t("destinations"),
+      items: (related.sidebarDestinations ?? [])
+        .filter((d) => d.slug)
+        .map((d) => ({
+          label: d.label,
+          href: {
+            pathname: "/destinations/[destination]" as const,
+            params: { destination: d.slug! },
+          },
+        })),
+    },
+    {
+      heading: t("services"),
+      items: (related.sidebarServices ?? [])
+        .filter((s) => s.slug)
+        .map((s) => ({
+          label: s.label,
+          href: {
+            pathname: "/services/[service]" as const,
+            params: { service: s.slug! },
+          },
+        })),
+    },
+    {
+      heading: t("weddings"),
+      items: (related.sidebarWeddings ?? [])
+        .filter((w) => w.slug)
+        .map((w) => ({
+          label: w.label,
+          href: {
+            pathname: "/portfolio/[slug]" as const,
+            params: { slug: w.slug! },
+          },
+        })),
+    },
+  ].filter((g) => g.items.length);
 
   return (
     <section className="bg-cream px-6 py-[120px] md:px-14">

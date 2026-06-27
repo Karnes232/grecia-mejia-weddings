@@ -23,8 +23,6 @@ export const destinationQuery = groq`
     "slug": slug.current,
     country,
     subLocations,
-    number,
-    tile,
     hero,
     facts[]{ label, value, sub },
     story{
@@ -50,7 +48,7 @@ export const destinationQuery = groq`
     },
     weddingTypes{
       eyebrow, headline, deck,
-      items[]{ name, body, href }
+      items[]{ name, body, "slug": culture->slug.current }
     },
     logistics{
       eyebrow, headline,
@@ -62,15 +60,16 @@ export const destinationQuery = groq`
       cards[]{ label, headline, imageKey }
     },
     trends{
-      eyebrow, headline, readMoreLabel, readMoreHref,
+      eyebrow, headline, readMoreLabel,
+      "readMoreSlug": readMoreArticle->slug.current,
       items[]{ title, body }
     },
     related{
       eyebrow, headline,
       "articles": articles[defined(@->_id)]->{ ${ARTICLE_CARD_PROJECTION} },
-      sidebarVenues[]{ label, href },
-      sidebarCultures[]{ label, href },
-      sidebarServices[]{ label, href }
+      "sidebarVenues": sidebarVenues[defined(@->_id)]->{ "label": name, "slug": slug.current, "regionSlug": region->slug.current },
+      "sidebarCultures": sidebarCultures[defined(@->_id)]->{ "label": name, "slug": slug.current },
+      "sidebarServices": sidebarServices[defined(@->_id)]->{ "label": name, "slug": slug.current }
     },
     faq{
       eyebrow, headline,
@@ -96,7 +95,6 @@ export const destinationSlugsQuery = groq`
 `;
 
 type Fact = { label?: string; value?: string; sub?: string };
-type LabelHref = { label?: string; href?: string };
 
 export type Destination = {
   id?: string;
@@ -104,8 +102,6 @@ export type Destination = {
   slug?: string;
   country?: string;
   subLocations?: string;
-  number?: string;
-  tile?: string;
   hero?: {
     eyebrow?: string;
     scriptOverline?: string;
@@ -157,7 +153,7 @@ export type Destination = {
     eyebrow?: string;
     headline?: string;
     deck?: string;
-    items?: Array<{ name?: string; body?: string; href?: string }>;
+    items?: Array<{ name?: string; body?: string; slug?: string }>;
   };
   logistics?: {
     eyebrow?: string;
@@ -190,16 +186,20 @@ export type Destination = {
     eyebrow?: string;
     headline?: string;
     readMoreLabel?: string;
-    readMoreHref?: string;
+    readMoreSlug?: string;
     items?: Array<{ title?: string; body?: string }>;
   };
   related?: {
     eyebrow?: string;
     headline?: string;
     articles?: JournalArticleCard[];
-    sidebarVenues?: LabelHref[];
-    sidebarCultures?: LabelHref[];
-    sidebarServices?: LabelHref[];
+    sidebarVenues?: Array<{
+      label?: string;
+      slug?: string;
+      regionSlug?: string;
+    }>;
+    sidebarCultures?: Array<{ label?: string; slug?: string }>;
+    sidebarServices?: Array<{ label?: string; slug?: string }>;
   };
   faq?: {
     eyebrow?: string;

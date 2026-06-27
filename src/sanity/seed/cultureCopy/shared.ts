@@ -25,60 +25,60 @@ export const mediaId = (canonicalSlug: string) =>
 // ── Locale-invariant layout (mirrors the atlas mosaic) ─────────────────────
 export type CultureMeta = {
   slug: string;
-  number: string;
-  tile: string;
   alt: string;
 };
 
 export const CULTURE_META: CultureMeta[] = [
   {
     slug: "indian-weddings",
-    number: "01",
-    tile: "hero",
     alt: "An Indian wedding mandap",
   },
   {
     slug: "jewish-weddings",
-    number: "02",
-    tile: "tall",
     alt: "A Jewish wedding chuppah",
   },
   {
     slug: "arab-weddings",
-    number: "03",
-    tile: "square",
     alt: "Arab wedding floral design",
   },
   {
     slug: "south-asian-weddings",
-    number: "04",
-    tile: "square",
     alt: "A South Asian bride",
   },
   {
     slug: "christian-weddings",
-    number: "05",
-    tile: "square",
     alt: "A Catholic wedding chapel",
   },
   {
     slug: "interfaith-weddings",
-    number: "06",
-    tile: "wide",
     alt: "An interfaith ceremony",
   },
   {
     slug: "latin-weddings",
-    number: "07",
-    tile: "wide",
     alt: "A Latin wedding celebration",
   },
   {
     slug: "european-weddings",
-    number: "08",
-    tile: "full",
     alt: "A European castle wedding",
   },
+];
+
+// Related-sidebar references (real docs; slugs are locale-invariant — the
+// reference ids are keyed `<type>-<slug>-<locale>`).
+const SIDEBAR_DESTINATION_SLUGS = ["punta-cana", "lake-como", "tuscany"];
+const SIDEBAR_VENUE_SLUGS = [
+  "jellyfish-restaurant",
+  "kukua-beach-club",
+  "chateau-de-la-croix",
+];
+// `related.articles` references real journal articles (same locale); card
+// content + image come from each article doc.
+const RELATED_ARTICLE_SLUGS = [
+  "best-indian-wedding-venues-punta-cana",
+  "kosher-jewish-wedding-caribbean",
+  "the-sangeet-night-before",
+  "luxury-punta-cana-wedding-cost",
+  "when-to-wed-amalfi-coast",
 ];
 
 // ── Translated slugs (ASCII-safe, per i18n-strategy.md "concept slugs") ─────
@@ -324,8 +324,6 @@ export function buildCultureBody(
     name: copy.name,
     slug: { _type: "slug", current: SLUGS[canonicalSlug][locale] },
     media: { _type: "reference", _weak: true, _ref: mediaId(canonicalSlug) },
-    number: meta.number,
-    tile: meta.tile,
     cardEyebrow: copy.cardEyebrow,
     cardBlurb: copy.cardBlurb,
     cardMeta: copy.cardMeta,
@@ -388,10 +386,22 @@ export function buildCultureBody(
     related: {
       eyebrow: copy.related.eyebrow,
       headline: copy.related.headline,
-      articles: copy.related.articles.map((a) => k(a)),
-      sidebarDestinations: copy.related.sidebarDestinations.map((l) => k(l)),
-      sidebarVenues: copy.related.sidebarVenues.map((l) => k(l)),
-      sidebarCultures: copy.related.sidebarCultures.map((l) => k(l)),
+      articles: RELATED_ARTICLE_SLUGS.map((s) =>
+        k({ _type: "reference", _weak: true, _ref: `article-${s}-${locale}` }),
+      ),
+      // Sidebars reference real docs (same locale); labels + links come from
+      // each doc. "Other cultures" excludes the current tradition.
+      sidebarDestinations: SIDEBAR_DESTINATION_SLUGS.map((s) =>
+        k({ _type: "reference", _weak: true, _ref: `destination-${s}-${locale}` }),
+      ),
+      sidebarVenues: SIDEBAR_VENUE_SLUGS.map((s) =>
+        k({ _type: "reference", _weak: true, _ref: `venue-${s}-${locale}` }),
+      ),
+      sidebarCultures: CULTURE_META.filter((m) => m.slug !== canonicalSlug)
+        .slice(0, 3)
+        .map((m) =>
+          k({ _type: "reference", _weak: true, _ref: `culture-${m.slug}-${locale}` }),
+        ),
     },
     faq: {
       eyebrow: copy.faq.eyebrow,

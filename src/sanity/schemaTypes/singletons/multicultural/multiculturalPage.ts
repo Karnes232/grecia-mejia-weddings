@@ -1,5 +1,37 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
+// Reference filter — same-language docs only (mirrors destination/venue).
+const sameLanguageFilter = (context: { document?: unknown }) => {
+  const language = (context.document as { language?: string } | undefined)
+    ?.language;
+  return language
+    ? { filter: "language == $language", params: { language } }
+    : { filter: "true" };
+};
+
+// A sidebar list of references to another doc type (same language). Label +
+// link come from each referenced doc.
+const sidebarRefArray = (
+  name: string,
+  title: string,
+  type: string,
+  description: string,
+) =>
+  defineField({
+    name,
+    title,
+    type: "array",
+    description,
+    of: [
+      defineArrayMember({
+        type: "reference",
+        to: [{ type }],
+        weak: true,
+        options: { disableNew: true, filter: sameLanguageFilter },
+      }),
+    ],
+  });
+
 /**
  * Multicultural Weddings — hub page (the `/multicultural-weddings` landing page).
  *
@@ -331,24 +363,24 @@ export const multiculturalPage = defineType({
             }),
           ],
         }),
-        defineField({
-          name: "sidebarDestinations",
-          title: "Sidebar · destinations",
-          type: "array",
-          of: [linkMember()],
-        }),
-        defineField({
-          name: "sidebarServices",
-          title: "Sidebar · services",
-          type: "array",
-          of: [linkMember()],
-        }),
-        defineField({
-          name: "sidebarWeddings",
-          title: "Sidebar · recent weddings",
-          type: "array",
-          of: [linkMember()],
-        }),
+        sidebarRefArray(
+          "sidebarDestinations",
+          "Sidebar · destinations",
+          "destination",
+          "Reference destinations (same language). Label + link come from each destination.",
+        ),
+        sidebarRefArray(
+          "sidebarServices",
+          "Sidebar · services",
+          "service",
+          "Reference services (same language). Label + link come from each service.",
+        ),
+        sidebarRefArray(
+          "sidebarWeddings",
+          "Sidebar · recent weddings",
+          "portfolio",
+          "Reference portfolio case studies (same language). Label + link come from each case study.",
+        ),
       ],
     }),
 
@@ -389,15 +421,3 @@ export const multiculturalPage = defineType({
     }),
   },
 });
-
-// Shared label/href link row used by the related sidebars.
-function linkMember() {
-  return defineArrayMember({
-    type: "object",
-    fields: [
-      { name: "label", title: "Label", type: "string" },
-      { name: "href", title: "Href", type: "string" },
-    ],
-    preview: { select: { title: "label", subtitle: "href" } },
-  });
-}

@@ -33,7 +33,7 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Hindu, Sikh, Muslim, Sri Lankan and Bangladeshi ceremonies, each held by specialists who have lived inside the tradition.",
     hero: {
-      eyebrow: "The Traditions · No. 04",
+      eyebrow: "The Traditions",
       scriptOverline: "A wedding of",
       headline: "South Asian *tradition.*",
       deck: "The register we keep for the subcontinent beyond the Hindu mandap — Pakistani, Sikh, Sri Lankan and Bangladeshi weddings, each held as its own faith and its own family, never blurred into one. Hindu Indian weddings have their own page.",
@@ -479,7 +479,7 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Ceremonias hindúes, sijs, musulmanas, esrilanquesas y bangladesíes, cada una sostenida por especialistas que han vivido dentro de la tradición.",
     hero: {
-      eyebrow: "Las Tradiciones · N.º 04",
+      eyebrow: "Las Tradiciones",
       scriptOverline: "Una boda de",
       headline: "tradición del *sur de Asia.*",
       deck: "El registro que reservamos para el subcontinente más allá del mandap hindú: bodas pakistaníes, sijs, esrilanquesas y bangladesíes, cada una sostenida como su propia fe y su propia familia, jamás difuminadas en una sola. Las bodas hindúes indias tienen su propia página.",
@@ -948,7 +948,7 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cérémonies hindoues, sikhes, musulmanes, sri-lankaises et bangladaises, chacune portée par des spécialistes qui ont vécu au sein de la tradition.",
     hero: {
-      eyebrow: "Les Traditions · No 04",
+      eyebrow: "Les Traditions",
       scriptOverline: "Un mariage de",
       headline: "tradition d'*Asie du Sud.*",
       deck: "Le registre que nous réservons au sous-continent au-delà du mandap hindou — mariages pakistanais, sikhs, sri-lankais et bangladais, chacun tenu comme sa propre foi et sa propre famille, jamais fondus en un seul. Les mariages hindous indiens ont leur propre page.",
@@ -1417,7 +1417,7 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cerimónias hindus, sikhs, muçulmanas, cingalesas e bangladechianas, cada uma conduzida por especialistas que viveram dentro da tradição.",
     hero: {
-      eyebrow: "As Tradições · N.º 04",
+      eyebrow: "As Tradições",
       scriptOverline: "Um casamento de",
       headline: "tradição do *sul da Ásia.*",
       deck: "O registo que reservamos para o subcontinente para além do mandap hindu — casamentos paquistaneses, sikhs, cingaleses e bangladechianos, cada um conduzido como a sua própria fé e a sua própria família, jamais diluídos num só. Os casamentos hindus indianos têm a sua própria página.",
@@ -1896,7 +1896,7 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Hinduistische, sikhistische, muslimische, sri-lankische und bangladeschische Zeremonien, jede getragen von Spezialisten, die in der Tradition gelebt haben.",
     hero: {
-      eyebrow: "Die Traditionen · Nr. 04",
+      eyebrow: "Die Traditionen",
       scriptOverline: "Eine Hochzeit von",
       headline: "südasiatischer *Tradition.*",
       deck: "Das Register, das wir für den Subkontinent jenseits des hinduistischen Mandap führen — pakistanische, sikhistische, sri-lankische und bangladeschische Hochzeiten, jede getragen als ihr eigener Glaube und ihre eigene Familie, niemals zu einem verschwommen. Hinduistische indische Hochzeiten haben ihre eigene Seite.",
@@ -2370,7 +2370,7 @@ export const southAsianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cerimonie indù, sikh, musulmane, srilankesi e bengalesi, ciascuna retta da specialisti che hanno vissuto dentro la tradizione.",
     hero: {
-      eyebrow: "Le Tradizioni · N. 04",
+      eyebrow: "Le Tradizioni",
       scriptOverline: "Un matrimonio di",
       headline: "tradizione dell'*Asia meridionale.*",
       deck: "Il registro che riserviamo al subcontinente al di là del mandap indù — matrimoni pakistani, sikh, srilankesi e bengalesi, ciascuno tenuto come la propria fede e la propria famiglia, mai confusi in uno solo. I matrimoni indù indiani hanno una pagina propria.",

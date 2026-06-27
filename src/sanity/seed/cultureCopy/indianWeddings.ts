@@ -28,7 +28,7 @@ export const indianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "The tradition the studio has held more than any other — a three-to-five day arc kept by a pandit we have worked with for fourteen years.",
     hero: {
-      eyebrow: "The Traditions · No. 01",
+      eyebrow: "The Traditions",
       scriptOverline: "A wedding of",
       headline: "Indian *tradition.*",
       deck: "The studio's most-held wedding type. Three-to-five day arcs, two-hundred-to-eight-hundred guests, and the cultural fluency to host any region of the subcontinent.",
@@ -490,7 +490,7 @@ export const indianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "La tradición que el atelier ha celebrado más que ninguna otra: un arco de tres a cinco días sostenido por un pandit con quien trabajamos desde hace catorce años.",
     hero: {
-      eyebrow: "Las Tradiciones · N.º 01",
+      eyebrow: "Las Tradiciones",
       scriptOverline: "Una boda de",
       headline: "tradición *india.*",
       deck: "El tipo de boda que más celebra el atelier. Arcos de tres a cinco días, de doscientos a ochocientos invitados, y la fluidez cultural para acoger cualquier región del subcontinente.",
@@ -965,7 +965,7 @@ export const indianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "La tradition que l'atelier a organisée plus que toute autre — une trame de trois à cinq jours portée par un pandit avec qui nous travaillons depuis quatorze ans.",
     hero: {
-      eyebrow: "Les Traditions · No 01",
+      eyebrow: "Les Traditions",
       scriptOverline: "Un mariage de",
       headline: "tradition *indienne.*",
       deck: "Le type de mariage le plus organisé par l'atelier. Des trames de trois à cinq jours, de deux cents à huit cents invités, et l'aisance culturelle pour accueillir toute région du sous-continent.",
@@ -1443,7 +1443,7 @@ export const indianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "A tradição que o ateliê realizou mais do que qualquer outra — um arco de três a cinco dias conduzido por um pandit com quem trabalhamos há catorze anos.",
     hero: {
-      eyebrow: "As Tradições · N.º 01",
+      eyebrow: "As Tradições",
       scriptOverline: "Um casamento de",
       headline: "tradição *indiana.*",
       deck: "O tipo de casamento que o ateliê mais realiza. Arcos de três a cinco dias, de duzentos a oitocentos convidados, e a fluência cultural para acolher qualquer região do subcontinente.",
@@ -1922,7 +1922,7 @@ export const indianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Die Tradition, die das Atelier häufiger als jede andere gehalten hat — ein drei- bis fünftägiger Bogen, getragen von einem Pandit, mit dem wir seit vierzehn Jahren arbeiten.",
     hero: {
-      eyebrow: "Die Traditionen · Nr. 01",
+      eyebrow: "Die Traditionen",
       scriptOverline: "Eine Hochzeit der",
       headline: "indischen *Tradition.*",
       deck: "Der vom Atelier am häufigsten gehaltene Hochzeitstyp. Drei- bis fünftägige Bögen, zweihundert bis achthundert Gäste, und die kulturelle Sicherheit, jede Region des Subkontinents auszurichten.",
@@ -2397,7 +2397,7 @@ export const indianWeddings: Record<Locale, CultureCopy> = {
     intro:
       "La tradizione che l'atelier ha organizzato più di ogni altra — un arco di tre-cinque giorni retto da un pandit con cui lavoriamo da quattordici anni.",
     hero: {
-      eyebrow: "Le Tradizioni · N. 01",
+      eyebrow: "Le Tradizioni",
       scriptOverline: "Un matrimonio di",
       headline: "tradizione *indiana.*",
       deck: "Il tipo di matrimonio più organizzato dall'atelier. Archi di tre-cinque giorni, da duecento a ottocento invitati, e la disinvoltura culturale per accogliere qualsiasi regione del subcontinente.",

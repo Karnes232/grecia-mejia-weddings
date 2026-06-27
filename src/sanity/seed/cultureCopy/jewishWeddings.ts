@@ -29,7 +29,7 @@ export const jewishWeddings: Record<Locale, CultureCopy> = {
     intro:
       "From the chuppah to the ketubah, held with a rabbi and a kosher caterer who travel with us to the coast.",
     hero: {
-      eyebrow: "The Traditions · No. 02",
+      eyebrow: "The Traditions",
       scriptOverline: "A wedding of",
       headline: "Jewish *tradition.*",
       deck: "Chuppah, ketubah and sheva brachot, held abroad with the rabbi and kosher kitchen we bring with us. One to three days, fifty to three hundred guests.",
@@ -490,7 +490,7 @@ export const jewishWeddings: Record<Locale, CultureCopy> = {
     intro:
       "De la chupá a la ketubá, celebradas con un rabino y un catering kosher que viajan con nosotros a la costa.",
     hero: {
-      eyebrow: "Las Tradiciones · N.º 02",
+      eyebrow: "Las Tradiciones",
       scriptOverline: "Una boda de",
       headline: "tradición *judía.*",
       deck: "Chuppah, ketubah y sheva brachot, celebradas en el extranjero con el rabino y la cocina kosher que llevamos con nosotros. De uno a tres días, de cincuenta a trescientos invitados.",
@@ -957,7 +957,7 @@ export const jewishWeddings: Record<Locale, CultureCopy> = {
     intro:
       "De la houppa à la ketouba, tenus avec un rabbin et un traiteur casher qui voyagent avec nous jusqu'à la côte.",
     hero: {
-      eyebrow: "Les Traditions · No 02",
+      eyebrow: "Les Traditions",
       scriptOverline: "Un mariage de",
       headline: "tradition *juive.*",
       deck: "Chuppah, ketubah et sheva brachot, tenus à l'étranger avec le rabbin et la cuisine casher que nous amenons. D'un à trois jours, de cinquante à trois cents invités.",
@@ -1430,7 +1430,7 @@ export const jewishWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Da chupá à ketubá, realizados com um rabino e um catering kosher que viajam connosco até à costa.",
     hero: {
-      eyebrow: "As Tradições · N.º 02",
+      eyebrow: "As Tradições",
       scriptOverline: "Um casamento de",
       headline: "tradição *judaica.*",
       deck: "Chuppah, ketubah e sheva brachot, realizados no estrangeiro com o rabino e a cozinha kosher que levamos connosco. De um a três dias, de cinquenta a trezentos convidados.",
@@ -1901,7 +1901,7 @@ export const jewishWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Von der Chuppa bis zur Ketubba, gehalten mit einem Rabbiner und einem koscheren Caterer, die mit uns an die Küste reisen.",
     hero: {
-      eyebrow: "Die Traditionen · Nr. 02",
+      eyebrow: "Die Traditionen",
       scriptOverline: "Eine Hochzeit von",
       headline: "jüdischer *Tradition.*",
       deck: "Chuppah, ketubah und sheva brachot, im Ausland gehalten mit dem Rabbiner und der koscheren Küche, die wir mitbringen. Ein bis drei Tage, fünfzig bis dreihundert Gäste.",
@@ -2372,7 +2372,7 @@ export const jewishWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Dalla chuppah alla ketubah, tenuti con un rabbino e un catering kosher che viaggiano con noi fino alla costa.",
     hero: {
-      eyebrow: "Le Tradizioni · N. 02",
+      eyebrow: "Le Tradizioni",
       scriptOverline: "Un matrimonio di",
       headline: "tradizione *ebraica.*",
       deck: "Chuppah, ketubah e sheva brachot, tenuti all'estero con il rabbino e la cucina kosher che portiamo con noi. Da uno a tre giorni, da cinquanta a trecento invitati.",

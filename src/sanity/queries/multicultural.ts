@@ -40,14 +40,12 @@ export const multiculturalPageQuery = groq`
       headline,
       deck,
       cultures[defined(@->_id)]->{
-        number,
-        tile,
         "name": name,
         "slug": slug.current,
         cardEyebrow,
         cardBlurb,
         cardMeta,
-        "image": media->cardImage{ ..., alt }
+        "image": media->cardImage{ ..., alt, "dimensions": asset->metadata.dimensions{ width, height } }
       }
     },
     pairings{
@@ -66,9 +64,9 @@ export const multiculturalPageQuery = groq`
       eyebrow,
       headline,
       "articles": articles[defined(@->_id)]->{ ${ARTICLE_CARD_PROJECTION} },
-      sidebarDestinations[]{ label, href },
-      sidebarServices[]{ label, href },
-      sidebarWeddings[]{ label, href }
+      "sidebarDestinations": sidebarDestinations[defined(@->_id)]->{ "label": name, "slug": slug.current },
+      "sidebarServices": sidebarServices[defined(@->_id)]->{ "label": name, "slug": slug.current },
+      "sidebarWeddings": sidebarWeddings[defined(@->_id)]->{ "label": name, "slug": slug.current }
     },
     cta{
       "eyebrow": scriptLine,
@@ -134,9 +132,9 @@ export type MulticulturalPage = {
     eyebrow?: string;
     headline?: string;
     articles?: JournalArticleCard[];
-    sidebarDestinations?: Array<{ label?: string; href?: string }>;
-    sidebarServices?: Array<{ label?: string; href?: string }>;
-    sidebarWeddings?: Array<{ label?: string; href?: string }>;
+    sidebarDestinations?: Array<{ label?: string; slug?: string }>;
+    sidebarServices?: Array<{ label?: string; slug?: string }>;
+    sidebarWeddings?: Array<{ label?: string; slug?: string }>;
   };
   cta?: {
     eyebrow?: string;
@@ -147,17 +145,13 @@ export type MulticulturalPage = {
   seo?: SeoFields;
 };
 
-export type CultureTile = "hero" | "tall" | "square" | "wide" | "full";
-
 export type CultureCardData = {
-  number?: string;
-  tile?: CultureTile;
   name?: string;
   slug?: string;
   cardEyebrow?: string;
   cardBlurb?: string;
   cardMeta?: string;
-  image?: SanityImage;
+  image?: SanityImage & { dimensions?: { width?: number; height?: number } };
 };
 
 export type MulticulturalPageMedia = {

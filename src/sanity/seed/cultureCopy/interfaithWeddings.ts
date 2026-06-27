@@ -27,7 +27,7 @@ export const interfaithWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Two clergy, two languages, one cohesive ceremony arc — the work the studio is asked for most.",
     hero: {
-      eyebrow: "The Traditions · No. 06",
+      eyebrow: "The Traditions",
       scriptOverline: "Two faiths,",
       headline: "one *vow.*",
       deck: "The studio's stated specialty. Two clergy, two languages, and the architecture to hold both traditions whole — neither shortened, neither subordinate — across a single weekend.",
@@ -490,7 +490,7 @@ export const interfaithWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Dos oficiantes, dos idiomas, un único arco ceremonial cohesivo: el trabajo que más se nos pide.",
     hero: {
-      eyebrow: "Las Tradiciones · N.º 06",
+      eyebrow: "Las Tradiciones",
       scriptOverline: "Dos fes,",
       headline: "un *voto.*",
       deck: "La especialidad declarada del atelier. Dos oficiantes, dos idiomas y la arquitectura para sostener ambas tradiciones enteras —ninguna acortada, ninguna subordinada— a lo largo de un solo fin de semana.",
@@ -957,7 +957,7 @@ export const interfaithWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Deux officiants, deux langues, une seule trame cérémonielle cohérente — le travail qu'on nous demande le plus.",
     hero: {
-      eyebrow: "Les Traditions · No 06",
+      eyebrow: "Les Traditions",
       scriptOverline: "Deux fois,",
       headline: "un *vœu.*",
       deck: "La spécialité affichée de l'atelier. Deux officiants, deux langues et l'architecture pour tenir les deux traditions entières — aucune écourtée, aucune subordonnée — sur un seul week-end.",
@@ -1428,7 +1428,7 @@ export const interfaithWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Dois celebrantes, duas línguas, um único arco cerimonial coeso — o trabalho que mais nos pedem.",
     hero: {
-      eyebrow: "As Tradições · N.º 06",
+      eyebrow: "As Tradições",
       scriptOverline: "Duas fés,",
       headline: "um *voto.*",
       deck: "A especialidade declarada do ateliê. Dois celebrantes, duas línguas e a arquitetura para sustentar ambas as tradições inteiras — nenhuma encurtada, nenhuma subordinada — ao longo de um único fim de semana.",
@@ -1912,7 +1912,7 @@ export const interfaithWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Zwei Geistliche, zwei Sprachen, ein stimmiger Zeremonienbogen — die Arbeit, nach der wir am häufigsten gefragt werden.",
     hero: {
-      eyebrow: "Die Traditionen · Nr. 06",
+      eyebrow: "Die Traditionen",
       scriptOverline: "Zwei Glauben,",
       headline: "ein *Versprechen.*",
       deck: "Die erklärte Spezialität des Ateliers. Zwei Geistliche, zwei Sprachen und die Architektur, beide Traditionen ganz zu tragen — keine gekürzt, keine untergeordnet — an einem einzigen Wochenende.",
@@ -2389,7 +2389,7 @@ export const interfaithWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Due celebranti, due lingue, un unico arco cerimoniale coeso — il lavoro che ci viene richiesto più di ogni altro.",
     hero: {
-      eyebrow: "Le Tradizioni · N. 06",
+      eyebrow: "Le Tradizioni",
       scriptOverline: "Due fedi,",
       headline: "un *voto.*",
       deck: "La specialità dichiarata dell'atelier. Due celebranti, due lingue e l'architettura per tenere entrambe le tradizioni intere — nessuna accorciata, nessuna subordinata — nell'arco di un solo fine settimana.",

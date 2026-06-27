@@ -33,7 +33,7 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Zaffe processions, henna nights and katb el-kitab, held to Lebanese, Saudi and Egyptian protocol.",
     hero: {
-      eyebrow: "The Traditions · No. 03",
+      eyebrow: "The Traditions",
       scriptOverline: "A wedding of",
       headline: "Arab *celebration.*",
       deck: "Drummers, dabke and a kosha built for the entrance. One-to-three day arcs for a hundred-and-fifty to six-hundred guests, held to the family's regional protocol — Lebanese, Saudi, Egyptian or Moroccan.",
@@ -496,7 +496,7 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cortejos zaffe, noches de henna y katb el-kitab, celebrados según el protocolo libanés, saudí y egipcio.",
     hero: {
-      eyebrow: "Las Tradiciones · N.º 03",
+      eyebrow: "Las Tradiciones",
       scriptOverline: "Una boda de",
       headline: "*celebración* árabe.",
       deck: "Tambores, dabke y una kosha pensada para la entrada. Arcos de uno a tres días para ciento cincuenta a seiscientos invitados, según el protocolo regional de la familia: libanés, saudí, egipcio o marroquí.",
@@ -961,7 +961,7 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cortèges zaffe, soirées de henné et katb el-kitab, tenus selon le protocole libanais, saoudien et égyptien.",
     hero: {
-      eyebrow: "Les Traditions · No 03",
+      eyebrow: "Les Traditions",
       scriptOverline: "Un mariage de",
       headline: "*célébration* arabe.",
       deck: "Tambours, dabke et une kosha pensée pour l'entrée. Des trames d'un à trois jours pour cent cinquante à six cents invités, tenues selon le protocole régional de la famille : libanais, saoudien, égyptien ou marocain.",
@@ -1440,7 +1440,7 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cortejos zaffe, noites de hena e katb el-kitab, realizados segundo o protocolo libanês, saudita e egípcio.",
     hero: {
-      eyebrow: "As Tradições · N.º 03",
+      eyebrow: "As Tradições",
       scriptOverline: "Um casamento de",
       headline: "*celebração* árabe.",
       deck: "Tambores, dabke e uma kosha pensada para a entrada. Arcos de um a três dias para cento e cinquenta a seiscentos convidados, realizados segundo o protocolo regional da família: libanês, saudita, egípcio ou marroquino.",
@@ -1921,7 +1921,7 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Zaffe-Prozessionen, Henna-Nächte und Katb el-Kitab, gehalten nach libanesischem, saudischem und ägyptischem Protokoll.",
     hero: {
-      eyebrow: "Die Traditionen · Nr. 03",
+      eyebrow: "Die Traditionen",
       scriptOverline: "Eine Hochzeit der",
       headline: "arabischen *Feier.*",
       deck: "Trommeln, Dabke und eine Kosha, gebaut für den Einzug. Bögen von einem bis drei Tagen für einhundertfünfzig bis sechshundert Gäste, gehalten nach dem regionalen Protokoll der Familie: libanesisch, saudisch, ägyptisch oder marokkanisch.",
@@ -2399,7 +2399,7 @@ export const arabWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Cortei zaffe, notti di henné e katb el-kitab, tenuti secondo il protocollo libanese, saudita ed egiziano.",
     hero: {
-      eyebrow: "Le Tradizioni · N. 03",
+      eyebrow: "Le Tradizioni",
       scriptOverline: "Un matrimonio di",
       headline: "*celebrazione* araba.",
       deck: "Tamburi, dabke e una kosha pensata per l'ingresso. Archi da uno a tre giorni per centocinquanta-seicento invitati, tenuti secondo il protocollo regionale della famiglia: libanese, saudita, egiziano o marocchino.",

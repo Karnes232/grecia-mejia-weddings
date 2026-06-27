@@ -25,9 +25,12 @@ export function DestinationTrends({ trends }: DestinationTrendsProps) {
             </h2>
           ) : null}
         </div>
-        {trends.readMoreLabel && trends.readMoreHref ? (
+        {trends.readMoreLabel && trends.readMoreSlug ? (
           <CTAButton
-            href={trends.readMoreHref}
+            href={{
+              pathname: "/journal/[slug]",
+              params: { slug: trends.readMoreSlug },
+            }}
             className="shrink-0 self-start md:self-auto"
           >
             {trends.readMoreLabel}

@@ -2,7 +2,7 @@
  * Single source of truth for the 12 destinations seeded in Phase 8.
  * The shape is consumed by both:
  *   - the destination seed (template.ts uses it to render full doc bodies)
- *   - the destinationsPage seed (regions[].destinations[] uses it to write references + atlas tile + number)
+ *   - the destinationsPage seed (regions[].destinations[] uses it to write references)
  */
 
 export type Region =
@@ -11,19 +11,9 @@ export type Region =
   | "western-europe"
   | "americas";
 
-export type AtlasTile =
-  | "featured"
-  | "tall-lg"
-  | "tall"
-  | "wide"
-  | "square"
-  | "square-sm";
-
 export type Fact = {
   slug: string;
   region: Region;
-  number: string;
-  tile: AtlasTile;
   name: string; // canonical English name for templating
   country: string;
   subLocations: string;
@@ -43,8 +33,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "punta-cana",
       region: "caribbean",
-      number: "01",
-      tile: "featured",
       name: "Punta Cana",
       country: "Dominican Republic",
       subLocations: "Cap Cana · Casa de Campo · Bávaro",
@@ -62,8 +50,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "st-barths",
       region: "caribbean",
-      number: "02",
-      tile: "tall-lg",
       name: "St. Barths",
       country: "French Antilles",
       subLocations: "Gustavia · Anse de Grande Saline",
@@ -81,8 +67,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "mustique",
       region: "caribbean",
-      number: "03",
-      tile: "square",
       name: "Mustique",
       country: "St. Vincent & the Grenadines",
       subLocations: "Private island · 100 guests",
@@ -102,8 +86,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "amalfi",
       region: "mediterranean",
-      number: "06",
-      tile: "tall",
       name: "Amalfi",
       country: "Italy",
       subLocations: "Positano · Ravello · Capri",
@@ -121,8 +103,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "lake-como",
       region: "mediterranean",
-      number: "07",
-      tile: "tall",
       name: "Lake Como",
       country: "Italy",
       subLocations: "Bellagio · Varenna · Tremezzo",
@@ -140,8 +120,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "tuscany",
       region: "mediterranean",
-      number: "08",
-      tile: "tall",
       name: "Tuscany",
       country: "Italy",
       subLocations: "Val d'Orcia · Chianti",
@@ -161,8 +139,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "paris-ile-de-france",
       region: "western-europe",
-      number: "14",
-      tile: "tall-lg",
       name: "Paris & Île de France",
       country: "France",
       subLocations: "Versailles · 7th · Le Marais",
@@ -180,8 +156,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "provence",
       region: "western-europe",
-      number: "15",
-      tile: "square",
       name: "Provence",
       country: "France",
       subLocations: "Lavender, châteaux, slow Augusts",
@@ -199,8 +173,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "cote-dazur",
       region: "western-europe",
-      number: "16",
-      tile: "square-sm",
       name: "Côte d'Azur",
       country: "France",
       subLocations: "Antibes · St. Tropez",
@@ -220,8 +192,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "tulum-los-cabos",
       region: "americas",
-      number: "20",
-      tile: "wide",
       name: "Tulum & Los Cabos",
       country: "México",
       subLocations: "Jungle · cenotes · Pacific bluffs",
@@ -239,8 +209,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "the-hamptons",
       region: "americas",
-      number: "21",
-      tile: "wide",
       name: "The Hamptons",
       country: "United States",
       subLocations: "East Hampton · Sag Harbor",
@@ -258,8 +226,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "aspen-napa",
       region: "americas",
-      number: "22",
-      tile: "square",
       name: "Aspen & Napa",
       country: "United States",
       subLocations: "Winter weddings · vineyards",
@@ -277,8 +243,6 @@ export const DESTINATIONS_BY_REGION: Record<Region, Fact[]> = {
     {
       slug: "orlando",
       region: "americas",
-      number: "23",
-      tile: "square",
       name: "Orlando",
       country: "United States",
       subLocations: "Lake Nona · Bella Collina · Reunion Resort",

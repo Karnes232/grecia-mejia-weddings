@@ -1,6 +1,8 @@
+import type { ComponentProps } from "react";
+
 import { Link } from "@/i18n/navigation";
 
-type LinkItem = { label?: string; href?: string };
+type LinkItem = { label?: string; href?: ComponentProps<typeof Link>["href"] };
 
 type RelatedSidebarProps = {
   groups: Array<{ heading: string; items?: LinkItem[] }>;

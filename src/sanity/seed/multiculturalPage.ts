@@ -91,22 +91,34 @@ const RELATED_META = [
   { imageKey: "mc-related-5", href: "/journal", alt: "A Latin wedding dance" },
 ] as const;
 
-const SIDEBAR_DESTINATION_HREFS = [
-  "/destinations/punta-cana",
-  "/destinations/lake-como",
-  "/destinations/provence",
-  "/destinations/mallorca",
+// Related sidebars reference real docs (same locale). Label + link come from
+// each referenced doc; ids are `<type>-<slug>-<locale>`.
+const SIDEBAR_DESTINATION_SLUGS = [
+  "punta-cana",
+  "lake-como",
+  "provence",
+  "amalfi",
 ] as const;
-const SIDEBAR_SERVICE_HREFS = [
-  "/services",
-  "/services",
-  "/services",
-  "/services",
+const SIDEBAR_SERVICE_SLUGS = [
+  "multicultural-wedding-planning",
+  "wedding-weekend-planning",
+  "guest-experience",
+  "wedding-design",
 ] as const;
-const SIDEBAR_WEDDING_HREFS = [
-  "/portfolio",
-  "/portfolio",
-  "/portfolio",
+const SIDEBAR_WEDDING_SLUGS = [
+  "luxury-indian-wedding-punta-cana",
+  "jewish-wedding-tuscany",
+  "chateau-wedding-provence",
+] as const;
+
+// `related.articles` references real journal articles (same locale). Card
+// content + image come from each article doc (ids `article-<slug>-<locale>`).
+const RELATED_ARTICLE_SLUGS = [
+  "best-indian-wedding-venues-punta-cana",
+  "kosher-jewish-wedding-caribbean",
+  "the-sangeet-night-before",
+  "luxury-punta-cana-wedding-cost",
+  "when-to-wed-amalfi-coast",
 ] as const;
 
 const CTA_HREF = "/contact";
@@ -1315,23 +1327,33 @@ function buildDoc(locale: Locale) {
     related: {
       eyebrow: related.eyebrow,
       headline: related.headline,
-      articles: related.articles.map((a, i) =>
+      articles: RELATED_ARTICLE_SLUGS.map((slug) =>
         keyed({
-          category: a.category,
-          title: a.title,
-          body: a.body,
-          imageKey: RELATED_META[i].imageKey,
-          href: RELATED_META[i].href,
+          _type: "reference",
+          _ref: `article-${slug}-${locale}`,
+          _weak: true,
         }),
       ),
-      sidebarDestinations: related.destinations.map((d, i) =>
-        keyed({ label: d.label, href: SIDEBAR_DESTINATION_HREFS[i] }),
+      sidebarDestinations: SIDEBAR_DESTINATION_SLUGS.map((slug) =>
+        keyed({
+          _type: "reference",
+          _ref: `destination-${slug}-${locale}`,
+          _weak: true,
+        }),
       ),
-      sidebarServices: related.services.map((s, i) =>
-        keyed({ label: s.label, href: SIDEBAR_SERVICE_HREFS[i] }),
+      sidebarServices: SIDEBAR_SERVICE_SLUGS.map((slug) =>
+        keyed({
+          _type: "reference",
+          _ref: `service-${slug}-${locale}`,
+          _weak: true,
+        }),
       ),
-      sidebarWeddings: related.weddings.map((w, i) =>
-        keyed({ label: w.label, href: SIDEBAR_WEDDING_HREFS[i] }),
+      sidebarWeddings: SIDEBAR_WEDDING_SLUGS.map((slug) =>
+        keyed({
+          _type: "reference",
+          _ref: `portfolio-${slug}-${locale}`,
+          _weak: true,
+        }),
       ),
     },
     cta: {

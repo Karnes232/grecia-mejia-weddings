@@ -17,33 +17,37 @@ const imageKeyField = (list: ImageKeyOption[]) =>
     description: "Pick the matching image slot from this culture's media doc.",
   });
 
-// A `{label, href}` sidebar-link array (related sidebar lists).
-const sidebarLinkArray = (name: string, title: string) =>
+// Reference filter — same-language docs only (mirrors venue/destination).
+const sameLanguageFilter = (context: { document?: unknown }) => {
+  const language = (context.document as { language?: string } | undefined)
+    ?.language;
+  return language
+    ? { filter: "language == $language", params: { language } }
+    : { filter: "true" };
+};
+
+// A sidebar list of references to another doc type (same language). Label +
+// link come from each referenced doc. Mirrors `venue.ts`.
+const sidebarRefArray = (
+  name: string,
+  title: string,
+  type: string,
+  description: string,
+) =>
   defineField({
     name,
     title,
     type: "array",
+    description,
     of: [
       defineArrayMember({
-        type: "object",
-        fields: [
-          { name: "label", title: "Label", type: "string" },
-          { name: "href", title: "Href", type: "string" },
-        ],
-        preview: { select: { title: "label" } },
+        type: "reference",
+        to: [{ type }],
+        weak: true,
+        options: { disableNew: true, filter: sameLanguageFilter },
       }),
     ],
   });
-
-// Atlas tile layouts — mirror the mosaic spans in the design's Traditions Atlas
-// (`pages/multicultural-hub.jsx`: x8 hero, x4 tall, x4 square, x6 wide, x12 full).
-const TILE_OPTIONS = [
-  { title: "Hero (x8, panoramic)", value: "hero" },
-  { title: "Tall (x4)", value: "tall" },
-  { title: "Square (x4)", value: "square" },
-  { title: "Wide (x6)", value: "wide" },
-  { title: "Full-width (x12)", value: "full" },
-] as const;
 
 /**
  * A cultural / religious wedding tradition (Indian, Jewish, Arab, Interfaith…).
@@ -139,22 +143,6 @@ export const culture = defineType({
       description:
         "This culture's shared, locale-agnostic imagery. Every language version points to the same media doc.",
     }),
-    defineField({
-      name: "number",
-      title: "Atlas number",
-      type: "string",
-      group: "identity",
-      description: 'Display order on the atlas (e.g. "01", "02").',
-    }),
-    defineField({
-      name: "tile",
-      title: "Atlas tile layout",
-      type: "string",
-      group: "identity",
-      options: { list: [...TILE_OPTIONS] },
-      description: "Controls the card's span in the atlas mosaic.",
-    }),
-
     // ── Atlas card ───────────────────────────────────────────────────────
     defineField({
       name: "cardEyebrow",
@@ -619,12 +607,24 @@ export const culture = defineType({
             }),
           ],
         }),
-        sidebarLinkArray(
+        sidebarRefArray(
           "sidebarDestinations",
           "Sidebar · related destinations",
+          "destination",
+          "Reference destinations (same language). Label + link come from each destination.",
         ),
-        sidebarLinkArray("sidebarVenues", "Sidebar · related venues"),
-        sidebarLinkArray("sidebarCultures", "Sidebar · other cultures"),
+        sidebarRefArray(
+          "sidebarVenues",
+          "Sidebar · related venues",
+          "venue",
+          "Reference venues (same language). Label + link come from each venue.",
+        ),
+        sidebarRefArray(
+          "sidebarCultures",
+          "Sidebar · other cultures",
+          "culture",
+          "Reference other cultures (same language). Label + link come from each culture.",
+        ),
       ],
     }),
 
@@ -688,15 +688,10 @@ export const culture = defineType({
     }),
   ],
   preview: {
-    select: { title: "name", number: "number", language: "language" },
-    prepare: ({ title, number, language }) => ({
+    select: { title: "name", language: "language" },
+    prepare: ({ title, language }) => ({
       title: (title as string) ?? "Culture",
-      subtitle: [
-        number ? `№ ${number}` : null,
-        language ? `· ${language.toUpperCase()}` : null,
-      ]
-        .filter(Boolean)
-        .join(" "),
+      subtitle: language ? (language as string).toUpperCase() : undefined,
       media: "🪔",
     }),
   },

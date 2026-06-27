@@ -1,15 +1,44 @@
 import { renderHeadline } from "@/components/_shared/renderHeadline";
 import { RevealOnScroll } from "@/components/_shared/RevealOnScroll";
-import type { MulticulturalPage } from "@/sanity/queries/multicultural";
+import { urlFor } from "@/sanity/lib/image";
+import type {
+  CultureCardData,
+  MulticulturalPage,
+} from "@/sanity/queries/multicultural";
 
-import { AtlasCard } from "./AtlasCard";
+import { AtlasMasonry, type CardPhoto } from "./AtlasMasonry";
 
 type MulticulturalAtlasProps = {
   atlas: NonNullable<MulticulturalPage["atlas"]>;
 };
 
+/** Build react-photo-album photos from the atlas culture cards. */
+function toPhotos(cultures: CultureCardData[]): CardPhoto[] {
+  return cultures.map((card) => {
+    const width = card.image?.dimensions?.width ?? 1000;
+    const height = card.image?.dimensions?.height ?? 1000;
+    const src = card.image?.asset
+      ? urlFor(card.image).width(Math.min(width, 1200)).auto("format").url()
+      : "";
+    return {
+      src,
+      width,
+      height,
+      alt: card.image?.alt ?? card.name ?? "",
+      cardEyebrow: card.cardEyebrow,
+      name: card.name,
+      cardBlurb: card.cardBlurb,
+      cardMeta: card.cardMeta,
+      slug: card.slug,
+      // Trigger the album's link rendering (overridden in render.link).
+      href: card.slug ? "#" : undefined,
+    };
+  });
+}
+
 export function MulticulturalAtlas({ atlas }: MulticulturalAtlasProps) {
   const cultures = atlas.cultures ?? [];
+  const photos = toPhotos(cultures);
 
   return (
     <section
@@ -37,15 +66,9 @@ export function MulticulturalAtlas({ atlas }: MulticulturalAtlasProps) {
           ) : null}
         </RevealOnScroll>
 
-        {cultures.length > 0 ? (
-          <RevealOnScroll className="grid grid-cols-1 gap-6 md:grid-cols-6 lg:grid-cols-12">
-            {cultures.map((card, i) => (
-              <AtlasCard
-                key={card.slug ?? `culture-${i}`}
-                card={card}
-                image={card.image}
-              />
-            ))}
+        {photos.length > 0 ? (
+          <RevealOnScroll>
+            <AtlasMasonry photos={photos} />
           </RevealOnScroll>
         ) : null}
       </div>

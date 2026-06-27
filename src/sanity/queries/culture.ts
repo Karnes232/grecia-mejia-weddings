@@ -27,8 +27,6 @@ export const cultureQuery = groq`
     "id": _id,
     name,
     "slug": slug.current,
-    number,
-    tile,
     intro,
     hero,
     factStrip[]{ label, value, sub },
@@ -67,9 +65,9 @@ export const cultureQuery = groq`
     related{
       eyebrow, headline,
       "articles": articles[defined(@->_id)]->{ ${ARTICLE_CARD_PROJECTION} },
-      sidebarDestinations[]{ label, href },
-      sidebarVenues[]{ label, href },
-      sidebarCultures[]{ label, href }
+      "sidebarDestinations": sidebarDestinations[defined(@->_id)]->{ "label": name, "slug": slug.current },
+      "sidebarVenues": sidebarVenues[defined(@->_id)]->{ "label": name, "slug": slug.current, "regionSlug": region->slug.current },
+      "sidebarCultures": sidebarCultures[defined(@->_id)]->{ "label": name, "slug": slug.current }
     },
     faq{
       eyebrow, headline,
@@ -97,14 +95,11 @@ export const cultureParamsQuery = groq`
 `;
 
 type Fact = { label?: string; value?: string; sub?: string };
-type LabelHref = { label?: string; href?: string };
 
 export type Culture = {
   id?: string;
   name?: string;
   slug?: string;
-  number?: string;
-  tile?: string;
   intro?: string;
   hero?: {
     eyebrow?: string;
@@ -191,9 +186,13 @@ export type Culture = {
     eyebrow?: string;
     headline?: string;
     articles?: JournalArticleCard[];
-    sidebarDestinations?: LabelHref[];
-    sidebarVenues?: LabelHref[];
-    sidebarCultures?: LabelHref[];
+    sidebarDestinations?: Array<{ label?: string; slug?: string }>;
+    sidebarVenues?: Array<{
+      label?: string;
+      slug?: string;
+      regionSlug?: string;
+    }>;
+    sidebarCultures?: Array<{ label?: string; slug?: string }>;
   };
   faq?: {
     eyebrow?: string;

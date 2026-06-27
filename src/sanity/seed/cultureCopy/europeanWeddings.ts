@@ -34,7 +34,7 @@ export const europeanWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Châteaux and palazzi, held to French, Italian, Spanish and German regional protocol.",
     hero: {
-      eyebrow: "The Traditions · No. 08",
+      eyebrow: "The Traditions",
       scriptOverline: "A wedding of",
       headline: "European *tradition.*",
       deck: "The continent couples think they know. In practice, the protocol shifts from one country — and one commune — to the next: a château in the Loire, a palazzo above Como, a finca in Andalusia, a schloss in Bavaria, each with its own law and its own register.",
@@ -494,7 +494,7 @@ export const europeanWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Châteaux y palazzi, celebradas según el protocolo regional francés, italiano, español y alemán.",
     hero: {
-      eyebrow: "Las Tradiciones · N.º 08",
+      eyebrow: "Las Tradiciones",
       scriptOverline: "Una boda de",
       headline: "*tradición* europea.",
       deck: "El continente que las parejas creen conocer. En la práctica, el protocolo cambia de un país —y de un municipio— al siguiente: un château en el Loira, un palazzo sobre Como, una finca en Andalucía, un schloss en Baviera, cada uno con su propia ley y su propio registro.",
@@ -966,7 +966,7 @@ export const europeanWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Châteaux et palazzi, tenus selon le protocole régional français, italien, espagnol et allemand.",
     hero: {
-      eyebrow: "Les Traditions · No 08",
+      eyebrow: "Les Traditions",
       scriptOverline: "Un mariage de",
       headline: "*tradition* européenne.",
       deck: "Le continent que les couples croient connaître. En pratique, le protocole change d'un pays — et d'une commune — à l'autre : un château en Val de Loire, un palazzo au-dessus de Côme, une finca en Andalousie, un schloss en Bavière, chacun avec sa loi et son registre propres.",
@@ -1435,7 +1435,7 @@ export const europeanWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Châteaux e palazzi, realizados segundo o protocolo regional francês, italiano, espanhol e alemão.",
     hero: {
-      eyebrow: "As Tradições · N.º 08",
+      eyebrow: "As Tradições",
       scriptOverline: "Um casamento de",
       headline: "*tradição* europeia.",
       deck: "O continente que os casais julgam conhecer. Na prática, o protocolo muda de um país — e de um município — para o seguinte: um château no Loire, um palazzo sobre Como, uma finca na Andaluzia, um schloss na Baviera, cada um com a sua própria lei e o seu próprio registo.",
@@ -1917,7 +1917,7 @@ export const europeanWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Châteaux und Palazzi, gehalten nach französischem, italienischem, spanischem und deutschem Regionalprotokoll.",
     hero: {
-      eyebrow: "Die Traditionen · Nr. 08",
+      eyebrow: "Die Traditionen",
       scriptOverline: "Eine Hochzeit von",
       headline: "europäischer *Tradition.*",
       deck: "Der Kontinent, den Paare zu kennen glauben. In der Praxis verschiebt sich das Protokoll von einem Land — und einer Gemeinde — zur nächsten: ein Château an der Loire, ein Palazzo über dem Comer See, eine Finca in Andalusien, ein Schloss in Bayern, jedes mit eigenem Recht und eigenem Register.",
@@ -2398,7 +2398,7 @@ export const europeanWeddings: Record<Locale, CultureCopy> = {
     intro:
       "Châteaux e palazzi, tenuti secondo il protocollo regionale francese, italiano, spagnolo e tedesco.",
     hero: {
-      eyebrow: "Le Tradizioni · N. 08",
+      eyebrow: "Le Tradizioni",
       scriptOverline: "Un matrimonio di",
       headline: "*tradizione* europea.",
       deck: "Il continente che le coppie credono di conoscere. In pratica, il protocollo cambia da un paese — e da un comune — al successivo: un château nella Loira, un palazzo sopra il lago di Como, una finca in Andalusia, uno schloss in Baviera, ciascuno con la propria legge e il proprio registro.",

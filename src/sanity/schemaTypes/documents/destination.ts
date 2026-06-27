@@ -19,20 +19,43 @@ const imageKeyField = (list: ImageKeyOption[]) =>
       "Pick the matching image slot from this destination's media doc.",
   });
 
-const TILE_OPTIONS = [
-  { title: "Featured (x7, panoramic)", value: "featured" },
-  { title: "Tall · large (x5)", value: "tall-lg" },
-  { title: "Tall (x4)", value: "tall" },
-  { title: "Wide (x6)", value: "wide" },
-  { title: "Square (x4)", value: "square" },
-  { title: "Square · small (x3)", value: "square-sm" },
-] as const;
-
 const SEASON_OPTIONS = [
   { title: "Peak", value: "peak" },
   { title: "Good (shoulder)", value: "good" },
   { title: "Off (transitional)", value: "off" },
 ] as const;
+
+// Reference filter — same-language docs only (mirrors venue/article/culture).
+const sameLanguageFilter = (context: { document?: unknown }) => {
+  const language = (context.document as { language?: string } | undefined)
+    ?.language;
+  return language
+    ? { filter: "language == $language", params: { language } }
+    : { filter: "true" };
+};
+
+// A sidebar list of references to another doc type (same language). Label +
+// link come from each referenced doc. Mirrors `venue.ts`.
+const sidebarRefArray = (
+  name: string,
+  title: string,
+  type: string,
+  description: string,
+) =>
+  defineField({
+    name,
+    title,
+    type: "array",
+    description,
+    of: [
+      defineArrayMember({
+        type: "reference",
+        to: [{ type }],
+        weak: true,
+        options: { disableNew: true, filter: sameLanguageFilter },
+      }),
+    ],
+  });
 
 export const destination = defineType({
   name: "destination",
@@ -116,21 +139,6 @@ export const destination = defineType({
       group: "identity",
       description: 'Separate with " · " — e.g. "Cap Cana · Casa de Campo".',
     }),
-    defineField({
-      name: "number",
-      title: "Atlas number",
-      type: "string",
-      group: "identity",
-      description: 'Display order on the atlas (e.g. "01", "02").',
-    }),
-    defineField({
-      name: "tile",
-      title: "Atlas tile layout",
-      type: "string",
-      group: "identity",
-      options: { list: [...TILE_OPTIONS] },
-    }),
-
     // ── Hero ─────────────────────────────────────────────────────────────
     defineField({
       name: "hero",
@@ -319,7 +327,25 @@ export const destination = defineType({
               fields: [
                 { name: "name", title: "Culture name", type: "string" },
                 { name: "body", title: "Body", type: "text", rows: 2 },
-                { name: "href", title: "Link href", type: "string" },
+                defineField({
+                  name: "culture",
+                  title: "Culture",
+                  type: "reference",
+                  to: [{ type: "culture" }],
+                  weak: true,
+                  description:
+                    "Links the card to this culture's detail page (same language).",
+                  options: {
+                    disableNew: true,
+                    filter: ({ document }) =>
+                      document?.language
+                        ? {
+                            filter: "language == $language",
+                            params: { language: document.language },
+                          }
+                        : { filter: "true" },
+                  },
+                }),
               ],
               preview: { select: { title: "name", subtitle: "body" } },
             }),
@@ -457,7 +483,16 @@ export const destination = defineType({
           description: "Use *word* for italic-olive accents.",
         }),
         { name: "readMoreLabel", title: "Read-more label", type: "string" },
-        { name: "readMoreHref", title: "Read-more href", type: "string" },
+        defineField({
+          name: "readMoreArticle",
+          title: "Read-more article",
+          type: "reference",
+          to: [{ type: "article" }],
+          weak: true,
+          description:
+            "The journal article the 'read more' button links to (same language).",
+          options: { disableNew: true, filter: sameLanguageFilter },
+        }),
         defineField({
           name: "items",
           title: "Trend items",
@@ -515,51 +550,24 @@ export const destination = defineType({
             }),
           ],
         }),
-        defineField({
-          name: "sidebarVenues",
-          title: "Sidebar · related venues",
-          type: "array",
-          of: [
-            defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "label", title: "Label", type: "string" },
-                { name: "href", title: "Href", type: "string" },
-              ],
-              preview: { select: { title: "label" } },
-            }),
-          ],
-        }),
-        defineField({
-          name: "sidebarCultures",
-          title: "Sidebar · related cultures",
-          type: "array",
-          of: [
-            defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "label", title: "Label", type: "string" },
-                { name: "href", title: "Href", type: "string" },
-              ],
-              preview: { select: { title: "label" } },
-            }),
-          ],
-        }),
-        defineField({
-          name: "sidebarServices",
-          title: "Sidebar · related services",
-          type: "array",
-          of: [
-            defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "label", title: "Label", type: "string" },
-                { name: "href", title: "Href", type: "string" },
-              ],
-              preview: { select: { title: "label" } },
-            }),
-          ],
-        }),
+        sidebarRefArray(
+          "sidebarVenues",
+          "Sidebar · related venues",
+          "venue",
+          "Reference venues (same language). Label + link come from each venue.",
+        ),
+        sidebarRefArray(
+          "sidebarCultures",
+          "Sidebar · related cultures",
+          "culture",
+          "Reference cultures (same language). Label + link come from each culture.",
+        ),
+        sidebarRefArray(
+          "sidebarServices",
+          "Sidebar · related services",
+          "service",
+          "Reference services (same language). Label + link come from each service.",
+        ),
       ],
     }),
 

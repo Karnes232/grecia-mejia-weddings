@@ -49,7 +49,14 @@ export async function DestinationTypes({
             key={i}
             name={item.name}
             body={item.body}
-            href={item.href}
+            href={
+              item.slug
+                ? {
+                    pathname: "/multicultural-weddings/[culture]",
+                    params: { culture: item.slug },
+                  }
+                : undefined
+            }
             discoverLabel={t("discover")}
           />
         ))}
