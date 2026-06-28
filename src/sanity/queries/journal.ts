@@ -38,7 +38,6 @@ export const journalPageQuery = groq`
     },
     "featuredArticle": featuredArticle->{ ${ARTICLE_CARD_PROJECTION} },
     grid{ eyebrow, headline },
-    newsletter{ script, headline, body },
     cta{
       eyebrow,
       headline,
@@ -118,7 +117,6 @@ export type JournalPage = {
   };
   featuredArticle?: JournalArticleCard | null;
   grid?: { eyebrow?: string; headline?: string };
-  newsletter?: { script?: string; headline?: string; body?: string };
   cta?: {
     eyebrow?: string;
     headline?: string;

@@ -17,7 +17,6 @@ export const journalPage = defineType({
     { name: "hero", title: "Hero" },
     { name: "featured", title: "Featured" },
     { name: "grid", title: "Grid" },
-    { name: "newsletter", title: "Newsletter" },
     { name: "cta", title: "Closing CTA" },
     { name: "seo", title: "SEO" },
   ],
@@ -109,29 +108,6 @@ export const journalPage = defineType({
       ],
     }),
 
-    // ── Newsletter ────────────────────────────────────────────────────────
-    defineField({
-      name: "newsletter",
-      title: "Newsletter",
-      type: "object",
-      group: "newsletter",
-      options: { collapsible: true, collapsed: true },
-      fields: [
-        {
-          name: "script",
-          title: "Script line",
-          type: "string",
-          description: "Rendered in Pinyon Script.",
-        },
-        defineField({
-          name: "headline",
-          title: "Headline",
-          type: "string",
-          description: "Use *word* for an italic accent (e.g. The *monthly* dispatch.).",
-        }),
-        { name: "body", title: "Body", type: "text", rows: 3 },
-      ],
-    }),
 
     // ── Closing CTA ───────────────────────────────────────────────────────
     defineField({

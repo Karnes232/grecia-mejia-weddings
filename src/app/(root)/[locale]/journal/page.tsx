@@ -124,7 +124,6 @@ export default async function JournalPage({
         category={category}
       />
 
-      <JournalNewsletter newsletter={page?.newsletter} />
 
       {page?.cta?.headline ? <JourneyCta data={page.cta} /> : null}
     </>
