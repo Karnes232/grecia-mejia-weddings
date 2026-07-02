@@ -381,15 +381,14 @@ export const portfolio = defineType({
           name: "items",
           title: "Services",
           type: "array",
+          description:
+            "Reference the services used (same language). Name + summary + link come from each service doc.",
           of: [
             defineArrayMember({
-              type: "object",
-              fields: [
-                { name: "number", title: "Number", type: "string" },
-                { name: "title", title: "Title", type: "string" },
-                { name: "body", title: "Body", type: "text", rows: 2 },
-              ],
-              preview: { select: { title: "title", subtitle: "number" } },
+              type: "reference",
+              to: [{ type: "service" }],
+              weak: true,
+              options: { disableNew: true, filter: sameLanguageFilter },
             }),
           ],
         }),

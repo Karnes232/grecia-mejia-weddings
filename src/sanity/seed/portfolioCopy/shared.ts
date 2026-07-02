@@ -30,6 +30,7 @@ export type CaseMeta = {
   venue: string; // venue slug
   culture: string; // culture canonical slug
   articles: string[]; // article slugs (same in every locale)
+  services: string[]; // service slugs used (same in every locale)
   next: string; // canonical slug of the "next" case study
 };
 
@@ -45,6 +46,12 @@ export const CASE_META: CaseMeta[] = [
       "the-sangeet-night-before",
       "luxury-punta-cana-wedding-cost",
     ],
+    services: [
+      "destination-wedding-planning",
+      "multicultural-wedding-planning",
+      "wedding-weekend-planning",
+      "guest-experience",
+    ],
     next: "jewish-wedding-tuscany",
   },
   {
@@ -58,6 +65,12 @@ export const CASE_META: CaseMeta[] = [
       "when-to-wed-amalfi-coast",
       "luxury-punta-cana-wedding-cost",
     ],
+    services: [
+      "destination-wedding-planning",
+      "multicultural-wedding-planning",
+      "venue-sourcing",
+      "guest-experience",
+    ],
     next: "chateau-wedding-provence",
   },
   {
@@ -67,6 +80,12 @@ export const CASE_META: CaseMeta[] = [
     venue: "chateau-de-la-croix",
     culture: "european-weddings",
     articles: ["when-to-wed-amalfi-coast", "luxury-punta-cana-wedding-cost"],
+    services: [
+      "destination-wedding-planning",
+      "venue-sourcing",
+      "wedding-design",
+      "event-production",
+    ],
     next: "arab-wedding-punta-cana",
   },
   {
@@ -78,6 +97,12 @@ export const CASE_META: CaseMeta[] = [
     articles: [
       "luxury-punta-cana-wedding-cost",
       "best-indian-wedding-venues-punta-cana",
+    ],
+    services: [
+      "destination-wedding-planning",
+      "multicultural-wedding-planning",
+      "event-production",
+      "guest-experience",
     ],
     next: "luxury-indian-wedding-punta-cana",
   },
@@ -267,7 +292,9 @@ export function buildPortfolioBody(
       eyebrow: copy.services.eyebrow,
       headline: copy.services.headline,
       deck: copy.services.deck,
-      items: copy.services.items.map((i) => k(i)),
+      // References to the services used (same locale); card content comes from
+      // each service doc.
+      items: meta.services.map((s) => k(weakRef(`service-${s}-${locale}`))),
     },
     related: {
       eyebrow: copy.related.eyebrow,

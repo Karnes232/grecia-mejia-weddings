@@ -23,13 +23,13 @@ import { apiVersion, dataset, projectId } from "../env";
 import { locales, type Locale } from "../../i18n/routing";
 
 import { ARTICLES } from "./journalCopy/articles";
+import { buildBleedQuote, buildFaqs } from "./journalCopy/body";
 import {
   articleDocId,
   articleMetadataId,
   AUTHOR_ID,
   categoryDocId,
   k,
-  ptBlocks,
 } from "./journalCopy/shared";
 
 const token = process.env.SANITY_API_WRITE_TOKEN;
@@ -70,7 +70,8 @@ async function run() {
         readMinutes: article.readMinutes,
         featured: article.featured,
         heroImage: { _type: "image", alt: copy.title },
-        body: ptBlocks([copy.lede]),
+        body: article.buildBody(locale),
+        faqs: buildFaqs(copy.faqs),
         relatedDestination: weakRef(
           `destination-${article.relatedDestinationSlug}-${locale}`,
         ),
@@ -80,6 +81,9 @@ async function run() {
       };
 
       if (copy.kicker) doc.kicker = copy.kicker;
+      if (copy.bleedQuote) {
+        doc.bleedQuote = buildBleedQuote(copy.bleedQuote, copy.title);
+      }
       if (article.relatedCultureSlug) {
         doc.relatedCulture = weakRef(
           `culture-${article.relatedCultureSlug}-${locale}`,

@@ -36,12 +36,12 @@ export function CaseStudyLogistics({ logistics }: CaseStudyLogisticsProps) {
           {blocks.map((block, i) => (
             <div key={i} className="border-t border-rule pt-7">
               {block.title ? (
-                <h4 className="m-0 mb-4 font-serif text-[22px] italic font-normal text-ink">
+                <h4 className="m-0 mb-4 font-serif text-[22px] italic font-normal text-ink truncate h-6">
                   {block.title}
                 </h4>
               ) : null}
               {block.body ? (
-                <p className="m-0 mb-6 text-[15px] leading-[1.7] text-muted">
+                <p className="m-0 mb-6 text-[15px] leading-[1.7] text-muted h-20 line-clamp-3">
                   {block.body}
                 </p>
               ) : null}

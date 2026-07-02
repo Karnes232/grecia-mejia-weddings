@@ -37,14 +37,19 @@ export function CaseStudyServices({ services }: CaseStudyServicesProps) {
           {items.map((item, i) => (
             <Link
               key={i}
-              href="/contact"
+              href={
+                item.slug
+                  ? {
+                      pathname: "/services/[service]",
+                      params: { service: item.slug },
+                    }
+                  : "/contact"
+              }
               className="group block bg-ivory p-8 text-inherit no-underline transition-colors hover:bg-cream"
             >
-              {item.number ? (
-                <span className="mb-5 block text-[10px] uppercase tracking-[0.32em] text-gold">
-                  № {item.number}
-                </span>
-              ) : null}
+              <span className="mb-5 block text-[10px] uppercase tracking-[0.32em] text-gold">
+                № {String(i + 1).padStart(2, "0")}
+              </span>
               {item.title ? (
                 <h4 className="m-0 mb-3 font-serif text-[20px] italic font-normal leading-[1.2] text-ink transition-colors group-hover:text-olive">
                   {item.title}

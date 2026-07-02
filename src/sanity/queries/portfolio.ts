@@ -73,7 +73,7 @@ export const portfolioQuery = groq`
     },
     services{
       eyebrow, headline, deck,
-      items[]{ number, title, body }
+      "items": items[defined(@->_id)]->{ "title": name, "body": summary, "slug": slug.current }
     },
     related{
       eyebrow, headline,
@@ -205,7 +205,7 @@ export type Portfolio = {
     eyebrow?: string;
     headline?: string;
     deck?: string;
-    items?: Array<{ number?: string; title?: string; body?: string }>;
+    items?: Array<{ title?: string; body?: string; slug?: string }>;
   };
   related?: {
     eyebrow?: string;
