@@ -34,10 +34,14 @@ type FooterColumn = {
   links: FooterLink[];
 };
 
-const COLUMN_KEYS = ["atelier", "plan", "studio", "contact"] as const;
+const COLUMN_KEYS = ["atelier", "plan", "studio"] as const;
 type ColumnKey = (typeof COLUMN_KEYS)[number];
 
-const HEADINGS: Record<Locale, Record<ColumnKey, string>> = {
+// "contact" seeds the `contactHeading` field — the column's links derive from
+// siteSettings.contact at render, so only the heading lives on the footer doc.
+type HeadingKey = ColumnKey | "contact";
+
+const HEADINGS: Record<Locale, Record<HeadingKey, string>> = {
   en: {
     atelier: "Atelier",
     plan: "Plan",
@@ -217,56 +221,6 @@ const COLUMNS: Record<ColumnKey, LinkSpec[]> = {
       },
     },
   ],
-  contact: [
-    {
-      key: "phone",
-      href: "tel:+18290000000",
-      labels: {
-        en: "+1 829 000 0000",
-        es: "+1 829 000 0000",
-        fr: "+1 829 000 0000",
-        pt: "+1 829 000 0000",
-        de: "+1 829 000 0000",
-        it: "+1 829 000 0000",
-      },
-    },
-    {
-      key: "email",
-      href: "mailto:hello@greciamejia.com",
-      labels: {
-        en: "hello@greciamejia.com",
-        es: "hello@greciamejia.com",
-        fr: "hello@greciamejia.com",
-        pt: "hello@greciamejia.com",
-        de: "hello@greciamejia.com",
-        it: "hello@greciamejia.com",
-      },
-    },
-    {
-      key: "whatsapp",
-      href: "#",
-      labels: {
-        en: "WhatsApp",
-        es: "WhatsApp",
-        fr: "WhatsApp",
-        pt: "WhatsApp",
-        de: "WhatsApp",
-        it: "WhatsApp",
-      },
-    },
-    {
-      key: "instagram",
-      href: "#",
-      labels: {
-        en: "Instagram",
-        es: "Instagram",
-        fr: "Instagram",
-        pt: "Instagram",
-        de: "Instagram",
-        it: "Instagram",
-      },
-    },
-  ],
 };
 
 const LEGAL_LINKS: LinkSpec[] = [
@@ -328,6 +282,7 @@ async function run() {
       _id: docId(locale),
       _type: "footer",
       language: locale,
+      contactHeading: HEADINGS[locale].contact,
       columns: buildColumns(locale),
       legalLinks: buildLegalLinks(locale),
     });

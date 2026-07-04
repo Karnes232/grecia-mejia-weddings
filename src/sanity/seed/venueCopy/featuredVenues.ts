@@ -140,6 +140,8 @@ function buildFeaturedVenue(i: number, locale: Locale): VenueCopy {
     name: v.name,
     region: v.region,
     number: v.number,
+    // Stubs stay off the region page (and out of venue counts) until finished.
+    listed: false,
     tag: tx.tag,
     location,
     cardBlurb: tx.blurb,

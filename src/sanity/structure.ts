@@ -212,39 +212,7 @@ export const structure: StructureResolver = (S) =>
             .title("Venues")
             .items([
               S.listItem()
-                .title("Venues by region")
-                .icon(() => "📍")
-                .child(
-                  S.documentTypeList("venueRegion")
-                    .title("Regions")
-                    .apiVersion(apiVersion)
-                    .filter('_type == "venueRegion" && language == $lang')
-                    .params({ lang: BASE_LANGUAGE })
-                    .initialValueTemplates([
-                      S.initialValueTemplateItem("venueRegion-en"),
-                    ])
-                    .child((regionId) =>
-                      S.documentList()
-                        .title("Venues")
-                        .schemaType("venue")
-                        .apiVersion(apiVersion)
-                        // English only (others via the translations banner). The
-                        // region media-match still scopes to this region; the new
-                        // venue template pre-sets language + this region.
-                        .filter(
-                          '_type == "venue" && language == $lang && region->media._ref == *[_id == $regionId][0].media._ref',
-                        )
-                        .params({ regionId, lang: BASE_LANGUAGE })
-                        .defaultOrdering([{ field: "name", direction: "asc" }])
-                        .initialValueTemplates([
-                          S.initialValueTemplateItem("venue-en-in-region", {
-                            regionId,
-                          }),
-                        ]),
-                    ),
-                ),
-              S.listItem()
-                .title("All regions")
+                .title("Regions")
                 .icon(() => "📍")
                 .child(
                   S.documentTypeList("venueRegion")
@@ -255,7 +223,57 @@ export const structure: StructureResolver = (S) =>
                     .defaultOrdering([{ field: "name", direction: "asc" }])
                     .initialValueTemplates([
                       S.initialValueTemplateItem("venueRegion-en"),
-                    ]),
+                    ])
+                    // Each region opens its editable page doc next to its venues —
+                    // the region page lists venues automatically via each venue's
+                    // `region` reference, so there is no array to maintain.
+                    .child((regionId) =>
+                      S.list()
+                        .title("Region")
+                        .id(regionId)
+                        .items([
+                          S.listItem()
+                            .title("Region page")
+                            .id(`${regionId}-doc`)
+                            .icon(() => "📍")
+                            .child(
+                              S.document()
+                                .schemaType("venueRegion")
+                                .documentId(regionId),
+                            ),
+                          S.listItem()
+                            .title("Venues")
+                            .id(`${regionId}-venues`)
+                            .icon(() => "🏝️")
+                            .child(
+                              S.documentList()
+                                .title("Venues")
+                                .schemaType("venue")
+                                .apiVersion(apiVersion)
+                                // English only (others via the translations banner).
+                                // Media-match keeps the list forgiving about which
+                                // locale's region doc a venue refs; the new venue
+                                // template pre-sets language + this region.
+                                // NB: Studio sorts nulls first, so venues missing an
+                                // order float to the top here (the site pushes them
+                                // last) — surfaces what still needs ordering.
+                                .filter(
+                                  '_type == "venue" && language == $lang && region->media._ref == *[_id == $regionId][0].media._ref',
+                                )
+                                .params({ regionId, lang: BASE_LANGUAGE })
+                                .defaultOrdering([
+                                  { field: "order", direction: "asc" },
+                                  { field: "name", direction: "asc" },
+                                ])
+                                .initialValueTemplates([
+                                  S.initialValueTemplateItem(
+                                    "venue-en-in-region",
+                                    { regionId },
+                                  ),
+                                ]),
+                            ),
+                        ]),
+                    ),
                 ),
               S.divider(),
               S.listItem()

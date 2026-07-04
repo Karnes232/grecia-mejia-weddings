@@ -3,8 +3,9 @@
  * `venueMedia` stubs + `translation.metadata`.
  *
  * Requires a write-scoped token in the env: `SANITY_API_WRITE_TOKEN`.
- * Run with:  npm run seed:venues-detail   (then re-run `seed:venue-regions`
- * so each region's `venues[]` references resolve).
+ * Run with:  npm run seed:venues-detail
+ * Region pages pick venues up automatically via each venue's `region`
+ * reference — there is no region-side array to re-seed.
  *
  * Idempotent — deterministic IDs + `createOrReplace` for the localized docs;
  * media stubs use `createIfNotExists`. Mirrors `seed/culture.ts`.

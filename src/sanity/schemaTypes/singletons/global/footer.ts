@@ -12,9 +12,18 @@ export const footer = defineType({
       hidden: true,
     }),
     defineField({
+      name: "contactHeading",
+      title: "Contact column heading",
+      type: "string",
+      description:
+        "Heading for the footer's Contact column. Its links — phone, email, WhatsApp, Instagram — come automatically from Site Settings → Contact.",
+    }),
+    defineField({
       name: "columns",
       title: "Columns",
       type: "array",
+      description:
+        "Link columns. The Contact column is not managed here — it renders automatically from Site Settings → Contact, after these.",
       of: [
         {
           type: "object",

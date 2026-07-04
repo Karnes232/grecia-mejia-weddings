@@ -94,9 +94,6 @@ async function run() {
         "guest-welcome",
         "guest-sendoff",
       ].map((key) => k({ key })),
-      relatedArticles: Array.from({ length: 5 }, (_, i) =>
-        k({ key: `related-${i + 1}` }),
-      ),
     });
   }
 

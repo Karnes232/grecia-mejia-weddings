@@ -27,11 +27,6 @@ export const GUEST_KEY_OPTIONS: ImageKeyOption[] = [
   { title: "Send-off", value: "guest-sendoff" },
 ];
 
-export const RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
-  { length: 5 },
-  (_, i) => ({ title: `Related ${i + 1}`, value: `related-${i + 1}` }),
-);
-
 /**
  * About-page team slots. Shared between the localized `aboutPage` team members
  * (their `imageKey`) and the non-localized `aboutPageMedia` team images (their
@@ -75,16 +70,6 @@ export const VENUE_PHOTO_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   (_, i) => ({ title: `Moment ${i + 1}`, value: `venue-photo-${i + 1}` }),
 );
 
-export const VENUE_PORTFOLIO_KEY_OPTIONS: ImageKeyOption[] = Array.from(
-  { length: 3 },
-  (_, i) => ({ title: `Wedding ${i + 1}`, value: `venue-portfolio-${i + 1}` }),
-);
-
-export const VENUE_DETAIL_RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
-  { length: 3 },
-  (_, i) => ({ title: `Related ${i + 1}`, value: `venue-detail-related-${i + 1}` }),
-);
-
 /**
  * Multicultural hub "From the journal" related-article slots. Shared between
  * the localized `multiculturalPage` related articles (their `imageKey`) and the
@@ -108,16 +93,12 @@ export const VENUE_LIST_KEY_OPTIONS: ImageKeyOption[] = Array.from(
 );
 
 /**
- * Culture detail-page slots. Shared between the localized `culture` doc's
- * `imageKey` fields and the non-localized `cultureMedia` keyed arrays, so both
- * sides always pick from the identical set and stay aligned.
+ * Culture design-concept slots. Shared between the localized `culture` doc's
+ * design-concept `imageKey` fields and the non-localized `cultureMedia`
+ * `designConcepts` array, so both sides always pick from the identical set and
+ * stay aligned.
  */
 export const DESIGN_CONCEPT_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   { length: 3 },
   (_, i) => ({ title: `Concept ${i + 1}`, value: `concept-${i + 1}` }),
-);
-
-export const CULTURE_RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
-  { length: 5 },
-  (_, i) => ({ title: `Related ${i + 1}`, value: `culture-related-${i + 1}` }),
 );

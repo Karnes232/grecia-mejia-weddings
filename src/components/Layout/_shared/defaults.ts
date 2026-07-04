@@ -19,8 +19,11 @@ export const DEFAULT_NAV: Required<Pick<NavigationData, "mainLinks" | "cta">> =
   };
 
 export const DEFAULT_FOOTER: Required<
-  Pick<FooterData, "columns" | "legalLinks">
+  Pick<FooterData, "columns" | "legalLinks" | "contactHeading">
 > = {
+  // The Contact column is not listed here — it derives from
+  // siteSettings.contact at render; only its heading has a default.
+  contactHeading: "Contact",
   columns: [
     {
       heading: "Atelier",
@@ -46,18 +49,6 @@ export const DEFAULT_FOOTER: Required<
         { label: "Punta Cana", href: "#" },
         { label: "Milan · 2026", href: "#" },
         { label: "Paris · 2027", href: "#" },
-      ],
-    },
-    {
-      heading: "Contact",
-      links: [
-        { label: "+1 829 000 0000", href: "tel:+18290000000" },
-        {
-          label: "hello@greciamejia.com",
-          href: "mailto:hello@greciamejia.com",
-        },
-        { label: "WhatsApp", href: "#" },
-        { label: "Instagram", href: "#" },
       ],
     },
   ],

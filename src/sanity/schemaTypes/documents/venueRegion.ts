@@ -143,7 +143,7 @@ export const venueRegion = defineType({
               type: "boolean",
               initialValue: false,
               description:
-                "When on, this stat shows the live number of venues referenced in the Venues group below; the typed value is ignored.",
+                "When on, this stat shows the live number of venues whose Region reference points at this region; the typed value is ignored.",
             }),
             defineField({
               name: "value",
@@ -262,31 +262,8 @@ export const venueRegion = defineType({
         }),
       ],
     }),
-    defineField({
-      name: "venues",
-      title: "Venues",
-      type: "array",
-      group: "venues",
-      description:
-        "The venues held in this region, in order. Card content (name, tag, blurb, capacity, image) comes from each referenced venue doc.",
-      of: [
-        defineArrayMember({
-          type: "reference",
-          to: [{ type: "venue" }],
-          weak: true,
-          options: {
-            disableNew: true,
-            filter: ({ document }) =>
-              document?.language
-                ? {
-                    filter: "language == $language",
-                    params: { language: document.language },
-                  }
-                : { filter: "true" },
-          },
-        }),
-      ],
-    }),
+    // NB: no venue array — the region page lists venues automatically via each
+    // venue's `region` reference (ordered by `order`, gated by `listed`).
 
     // ── CTA ──────────────────────────────────────────────────────────────
     defineField({

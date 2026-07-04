@@ -36,7 +36,11 @@ export const venuesPageQuery = groq`
         "slug": slug.current,
         cardBlurb,
         cardMeta[]{ value, label, useVenueCount },
-        "venueCount": count(venues[defined(@->_id)]),
+        "venueCount": count(*[_type == "venue"
+          && language == ^.language
+          && region._ref == ^._id
+          && listed != false
+          && defined(slug.current)]),
         "image": media->cardImage{ ..., alt }
       }
     },

@@ -1,11 +1,9 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 import {
-  VENUE_DETAIL_RELATED_KEY_OPTIONS,
   VENUE_MOSAIC_EXTRA_KEY_OPTIONS,
   VENUE_MOSAIC_KEY_OPTIONS,
   VENUE_PHOTO_KEY_OPTIONS,
-  VENUE_PORTFOLIO_KEY_OPTIONS,
   type ImageKeyOption,
 } from "../imageKeyOptions";
 
@@ -94,18 +92,6 @@ export const venueMedia = defineType({
       VENUE_PHOTO_KEY_OPTIONS,
       "One per photography moment.",
     ),
-    // keyedImageArray(
-    //   "portfolio",
-    //   "Portfolio images",
-    //   VENUE_PORTFOLIO_KEY_OPTIONS,
-    //   "One per portfolio case-study card.",
-    // ),
-    // keyedImageArray(
-    //   "relatedArticles",
-    //   "Related-article images",
-    //   VENUE_DETAIL_RELATED_KEY_OPTIONS,
-    //   "One per related article.",
-    // ),
   ],
   preview: {
     select: { title: "slug", media: "cardImage" },

@@ -67,9 +67,10 @@ const metaRows = (name: string, title: string, max = 3) =>
  *
  * Localized — one doc per locale, linked via `translation.metadata`. Slugs are
  * translated per locale; imagery lives in `venueMedia` (media-by-reference).
- * Each venue belongs to a `venueRegion` (the `region` reference), and the region
- * doc references its venues back (so the region list pulls card content from
- * here). Mirrors the `culture` collection pattern.
+ * Each venue belongs to a `venueRegion` (the `region` reference); region pages
+ * list venues automatically via a reverse lookup on that reference, sorted by
+ * `order` (unordered last, then by name) and gated by `listed`. Mirrors the
+ * `culture` collection pattern.
  */
 export const venue = defineType({
   name: "venue",
@@ -179,6 +180,24 @@ export const venue = defineType({
       type: "string",
       group: "card",
       description: 'Display order on the region list (e.g. "01").',
+    }),
+    defineField({
+      name: "order",
+      title: "Order in region",
+      type: "number",
+      group: "card",
+      description:
+        "Manual position on the region page list (1 = first). Venues without an order sort last, then by name.",
+      validation: (r) => r.integer().positive(),
+    }),
+    defineField({
+      name: "listed",
+      title: "Show on region page",
+      type: "boolean",
+      group: "card",
+      initialValue: true,
+      description:
+        "Off = hidden from the region page list and venue counts (the venue's own URL still works). Existing venues without this field count as shown.",
     }),
     defineField({
       name: "tag",

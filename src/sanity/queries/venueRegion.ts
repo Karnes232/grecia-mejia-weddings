@@ -16,6 +16,10 @@ import { SEO_PROJECTION, type SeoFields } from "./seo";
  *   for hreflang alternates and the language switcher,
  * - there is no English-fallback fetch — a localized URL only exists when its
  *   localized doc exists (`getVenueRegionParams` builds params per locale).
+ *
+ * The venue list is automatic: a reverse lookup on each venue's `region`
+ * reference (no curated array on the region doc), ordered by the venue's
+ * manual `order` (unordered last, then by name) and gated by `listed`.
  */
 export const venueRegionQuery = groq`
   *[_type == "venueRegion" && language == $locale && slug.current == $slug][0]{
@@ -28,7 +32,12 @@ export const venueRegionQuery = groq`
       "relatedArticles": relatedArticles[defined(@->_id)]->{ "label": title, "slug": slug.current }
     },
     venuesHeadline{ eyebrow, headline },
-    venues[defined(@->_id)]->{
+    "venues": *[_type == "venue"
+        && language == ^.language
+        && region._ref == ^._id
+        && listed != false
+        && defined(slug.current)]
+      | order(coalesce(order, 9999) asc, name asc){
       number,
       name,
       tag,

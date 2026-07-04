@@ -86,7 +86,7 @@ export const destinationMediaQuery = groq`
     heroImage{ ..., alt },
     storyPortrait{ ..., alt },
     styles[]{ key, image{ ..., alt } },
-    guestCards[]{ key, image{ ..., alt } }
+    guestCards[]{ key, image{ ..., alt, "dimensions": asset->metadata.dimensions{ width, height } } }
   }
 `;
 
@@ -221,7 +221,12 @@ export type DestinationMedia = {
   heroImage?: SanityImage;
   storyPortrait?: SanityImage;
   styles?: Array<{ key?: string; image?: SanityImage }>;
-  guestCards?: Array<{ key?: string; image?: SanityImage }>;
+  guestCards?: Array<{
+    key?: string;
+    image?: SanityImage & {
+      dimensions?: { width?: number; height?: number };
+    };
+  }>;
 };
 
 export function getDestination(locale: string, slug: string) {

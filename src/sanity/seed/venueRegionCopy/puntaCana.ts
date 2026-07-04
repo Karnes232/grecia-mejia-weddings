@@ -1,6 +1,5 @@
 import { type Locale } from "../../../i18n/routing";
 
-import { PUNTA_CANA_VENUE_ORDER } from "../venueCopy/puntaCanaVenues";
 import { type RegionCopy } from "./shared";
 
 // ── Region-card stat labels (per locale) ────────────────────────────────────
@@ -279,7 +278,6 @@ export const PUNTA_CANA: Record<Locale, RegionCopy> = Object.fromEntries(
         related: rt.guide.related,
       },
       venuesHeadline: rt.venuesHeadline,
-      venues: PUNTA_CANA_VENUE_ORDER,
       cta: rt.cta,
     };
     return [locale, copy];

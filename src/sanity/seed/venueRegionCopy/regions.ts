@@ -310,7 +310,6 @@ function buildStub(slug: StubSlug, locale: Locale): RegionCopy {
       related: [],
     },
     venuesHeadline: { eyebrow: s.venuesEyebrow, headline: s.venuesHeadline },
-    venues: [],
     cta: {
       eyebrow: s.ctaEyebrow,
       headline: ctaHeadline,

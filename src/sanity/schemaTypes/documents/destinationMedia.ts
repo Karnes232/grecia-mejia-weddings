@@ -4,7 +4,6 @@ import { apiVersion } from "../../env";
 import {
   GUEST_KEY_OPTIONS,
   type ImageKeyOption,
-  RELATED_KEY_OPTIONS,
   STYLE_KEY_OPTIONS,
 } from "../imageKeyOptions";
 
@@ -114,12 +113,6 @@ export const destinationMedia = defineType({
       "Guest-experience images",
       GUEST_KEY_OPTIONS,
       "One per guest-experience card.",
-    ),
-    keyedImageArray(
-      "relatedArticles",
-      "Related-article images",
-      RELATED_KEY_OPTIONS,
-      "One per related article.",
     ),
   ],
   preview: {

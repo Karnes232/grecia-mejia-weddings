@@ -11,7 +11,7 @@ Create a new venue document following the editorial template from the design ref
 Ask the user for:
 
 1. **Venue name** (e.g., "Jellyfish Restaurant")
-2. **Region** (existing region slug, e.g., `punta-cana`, or "new" to create)
+2. **Region** (existing region slug, e.g., `punta-cana`, or "new" to create) — the venue's `region` reference alone puts it on the region page; there is no region-side list to update. Set `order` (numeric position on the region page, 1 = first) and leave `listed` on (turn it off to keep a work-in-progress venue hidden from the region page and venue counts).
 3. **Venue type** (one of: beach pavilion, private estate, palazzo, villa, beach club, château, vineyard, cathedral, chapel, garden hotel)
 4. **Capacity range** (min–max guests)
 5. **Best season** (months or year-round)

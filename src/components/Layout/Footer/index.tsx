@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { siteContactRow, type SiteContactKey } from "@/lib/siteContact";
 import { urlFor } from "@/sanity/lib/image";
 import type { FooterData, SiteSettings } from "@/sanity/queries/layout";
 
@@ -14,30 +15,57 @@ type FooterProps = {
   locale: Locale;
 };
 
+type FooterColumn = NonNullable<FooterData["columns"]>[number];
+
 function isExternal(href: string) {
   return /^(https?:|mailto:|tel:|#)/.test(href);
 }
 
-function resolveHref(
-  href: string | undefined,
-  label: string | undefined,
+// The Contact column derives from siteSettings.contact (the same source the
+// Contact + About pages use); only its heading is editorial. Phone/email show
+// their values; WhatsApp/Instagram show the brand name (locale-invariant).
+const CONTACT_LINKS: Array<{ key: SiteContactKey; label?: string }> = [
+  { key: "phone" },
+  { key: "email" },
+  { key: "whatsapp", label: "WhatsApp" },
+  { key: "instagram", label: "Instagram" },
+];
+
+function contactColumn(
+  heading: string,
   contact: SiteSettings["contact"],
-): string {
-  if (href && href !== "#") return href;
-  const key = label?.toLowerCase().trim();
-  if (!key || !contact) return href ?? "#";
-  if (key === "whatsapp" && contact.whatsappUrl) return contact.whatsappUrl;
-  if (key === "instagram" && contact.instagramUrl) return contact.instagramUrl;
-  if (key === "email" && contact.email) return `mailto:${contact.email}`;
-  if (key === "phone" && contact.phone)
-    return `tel:${contact.phone.replace(/\s+/g, "")}`;
-  return href ?? "#";
+): FooterColumn | null {
+  const links = CONTACT_LINKS.flatMap(({ key, label }) => {
+    const row = siteContactRow(key, contact);
+    const display = label ?? row.value;
+    return display && row.href ? [{ label: display, href: row.href }] : [];
+  });
+  return links.length ? { heading, links } : null;
+}
+
+// Legacy CMS contact columns (hand-typed phone/email/WhatsApp/Instagram links)
+// are excluded so they don't double up with the derived column above.
+function isContactColumn(col: FooterColumn): boolean {
+  return Boolean(
+    col.links?.some(
+      (link) =>
+        link.href?.startsWith("mailto:") ||
+        ["whatsapp", "instagram"].includes(
+          link.label?.toLowerCase().trim() ?? "",
+        ),
+    ),
+  );
 }
 
 export function Footer({ footer, settings, locale }: FooterProps) {
-  const columns = footer?.columns?.length
-    ? footer.columns
-    : DEFAULT_FOOTER.columns;
+  const cmsColumns = (
+    footer?.columns?.length ? footer.columns : DEFAULT_FOOTER.columns
+  ).filter((col) => !isContactColumn(col));
+  const contact = contactColumn(
+    footer?.contactHeading ?? DEFAULT_FOOTER.contactHeading,
+    settings?.contact,
+  );
+  const columns = contact ? [...cmsColumns, contact] : cmsColumns;
   const brandName = settings?.brandName ?? DEFAULT_SETTINGS.brandName!;
   const footerLogo = settings?.footerLogo;
   const footerLogoUrl = footerLogo?.asset
@@ -88,11 +116,7 @@ export function Footer({ footer, settings, locale }: FooterProps) {
             <ul className="grid gap-[10px]">
               {col.links?.map((link, j) => {
                 if (!link.label) return null;
-                const href = resolveHref(
-                  link.href,
-                  link.label,
-                  settings?.contact,
-                );
+                const href = link.href ?? "#";
                 const cls =
                   "font-serif italic text-[15px] text-footer-text no-underline hover:text-ivory transition-colors";
                 return (

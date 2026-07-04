@@ -116,8 +116,6 @@ export type RegionCopy = {
     related: LabelHref[];
   };
   venuesHeadline: { eyebrow: string; headline: string };
-  /** Canonical venue slugs held in this region (referenced from `venue` docs). */
-  venues: string[];
   cta: {
     eyebrow: string;
     headline: string;
@@ -178,9 +176,6 @@ export function buildRegionBody(
       ),
     },
     venuesHeadline: copy.venuesHeadline,
-    venues: copy.venues.map((slug) =>
-      k({ _type: "reference", _weak: true, _ref: `venue-${slug}-${locale}` }),
-    ),
     cta: copy.cta,
   };
 }

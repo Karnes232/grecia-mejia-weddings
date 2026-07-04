@@ -1,7 +1,6 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 import {
-  CULTURE_RELATED_KEY_OPTIONS,
   DESIGN_CONCEPT_KEY_OPTIONS,
   type ImageKeyOption,
 } from "../imageKeyOptions";
@@ -91,12 +90,6 @@ export const cultureMedia = defineType({
       "Design concept images",
       DESIGN_CONCEPT_KEY_OPTIONS,
       "One per design-concept card.",
-    ),
-    keyedImageArray(
-      "relatedArticles",
-      "Related-article images",
-      CULTURE_RELATED_KEY_OPTIONS,
-      "One per related article.",
     ),
   ],
   preview: {

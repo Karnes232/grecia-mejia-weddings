@@ -24,6 +24,7 @@ export const navigationQuery = groq`
 
 export const footerQuery = groq`
   *[_type == "footer" && language == $locale][0]{
+    contactHeading,
     columns[]{
       heading,
       links[]{ label, href }
@@ -63,6 +64,7 @@ export type NavigationData = {
 };
 
 export type FooterData = {
+  contactHeading?: string;
   columns?: Array<{
     heading?: string;
     links?: Array<{ label?: string; href?: string }>;

@@ -26,6 +26,8 @@ export type VenueCopy = {
   region: string; // canonical region slug
   // Region-card fields
   number: string;
+  /** Hide from the region page list + venue counts (stubs). Defaults to shown. */
+  listed?: boolean;
   tag: string;
   location: string;
   cardBlurb: string;
@@ -134,12 +136,18 @@ const ptBlocks = (paragraphs: string[]) => paragraphs.map(ptBlock);
 
 /** One locale's copy → the Sanity `venue` document body (sans _id/_type/language). */
 export function buildVenueBody(slug: string, locale: Locale, copy: VenueCopy) {
+  // The region page sorts by `order`; the decorative card number ("01") already
+  // encodes each venue's per-region position, so the seed derives one from the
+  // other.
+  const order = Number.parseInt(copy.number, 10);
   return {
     name: copy.name,
     slug: { _type: "slug", current: slug },
     region: { _type: "reference", _weak: true, _ref: regionDocId(copy.region, locale) },
     media: { _type: "reference", _weak: true, _ref: venueMediaId(slug) },
     number: copy.number,
+    order: Number.isFinite(order) && order > 0 ? order : undefined,
+    listed: copy.listed,
     tag: copy.tag,
     location: copy.location,
     cardBlurb: copy.cardBlurb,

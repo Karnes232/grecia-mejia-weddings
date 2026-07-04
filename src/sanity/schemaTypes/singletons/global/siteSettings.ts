@@ -102,6 +102,8 @@ export const siteSettings = defineType({
       title: "Contact",
       type: "object",
       group: "contact",
+      description:
+        "Single source of truth for contact details — feeds the footer's Contact column, the Contact page rail, and the About page.",
       fields: [
         {
           name: "phone",
