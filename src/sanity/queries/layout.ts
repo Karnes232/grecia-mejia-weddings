@@ -9,15 +9,13 @@ export const siteSettingsQuery = groq`
     footerLogo{ ..., alt },
     "signatureParagraph": coalesce(signatureParagraph[$locale], signatureParagraph.en),
     copyrightLine,
-    contact,
-    studios,
-    defaultOgImage
+    contact
   }
 `;
 
 export const navigationQuery = groq`
   *[_type == "navigation" && language == $locale][0]{
-    mainLinks[]{ key, label, href },
+    mainLinks[]{ label, href },
     cta{ label, href }
   }
 `;
@@ -55,11 +53,10 @@ export type SiteSettings = {
     whatsappUrl?: string;
     instagramUrl?: string;
   };
-  studios?: Array<{ label?: string; year?: string }>;
 };
 
 export type NavigationData = {
-  mainLinks?: Array<{ key: string; label: string; href: string }>;
+  mainLinks?: Array<{ label: string; href: string }>;
   cta?: { label?: string; href?: string };
 };
 

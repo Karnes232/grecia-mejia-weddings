@@ -2,12 +2,13 @@
  * One-shot migration: drop the vestigial `relatedArticles` keyed-image arrays
  * from media docs.
  *
- * Why: `destinationMedia` (and, by copied pattern, `cultureMedia`) carried a
- * `relatedArticles` array of {key, image} slots that no GROQ query projects
- * and no component renders — related-article cards take their image from each
- * article's own `heroImage`. The field is removed from the schemas; this
- * unsets the seeded key-only stubs so editors don't see "Unknown field"
- * panels. Verified before writing: no doc had an uploaded image in the field.
+ * Why: the media docs (`destinationMedia`, `cultureMedia`, `venueMedia`,
+ * `multiculturalPageMedia`) carried a `relatedArticles` array of {key, image}
+ * slots that no GROQ query projects and no component renders — related-article
+ * cards take their image from each article's own `heroImage`. The field is
+ * removed from the schemas; this unsets the seeded key-only stubs so editors
+ * don't see "Unknown field" panels. Verified before writing: no doc had an
+ * uploaded image in the field.
  *
  * Idempotent — re-running is a no-op once the field is gone.
  *
@@ -45,7 +46,7 @@ async function run() {
   );
 
   const docs: MediaDoc[] = await client.fetch(
-    `*[_type in ["destinationMedia", "cultureMedia"] && defined(relatedArticles)]{ _id, _type, slug }`,
+    `*[_type in ["destinationMedia", "cultureMedia", "venueMedia", "multiculturalPageMedia"] && defined(relatedArticles)]{ _id, _type, slug }`,
   );
 
   if (docs.length === 0) {

@@ -7,13 +7,13 @@ import type {
 export const DEFAULT_NAV: Required<Pick<NavigationData, "mainLinks" | "cta">> =
   {
     mainLinks: [
-      { key: "house", label: "The House", href: "/about" },
-      { key: "destinations", label: "Destinations", href: "/destinations" },
-      { key: "multicultural", label: "Multicultural", href: "/multicultural" },
-      { key: "venues", label: "Venues", href: "/venues" },
-      { key: "portfolio", label: "Portfolio", href: "/portfolio" },
-      { key: "journal", label: "Journal", href: "/journal" },
-      { key: "contact", label: "Contact", href: "/contact" },
+      { label: "The House", href: "/about" },
+      { label: "Destinations", href: "/destinations" },
+      { label: "Multicultural", href: "/multicultural-weddings" },
+      { label: "Venues", href: "/venues" },
+      { label: "Portfolio", href: "/portfolio" },
+      { label: "Journal", href: "/journal" },
+      { label: "Contact", href: "/contact" },
     ],
     cta: { label: "Private Consultation", href: "/contact" },
   };
@@ -29,7 +29,6 @@ export const DEFAULT_FOOTER: Required<
       heading: "Atelier",
       links: [
         { label: "About", href: "/about" },
-        { label: "Method", href: "/method" },
         { label: "Press", href: "/press" },
         { label: "Journal", href: "/journal" },
       ],
@@ -38,7 +37,7 @@ export const DEFAULT_FOOTER: Required<
       heading: "Plan",
       links: [
         { label: "Destinations", href: "/destinations" },
-        { label: "Multicultural", href: "/multicultural" },
+        { label: "Multicultural", href: "/multicultural-weddings" },
         { label: "Venues", href: "/venues" },
         { label: "Services", href: "/services" },
       ],

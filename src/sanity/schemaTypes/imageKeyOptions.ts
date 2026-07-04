@@ -3,8 +3,8 @@
  *
  * The destination doc's `imageKey` fields and the destinationMedia doc's `key`
  * fields both use these as `options.list`, so both sides pick from the identical
- * set and always match. Values mirror the numbered slots the seed creates in
- * `src/sanity/seed/destination.ts`.
+ * set and always match. Values mirror the numbered slots the original seed
+ * created in the existing documents.
  */
 
 export type ImageKeyOption = { title: string; value: string };
@@ -12,11 +12,6 @@ export type ImageKeyOption = { title: string; value: string };
 export const STYLE_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   { length: 6 },
   (_, i) => ({ title: `Style ${i + 1}`, value: `style-${i + 1}` }),
-);
-
-export const VENUE_KEY_OPTIONS: ImageKeyOption[] = Array.from(
-  { length: 3 },
-  (_, i) => ({ title: `Venue ${i + 1}`, value: `venue-${i + 1}` }),
 );
 
 export const GUEST_KEY_OPTIONS: ImageKeyOption[] = [
@@ -68,28 +63,6 @@ export const VENUE_MOSAIC_EXTRA_KEY_OPTIONS: ImageKeyOption[] = Array.from(
 export const VENUE_PHOTO_KEY_OPTIONS: ImageKeyOption[] = Array.from(
   { length: 4 },
   (_, i) => ({ title: `Moment ${i + 1}`, value: `venue-photo-${i + 1}` }),
-);
-
-/**
- * Multicultural hub "From the journal" related-article slots. Shared between
- * the localized `multiculturalPage` related articles (their `imageKey`) and the
- * non-localized `multiculturalPageMedia` related images (their `key`), so both
- * sides always pick from the identical set and stay aligned.
- */
-export const MULTICULTURAL_RELATED_KEY_OPTIONS: ImageKeyOption[] = Array.from(
-  { length: 5 },
-  (_, i) => ({ title: `Related ${i + 1}`, value: `mc-related-${i + 1}` }),
-);
-
-/**
- * Venue-region venue-card slots. Shared between a `venueRegion` doc's venue
- * cards (their `imageKey`) and that region's `venueRegionMedia` keyed images
- * (their `key`), so both sides always pick from the identical set and stay
- * aligned.
- */
-export const VENUE_LIST_KEY_OPTIONS: ImageKeyOption[] = Array.from(
-  { length: 14 },
-  (_, i) => ({ title: `Venue ${i + 1}`, value: `venue-${i + 1}` }),
 );
 
 /**

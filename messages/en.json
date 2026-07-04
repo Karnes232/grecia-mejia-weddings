@@ -2,11 +2,7 @@
   "nav": {
     "cta": "Private Consultation",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "languageLabel": "Language"
-  },
-  "footer": {
-    "languageLabel": "Languages"
+    "closeMenu": "Close menu"
   },
   "homePage": {
     "traditions": {
@@ -30,10 +26,6 @@
     }
   },
   "destinationDetail": {
-    "venues": {
-      "capacity": "Capacity",
-      "bestFor": "Best for"
-    },
     "weddingTypes": {
       "discover": "Discover →"
     },
@@ -139,7 +131,6 @@
         "label": "Tell us about your wedding",
         "placeholder": "The families, the traditions, the feeling you're imagining — anything you'd like Grecia to know before your first conversation."
       },
-      "requiredLabel": "required",
       "submitting": "Sending…",
       "errorMessage": "Something went wrong. Please try again, or write to us directly at hello@greciamejia.com."
     }
@@ -178,10 +169,7 @@
     "readArticle": "Read the article",
     "minRead": "{min} min read",
     "by": "By",
-    "showing": "Showing {shown} of {total}",
-    "emailPlaceholder": "Your email address",
-    "subscribe": "Subscribe",
-    "emailLabel": "Email address"
+    "showing": "Showing {shown} of {total}"
   },
   "journalDetail": {
     "home": "Home",

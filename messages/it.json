@@ -2,11 +2,7 @@
   "nav": {
     "cta": "Consulenza Privata",
     "openMenu": "Apri menu",
-    "closeMenu": "Chiudi menu",
-    "languageLabel": "Lingua"
-  },
-  "footer": {
-    "languageLabel": "Lingue"
+    "closeMenu": "Chiudi menu"
   },
   "homePage": {
     "traditions": {
@@ -30,10 +26,6 @@
     }
   },
   "destinationDetail": {
-    "venues": {
-      "capacity": "Capacità",
-      "bestFor": "Ideale per"
-    },
     "weddingTypes": {
       "discover": "Scoprire →"
     },
@@ -139,7 +131,6 @@
         "label": "Raccontaci del tuo matrimonio",
         "placeholder": "Le famiglie, le tradizioni, l'atmosfera che immagini — tutto ciò che vorresti che Grecia sapesse prima della vostra prima conversazione."
       },
-      "requiredLabel": "obbligatorio",
       "submitting": "Invio in corso…",
       "errorMessage": "Qualcosa è andato storto. Riprova o scrivici direttamente a hello@greciamejia.com."
     }
@@ -178,10 +169,7 @@
     "readArticle": "Leggi l’articolo",
     "minRead": "{min} min di lettura",
     "by": "Di",
-    "showing": "Visualizzati {shown} di {total}",
-    "emailPlaceholder": "Il tuo indirizzo email",
-    "subscribe": "Iscriviti",
-    "emailLabel": "Indirizzo email"
+    "showing": "Visualizzati {shown} di {total}"
   },
   "journalDetail": {
     "home": "Home",

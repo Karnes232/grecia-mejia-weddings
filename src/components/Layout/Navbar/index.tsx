@@ -8,12 +8,12 @@ import { DEFAULT_NAV, DEFAULT_SETTINGS } from "../_shared/defaults";
 import { LanguageSwitcher } from "../_shared/LanguageSwitcher";
 import { Logo } from "./Logo";
 import { NavbarShell } from "./NavbarShell";
+import { NavLink } from "./NavLink";
 
 type NavbarProps = {
   navigation: NavigationData | null;
   settings: SiteSettings | null;
   locale: Locale;
-  activeKey?: string;
   labels: {
     cta: string;
     openMenu: string;
@@ -21,13 +21,7 @@ type NavbarProps = {
   };
 };
 
-export function Navbar({
-  navigation,
-  settings,
-  locale,
-  activeKey,
-  labels,
-}: NavbarProps) {
+export function Navbar({ navigation, settings, locale, labels }: NavbarProps) {
   const links = navigation?.mainLinks?.length
     ? navigation.mainLinks
     : DEFAULT_NAV.mainLinks;
@@ -48,19 +42,16 @@ export function Navbar({
 
   const desktopCenter = (
     <>
-      {links.map((l) => (
-        <Link
-          key={l.key}
-          href={l.href as never}
-          className={clsx(
-            "text-[11px] uppercase tracking-eyebrow text-ink no-underline",
-            "border-b border-transparent transition-colors duration-200",
-            "hover:text-olive hover:border-gold",
-            activeKey === l.key && "text-olive border-gold",
-          )}
+      {links.map((l, i) => (
+        <NavLink
+          key={`${l.href}-${i}`}
+          href={l.href}
+          className="text-[11px] uppercase tracking-eyebrow no-underline border-b transition-colors duration-200"
+          inactiveClassName="text-ink border-transparent hover:text-olive hover:border-gold"
+          activeClassName="text-olive border-gold"
         >
           {l.label}
-        </Link>
+        </NavLink>
       ))}
     </>
   );
@@ -85,18 +76,16 @@ export function Navbar({
   const mobileMenu = (
     <>
       <nav className="flex flex-col gap-6" aria-label="Primary">
-        {links.map((l) => (
-          <Link
-            key={l.key}
-            href={l.href as never}
-            className={clsx(
-              "font-serif italic text-[32px] leading-none text-ink no-underline",
-              "border-b border-transparent w-fit pb-1 transition-colors",
-              activeKey === l.key && "text-olive border-gold",
-            )}
+        {links.map((l, i) => (
+          <NavLink
+            key={`${l.href}-${i}`}
+            href={l.href}
+            className="font-serif italic text-[32px] leading-none no-underline border-b w-fit pb-1 transition-colors"
+            inactiveClassName="text-ink border-transparent"
+            activeClassName="text-olive border-gold"
           >
             {l.label}
-          </Link>
+          </NavLink>
         ))}
       </nav>
       <div className="mt-auto flex flex-col items-center gap-8 pt-12">

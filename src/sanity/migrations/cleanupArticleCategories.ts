@@ -5,11 +5,12 @@
  *
  * Why: `articleCategory` moved from document-level i18n (78 docs + 13 metadata)
  * to a single field-level-localized document per category. After running this,
- * re-seed with `npm run seed:article-categories` (creates the 13 new single docs)
- * and `npm run seed:articles` (re-points article references to the new ids).
+ * the new single-doc categories must exist (they were originally seeded; the
+ * seed tooling has since been removed — recreate manually in Studio if needed)
+ * and article references re-pointed to the new ids.
  *
  * Article → category references are weak, so deletion is not blocked; any
- * lingering reference simply resolves to null until articles are re-seeded.
+ * lingering reference simply resolves to null until articles are re-pointed.
  *
  * Requires a write-scoped token in the env: `SANITY_API_WRITE_TOKEN`.
  * Preview:  npm run migrate:cleanup-article-categories -- --dry-run

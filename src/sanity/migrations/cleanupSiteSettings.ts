@@ -1,7 +1,7 @@
 /**
  * One-shot cleanup: delete the legacy per-locale `siteSettings` documents
- * and their `translation.metadata` companion. Run AFTER seeding the new
- * singleton (`npm run seed:settings`) and verifying it in Studio.
+ * and their `translation.metadata` companion. Run only AFTER the new
+ * `siteSettings` singleton exists and has been verified in Studio.
  *
  * Requires a write-scoped token in the env: `SANITY_API_WRITE_TOKEN`.
  * Run with:  npx tsx --env-file=.env.local src/sanity/migrations/cleanupSiteSettings.ts

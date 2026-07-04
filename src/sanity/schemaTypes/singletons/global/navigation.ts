@@ -1,16 +1,5 @@
 import { defineField, defineType } from "sanity";
 
-// const NAV_KEYS = [
-//   { title: 'Home', value: 'home' },
-//   { title: 'The House', value: 'house' },
-//   { title: 'Destinations', value: 'destinations' },
-//   { title: 'Multicultural', value: 'multicultural' },
-//   { title: 'Venues', value: 'venues' },
-//   { title: 'Portfolio', value: 'portfolio' },
-//   { title: 'Journal', value: 'journal' },
-//   { title: 'Contact', value: 'contact' },
-// ] as const
-
 export const navigation = defineType({
   name: "navigation",
   title: "Navigation",
@@ -29,14 +18,9 @@ export const navigation = defineType({
       of: [
         {
           type: "object",
+          // Active-state highlighting derives from the current pathname in the
+          // Navbar — links need no matcher field.
           fields: [
-            // {
-            //   name: 'key',
-            //   title: 'Key (active-state matcher)',
-            //   type: 'string',
-            //   options: { list: NAV_KEYS.map(({ title, value }) => ({ title, value })) },
-            //   validation: (r) => r.required(),
-            // },
             {
               name: "label",
               title: "Label",

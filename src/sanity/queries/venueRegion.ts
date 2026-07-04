@@ -62,7 +62,8 @@ export const venueRegionQuery = groq`
 export const venueRegionParamsQuery = groq`
   *[_type == "venueRegion" && defined(slug.current) && defined(language)]{
     language,
-    "slug": slug.current
+    "slug": slug.current,
+    "metadataId": *[_type == "translation.metadata" && references(^._id)][0]._id
   }
 `;
 
@@ -116,6 +117,7 @@ export type VenueRegionMedia = {
 export type VenueRegionParams = {
   language: Locale;
   slug: string;
+  metadataId?: string | null;
 };
 
 export function getVenueRegion(locale: string, slug: string) {

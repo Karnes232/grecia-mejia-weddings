@@ -16,7 +16,7 @@ export const siteSettings = defineType({
   groups: [
     { name: "brand", title: "Brand", default: true },
     { name: "footer", title: "Footer" },
-    { name: "contact", title: "Contact & studios" },
+    { name: "contact", title: "Contact" },
     { name: "seo", title: "SEO" },
   ],
   fields: [

@@ -16,6 +16,11 @@ import {
 } from "@/sanity/queries/journal";
 import { getPortfolioParams } from "@/sanity/queries/portfolio";
 import { getServiceParams } from "@/sanity/queries/service";
+import { type VenueParams, getVenueParams } from "@/sanity/queries/venue";
+import {
+  type VenueRegionParams,
+  getVenueRegionParams,
+} from "@/sanity/queries/venueRegion";
 
 type ChangeFrequency = MetadataRoute.Sitemap[number]["changeFrequency"];
 
@@ -136,6 +141,56 @@ function serviceClusters(rows: SitemapParams[]): MetadataRoute.Sitemap {
   });
 }
 
+/** Region slugs are translated per locale — one hreflang cluster per region. */
+function venueRegionClusters(rows: VenueRegionParams[]): MetadataRoute.Sitemap {
+  const groups = new Map<string, VenueRegionParams[]>();
+  for (const row of rows) {
+    const key = row.metadataId ?? `solo:${row.language}:${row.slug}`;
+    const group = groups.get(key) ?? [];
+    group.push(row);
+    groups.set(key, group);
+  }
+  return [...groups.values()].flatMap((group) => {
+    const localizedParams: LocalizedParams = {};
+    for (const row of group) localizedParams[row.language] = { region: row.slug };
+    const locales = group.map((row) => row.language);
+    const canonicalSlug =
+      localizedParams[routing.defaultLocale]?.region ?? group[0].slug;
+    return entriesFor(
+      { pathname: "/venues/[region]", params: { region: canonicalSlug } },
+      { priority: 0.8, localizedParams, locales },
+    );
+  });
+}
+
+/** Venue URLs carry two translated params (region + venue slug) per locale. */
+function venueClusters(rows: VenueParams[]): MetadataRoute.Sitemap {
+  const groups = new Map<string, VenueParams[]>();
+  for (const row of rows) {
+    const key = row.metadataId ?? `solo:${row.language}:${row.venue}`;
+    const group = groups.get(key) ?? [];
+    group.push(row);
+    groups.set(key, group);
+  }
+  return [...groups.values()].flatMap((group) => {
+    const localizedParams: LocalizedParams = {};
+    for (const row of group) {
+      localizedParams[row.language] = { region: row.region, venue: row.venue };
+    }
+    const locales = group.map((row) => row.language);
+    const canonical =
+      localizedParams[routing.defaultLocale] ??
+      { region: group[0].region, venue: group[0].venue };
+    return entriesFor(
+      {
+        pathname: "/venues/[region]/[venue]",
+        params: { region: canonical.region, venue: canonical.venue },
+      },
+      { priority: 0.8, localizedParams, locales },
+    );
+  });
+}
+
 function categoryClusters(rows: SitemapParams[]): MetadataRoute.Sitemap {
   // The category param uses a different name; remap from the generic `slug`.
   const groups = new Map<string, SitemapParams[]>();
@@ -166,6 +221,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     categoryRows,
     portfolioRows,
     serviceRows,
+    venueRegionRows,
+    venueRows,
   ] = await Promise.all([
     getDestinationSlugs(),
     getCultureParams(),
@@ -173,6 +230,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getCategoryParams(),
     getPortfolioParams(),
     getServiceParams(),
+    getVenueRegionParams(),
+    getVenueParams(),
   ]);
 
   return [
@@ -196,6 +255,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ),
     ),
     ...cultureClusters(cultureRows),
+    ...entriesFor("/venues", { changeFrequency: "weekly", priority: 0.9 }),
+    ...venueRegionClusters(venueRegionRows),
+    ...venueClusters(venueRows),
+    ...entriesFor("/press", { priority: 0.6 }),
     ...entriesFor("/portfolio", { changeFrequency: "weekly", priority: 0.9 }),
     ...portfolioClusters(portfolioRows),
     ...entriesFor("/services", { changeFrequency: "weekly", priority: 0.9 }),

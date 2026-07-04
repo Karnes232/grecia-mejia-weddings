@@ -89,8 +89,7 @@ export const venueQuery = groq`
     "media": media->{
       cardImage{ ..., alt },
       mosaic[]{ key, image{ ..., alt } },
-      photography[]{ key, image{ ..., alt } },
-      portfolio[]{ key, image{ ..., alt } }
+      photography[]{ key, image{ ..., alt } }
     },
     "translations": *[_type == "translation.metadata" && references(^._id)][0]
       .translations[].value->{
@@ -110,7 +109,8 @@ export const venueParamsQuery = groq`
     && defined(region->slug.current)]{
     language,
     "venue": slug.current,
-    "region": region->slug.current
+    "region": region->slug.current,
+    "metadataId": *[_type == "translation.metadata" && references(^._id)][0]._id
   }
 `;
 
@@ -233,13 +233,13 @@ export type VenueMedia = {
   cardImage?: SanityImage;
   mosaic?: KeyedImage[];
   photography?: KeyedImage[];
-  portfolio?: KeyedImage[];
 };
 
 export type VenueParams = {
   language: Locale;
   region: string;
   venue: string;
+  metadataId?: string | null;
 };
 
 export function getVenue(locale: string, region: string, venue: string) {

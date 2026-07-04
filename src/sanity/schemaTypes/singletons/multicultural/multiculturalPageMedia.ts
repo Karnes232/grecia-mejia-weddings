@@ -1,6 +1,4 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
-
-import { MULTICULTURAL_RELATED_KEY_OPTIONS } from "../../imageKeyOptions";
+import { defineField, defineType } from "sanity";
 
 const altField = {
   name: "alt",
@@ -11,8 +9,9 @@ const altField = {
 
 /**
  * Shared imagery for the Multicultural Weddings hub page — same visuals across
- * every language. Atlas card images come from each `cultureMedia` doc; this
- * holds the hub hero and the "From the journal" related-article images.
+ * every language. Atlas card images come from each `cultureMedia` doc; the
+ * "From the journal" images come from each article's own hero image — this
+ * holds only the hub hero.
  */
 export const multiculturalPageMedia = defineType({
   name: "multiculturalPageMedia",
@@ -33,34 +32,6 @@ export const multiculturalPageMedia = defineType({
           type: "image",
           options: { hotspot: true },
           fields: [altField],
-        }),
-      ],
-    }),
-    defineField({
-      name: "relatedArticles",
-      title: "Related-article images",
-      type: "array",
-      description: "One per related article in the 'From the journal' section.",
-      of: [
-        defineArrayMember({
-          type: "object",
-          fields: [
-            defineField({
-              name: "key",
-              title: "Image slot (matches imageKey on the page doc)",
-              type: "string",
-              options: { list: [...MULTICULTURAL_RELATED_KEY_OPTIONS] },
-              validation: (r) => r.required(),
-            }),
-            defineField({
-              name: "image",
-              title: "Image",
-              type: "image",
-              options: { hotspot: true },
-              fields: [altField],
-            }),
-          ],
-          preview: { select: { title: "key", media: "image" } },
         }),
       ],
     }),
