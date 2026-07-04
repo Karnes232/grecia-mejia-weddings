@@ -8,7 +8,6 @@ import {
   JournalGrid,
   JournalHero,
   JournalLoadMore,
-  JournalNewsletter,
 } from "@/components/JournalPage";
 import { JourneyCta } from "@/components/_shared/JourneyCta";
 import { type Locale } from "@/i18n/routing";
